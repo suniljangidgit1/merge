@@ -1,0 +1,24 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "deliveryStatus": "Delivery Status",
+        "mobileNo": "Mobile No",
+        "reminderDate": "Reminder Date",
+        "reminderTime": "Reminder Time",
+        "smsBody": "SMS Body",
+        "smsStatus": "SMS Status",
+        "sendSmsDateTime": "SCHEDULED AT",
+        "contentTemplateName": "Template Name",
+        "sendFrom": "Sender Id"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create SendSMSData": "Create Sent SMS Data"
+    }
+}

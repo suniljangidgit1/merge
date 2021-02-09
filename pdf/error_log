@@ -1,0 +1,7 @@
+[30-Jul-2019 12:14:10 asia/kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/fincrm/public_html/finnovaadvisory/pdf/estimate.php:13)' in /home/fincrm/public_html/finnovaadvisory/pdf/fpdf.php:271
+Stack trace:
+#0 /home/fincrm/public_html/finnovaadvisory/pdf/fpdf.php(1052): FPDF->Error('Some data has a...')
+#1 /home/fincrm/public_html/finnovaadvisory/pdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home/fincrm/public_html/finnovaadvisory/pdf/estimate.php(502): FPDF->Output()
+#3 {main}
+  thrown in /home/fincrm/public_html/finnovaadvisory/pdf/fpdf.php on line 271

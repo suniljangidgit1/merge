@@ -1,0 +1,13 @@
+{
+    "fields": {
+        "address": "Address"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create AyushTestEntity5": "Create Ayush Test Entity 5"
+    }
+}

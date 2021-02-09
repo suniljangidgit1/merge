@@ -1,0 +1,19 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Lead",
+                "Contact",
+                "Opportunity",
+                "Case"
+            ]
+        },
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

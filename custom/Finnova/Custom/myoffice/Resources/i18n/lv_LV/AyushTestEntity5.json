@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adrese"
+  },
+  "links": {
+    "meetings": "Tikšanās",
+    "calls": "Zvani",
+    "tasks": "Uzdevumi"
+  },
+  "labels": {
+    "Create AyushTestEntity5": "Izveidot Ayush Test Entity 5"
+  }
+}

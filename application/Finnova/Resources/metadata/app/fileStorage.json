@@ -1,0 +1,5 @@
+{
+    "implementationClassNameMap": {
+        "FinnovaUploadDir": "\\Finnova\\Core\\FileStorage\\Storages\\FinnovaUploadDir"
+    }
+}

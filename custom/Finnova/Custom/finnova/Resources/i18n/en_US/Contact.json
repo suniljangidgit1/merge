@@ -1,0 +1,13 @@
+{
+    "fields": {
+        "stream": "Stream",
+        "type": "Type"
+    },
+    "options": {
+        "type": {
+            "Banker": "Banker",
+            "Connector": "Connector",
+            "DSA": "DSA"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+[
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "panno"
+    },
+    {
+        "name": "phoneno"
+    },
+    {
+        "name": "emailid"
+    }
+]

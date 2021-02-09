@@ -1,0 +1,17 @@
+[
+    {
+        "name": "mobileNo"
+    },
+    {
+        "name": "smsBody"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "sendSmsDateTime"
+    },
+    {
+        "name": "smsStatus"
+    }
+]

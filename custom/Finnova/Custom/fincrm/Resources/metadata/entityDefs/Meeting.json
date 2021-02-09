@@ -1,0 +1,26 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Contact",
+                "Lead",
+                "Opportunity",
+                "Case",
+                "ImportResult"
+            ]
+        },
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "dateEnd": {
+            "minuteStep": 30
+        },
+        "dateStart": {
+            "minuteStep": 30
+        }
+    }
+}

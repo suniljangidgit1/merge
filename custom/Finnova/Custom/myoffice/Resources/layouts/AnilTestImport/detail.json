@@ -1,0 +1,52 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "address"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "dateOfBirth"
+                },
+                {
+                    "name": "resumeID"
+                }
+            ],
+            [
+                {
+                    "name": "resumeTitle"
+                },
+                {
+                    "name": "currentCompany"
+                }
+            ],
+            [
+                false,
+                false
+            ],
+            [
+                false,
+                false
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

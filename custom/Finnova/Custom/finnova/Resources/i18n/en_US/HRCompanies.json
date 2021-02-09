@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "candidatess": "Candidate"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "candidatess": "Candidate"
+    },
+    "labels": {
+        "Create HRCompanies": "Create HR Companies"
+    }
+}

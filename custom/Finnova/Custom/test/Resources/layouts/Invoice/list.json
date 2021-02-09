@@ -1,0 +1,26 @@
+[
+    {
+        "name": "billfromname"
+    },
+    {
+        "name": "invoicedate"
+    },
+    {
+        "name": "invoiceno"
+    },
+    {
+        "name": "account1"
+    },
+    {
+        "name": "dueDate"
+    },
+    {
+        "name": "total"
+    },
+    {
+        "name": "balance"
+    },
+    {
+        "name": "paymentstatus"
+    }
+]

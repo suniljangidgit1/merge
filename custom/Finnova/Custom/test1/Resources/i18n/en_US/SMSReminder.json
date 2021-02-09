@@ -1,0 +1,21 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "mobileNo": "Mobile No",
+        "reminderDate": "Reminder Date",
+        "reminderTime": "Reminder Time",
+        "smsBody": "SMS Body",
+        "smsStatus": "SMS Status",
+        "sendSmsDateTime": "SCHEDULED AT"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create SMSReminder": "Create SMS Reminder"
+    }
+}

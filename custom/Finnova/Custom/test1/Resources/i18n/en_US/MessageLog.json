@@ -1,0 +1,21 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "subDomainName": "Sub Domain Name",
+        "totalMessages": "No of Messages Alloted",
+        "sentMessages": "Sent Messages",
+        "remainingMessages": "Remaining Messages",
+        "planExpiryDate": "Plan Expiry Date",
+        "senderId": "Sender ID"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create MessageLog": "Create Message Logs"
+    }
+}

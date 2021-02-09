@@ -1,0 +1,582 @@
+{
+    "dynamicLogic": {
+        "fields": {
+            "reminders": {
+                "visible": null
+            },
+            "dateEnd": {
+                "visible": null
+            },
+            "startDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "has",
+                            "attribute": "frequency",
+                            "value": "Daily"
+                        }
+                    ]
+                }
+            },
+            "endDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "has",
+                            "attribute": "frequency",
+                            "value": "Daily"
+                        }
+                    ]
+                }
+            },
+            "frequency": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "isTrue",
+                            "attribute": "createRecurringSeriesOfTasks"
+                        }
+                    ]
+                }
+            },
+            "repeat": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Daily"
+                        }
+                    ]
+                }
+            },
+            "weeklyrepeat": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Weekly"
+                        }
+                    ]
+                }
+            },
+            "weeklyrepeatOn": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Weekly"
+                        },
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "weeklyrepeat",
+                                    "value": "Custom"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "weeklystartDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Weekly"
+                        }
+                    ]
+                }
+            },
+            "weeklyendDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Weekly"
+                        }
+                    ]
+                }
+            },
+            "monthlyRepeatOn": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Monthly"
+                        },
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "monthlyRepeat",
+                                    "value": "Custom"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "monthlyStartDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Monthly"
+                        }
+                    ]
+                }
+            },
+            "monthlyEndDate": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Monthly"
+                        }
+                    ]
+                }
+            },
+            "monthlyRepeat": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Monthly"
+                        }
+                    ]
+                }
+            },
+            "numberOfRecurringTasks": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        }
+                    ]
+                }
+            },
+            "customStartDate1": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "3"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "5"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "6"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "customStartDate2": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "2"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "3"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "4"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "customStartDate3": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "3"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "5"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "6"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "customStartDate4": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "4"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "customStartDate5": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "5"
+                                },
+                                {
+                                    "type": "or",
+                                    "value": [
+                                        {
+                                            "type": "equals",
+                                            "attribute": "numberOfRecurringTasks",
+                                            "value": "6"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "customStartDate6": {
+                "visible": {
+                    "conditionGroup": [
+                        {
+                            "type": "and",
+                            "value": [
+                                {
+                                    "type": "isTrue",
+                                    "attribute": "createRecurringSeriesOfTasks"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "equals",
+                            "attribute": "frequency",
+                            "value": "Custom"
+                        },
+                        {
+                            "type": "or",
+                            "value": [
+                                {
+                                    "type": "equals",
+                                    "attribute": "numberOfRecurringTasks",
+                                    "value": "6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

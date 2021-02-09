@@ -1,0 +1,39 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "website"
+                }
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                }
+            ],
+            [
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "billingAddressCountry"
+                }
+            ],
+            [
+                {
+                    "name": "demo"
+                },
+                false
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    }
+]

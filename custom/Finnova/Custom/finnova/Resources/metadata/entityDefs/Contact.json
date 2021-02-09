@@ -1,0 +1,27 @@
+{
+    "fields": {
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "type": {
+            "type": "enum",
+            "options": [
+                "Banker",
+                "Connector",
+                "DSA"
+            ],
+            "style": {
+                "Banker": null,
+                "Connector": null,
+                "DSA": null
+            },
+            "audited": true,
+            "displayAsLabel": true,
+            "default": "Banker",
+            "isCustom": true
+        }
+    }
+}

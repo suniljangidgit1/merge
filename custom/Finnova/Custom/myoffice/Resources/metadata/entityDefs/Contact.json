@@ -1,0 +1,44 @@
+{
+    "fields": {
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "consultantAdvisors": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "importDisabled": true,
+            "noLoad": true,
+            "isCustom": true
+        },
+        "consultantAdvisors1": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": false,
+            "layoutMassUpdateDisabled": false,
+            "importDisabled": false,
+            "noLoad": false,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "consultantAdvisors": {
+            "type": "hasMany",
+            "relationName": "contactConsultantAdvisor",
+            "foreign": "contacts",
+            "entity": "ConsultantAdvisor",
+            "audited": false,
+            "isCustom": true
+        },
+        "consultantAdvisors1": {
+            "type": "hasMany",
+            "relationName": "consultantAdvisorContact",
+            "foreign": "contacts1",
+            "entity": "ConsultantAdvisor",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

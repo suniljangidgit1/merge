@@ -1,0 +1,77 @@
+{
+    "labels": {
+        "Fields": "Fields",
+        "Relationships": "Relationships",
+        "Schedule": "Schedule",
+        "Log": "Log",
+        "Formula": "Formula"
+    },
+    "fields": {
+        "name": "Name",
+        "type": "Type",
+        "labelSingular": "Label Singular",
+        "labelPlural": "Label Plural",
+        "stream": "Stream",
+        "label": "Label",
+        "linkType": "Link Type",
+        "entityForeign": "Foreign Entity",
+        "linkForeign": "Foreign Link",
+        "link": "Link",
+        "labelForeign": "Foreign Label",
+        "sortBy": "Default Order (field)",
+        "sortDirection": "Default Order (direction)",
+        "relationName": "Middle Table Name",
+        "linkMultipleField": "Link Multiple Field",
+        "linkMultipleFieldForeign": "Foreign Link Multiple Field",
+        "disabled": "Disabled",
+        "textFilterFields": "Text Filter Fields",
+        "audited": "Audited",
+        "auditedForeign": "Foreign Audited",
+        "statusField": "Status Field",
+        "beforeSaveCustomScript": "Before Save Custom Script",
+        "color": "Color",
+        "kanbanViewMode": "Kanban View",
+        "kanbanStatusIgnoreList": "Ignored groups in Kanban view",
+        "iconClass": "Icon",
+        "countDisabled": "Disable record count",
+        "fullTextSearch": "Full-Text Search"
+    },
+    "options": {
+        "type": {
+            "": "None",
+            "Base": "Base",
+            "Person": "Person",
+            "CategoryTree": "Category Tree",
+            "Event": "Event",
+            "BasePlus": "Base Plus",
+            "Company": "Company"
+        },
+        "linkType": {
+            "manyToMany": "Many-to-Many",
+            "oneToMany": "One-to-Many",
+            "manyToOne": "Many-to-One",
+            "parentToChildren": "Parent-to-Children",
+            "childrenToParent": "Children-to-Parent"
+        },
+        "sortDirection": {
+            "asc": "Ascending",
+            "desc": "Descending"
+        }
+    },
+    "messages": {
+        "entityCreated": "Entity has been created",
+        "linkAlreadyExists": "Link name conflict.",
+        "linkConflict": "Name conflict: link or field with the same name already exists."
+    },
+    "tooltips": {
+        "statusField": "Updates of this field are logged in stream.",
+        "textFilterFields": "Fields used by text search.",
+        "stream": "Add stream to an entity.",
+        "disabled": "Check if you don't need this entity in your system.",
+        "linkAudited": "Creating related record and linking with existing record will be logged in Stream.",
+        "linkMultipleField": "Link Multiple field provides a handy way to edit relations. Don't use it if you can have a large number of related records.",
+        "entityType": "Base - empty entity only with basic fields like Name, Assigned User, Teams, Description.\n\nBase Plus - like Base but with Activities, History, Tasks panels.\n\nEvent - has Date Start, Date End, Duration, Parent, Status fields; available in Calendar and Activities panel.\n\nPerson - has Email, Phone, First Name, Last Name, Salutation, Address fields; Activities, History, Tasks panels.\n\nCompany - has Email, Phone, Billing Address, Shipping Address fields; Activities, History, Tasks panels.",
+        "countDisabled": "Total number won't be displayed on the list view. Can decrease loading time when the DB table is big.",
+        "fullTextSearch": "Running rebuild is required."
+    }
+}

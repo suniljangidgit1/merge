@@ -1,0 +1,23 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "campaignsName": "Campaigns Name",
+        "listName": "List Name",
+        "listId": "List id",
+        "smsBody": "SMS Body",
+        "sendFrom": "Send From",
+        "sendSmsTime": "Send SMS Time",
+        "sendSmsDate": "Send SMS Date",
+        "domainname": "Domain Name"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create MyCampaigns": "Create My Campaigns"
+    }
+}

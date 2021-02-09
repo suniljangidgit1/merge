@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adresse"
+  },
+  "links": {
+    "meetings": "Møter",
+    "calls": "Samtaler",
+    "tasks": "Oppgaver"
+  },
+  "labels": {
+    "Create AyushTestEntity5": "Opprett Ayush Test Entity 5"
+  }
+}

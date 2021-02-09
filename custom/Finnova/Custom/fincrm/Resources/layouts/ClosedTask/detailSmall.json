@@ -1,0 +1,110 @@
+[
+    {
+        "rows": [
+            [
+                false,
+                false
+            ],
+            [
+                {
+                    "name": "status"
+                },
+                {
+                    "name": "priority"
+                }
+            ],
+            [
+                {
+                    "name": "dateStart"
+                }
+            ],
+            [
+                {
+                    "name": "dateEnd"
+                }
+            ],
+            [
+                {
+                    "name": "parent"
+                }
+            ],
+            [
+                {
+                    "name": "createRecurringSeriesOfTasks",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "frequency"
+                }
+            ],
+            [
+                {
+                    "name": "repeat"
+                }
+            ],
+            [
+                {
+                    "name": "startDate"
+                },
+                {
+                    "name": "endDate"
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeat"
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeatOn"
+                }
+            ],
+            [
+                {
+                    "name": "weeklystartDate"
+                },
+                {
+                    "name": "weeklyendDate"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeat"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeatOn"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyStartDate"
+                },
+                {
+                    "name": "monthlyEndDate"
+                }
+            ],
+            [
+                {
+                    "name": "numberOfRecurringTasks"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "attachments"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    }
+]

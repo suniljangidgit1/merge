@@ -1,0 +1,16 @@
+{
+    "scopeNames": {
+        "MessageLog": "Message Logs",
+        "TestDemo": "Test Demo",
+        "FinanceClients": "Finance Clients",
+        "GoalBasedPlanning": "Goal based planning",
+        "MarketingAgency": "Marketing Agency"
+    },
+    "scopeNamesPlural": {
+        "MessageLog": "Message Logs",
+        "TestDemo": "Test Demos",
+        "FinanceClients": "Finance Clients",
+        "GoalBasedPlanning": "Goal based planning",
+        "MarketingAgency": "Marketing Agencies"
+    }
+}

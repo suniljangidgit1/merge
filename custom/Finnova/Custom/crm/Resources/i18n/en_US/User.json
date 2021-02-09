@@ -1,0 +1,24 @@
+{
+    "fields": {
+        "aadharno": "Aadhar No",
+        "accountno": "Account No",
+        "addDocuments": "Add Documents",
+        "bankname": "Bank Name",
+        "bloodgroup": "Blood Group",
+        "branch": "Branch",
+        "employeeid": "Employee ID",
+        "fathername": "Father's Name",
+        "ifsccode": "IFSC Code",
+        "pancardno": "PAN No",
+        "officeLocation": "Office Location",
+        "designation": "Designation",
+        "spouse": "Spouse",
+        "userParent": "Reporting Authority",
+        "officeLocations": "Office Locations",
+        "title": "Designation"
+    },
+    "links": {
+        "officeLocation": "Office Location",
+        "officeLocations": "Office Locations"
+    }
+}

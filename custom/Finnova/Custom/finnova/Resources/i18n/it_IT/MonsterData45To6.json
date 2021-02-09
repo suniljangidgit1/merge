@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Indirizzo"
+  },
+  "links": {
+    "meetings": "Riunioni",
+    "calls": "Chiamate",
+    "tasks": "Compiti"
+  },
+  "labels": {
+    "Create MonsterData45To6": "Crea Monster Data (4.5 to 6)"
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Lead",
+                "Contact",
+                "Opportunity",
+                "Case",
+                "EmailReminder",
+                "SentEmailReminder",
+                "SMSReminder",
+                "SendSMSData",
+                "Estimate",
+                "Invoice",
+                "Payments",
+                "Designation",
+                "OfficeLocation",
+                "ClosedTask",
+                "Export",
+                "ExportResult",
+                "ContactList",
+                "MyCampaigns",
+                "MessageLog",
+                "SentMessages",
+                "BillingEntity",
+                "HolidayCalender",
+                "TestDemo",
+                "ImportResult"
+                "OfficeLocation"
+            ]
+        },
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

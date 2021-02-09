@@ -1,0 +1,28 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "account": "Account",
+        "account1": "Account",
+        "billfromname": "Bill From Name",
+        "billtoname": "Bill To Name",
+        "dueDate": "Due Date",
+        "invoicedate": "Invoice Date",
+        "invoiceno": "Invoice Number",
+        "paymentDate": "Payment Date",
+        "paymentStatus": "Payment Status",
+        "paymentdate": "Payment Date",
+        "paymentstatus": "Payment Status",
+        "balance": "Balance Due",
+        "total": "Amount"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Invoice": "Create Invoice"
+    }
+}

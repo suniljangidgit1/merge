@@ -1,0 +1,26 @@
+[
+    {
+        "name": "campaignsName"
+    },
+    {
+        "name": "listName"
+    },
+    {
+        "name": "sendFrom"
+    },
+    {
+        "name": "smsBody"
+    },
+    {
+        "name": "sendSmsDate"
+    },
+    {
+        "name": "sendSmsTime"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

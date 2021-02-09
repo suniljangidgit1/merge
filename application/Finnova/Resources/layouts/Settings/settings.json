@@ -1,0 +1,9 @@
+[
+    {
+        "label": "Search",
+        "rows": [
+            [ {"name": "globalSearchEntityList"}]
+        ]
+    }
+    
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "subject"
+    },
+    {
+        "name": "emailTo"
+    },
+    {
+        "name": "emailCc"
+    },
+    {
+        "name": "sendEmailDateTime"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    },
+    {
+        "name": "emailStatus"
+    }
+]

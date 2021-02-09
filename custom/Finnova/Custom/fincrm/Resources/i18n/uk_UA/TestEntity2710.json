@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Адреса виставлення рахунку",
+    "shippingAddress": "Адреса доставки",
+    "website": "Вебсайт"
+  },
+  "links": {
+    "meetings": "Зустрічі",
+    "calls": "Дзвінки",
+    "tasks": "Завдання"
+  },
+  "labels": {
+    "Create TestEntity2710": "Створити Test entity 27..10"
+  }
+}

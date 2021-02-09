@@ -1,0 +1,14 @@
+{
+    "colors": {
+        "Meeting": "#558BBD",
+        "Call": "#CF605D",
+        "Task": "#76BA4E"
+    },
+    "scopeList": ["Meeting", "Call", "Task"],
+    "allDayScopeList": ["Task"],
+    "modeList": ["month", "agendaWeek", "timeline", "agendaDay"],
+    "canceledStatusList": ["Not Held", "Canceled"],
+    "completedStatusList": ["Held", "Completed"],
+    "additionalColorList": ["#AB78AD", "#CC9B45"],
+    "iconClass": "date_range"
+}

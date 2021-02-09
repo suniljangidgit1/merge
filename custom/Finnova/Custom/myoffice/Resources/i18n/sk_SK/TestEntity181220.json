@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Fakturačná adresa",
+    "shippingAddress": "Dodacia adresa",
+    "website": "Webová stránka"
+  },
+  "links": {
+    "meetings": "Stretnutia",
+    "calls": "Hovory",
+    "tasks": "Úlohy"
+  },
+  "labels": {
+    "Create TestEntity181220": "Vytvoriť Test entity 181220"
+  }
+}

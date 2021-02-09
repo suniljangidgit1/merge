@@ -1,0 +1,28 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "category": "Category",
+        "type": "Type"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create RealEstateData": "Create Real Estate Data"
+    },
+    "options": {
+        "category": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+        },
+        "type": {
+            "Builder": "Builder",
+            "Broker": "Broker"
+        }
+    }
+}

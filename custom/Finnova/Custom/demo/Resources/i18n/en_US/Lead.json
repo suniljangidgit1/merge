@@ -1,0 +1,38 @@
+{
+    "fields": {
+        "leadType": "Lead Type",
+        "stream": "Stream"
+    },
+    "options": {
+        "leadType": {
+            "Hot Lead": "Hot Lead",
+            "Warm Lead": "Warm Lead",
+            "Cold Lead": "Cold Lead",
+            "Dead Lead": "Dead Lead"
+        },
+        "status": {
+            "New": "New",
+            "Assigned": "Assigned",
+            "In Process": "In Process",
+            "Converted": "Converted",
+            "Recycled": "Recycled",
+            "Dead": "Dead",
+            "Open": "Open",
+            "Qualified": "Qualified",
+            "Temp": "Temp"
+        },
+        "subject": "Subject",
+        "leadFrom": "Lead From",
+        "source": {
+            "Call": "Call",
+            "DSA 1": "DSA 1",
+            "DSA 2": "DSA 2",
+            "DSA 3": "DSA 3",
+            "Email": "Email",
+            "Existing Customer": "Existing Customer",
+            "Partner": "Partner",
+            "Web Site": "Web Site",
+            "Campaign": "Campaign"
+        }
+    }
+}

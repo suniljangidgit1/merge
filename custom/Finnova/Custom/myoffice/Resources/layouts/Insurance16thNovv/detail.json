@@ -1,0 +1,91 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "address"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "insuranceCompay"
+                },
+                {
+                    "name": "policyType"
+                }
+            ],
+            [
+                {
+                    "name": "policyNo"
+                },
+                {
+                    "name": "dateOfBirth"
+                }
+            ],
+            [
+                {
+                    "name": "sumAssuredRs"
+                },
+                {
+                    "name": "premiumRs"
+                }
+            ],
+            [
+                {
+                    "name": "nomineeName"
+                },
+                {
+                    "name": "nomineeRelation"
+                }
+            ],
+            [
+                {
+                    "name": "nomineeAddress"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "policyStartDate"
+                },
+                {
+                    "name": "policyEndDate"
+                }
+            ],
+            [
+                {
+                    "name": "paymentFrequency"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "kYCDocs"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

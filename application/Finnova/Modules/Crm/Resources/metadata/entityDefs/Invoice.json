@@ -1,0 +1,545 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "trim": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "website": {
+            "type": "url",
+            "strip": true
+        },
+        "emailAddress": {
+            "type": "email"
+        },
+        "phoneNumber": {
+            "type": "phone",
+            "typeList": [
+                "Office",
+                "Mobile",
+                "Fax",
+                "Other"
+            ],
+            "defaultType": "Office"
+        },
+        "billingAddress": {
+            "type": "address"
+        },
+        "billingAddressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "billingAddressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddress": {
+            "type": "address",
+            "view": "crm:views/account/fields/shipping-address"
+        },
+        "shippingAddressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "shippingAddressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "Stream": {
+            "type": "varchar",
+            "maxLength": 200,
+            "trim": true,
+            "options": []
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user"
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "account1": {
+            "type": "link"
+        },
+        "accountid": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "accountno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "adjustments": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "balance": {
+            "type": "currency",
+            "isCustom": true
+        },
+        "bankname": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "beneficiary": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billfromname": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingaddressgstin": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billtoname": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "branch": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "buyerorderno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "discountamount": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "date": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "discountoption": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "discounttype": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "discountvalue": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "dueDate": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "duedate": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "estimateid": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "estimateno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "gst": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "hsn": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "ifsc": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "invoicedate": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "invoiceno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "orderdate": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "paymentDate": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "paymentStatus": {
+            "type": "enum",
+            "options": [
+                "",
+                "Success",
+                "Failed"
+            ],
+            "style": {
+                "": null,
+                "Success": null,
+                "Failed": null
+            },
+            "default": "",
+            "isCustom": true
+        },
+        "paymentdate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "paymentstatus": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "placeofsupply": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "shippingaddressgstin": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "status": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "total": {
+            "type": "currency",
+            "isCustom": true
+        },
+        "account": {
+            "type": "link"
+        },
+        "billfrompan": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billtopan": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "filename": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingEntityId": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "numberOfDays": {
+            "type": "int",
+            "isCustom": true
+        },
+        "invoiceDatefilter": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "invoiceDuedatefilter": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "holderName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "bankUpi": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "bankaccountType": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "cgst": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "sgst": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "gstRate": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "igst": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "rate": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "subTotal": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "totalDiscount": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "totalTax": {
+            "notNull": false,
+            "type": "float",
+            "isCustom": true
+        },
+        "billingfromemail": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingfromphone": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingtoemail": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingtophone": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingfromUdyamno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "billingtoUdyamno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "poOrderNo": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "termsConditions": {
+            "type": "text",
+            "rowsMin": 2,
+            "cutHeight": 200,
+            "isCustom": true
+        },
+        "userName": {
+            "type": "text",
+            "rowsMin": 2,
+            "cutHeight": 200,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "account1": {
+            "type": "belongsTo",
+            "foreign": "invoices",
+            "entity": "Account",
+            "audited": false,
+            "isCustom": true
+        },
+        "account": {
+            "type": "belongsTo",
+            "foreign": "invoices1",
+            "entity": "Account",
+            "audited": false,
+            "isCustom": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    },
+    "indexes": {
+        "name": {
+            "columns": [
+                "name",
+                "deleted"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "fields": {
+        "address": "Address",
+        "address1": "Address1",
+        "address1Street": "Address1 Street",
+        "address1City": "Address1 City",
+        "address1State": "Address1 State",
+        "address1Country": "Address1 Country",
+        "address1PostalCode": "Address1 Postal Code",
+        "address1Map": "Address1 Map",
+        "accounts": "Accounts"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "accounts": "Accounts"
+    },
+    "labels": {
+        "Create Anil": "Create Anil"
+    }
+}

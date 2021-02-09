@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Dirección de Facturación",
+    "shippingAddress": "Dirección de Entrega",
+    "website": "Sitio Web"
+  },
+  "links": {
+    "meetings": "Presentaciones",
+    "calls": "Llamadas",
+    "tasks": "Tareas"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Crear PuneSalary 2.5 to 3 Lac"
+  }
+}

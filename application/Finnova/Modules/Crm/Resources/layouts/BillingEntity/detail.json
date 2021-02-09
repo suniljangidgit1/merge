@@ -1,0 +1,45 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "website"
+                }
+            ],
+            [
+                {
+                    "name": "emailid"
+                },
+                {
+                    "name": "phoneno"
+                }
+            ],
+            [
+                {
+                    "name": "addressstreet"
+                },
+                {
+                    "name": "addresscity"
+                }
+            ],
+            [
+                {
+                    "name": "addressstate"
+                },
+                {
+                    "name": "addresspostalcode"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

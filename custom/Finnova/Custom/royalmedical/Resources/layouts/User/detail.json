@@ -1,0 +1,102 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "userName"
+                },
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "employeeid"
+                },
+                {
+                    "name": "designations"
+                }
+            ],
+            [
+                {
+                    "name": "officeLocation"
+                },
+                {
+                    "name": "gender"
+                }
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "userParent"
+                },
+                {
+                    "name": "addDocuments"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "pancardno"
+                },
+                {
+                    "name": "aadharno"
+                }
+            ],
+            [
+                {
+                    "name": "fathername"
+                },
+                {
+                    "name": "spouse"
+                }
+            ],
+            [
+                {
+                    "name": "bloodgroup"
+                },
+                {
+                    "name": "address"
+                }
+            ]
+        ],
+        "style": "default",
+        "dynamicLogicVisible": null,
+        "customLabel": "Personal Details"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "bankname"
+                },
+                {
+                    "name": "branch"
+                }
+            ],
+            [
+                {
+                    "name": "accountno"
+                },
+                {
+                    "name": "ifsccode"
+                }
+            ]
+        ],
+        "style": "default",
+        "dynamicLogicVisible": null,
+        "customLabel": "Bank Details"
+    }
+]

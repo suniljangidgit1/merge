@@ -1,0 +1,29 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "type": "Type",
+        "category": "Category"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Electronic": "Create Electronic"
+    },
+    "options": {
+        "type": {
+            "Dealer": "Dealer",
+            "Distrubutor": "Distrubutor"
+        },
+        "category": {
+            "Phone": "Phone",
+            "Laptop": "Laptop",
+            "Home Appliances": "Home Appliances",
+            "Complete Electronics": "Complete Electronics"
+        }
+    }
+}

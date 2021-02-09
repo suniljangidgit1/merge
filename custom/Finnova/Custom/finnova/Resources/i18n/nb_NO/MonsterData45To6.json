@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adresse"
+  },
+  "links": {
+    "meetings": "Møter",
+    "calls": "Samtaler",
+    "tasks": "Oppgaver"
+  },
+  "labels": {
+    "Create MonsterData45To6": "Opprett Monster Data (4.5 to 6)"
+  }
+}

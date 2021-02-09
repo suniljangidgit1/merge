@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Faktureringsadresse",
+    "shippingAddress": "Leveringsadresse",
+    "website": "Nettside"
+  },
+  "links": {
+    "meetings": "Møter",
+    "calls": "Samtaler",
+    "tasks": "Oppgaver"
+  },
+  "labels": {
+    "Create EntityDemo041120": "Opprett EntityDemo041120"
+  }
+}

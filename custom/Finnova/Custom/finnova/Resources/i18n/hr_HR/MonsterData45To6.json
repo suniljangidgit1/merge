@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adresa"
+  },
+  "links": {
+    "meetings": "Sastanci",
+    "calls": "Pozivi",
+    "tasks": "Zadaci"
+  },
+  "labels": {
+    "Create MonsterData45To6": "Kreiraj Monster Data (4.5 to 6)"
+  }
+}

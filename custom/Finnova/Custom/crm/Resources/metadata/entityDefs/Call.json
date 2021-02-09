@@ -1,0 +1,20 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Contact",
+                "Lead",
+                "Opportunity",
+                "Case",
+                "PuneSalary25To3Lac"
+            ]
+        },
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

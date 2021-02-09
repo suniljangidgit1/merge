@@ -1,0 +1,64 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "companyName"
+                },
+                {
+                    "name": "consultantCategory"
+                }
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "address"
+                },
+                {
+                    "name": "webiste"
+                }
+            ],
+            [
+                {
+                    "name": "linkedInProfile"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "designation"
+                }
+            ],
+            [
+                {
+                    "name": "concernedPersonAddress"
+                },
+                false
+            ]
+        ],
+        "style": "default",
+        "dynamicLogicVisible": null,
+        "customLabel": "Concerned Person Details"
+    }
+]

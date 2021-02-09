@@ -1,0 +1,35 @@
+{
+  "fields": {
+    "parent": "Nadređen",
+    "dateStart": "Početni datum",
+    "dateEnd": "Završni datum",
+    "duration": "Trajanje",
+    "reminders": "Podsjetnici"
+  },
+  "links": {
+    "parent": "Nadređen"
+  },
+  "options": {
+    "status": {
+      "Planned": "Planiran",
+      "Held": "Održan",
+      "Not Held": "Nije održan"
+    }
+  },
+  "labels": {
+    "Create AyushTestEntity4": "Kreiraj Ayush Test entity 4",
+    "Schedule AyushTestEntity4": "Zakaži Ayush Test entity 4",
+    "Log AyushTestEntity4": "Zabilježi {entitiTipeTranslated}",
+    "Set Held": "Postavi kao održano",
+    "Set Not Held": "Postavi kao nije održano"
+  },
+  "massActions": {
+    "setHeld": "Postavi kao održano",
+    "setNotHeld": "Postavi kao nije održano"
+  },
+  "presetFilters": {
+    "planned": "Planiran",
+    "held": "Održan",
+    "todays": "Današnji"
+  }
+}

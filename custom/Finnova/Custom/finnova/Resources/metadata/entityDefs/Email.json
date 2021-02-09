@@ -1,0 +1,26 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Lead",
+                "Contact",
+                "Opportunity",
+                "Case",
+                "Designation",
+                "Anil",
+                "ClientUnderDiscussion",
+                "CorporateDataBase",
+                "RealEstateFLats",
+                "RealEstateLeads",
+                "Properties",
+                "DUMMMMYYYY",
+                "TESTDATAA",
+                "Test071120",
+                "MonsterData45To6",
+                "HRCompanies",
+                "Candidates"
+            ]
+        }
+    }
+}

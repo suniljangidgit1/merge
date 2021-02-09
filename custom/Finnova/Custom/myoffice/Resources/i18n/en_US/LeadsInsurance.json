@@ -1,0 +1,68 @@
+{
+    "fields": {
+        "address": "Address",
+        "gender": "Gender",
+        "dateOfBirth": "Date of Birth",
+        "qualification": "Qualification",
+        "occupation": "Occupation",
+        "smoker": "Smoker",
+        "drinking": "Drinking",
+        "nationality": "Nationality",
+        "annualIncomeRsInLacs": "Annual Income (Rs in Lacs)",
+        "annualIncomeRsInLacsCurrency": "Annual Income (Rs in Lacs) (Currency)",
+        "annualIncomeRsInLacsConverted": "Annual Income (Rs in Lacs) (Converted)",
+        "typeOfInsurance": "Type of Insurance",
+        "insuranceCompany": "Insurance Company"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create LeadsInsurance": "Create Leads Insurance"
+    },
+    "options": {
+        "gender": {
+            "Male": "Male",
+            "Female": "Female"
+        },
+        "qualification": {
+            "Post Graduate": "Post Graduate",
+            "Graduate": "Graduate",
+            "Diploma": "Diploma",
+            "12th Pass": "12th Pass",
+            "10th Pass": "10th Pass",
+            "Below 10th Pass": "Below 10th Pass"
+        },
+        "occupation": {
+            "Salaried": "Salaried",
+            "Self Employed": "Self Employed",
+            "Professional": "Professional",
+            "Retired": "Retired",
+            "Student": "Student",
+            "Housewife": "Housewife",
+            "Others": "Others"
+        },
+        "nationality": {
+            "Resident": "Resident",
+            "NRI": "NRI",
+            "PIO": "PIO",
+            "OCI": "OCI"
+        },
+        "typeOfInsurance": {
+            "Life Insurance": "Life Insurance",
+            "Health Insurance": "Health Insurance",
+            "Vehicle Insurance": "Vehicle Insurance",
+            "General Insurance": "General Insurance",
+            "Others": "Others"
+        },
+        "insuranceCompany": {
+            "LIC": "LIC",
+            "ICICI Lombard": "ICICI Lombard",
+            "Bajaj Insurance": "Bajaj Insurance",
+            "HDFC Life": "HDFC Life",
+            "Tata AIG Life": "Tata AIG Life"
+        }
+    }
+}

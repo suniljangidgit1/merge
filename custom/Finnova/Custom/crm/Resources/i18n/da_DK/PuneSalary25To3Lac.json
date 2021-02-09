@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "billingAddress": "Betalingsadresse",
+    "shippingAddress": "Leveringsadresse"
+  },
+  "links": {
+    "meetings": "Møder",
+    "calls": "Opkald",
+    "tasks": "Opgaver"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Opret PuneSalary 2.5 to 3 Lac "
+  }
+}

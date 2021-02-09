@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "آدرس صورتحساب",
+    "shippingAddress": "آدرس حمل و نقل",
+    "website": "وب سایت"
+  },
+  "links": {
+    "meetings": "جلسات",
+    "calls": "تماس ها",
+    "tasks": "وظایف"
+  },
+  "labels": {
+    "Create TestEntity181220": "ایجاد Test entity 181220"
+  }
+}

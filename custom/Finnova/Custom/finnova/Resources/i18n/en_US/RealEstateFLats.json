@@ -1,0 +1,15 @@
+{
+    "fields": {
+        "address": "Address",
+        "realEstateLeadss": "Real Estate Leadss"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "realEstateLeadss": "Real Estate Leadss"
+    },
+    "labels": {
+        "Create RealEstateFLats": "Create RealEstate FLats"
+    }
+}

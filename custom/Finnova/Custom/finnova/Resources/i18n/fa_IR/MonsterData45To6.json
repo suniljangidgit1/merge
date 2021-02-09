@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "آدرس"
+  },
+  "links": {
+    "meetings": "جلسات",
+    "calls": "تماس ها",
+    "tasks": "وظایف"
+  },
+  "labels": {
+    "Create MonsterData45To6": "ایجاد Monster Data (4.5 to 6)"
+  }
+}

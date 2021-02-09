@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "地址"
+  },
+  "links": {
+    "meetings": "会晤",
+    "calls": "通话",
+    "tasks": "任务"
+  },
+  "labels": {
+    "Create MonsterData45To6": "创建 Monster Data (4.5 to 6)"
+  }
+}

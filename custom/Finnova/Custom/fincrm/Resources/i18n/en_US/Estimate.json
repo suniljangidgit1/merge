@@ -1,0 +1,46 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "adjustments": "Adjustments",
+        "amount": "Amount",
+        "billfromname": "Bill From Name",
+        "billfrompanno": "Bill From PAN No",
+        "billtoname": "Bill To Name",
+        "billtopanno": "Bill To PAN No",
+        "invoiceNumber": "Estimate Number",
+        "estimatedate": "Estimate Date",
+        "status": "Status",
+        "total": "Total",
+        "account": "Account",
+        "filename": "File Name",
+        "userName": "User Name",
+        "billingfromemail": "Billing from email",
+        "billingfromphone": "Billing from phone",
+        "billingtoemail": "Billing to email",
+        "billingtophone": "Billing to phone",
+        "billingfromUdyamno": "Billingfrom Udyamno",
+        "billingtoUdyamno": "Billingto Udyamno",
+        "poOrderNo": "Po Order No",
+        "termsConditions": "Terms Conditions",
+        "comment": "Comment"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Estimate": "Create Estimate"
+    },
+    "options": {
+        "status": {
+            "Open": "Open",
+            "Accepted": "Accepted",
+            "Declined": "Declined",
+            "Pending": "Pending",
+            "Rejected": "Rejected"
+        }
+    }
+}

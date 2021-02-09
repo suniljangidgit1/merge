@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Mokėtojo adresas",
+    "shippingAddress": "Siuntimo adresas",
+    "website": "Internetinė Svetainė"
+  },
+  "links": {
+    "meetings": "Susitikimai",
+    "calls": "Skambučiai",
+    "tasks": "Užduotys"
+  },
+  "labels": {
+    "Create TestEntity181220": "Sukurti Test entity 181220"
+  }
+}

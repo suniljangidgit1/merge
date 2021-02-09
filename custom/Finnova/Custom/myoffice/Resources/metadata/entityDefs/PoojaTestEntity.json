@@ -1,0 +1,186 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "trim": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": true,
+            "view": "views/fields/assigned-user"
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "poojatestaddress": {
+            "type": "address",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "name": "poojatestaddress",
+            "label": "Poojatestaddress",
+            "inlineEditDisabled": false,
+            "tooltipText": null,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "datefieldtest231120": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "imagePoojaTest": {
+            "type": "image",
+            "previewSize": "small",
+            "isCustom": true
+        },
+        "testpooja23": {
+            "type": "image",
+            "previewSize": "small",
+            "isCustom": true
+        },
+        "datatest": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "textdatatest": {
+            "type": "text",
+            "rowsMin": 2,
+            "cutHeight": 200,
+            "isCustom": true
+        },
+        "dateTime": {
+            "notNull": false,
+            "type": "datetime",
+            "minuteStep": 30,
+            "isCustom": true
+        },
+        "e4ghhhhhhhhhhhh213445": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "testwert": {
+            "notNull": false,
+            "type": "datetime",
+            "minuteStep": 30,
+            "isCustom": true
+        },
+        "testing": {
+            "notNull": false,
+            "type": "datetime",
+            "minuteStep": 30,
+            "isCustom": true
+        },
+        "derttttttttttttt": {
+            "type": "int",
+            "isCustom": true
+        },
+        "test163564": {
+            "notNull": false,
+            "type": "datetime",
+            "minuteStep": 30,
+            "isCustom": true
+        },
+        "poojajrerr": {
+            "type": "image",
+            "previewSize": "small",
+            "isCustom": true
+        },
+        "poojatest56437": {
+            "type": "image",
+            "previewSize": "small",
+            "isCustom": true
+        },
+        "lllllfffffffffffffff": {
+            "notNull": true,
+            "type": "bool",
+            "isCustom": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "imagePoojaTest": {
+            "type": "belongsTo",
+            "entity": "Attachment",
+            "skipOrmDefs": true,
+            "disabled": true
+        },
+        "testpooja23": {
+            "type": "belongsTo",
+            "entity": "Attachment",
+            "skipOrmDefs": true,
+            "disabled": true
+        },
+        "poojajrerr": {
+            "type": "belongsTo",
+            "entity": "Attachment",
+            "skipOrmDefs": true,
+            "disabled": true
+        },
+        "poojatest56437": {
+            "type": "belongsTo",
+            "entity": "Attachment",
+            "skipOrmDefs": true,
+            "disabled": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    },
+    "indexes": {
+        "name": {
+            "columns": [
+                "name",
+                "deleted"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

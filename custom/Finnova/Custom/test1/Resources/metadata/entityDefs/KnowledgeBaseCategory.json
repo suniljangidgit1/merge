@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "articlecount": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "categorycount": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

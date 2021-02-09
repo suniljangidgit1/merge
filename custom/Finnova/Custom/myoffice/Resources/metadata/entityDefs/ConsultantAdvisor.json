@@ -1,0 +1,264 @@
+{
+    "fields": {
+        "name": {
+            "type": "personName",
+            "isPersonalData": true
+        },
+        "salutationName": {
+            "type": "enum",
+            "options": [
+                "",
+                "Mr.",
+                "Ms.",
+                "Mrs.",
+                "Dr."
+            ]
+        },
+        "firstName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "default": "",
+            "trim": true
+        },
+        "lastName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "required": false,
+            "default": null,
+            "trim": true,
+            "options": []
+        },
+        "description": {
+            "type": "text"
+        },
+        "emailAddress": {
+            "type": "email",
+            "isPersonalData": true
+        },
+        "phoneNumber": {
+            "type": "phone",
+            "typeList": [
+                "Mobile",
+                "Office",
+                "Home",
+                "Fax",
+                "Other"
+            ],
+            "defaultType": "Mobile",
+            "isPersonalData": true
+        },
+        "address": {
+            "type": "address",
+            "isPersonalData": true
+        },
+        "addressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "addressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user"
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "companyName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "isPersonalData": true
+        },
+        "consultantCategory": {
+            "type": "enum",
+            "options": [
+                "Financial Consultant",
+                "Engineering Consultant",
+                "Software Consultant"
+            ],
+            "style": {
+                "Financial Consultant": null,
+                "Engineering Consultant": null,
+                "Software Consultant": null
+            },
+            "default": "Financial Consultant",
+            "isCustom": true
+        },
+        "webiste": {
+            "type": "url",
+            "isCustom": true
+        },
+        "linkedInProfile": {
+            "type": "url",
+            "isCustom": true
+        },
+        "concernedPersonName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "designation": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "concernedPersonAddress": {
+            "type": "address",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "name": "concernedPersonAddress",
+            "label": "Concerned Person Address",
+            "isPersonalData": false,
+            "inlineEditDisabled": false,
+            "tooltipText": null,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "phone": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "contacts": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "importDisabled": true,
+            "noLoad": true,
+            "isCustom": true
+        },
+        "contacts1": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": false,
+            "layoutMassUpdateDisabled": false,
+            "importDisabled": false,
+            "noLoad": false,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "contacts": {
+            "type": "hasMany",
+            "relationName": "contactConsultantAdvisor",
+            "foreign": "consultantAdvisors",
+            "entity": "Contact",
+            "audited": false,
+            "isCustom": true
+        },
+        "contacts1": {
+            "type": "hasMany",
+            "relationName": "consultantAdvisorContact",
+            "foreign": "consultantAdvisors1",
+            "entity": "Contact",
+            "audited": false,
+            "isCustom": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc",
+        "textFilterFields": [
+            "name",
+            "companyName",
+            "addressCity"
+        ],
+        "fullTextSearch": false,
+        "countDisabled": false
+    },
+    "indexes": {
+        "firstName": {
+            "columns": [
+                "firstName",
+                "deleted"
+            ]
+        },
+        "name": {
+            "columns": [
+                "firstName",
+                "lastName"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

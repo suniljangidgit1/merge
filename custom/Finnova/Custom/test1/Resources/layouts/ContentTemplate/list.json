@@ -1,0 +1,20 @@
+[
+    {
+        "name": "templateName"
+    },
+    {
+        "name": "templateContents"
+    },
+    {
+        "name": "contentType"
+    },
+    {
+        "name": "senderId"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

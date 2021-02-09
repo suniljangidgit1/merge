@@ -1,0 +1,23 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "designation": "Designation",
+        "natureOfEmployment": "Nature Of Employment"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create FinancialConsultant": "Create Financial Consultant"
+    },
+    "options": {
+        "natureOfEmployment": {
+            "Self Employed": "Self Employed",
+            "Corporate": "Corporate"
+        }
+    }
+}

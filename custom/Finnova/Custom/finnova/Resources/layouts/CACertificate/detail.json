@@ -1,0 +1,68 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "account"
+                }
+            ],
+            [
+                {
+                    "name": "certificateNo"
+                },
+                {
+                    "name": "certificateDate"
+                }
+            ],
+            [
+                {
+                    "name": "uDINDate"
+                },
+                {
+                    "name": "uDINNo"
+                }
+            ],
+            [
+                {
+                    "name": "billable"
+                },
+                {
+                    "name": "billDate"
+                }
+            ],
+            [
+                {
+                    "name": "billAmount"
+                },
+                {
+                    "name": "bill"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                },
+                false
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "workingFiles"
+                },
+                {
+                    "name": "certificateCopy"
+                }
+            ]
+        ],
+        "style": "default",
+        "customLabel": "New panel"
+    }
+]

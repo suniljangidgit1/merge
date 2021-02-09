@@ -1,0 +1,14 @@
+[
+    {
+        "name": "companyName"
+    },
+    {
+        "name": "addressCity"
+    },
+    {
+        "name": "emailAddress"
+    },
+    {
+        "name": "phoneNumber"
+    }
+]

@@ -1,0 +1,133 @@
+{
+    "fields": {
+        "aadharno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "accountno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "addDocuments": {
+            "type": "attachmentMultiple",
+            "previewSize": "medium",
+            "sourceList": [],
+            "accept": [],
+            "isCustom": true
+        },
+        "address": {
+            "type": "address",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "name": "address",
+            "label": "Address",
+            "inlineEditDisabled": false,
+            "tooltipText": null,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "bankname": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "bloodgroup": {
+            "type": "enum",
+            "options": [
+                "Not Set",
+                "A+",
+                "A-",
+                "B+",
+                "B-",
+                "O+",
+                "O-",
+                "AB+",
+                "AB-"
+            ],
+            "style": {
+                "Not Set": null,
+                "A+": null,
+                "A-": null,
+                "B+": null,
+                "B-": null,
+                "O+": null,
+                "O-": null,
+                "AB+": null,
+                "AB-": null
+            },
+            "default": "Not Set",
+            "isCustom": true
+        },
+        "branch": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "employeeid": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "fathername": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "ifsccode": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "pancardno": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "spouse": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "userParent": {
+            "type": "link",
+            "required": true
+        },
+        "phoneNumber": {
+            "required": true
+        },
+        "emailAddress": {
+            "required": true
+        },
+        "title": {
+            "options": []
+        }
+    },
+    "links": {
+        "addDocuments": {
+            "type": "hasChildren",
+            "entity": "Attachment",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true,
+            "relationName": "attachments",
+            "disabled": true
+        },
+        "userParent": {
+            "type": "belongsTo",
+            "foreign": "users",
+            "entity": "User",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

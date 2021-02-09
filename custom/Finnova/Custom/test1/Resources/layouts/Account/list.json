@@ -1,0 +1,28 @@
+[
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "assignedUser"
+    },
+    {
+        "name": "teams",
+        "notSortable": true
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    },
+    {
+        "name": "modifiedAt"
+    },
+    {
+        "name": "modifiedBy"
+    },
+    {
+        "name": "stream"
+    }
+]
