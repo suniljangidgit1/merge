@@ -1,0 +1,51 @@
+{
+    "fields": {
+        "leadType": {
+            "type": "enum",
+            "required": true,
+            "options": [
+                "Hot Lead",
+                "Cold Lead",
+                "Warm Lead",
+                "Dead Lead"
+            ],
+            "style": {
+                "Hot Lead": null,
+                "Cold Lead": null,
+                "Warm Lead": null,
+                "Dead Lead": null
+            },
+            "isSorted": true,
+            "default": "Hot Lead",
+            "isCustom": true
+        },
+        "status": {
+            "options": [
+                "New",
+                "Assigned",
+                "In Process",
+                "Converted",
+                "Recycled",
+                "Dead",
+                "Open",
+                "Qualified"
+            ],
+            "style": {
+                "New": null,
+                "Assigned": null,
+                "In Process": null,
+                "Converted": "success",
+                "Recycled": "danger",
+                "Dead": "danger",
+                "Open": null,
+                "Qualified": null
+            }
+        },
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

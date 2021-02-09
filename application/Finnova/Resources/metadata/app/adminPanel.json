@@ -1,0 +1,172 @@
+{
+    "system": {
+        "label": "System",
+        "itemList": [
+             {
+                "url": "#Admin/settings",
+                "label": "Search ",
+                "iconClass": "fas fa-search",
+                "description": "search"
+            },
+            {
+                "url": "#Admin/integrations",
+                "label": "Integrations",
+                "iconClass": "fas fa-network-wired",
+                "description": "integrations"
+            },
+            {
+                "url": "https://www.fincrm.net/user-manual",
+                "label": "User Manual",
+                "iconClass": "fas fa-file-alt",
+                "description": "user manual"
+            },
+            {
+                "action": "clearCache",
+                "label": "Clear Cache",
+                "iconClass": "fas fa-broom",
+                "description": "clearCache"
+            },
+            {
+                "action": "rebuild",
+                "label": "Rebuild",
+                "iconClass": "fas fa-database",
+                "description": "rebuild"
+            }
+
+        ],
+        "order": 0
+    },
+    "users":{
+        "label": "Users",
+        "itemList": [
+            {
+                "url": "#OfficeLocation",
+                "label": "Office Locations",
+                "iconClass": "fas fa-map-marker-alt",
+                "description": "officeLocation"
+            },
+            {
+                "url": "#Role",
+                "label": "Roles",
+                "iconClass": "fas fa-key",
+                "description": "roles"
+            },
+            {
+                "url": "#User",
+                "label": "Users",
+                "iconClass": "fas fa-user",
+                "description": "users"
+            },
+            {
+                "url": "#Team",
+                "label": "Teams",
+                "iconClass": "fas fa-users",
+                "description": "teams"
+            },
+            {
+                "url": "#Admin/authLog",
+                "label": "Auth Log",
+                "iconClass": "fas fa-sign-in-alt",
+                "description": "authLog"
+            },
+            {
+                "url": "#Admin/authTokens",
+                "label": "Auth Token",
+                "iconClass": "fas fa-shield-alt",
+                "description": "authTokens"
+            },
+            {
+                "url": "#ActionHistoryRecord",
+                "label": "Action History",
+                "iconClass": "fas fa-history",
+                "description": "actionHistory"
+            }
+        ],
+        "order": 5
+    },
+    "customization": {
+        "label": "Customization",
+        "itemList": [
+            {
+                "url": "#Admin/layouts",
+                "label": "Layout Manager",
+                "iconClass": "fas fa-table",
+                "description": "layoutManager"
+            },
+            {
+                "url": "#Admin/entityManager",
+                "label": "Entity Manager",
+                "iconClass": "fas fa-tools",
+                "description": "entityManager"
+            }
+        ],
+        "order": 10
+    },
+    
+    "portal": {
+        "label": "Portal",
+        "itemList": [
+            {
+                "url": "#Portal",
+                "label": "Portals",
+                "iconClass": "fas fa-parking",
+                "description": "portals"
+            },
+            {
+                "url": "#PortalUser",
+                "label": "Portal Users",
+                "iconClass": "fas fa-user",
+                "description": "portalUsers"
+            },
+            {
+                "url": "#PortalRole",
+                "label": "Portal Roles",
+                "iconClass": "fas fa-key",
+                "description": "portalRoles"
+            }
+        ],
+        "order": 20
+    },
+    "data":{
+        "label": "Data",
+        "itemList": [
+            {
+                "url": "#Import",
+                "label": "Import",
+                "iconClass": "fas fa-file-import",
+                "description": "import"
+            },
+             {
+                "url":"#Export",
+                "label":"Export",
+                "iconClass": "fas fa-file-import",
+                "description":"export"
+             },
+            {
+                "url": "#Attachment",
+                "label": "Attachment",
+                "iconClass": "fas fa-paperclip",
+                "description": "attachments"
+            }
+        ],
+        "order": 25
+    },
+    "Holiday Policy":{
+      "label": "Miscellaneous",
+      "itemList": [
+         {
+            "url":"#HolidayCalender",
+            "label":"Holiday Policy",
+            "iconClass": "fa fa-calendar",
+            "description":"Define your yearly holiday calendar and weekly off policy."
+         },
+         {
+            "url":"#SenderID",
+            "label":"Approved Sender IDs",
+            "iconClass": "far fa-address-card",
+            "description":"List of approved Sender Ids that can be used for SMS services."
+         }
+      ],
+      "order": 28
+   }
+}

@@ -1,0 +1,23 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "adjustments": "Adjustments",
+        "amount": "Amount",
+        "billfromname": "Bill From Name",
+        "billfrompanno": "Bill From PAN No",
+        "billtoname": "Bill To Name",
+        "billtopanno": "Bill To PAN No",
+        "invoiceNumber": "Estimate Number",
+        "estimatedate": "Estimate Date"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Estimate": "Create Estimate"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "realEstateFLatss": "Real Estate FLatss"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "realEstateFLatss": "Real Estate FLatss"
+    },
+    "labels": {
+        "Create RealEstateLeads": "Create Real Estate Leads"
+    }
+}

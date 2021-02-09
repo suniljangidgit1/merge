@@ -1,0 +1,17 @@
+[
+    {
+        "name": "senderId"
+    },
+    {
+        "name": "categoryType"
+    },
+    {
+        "name": "description"
+    },
+    {
+        "name": "status"
+    },
+    {
+        "name": "createdAt"
+    }
+]

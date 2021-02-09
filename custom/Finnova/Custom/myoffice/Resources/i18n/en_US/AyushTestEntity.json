@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "account": "Account",
+        "contact": "Contact",
+        "task": "Task",
+        "ayushTestEntity2s": "Ayush Test Entity2s"
+    },
+    "links": {
+        "account": "Account",
+        "contact": "Contact",
+        "task": "Task",
+        "ayushTestEntity2s": "Ayush Test Entity2s"
+    },
+    "labels": {
+        "Create AyushTestEntity": "Create Ayush Test Entity"
+    }
+}

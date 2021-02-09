@@ -1,0 +1,295 @@
+{
+    "fields": {
+        "name": {
+            "type": "personName",
+            "isPersonalData": true
+        },
+        "salutationName": {
+            "type": "enum",
+            "options": [
+                "",
+                "Mr.",
+                "Ms.",
+                "Mrs.",
+                "Dr."
+            ]
+        },
+        "firstName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "default": "",
+            "trim": true
+        },
+        "lastName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "required": true,
+            "default": "",
+            "trim": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "emailAddress": {
+            "type": "email",
+            "isPersonalData": true
+        },
+        "phoneNumber": {
+            "type": "phone",
+            "typeList": [
+                "Mobile",
+                "Office",
+                "Home",
+                "Fax",
+                "Other"
+            ],
+            "defaultType": "Mobile",
+            "isPersonalData": true
+        },
+        "address": {
+            "type": "address",
+            "isPersonalData": true
+        },
+        "addressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "addressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user"
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "gender": {
+            "type": "enum",
+            "options": [
+                "Male",
+                "Female"
+            ],
+            "style": {
+                "Male": null,
+                "Female": null
+            },
+            "default": "Male",
+            "isCustom": true
+        },
+        "dateOfBirth": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "qualification": {
+            "type": "enum",
+            "options": [
+                "Post Graduate",
+                "Graduate",
+                "Diploma",
+                "12th Pass",
+                "10th Pass",
+                "Below 10th Pass"
+            ],
+            "style": {
+                "Post Graduate": null,
+                "Graduate": null,
+                "Diploma": null,
+                "12th Pass": null,
+                "10th Pass": null,
+                "Below 10th Pass": null
+            },
+            "default": "Post Graduate",
+            "isCustom": true
+        },
+        "occupation": {
+            "type": "enum",
+            "options": [
+                "Salaried",
+                "Self Employed",
+                "Professional",
+                "Retired",
+                "Student",
+                "Housewife",
+                "Others"
+            ],
+            "style": {
+                "Salaried": null,
+                "Self Employed": null,
+                "Professional": null,
+                "Retired": null,
+                "Student": null,
+                "Housewife": null,
+                "Others": null
+            },
+            "default": "Salaried",
+            "isCustom": true
+        },
+        "smoker": {
+            "notNull": true,
+            "type": "bool",
+            "isCustom": true
+        },
+        "drinking": {
+            "notNull": true,
+            "type": "bool",
+            "isCustom": true
+        },
+        "nationality": {
+            "type": "enum",
+            "options": [
+                "Resident",
+                "NRI",
+                "PIO",
+                "OCI"
+            ],
+            "style": {
+                "Resident": null,
+                "NRI": null,
+                "PIO": null,
+                "OCI": null
+            },
+            "default": "Resident",
+            "isCustom": true
+        },
+        "annualIncomeRsInLacs": {
+            "type": "currency",
+            "isCustom": true
+        },
+        "typeOfInsurance": {
+            "type": "enum",
+            "options": [
+                "Life Insurance",
+                "Health Insurance",
+                "Vehicle Insurance",
+                "General Insurance",
+                "Others"
+            ],
+            "style": {
+                "Life Insurance": null,
+                "Health Insurance": null,
+                "Vehicle Insurance": null,
+                "General Insurance": null,
+                "Others": null
+            },
+            "default": "Life Insurance",
+            "isCustom": true
+        },
+        "insuranceCompany": {
+            "type": "enum",
+            "options": [
+                "LIC",
+                "ICICI Lombard",
+                "Bajaj Insurance",
+                "HDFC Life",
+                "Tata AIG Life"
+            ],
+            "style": {
+                "LIC": null,
+                "ICICI Lombard": null,
+                "Bajaj Insurance": null,
+                "HDFC Life": null,
+                "Tata AIG Life": null
+            },
+            "default": "LIC",
+            "isCustom": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    },
+    "indexes": {
+        "firstName": {
+            "columns": [
+                "firstName",
+                "deleted"
+            ]
+        },
+        "name": {
+            "columns": [
+                "firstName",
+                "lastName"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

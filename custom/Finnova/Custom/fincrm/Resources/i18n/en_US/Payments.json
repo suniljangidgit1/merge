@@ -1,0 +1,32 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "account": "Account",
+        "amountcredited": "Amount",
+        "balance": "Balance",
+        "billedamount": "Billed Amount",
+        "invoiceno": "Invoice Number",
+        "paymentdate": "Payment Date",
+        "paymentstatus": "Payment Status",
+        "tds": "TDS Deducted",
+        "transactionid": "Reference No.",
+        "accountName1": "Account Name"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Payments": "Create Payments"
+    },
+    "options": {
+        "paymentstatus": {
+            "": "",
+            "Success": "Success",
+            "Failed": "Failed"
+        }
+    }
+}

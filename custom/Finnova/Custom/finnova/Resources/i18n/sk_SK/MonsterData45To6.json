@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adresa"
+  },
+  "links": {
+    "meetings": "Stretnutia",
+    "calls": "Hovory",
+    "tasks": "Úlohy"
+  },
+  "labels": {
+    "Create MonsterData45To6": "Vytvoriť Monster Data (4.5 to 6)"
+  }
+}

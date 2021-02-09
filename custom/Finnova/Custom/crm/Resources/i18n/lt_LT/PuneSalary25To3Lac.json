@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Mokėtojo adresas",
+    "shippingAddress": "Siuntimo adresas",
+    "website": "Internetinė Svetainė"
+  },
+  "links": {
+    "meetings": "Susitikimai",
+    "calls": "Skambučiai",
+    "tasks": "Užduotys"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Sukurti PuneSalary 2.5 to 3 Lac"
+  }
+}

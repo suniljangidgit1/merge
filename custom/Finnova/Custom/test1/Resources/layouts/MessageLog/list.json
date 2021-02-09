@@ -1,0 +1,26 @@
+[
+    {
+        "name": "subDomainName"
+    },
+    {
+        "name": "senderId"
+    },
+    {
+        "name": "totalMessages"
+    },
+    {
+        "name": "sentMessages"
+    },
+    {
+        "name": "remainingMessages"
+    },
+    {
+        "name": "planExpiryDate"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

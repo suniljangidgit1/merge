@@ -1,0 +1,337 @@
+<!-- Custom Export Form Hide and Show Script Start--> 
+<script type="text/javascript">
+  var afterhash = window.location.hash;
+ 
+if(afterhash !='#Export'){
+    $('.export_form').css("display","none");
+
+}else{
+    $('.export_form').css("display","block");
+
+}
+
+</script>
+
+<!-- Custom Export Form Hide and Show Script End -->
+
+{{#if collection.models.length}}
+
+{{#if topBar}}
+<div class="list-buttons-container clearfix">
+    {{#if paginationTop}}
+    <div>
+        {{{pagination}}}
+    </div>
+    {{/if}}
+
+    {{#if displayActionsButtonGroup}}
+    <div class="btn-group actions">
+        {{#if massActionList}}
+        <button type="button" class="btn btn-primary dropdown-toggle actions-button hidden" data-toggle="dropdown">
+        {{translate 'Actions'}}
+        <span class="caret"></span>
+        </button>
+        {{/if}}
+        {{#if buttonList.length}}
+        {{#each buttonList}}
+            {{button name scope=../../scope label=label style=style hidden=hidden}}
+        {{/each}}
+        {{/if}}
+        <div class="btn-group">
+            {{#if dropdownItemList.length}}
+            <button type="button" class="btn btn-text dropdown-toggle dropdown-item-list-button" data-toggle="dropdown">
+                <span class="fas fa-ellipsis-h"></span>
+            </button>
+            <ul class="dropdown-menu pull-left">
+                {{#each dropdownItemList}}
+                {{#if this}}
+                <li class="{{#if hidden}}hidden{{/if}}"><a href="javascript:" class="action" data-action="{{name}}">{{#if html}}{{{html}}}{{else}}{{translate label scope=../../../entityType}}{{/if}}</a></li>
+                {{else}}
+                    {{#unless @first}}
+                    {{#unless @last}}
+                    <li class="divider"></li>
+                    {{/unless}}
+                    {{/unless}}
+                {{/if}}
+                {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+        {{#if massActionList}}
+        <ul class="dropdown-menu actions-menu">
+            {{#each massActionList}}
+            {{#if this}}
+            <li><a href="javascript:" data-action="{{./this}}" class='mass-action'>{{translate this category="massActions" scope=../../scope}}</a></li>
+            {{else}}
+            {{#unless @first}}
+            {{#unless @last}}
+            <li class="divider"></li>
+            {{/unless}}
+            {{/unless}}
+            {{/if}}
+            {{/each}}
+        </ul>
+        {{/if}}
+    </div>
+
+    <div class="sticked-bar hidden">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle actions-button hidden" data-toggle="dropdown">
+            {{translate 'Actions'}}
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu actions-menu">
+                {{#each massActionList}}
+                {{#if this}}
+                <li><a href="javascript:" data-action="{{./this}}" class='mass-action'>{{translate this category="massActions" scope=../../scope}}</a></li>
+                {{else}}
+                {{#unless @first}}
+                {{#unless @last}}
+                <li class="divider"></li>
+                {{/unless}}
+                {{/unless}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        
+    </div>
+    <a  href="#ClosedTask" type="button"  class="btn btn-primary" id="show_closed" style="position:relative;display:none;"  >Show Closed Data</a>
+
+    <a href="#SentEmailReminder" type="button" class="btn btn-primary" id="sent_email" style="position:relative;display: none;">Sent Email Data</a>
+
+    <a href="#SendSMSData" type="button" class="btn btn-primary" id="sent_sms" style="position: relative; display: none;">Sent SMS Data</a>
+    {{/if}}
+   
+    {{#if displayTotalCount}}
+        <div class="text-muted total-count">
+        {{translate 'Total'}}: <span class="total-count-span">{{totalCountFormatted}}</span>
+        </div>
+    {{/if}}
+</div>
+{{/if}}
+
+<div class="list">
+    <table class="table">
+        {{#if header}}
+        <thead class="schedularth">
+            <tr>
+                {{#if checkboxes}}
+                <th width="40" data-name="r-checkbox">
+                    <span class="select-all-container"><input type="checkbox" class="select-all"></span>
+                    {{#unless checkAllResultDisabled}}
+                    <div class="btn-group checkbox-dropdown">
+                        <a class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:" data-action="selectAllResult">{{translate 'Select All Results'}}</a></li>
+                        </ul>
+                    </div>
+                    {{/unless}}
+
+                </th>
+                {{/if}}
+                {{#each headerDefs}}
+                <th {{#if width}} width="{{width}}"{{/if}}{{#if align}} style="text-align: {{align}};"{{/if}}>
+                    {{#if this.isSortable}}
+                        <a href="javascript:" class="sort" data-name="{{this.name}}">{{label}}</a>
+                        {{#if this.isSorted}}{{#unless this.isDesc}}<span class="fas fa-chevron-down fa-sm"></span>{{else}}<span class="fas fa-chevron-up fa-sm"></span>{{/unless}}{{/if}}
+                    {{else}}{{label}}{{/if}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+        {{/if}}
+        <tbody>
+        {{#each rowList}}
+            <tr data-id="{{./this}}" class="list-row">
+            {{{var this ../this}}}
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{#unless paginationEnabled}}
+    {{#if showMoreEnabled}}
+    <div class="show-more{{#unless showMoreActive}} hide{{/unless}}">
+        <a type="button" href="javascript:" class="btn btn-default btn-block" data-action="showMore" {{#if showCount}}title="{{translate 'Total'}}: {{totalCountFormatted}}"{{/if}}>
+            {{#if showCount}}
+            <div class="pull-right text-muted more-count">{{moreCountFormatted}}</div>
+            {{/if}}
+            <span>{{translate 'Show more'}}</span>
+        </a>
+    </div>
+    {{/if}}
+    {{/unless}}
+</div>
+
+{{#if bottomBar}}
+<div>
+{{#if paginationBottom}} {{{pagination}}} {{/if}}
+</div>
+{{/if}}
+
+{{else}}
+    <div class="No_data">
+    {{translate 'No Data'}}
+    </div>
+{{/if}}
+
+<!-- Custom Export Form Code Start -->
+<div class="export_form" style="display: none;">
+   <div class="export-container">
+      <div class="panel panel-default panelradius">
+         <div class="panel-heading panelhdrradius">
+            <h4 class="panel-title">What to Export?</h4>
+         </div>
+         <div class="panel-body panel-body-form">
+            <div class="row">
+               <div class="col-sm-4 form-group cell">
+                  <label class="control-label">Entity Type</label>
+                  <select id="export-entity-type" class="form-control">
+                     <option value="Account">Accounts</option>
+                     <option value="Call">Calls</option>
+                     <option value="CARTData">CART Data</option>
+                     <option value="Case">Cases</option>
+                     <option value="CGTMSE">CGTMSE</option>
+                     <option value="ClientUnderDiscussion">Client Under Discussion</option>
+                     <option value="ClosedTask">Closed Task</option>
+                  </select>
+               </div>
+               <div class="col-sm-4 form-group cell">
+                  <label class="control-label">Description</label>
+                  <input class="form-control" type="text"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="" value="" placeholder="Only For Number">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel panel-default panelradius">
+         <div class="panel-heading panelhdrradius">
+            <h4 class="panel-title">Field List</h4>
+         </div>
+         <div class="panel-body panel-body-form">
+            <div id="export-properties">
+               <div class="row">
+                  <div class="col-sm-12 form-group cell">
+                     <div style="margin-bottom: 80px;">
+                        <select multiple id="Export_Field" class="form-control">
+                           <option value="0">Zero</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                           <option value="4">Four</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-4 form-group cell">
+                     <label class="control-label">Export All Files</label>
+                     <div>
+                        <input type="checkbox" id="">
+                     </div>
+                  </div>
+                  <div class="col-sm-4 form-group cell">
+                     <label class="control-label">Execute in idle (For big data; via cron)</label>
+                     <div>
+                        <input type="checkbox" id="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="padding-bottom: 10px;" class="clearfix">
+         <button class="btn btn-success pull-right" data-action="">Export Field</button>
+      </div>
+   </div>
+</div>
+<!-- Custom Export Form Code End -->
+
+<!-- Selectize Script for field for Export data Start --> 
+
+<script type="text/javascript">
+    var afterhash = window.location.hash;
+if(afterhash =='#Export'){
+
+     $('.No_data').css("display","none");
+ }
+
+$(function() {
+  $('#Export_Field').selectize({
+          plugins: ['remove_button'],
+  });
+});
+</script>
+
+ <!-- Selectize Script for field for Export data End -->
+
+<script type="text/javascript">
+    function pop_upForTask(url)
+    {
+         var url="/#ClosedTask";
+                    window.open(url,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=900,height=700,directories=no,location=no') 
+    }
+
+</script>
+<script>
+    //Email Sent Data
+    var currentLocation = window.location.hash;
+    // alert(currentLocation);
+    if(currentLocation == '#EmailReminder')
+    {
+        document.getElementById("sent_email").style.display = "inline-block";
+    }
+    
+
+    // Sent SMS Data
+    if(currentLocation == '#SMSReminder')
+    {
+        // alert("IN SMSReminder IF BLOCK");
+        document.getElementById("sent_sms").style.display = "inline-block";
+    }
+    
+</script>
+<script type="text/javascript">
+    
+
+var first = window.location.pathname;
+first.indexOf(2);
+first.toLowerCase();
+first = first.split("/")[2];
+
+var afterhash = window.location.hash;
+
+
+ if(first=='portal')
+    {
+
+
+    
+       if(afterhash=='#Task')
+        {
+
+             $("#show_closed").css("display","inline-block");
+        }
+        else 
+        {
+             $("#show_closed").css("display","none");
+        }
+   
+    }
+    else
+    {
+ if(afterhash=='#Task')
+{
+
+             $("#show_closed").css("display","inline-block");
+        }
+        else 
+        {
+             $("#show_closed").css("display","none");
+        }
+   
+   
+        }
+        
+</script>

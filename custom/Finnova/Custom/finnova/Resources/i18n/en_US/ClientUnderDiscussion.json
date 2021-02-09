@@ -1,0 +1,52 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "amountRsInCrore": "Amount (Rs in Crore)",
+        "amountRsInCroreCurrency": "Amount (Rs in Crore) (Currency)",
+        "amountRsInCroreConverted": "Amount (Rs in Crore) (Converted)",
+        "concernedPerson": "Concerned Person",
+        "designation": "Designation",
+        "documents": "Documents",
+        "latestRatingDate": "Latest Rating Date",
+        "leadType": "Lead Type",
+        "presentBanker": "Present Banker",
+        "rating": "Rating",
+        "ratingAgency": "Rating Agency",
+        "ratingStatus": "Rating Status",
+        "stream": "Stream"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create ClientUnderDiscussion": "Create Client Under Discussion"
+    },
+    "options": {
+        "leadType": {
+            "Rating": "Rating",
+            "Debt": "Debt",
+            "Both": "Both"
+        },
+        "ratingAgency": {
+            "CARE": "CARE",
+            "CRISIL": "CRISIL",
+            "Brickworks": "Brickworks",
+            "InfoMerics": "InfoMerics",
+            "India Rating": "India Rating",
+            "ICRA": "ICRA",
+            "Acuite": "Acuite"
+        },
+        "ratingStatus": {
+            "Live": "Live",
+            "Suspended": "Suspended",
+            "Non Cooperating": "Non Cooperating",
+            "Unaccepted": "Unaccepted",
+            "Withdrawn": "Withdrawn",
+            "Downgraded": "Downgraded"
+        }
+    }
+}

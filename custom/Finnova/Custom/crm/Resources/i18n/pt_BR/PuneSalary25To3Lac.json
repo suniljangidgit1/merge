@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "billingAddress": "Endereço de Cobrança",
+    "shippingAddress": "Endereço de Entrega"
+  },
+  "links": {
+    "meetings": "Reuniões",
+    "tasks": "Tarefas"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Criar PuneSalary 2.5 to 3 Lac"
+  }
+}

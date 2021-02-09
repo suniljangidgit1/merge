@@ -1,0 +1,17 @@
+[
+    {
+        "name": "listname"
+    },
+    {
+        "name": "totalcontacts"
+    },
+    {
+        "name": "totalEmails"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

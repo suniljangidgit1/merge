@@ -1,0 +1,116 @@
+<!-------- Email remainder list -------->
+
+Date : 20-12-2019
+
+
+ALTER TABLE `email_reminder` CHANGE `id` `er_id` INT(11) NOT NULL AUTO_INCREMENT, CHANGE `sendEmailDate` `er_sendEmailDate` DATETIME NULL DEFAULT NULL, CHANGE `sendEmailTime` `er_sendEmailTime` TIME NULL DEFAULT NULL, CHANGE `email_to` `er_emailTo` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `email_cc` `er_emailCc` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `subject` `er_subject` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `emailBody` `er_emailBody` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `file_name` `er_fileName` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `file_type` `er_fileType` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `file_size` `er_fileSize` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `createdby` `er_createdBy` DATETIME NULL DEFAULT NULL, CHANGE `createdat` `er_createdAt` DATETIME NULL DEFAULT NULL, CHANGE `status` `er_status` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Pending, 1 = Sent', CHANGE `folder_name` `er_folderName` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `sendEmailDateTime` `er_sendEmailDateTime` DATETIME NULL DEFAULT NULL;
+
+
+ALTER TABLE `email_reminder` CHANGE `er_createdBy` `er_createdBy` INT(11) NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+ALTER TABLE `email_reminder` CHANGE `er_sendEmailDate` `er_sendEmailDate` DATE NULL DEFAULT NULL;
+
+ALTER TABLE `email_reminder` CHANGE `er_status` `er_status` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Inactive, 1 = Active';
+
+ALTER TABLE `email_reminder` ADD `er_emailStatus` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Pending, 1 = Sent' AFTER `er_folderName`;
+
+ALTER TABLE `email_reminder` ADD `er_updatedAt` DATETIME NULL DEFAULT NULL AFTER `er_createdAt`;
+
+
+
+
+
+
+
+
+Date : 24-12-2019
+
+ALTER TABLE `sms_reminder` CHANGE `id` `sr_id` INT(11) NOT NULL AUTO_INCREMENT, CHANGE `mobileNo` `sr_mobileNo` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0', CHANGE `reminder_date` `sr_reminderDate` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0', CHANGE `reminder_time` `sr_reminderTime` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0', CHANGE `sms_body` `sr_smsBody` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0', CHANGE `folder_name` `sr_folderName` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `createdby` `sr_createdBy` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `createdAt` `sr_createdAt` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0', CHANGE `sendSmsDateTime` `sr_sendSmsDateTime` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `sms_reminder` ADD `sr_updatedAt` DATETIME NULL DEFAULT NULL AFTER `sr_sendSmsDateTime`;
+
+
+ALTER TABLE `sms_reminder` CHANGE `sr_id` `sr_id` INT(11) NOT NULL AUTO_INCREMENT, CHANGE `sr_mobileNo` `sr_mobileNo` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `sr_reminderDate` `sr_reminderDate` DATE NULL DEFAULT NULL, CHANGE `sr_reminderTime` `sr_reminderTime` TIME NULL DEFAULT NULL, CHANGE `sr_smsBody` `sr_smsBody` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `sr_folderName` `sr_folderName` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `sr_createdBy` `sr_createdBy` INT(11) NULL DEFAULT NULL, CHANGE `sr_createdAt` `sr_createdAt` DATETIME NULL DEFAULT NULL, CHANGE `sr_sendSmsDateTime` `sr_sendSmsDateTime` DATETIME NULL DEFAULT NULL;
+
+
+
+ALTER TABLE `sms_reminder` ADD `sr_smsStatus` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Pending, 1 = Sent' AFTER `sr_createdBy`, ADD `sr_status` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Inactive, 1 = Active' AFTER `sr_smsStatus`;
+
+
+
+ALTER TABLE `sms_reminder` CHANGE `sr_createdBy` `sr_createdBy` INT(11) NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+
+
+
+
+<!-------- Email & SMS remainder graph -------->
+
+Date : 25-12-2019
+
+CREATE TABLE `fincrm_finnovaadvisory_db`.`users` ( `u_id` INT(11) NOT NULL AUTO_INCREMENT , `u_firstName` VARCHAR(255) NULL DEFAULT NULL , `u_lastName` VARCHAR(255) NULL DEFAULT NULL , `u_email` VARCHAR(255) NULL DEFAULT NULL , `u_status` TINYINT(4) NULL DEFAULT NULL COMMENT '0 = Inactive, 1 = Active' , `u_createdAt` DATETIME NULL DEFAULT NULL , `u_updatedAt` DATETIME NULL DEFAULT NULL , PRIMARY KEY (`u_id`)) ENGINE = InnoDB;
+
+
+
+INSERT INTO `users` (`u_id`, `u_firstName`, `u_lastName`, `u_email`, `u_status`, `u_createdAt`, `u_updatedAt`) VALUES (NULL, 'User', 'One', 'user@one.com', '1', '2019-12-26 00:00:00', NULL), (NULL, 'User', 'Two', 'user@two.com', '1', '2019-12-26 00:00:00', NULL);
+
+
+
+INSERT INTO `users` (`u_id`, `u_firstName`, `u_lastName`, `u_email`, `u_status`, `u_createdAt`, `u_updatedAt`) VALUES (NULL, 'User', 'Three', 'user@three.com', '1', '2019-12-26 00:00:00', NULL);
+
+
+INSERT INTO `users` (`u_id`, `u_firstName`, `u_lastName`, `u_email`, `u_status`, `u_createdAt`, `u_updatedAt`) VALUES (NULL, 'User', 'Four', 'user@four.com', '1', '2019-12-26 00:00:00', NULL);
+INSERT INTO `users` (`u_id`, `u_firstName`, `u_lastName`, `u_email`, `u_status`, `u_createdAt`, `u_updatedAt`) VALUES (NULL, 'User', 'Five', 'user@five.com', '1', '2019-12-26 00:00:00', NULL);
+
+
+
+
+Date : 31-12-2019
+
+ALTER TABLE `sms_reminder` CHANGE `sr_createdBy` `sr_createdBy` VARCHAR(30) NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+ALTER TABLE `sms_reminder` CHANGE `sr_createdBy` `sr_createdBy` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+
+ALTER TABLE `email_reminder` CHANGE `er_createdBy` `er_createdBy` VARCHAR(30) NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+ALTER TABLE `email_reminder` CHANGE `er_createdBy` `er_createdBy` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT 'Added by user id';
+
+
+
+
+CREATE TABLE `fincrm_finnovaadvisory_db`.`user_sms_limit` ( `usl_id` INT(11) NOT NULL AUTO_INCREMENT , `usl_userId` VARCHAR(30) NULL DEFAULT NULL COMMENT 'User id ' , `usl_limit` INT(11) NULL DEFAULT NULL COMMENT 'Limit in digits only' , `usl_createdAt` DATETIME NULL DEFAULT NULL , `usl_updatedAt` DATETIME NULL DEFAULT NULL , PRIMARY KEY (`usl_id`)) ENGINE = InnoDB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

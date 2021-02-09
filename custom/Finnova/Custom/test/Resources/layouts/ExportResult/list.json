@@ -1,0 +1,17 @@
+[
+    {
+        "name": "entity"
+    },
+    {
+        "name": "description"
+    },
+    {
+        "name": "createdBy"
+    },
+    {
+        "name": "isExported"
+    },
+    {
+        "name": "createdAt"
+    }
+]

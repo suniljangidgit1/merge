@@ -1,0 +1,12 @@
+{
+  "fields": {
+    "address": "Endereço"
+  },
+  "links": {
+    "meetings": "Reuniões",
+    "tasks": "Tarefas"
+  },
+  "labels": {
+    "Create Testentity": "Criar Testentity"
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "fields": {
+        "stream": "Stream",
+        "dateEnd": "End Date",
+        "dateStart": "Start Date"
+    }
+}

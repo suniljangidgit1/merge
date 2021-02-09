@@ -1,0 +1,17 @@
+[
+    {
+        "name": "entityName"
+    },
+    {
+        "name": "noOfRecords"
+    },
+    {
+        "name": "assignedUser"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

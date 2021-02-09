@@ -1,0 +1,136 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "parent"
+                }
+            ],
+            [
+                {
+                    "name": "status"
+                },
+                {
+                    "name": "priority"
+                }
+            ],
+            [
+                {
+                    "name": "dateStart"
+                },
+                {
+                    "name": "dateCompleted"
+                }
+            ],
+            [
+                {
+                    "name": "dateEnd"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "createRecurringSeriesOfTasks"
+                }
+            ],
+            [
+                {
+                    "name": "frequency"
+                },
+                {
+                    "name": "repeat"
+                }
+            ],
+            [
+                {
+                    "name": "startDate"
+                },
+                {
+                    "name": "endDate"
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeat"
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeatOn"
+                }
+            ],
+            [
+                {
+                    "name": "weeklystartDate"
+                },
+                {
+                    "name": "weeklyendDate"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeat"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeatOn"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyStartDate"
+                },
+                {
+                    "name": "monthlyEndDate"
+                }
+            ],
+            [
+                {
+                    "name": "numberOfRecurringTasks"
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate1"
+                },
+                {
+                    "name": "customStartDate2"
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate3"
+                },
+                {
+                    "name": "customStartDate4"
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate5"
+                },
+                {
+                    "name": "customStartDate6"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "attachments"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

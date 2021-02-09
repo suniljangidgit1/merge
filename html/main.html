@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{applicationName}}</title>{{scriptsHtml}}
+        <link href="{{basePath}}{{stylesheet}}?r={{cacheTimestamp}}" rel="stylesheet" id='main-stylesheet'>{{additionalStyleSheetsHtml}}{{linksHtml}}
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="FinnovaCRM is Open Source CRM application. Increase profitability through customer loyalty!">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" sizes="196x196" href="{{basePath}}client/img/favicon.ico">
+        <link rel="icon" href="{{basePath}}client/img/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="{{basePath}}client/img/favicon.ico" type="image/x-icon"> -->
+
+        <!--Font awesome icons and  google materail icons cdns start-->
+        <link href="{{basePath}}client/icon/font-awesome.min.css" rel="stylesheet">
+        <link href="{{basePath}}client/icon/font-awesome.min-4.css" rel="stylesheet">
+        <link href="{{basePath}}client/icon/google-material-icons.css" rel="stylesheet">
+        <!--Font awesome icons and  google materail icons cdns start-->
+
+        <!--Roboto Font family cdns start-->
+        <link href="{{basePath}}client/fonts/Roboto/Roboto.css" rel="stylesheet">
+        <!--Roboto Font family cdns start-->
+
+        <!--Custom css Start-->
+        <link href="{{basePath}}client/res/templates/site/css/style.css" rel="stylesheet">
+        <!--Custom css End-->
+
+        <!--- Confirm Alert CDN Start-->
+        <link rel="stylesheet" href="{{basePath}}client/css/jquery-confirm.min.css">
+        <script src="{{basePath}}client/js/jquery-confirm.min.js"></script>
+
+        <!--- Confirm Alert CDN Start-->
+
+       <!-- Bootstrap CDN -->
+
+       
+       <!-- Clockpicker CDN Start -->
+       <link rel="stylesheet" href="{{basePath}}client/dist/bootstrap-clockpicker.min.css">
+        <script type="text/javascript" src="{{basePath}}client/dist/bootstrap-clockpicker.min.js"></script>
+        <script type="text/javascript" src="{{basePath}}client/ckeditor/ckeditor.js"></script>
+       <!-- Clockpicker CDN End -->
+       
+       <!-- Daterangepicker script and css Start -->
+        <script type="text/javascript" src="{{basePath}}client/js/daterangepicker.min.js"></script>
+         <link rel="stylesheet" href="{{basePath}}client/css/daterangepicker.css">
+        <!-- Daterangepicker script and css End -->
+        
+        
+        <!-- LeadPipeLines Charts script Start -->
+        <script src="{{basePath}}client/js/amcharts.js"></script>
+        <script src="{{basePath}}client/js/funnel.js"></script>
+        <script src="{{basePath}}client/js/serial.js"></script>
+        <script src="{{basePath}}client/js/pie.js"></script>
+        <script src="{{basePath}}client/js/light.js"></script>
+         <!-- LeadPipeLines Charts script End -->
+
+         <!-- Success and Fail icon css start-->
+         <link rel="stylesheet" href="{{basePath}}client/css/swal2.css">
+         <!-- Success and Fail icon css end -->
+
+        <!-- select2 script and css Start -->
+         <link rel="stylesheet" href="{{basePath}}client/css/select2.min.css">
+         <script src="{{basePath}}client/js/select2.min.js"></script>
+         <!-- select2 script and css End -->
+
+        <!-- customA11yselect script and css Start -->
+
+        <link rel="stylesheet" type="text/css" href="{{basePath}}client/css/customA11ySelect.css">
+        <script type="text/javascript" src="{{basePath}}client/js/customA11ySelect.js"></script>
+
+        <!-- customA11yselect script and css End -->
+
+        <!-- chosen script and css Start -->
+        <link rel="stylesheet" type="text/css" href="{{basePath}}client/css/chosen.css">
+
+        <script type="text/javascript" src="{{basePath}}client/js/chosen.jquery.min.js"></script>
+        <!-- chosen script and css End -->
+    
+        <script type="text/javascript">
+            $(function () {
+                Finnova.loader.cacheTimestamp = {{loaderCacheTimestamp}};
+                Finnova.require('{{appClientClassName}}', function (App) {
+                    var app = new App({
+                        id: '{{applicationId}}',
+                        useCache: {{useCache}},
+                        cacheTimestamp: {{cacheTimestamp}},
+                        basePath: '{{basePath}}',
+                        url: '{{apiUrl}}'
+                    }, function (app) {
+                        {{runScript}}
+                    });
+                });
+            });
+        </script>
+         <!-- Datatable script Start-->
+        <link rel="stylesheet" href="{{basePath}}client/res/templates/datatable/css/jquery.dataTables.min.css">
+         <script src="{{basePath}}client/res/templates/datatable/js/jquery.dataTables.min.js"></script>
+         <!-- Datatable script End-->
+
+
+        
+
+        <!-- BOOTSTRAP VALIDATION CSS -->
+        <link rel="stylesheet" href="{{basePath}}client/css/bootstrapValidator.min.css"/>
+
+        <!-- BOOTSTRAP VALIDATION JS -->
+        <script type="text/javascript" src="{{basePath}}client/js/bootstrapValidator.min.js"></script>
+        
+        <!-- <script type="text/javascript" src="{{basePath}}client/js/financial_estimate_calculations.js"></script> 
+        <script type="text/javascript" src="{{basePath}}client/js/financial_estimate_calculations_edit.js"></script> 
+        <script type="text/javascript" src="{{basePath}}client/js/financial_invoice_calculations.js"></script> 
+        <script type="text/javascript" src="{{basePath}}client/js/financial_invoice_calculations_edit.js"></script> 
+        <script type="text/javascript" src="{{basePath}}client/js/financial_convert_to_invoice_calculation.js"></script> --> 
+        
+        
+        <!-- Custom selectize css and js for export feild Start -->
+        <link rel="stylesheet" href="{{basePath}}client/css/selectize.default.css">
+        <script src="{{basePath}}client/js/selectize.min.js"></script>
+        <!-- Custom selectize css and js for export feild End -->
+
+    </head>
+    <body>
+        <div class="container content"></div>
+        <footer>
+            <p class="credit small">&copy; 2020 <a href="https://www.fincrm.net" title="Powered by FinCRM" alt="Visit official FinCRM website">FinCRM</a></p>
+        </footer>
+    </body>
+</html>
+

@@ -1,0 +1,709 @@
+/* your styles go here */
+
+
+/* ================================================
+Start Main-header css : 
+================================================ */
+
+.main-header .logo .logo-lg img {
+    width: 125px;
+    max-width: 118px;
+    height: auto;
+    position: absolute;
+    top: 18px;
+    left: 42px;
+}
+
+
+/* ================================================
+End Main-header css : 
+================================================ */
+
+
+/* ================================================
+Start Sidebar css : 
+================================================ */
+
+.custom-sidebar-nav .toggleWidth-Full {
+    width: 195px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.custom-sidebar-nav .toggleWidth {
+    width: 50px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.custom-sidebar-nav .fa-chevron-left {
+    padding-left: 80px;
+}
+
+.custom-sidebar-nav .fa-chevron-right {
+    padding-left: 15px;
+}
+
+.custom-sidebar-nav .material-icons-outlined {
+    font-size: 18px;
+}
+
+.custom-sidebar-nav .sidebar-menu i {
+    top: 4px;
+    position: relative;
+}
+
+
+/* ================================================
+End Sidebar css : 
+================================================ */
+
+
+/* ================================================
+Start Report loader image : 
+================================================ */
+
+.content-wrapper .loader {
+    display: none;
+}
+
+.content-wrapper .loader {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+
+.content-wrapper .loader img {
+    position: absolute;
+    top: 50%;
+    left: 43%;
+    height: 7%;
+    width: : 7%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+/* ================================================
+End Report loader image : 
+================================================ */
+
+
+/* ================================================
+start header Kanban View Table : 
+================================================ */
+
+.header_section_kanban .box-body {
+    padding: 0px;
+}
+
+.header_section_kanban .graph-section .header .leads_report,
+.billing_entity_report, .customerwise_report, .ageanalysis_report,
+.header_section_kanban .graph-section .header .billing_entity_report {
+    padding: 10px 0px 10px 11px;
+}
+
+.header_section_kanban .graph-section .header .save_export_section span .material-icons-outlined {
+    font-size: 16px;
+    position: relative;
+    top: 3px;
+    padding-right: 7px !important;
+    font-weight: bold;
+}
+
+.header_section_kanban .graph-section .header .save_export_section span {
+    padding-right: 14px;
+    font-weight: 500;
+}
+
+.header_section_kanban .graph-section .header .save_export_section {
+    margin-top: 15px;
+}
+
+.header_section_kanban .graph-section .header .leads_report h4,
+.header_section_kanban .graph-section .header .billing_entity_report h4,
+.header_section_kanban .graph-section .header .customerwise_report h4,
+.header_section_kanban .graph-section .header .ageanalysis_report h4 {
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #000
+}
+
+.header_section_kanban .graph-section .header .leads_report h4 .material-icons-outlined,
+.header_section_kanban .graph-section .header .billing_entity_report h4 .material-icons-outlined,
+.header_section_kanban .graph-section .header .customerwise_report h4 .material-icons-outlined,
+.header_section_kanban .graph-section .header .ageanalysis_report h4 .material-icons-outlined {
+    font-size: 22px;
+    position: relative;
+    top: 5px;
+    padding-right: 6px !important;
+    padding-left: 15px !important;
+    font-weight: initial;
+}
+
+.header_section_kanban .graph-section .header .save_export_section .border-right {
+    border-right: 1px solid #DFDFDF !important;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.header_section_kanban .graph-section .header .save_export_section .Export {
+    padding-left: 10px;
+}
+
+.header_section_kanban .graph-section .border-bottom {
+   /* border-bottom: 1px solid #DFDFDF;*/
+    margin-bottom: 10px;
+}
+
+.header_section_kanban .graph-section .header-middle .form-control,
+.header_section_kanban .graph-section .header-middle .input-group-addon {
+    border: 1px solid #E9EFF6 !important;
+    /*box-shadow: 0px 0px 3px #0F243F1A !important;*/
+   /* background-color: #E9EFF6;
+    border-color: #E9EFF6 !important;*/
+    font-size: 12px;
+    border-radius: 5px !important;
+    /*border-radius: 5px;*/
+}
+
+.header_section_kanban .graph-section .header-middle #reportrange, #billingentity_reportrange, #billingentity_duereportrange, #billingentity_paymentreportrange, #customerwise_reportrange, #customerwise_duereportrange, #customerwise_paymentreportrange, #ageanalysis_reportrange, #ageanalysis_duereportrange, #ageanalysis_paymentreportrange {
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    background-color: #E9EFF6;
+    border-color: #E9EFF6 !important;
+}
+
+.header_section_kanban .graph-section .header-middle .input-group-addon {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    background-color: #E9EFF6;
+    border-color: #E9EFF6 !important;
+}
+
+.header_section_kanban .graph-section .header-middle #reportType,
+.header_section_kanban .graph-section .header-middle #reportStatus {
+    border-radius: 5px !important;
+    background-color: #E9EFF6;
+    border-color: #E9EFF6 !important;
+}
+
+.header_section_kanban .header-middle {
+    padding: 10px;
+}
+
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .material-icons-outlined {
+    font-size: 17px;
+    position: relative;
+    top: 4px;
+    /*padding-right: 5px !important;*/
+    font-weight: initial;
+    line-height: unset;
+}
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-toggle:active
+{
+    color: #fff;
+    background-color: #337ab7 !important;
+    border-color: #2e6da4;
+}
+
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-toggle {
+    border: 1px solid #E9EFF6;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #E9EFF6;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-menu {
+    box-shadow: 0px 0px 10px #0000001A !important;
+    background-color: #fff !important;
+    top: 37px;
+    min-width: auto;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #0F243F33;
+    -moz-box-shadow: 0px 0px 10px #0F243F33;
+    box-shadow: 0px 0px 10px #0F243F33;
+    background-clip: padding-box;
+}
+
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-menu li {
+    /*padding-bottom: 7px;*/
+}
+
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-menu li a:hover {
+    background-color: #EFF3F6;
+}
+
+/*.header-middle .selected_user .Common .close,
+.header-middle .selected_team .Common .close,
+.header-middle .select_status .Common .close {
+    display: none;
+    color: #000 !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+}*/
+.header-middle .Common .close {
+    display: none;
+    color: #000 !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+    margin-top: 7px;
+    position: relative;
+    right: 0px;
+}
+
+.header-middle .selected_user .Common .close{
+    right: 0px;
+    margin-top: 4px;
+}
+
+/*.header-middle .selected_user .Common label,
+.header-middle .selected_team .Common label,
+.header-middle .select_status .Common label {
+    font-size: 12px !important;
+}*/
+.header-middle .Common label {
+    font-size: 12px !important;
+    color: #0f243f;
+    font-weight: bold;
+    margin-bottom: 2px
+}
+
+.header-middle .date_daily_add {
+    padding-top: 20px !important;
+}
+
+.selected_user,
+.selected_team {
+    padding-top: 3px;
+}
+
+.select2-container--default .select2-selection--multiple {
+    /*border: 1px solid #E9EFF6 !important;
+    border-radius: 5px !important;
+    */
+    cursor: text;
+    height: 30px !important;
+    font-size: 13px !important;
+    border: 1px solid #d1d5d6 !important;
+    border-radius: 5px !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease-out;
+    -moz-transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease-out;
+    -o-transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease-out;
+    transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease-out;
+}
+
+
+/* ================================================
+End header  Kanban View Table : 
+================================================ */
+
+
+/* ================================================
+Start Kanban View Table : 
+================================================ */
+
+.kanban_content .left_alignment,
+.selected_user .user,
+.list-section .button_section .left_alignment,
+.box-body .button_section .left_alignment {
+    float: left;
+}
+
+.kanban_content .right_alignment,
+.selected_user .close,
+.selected_team .close,
+.select_status .close,
+.graph-section .header .save_export_section,
+.list-section .button_section .right_alignment,
+.list_section_dropdown,
+.box-body .button_section .right_alignment {
+    float: right;
+}
+
+.kanban_content .kanban .panel-body {
+    padding: 6px 23px;
+    width: 228px;
+    background: #fff;
+    box-shadow: 0px 2px 5px #0000001A;
+    border: none;
+    border-radius: 5px !important;
+    height: 75px;
+}
+
+.kanban_content .kanban .main_table .table tbody tr td .panel {
+    min-width: 245px !important;
+    box-shadow: unset;
+    border: none;
+    height: 75px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background: transparent;
+}
+
+.kanban_content .kanban .kanban_section_heading h5 {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 3px 0px 15px 0px;
+}
+
+.kanban_content .kanban .kanban_section_heading h5 a{
+    color: #000 !important;
+    font-weight: 400;
+}
+
+.kanban_content .kanban .kanban_section_dropdown .dropdown-menu,
+.list_section .list_section_dropdown .dropdown-menu {
+    min-width: 101px !important;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px #0000001A;
+    background-color: #fff;
+}
+
+.kanban_content .kanban .kanban_section_dropdown .dropdown-menu li a:hover,
+.list_section .list_section_dropdown .dropdown-menu li a:hover {
+    background-color: #fff !important;
+}
+
+.kanban_content .kanban .kanban_section_dropdown .dropdown-menu .list-item-first,
+.list_section .list_section_dropdown .dropdown-menu .list-item-first {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.kanban_content .kanban .kanban_section_dropdown .dropdown-menu .list-item-last,
+.list_section .list_section_dropdown .dropdown-menu .list-item-last {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+.kanban_content .kanban .large_content {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 133px;
+}
+
+.kanban_content .kanban .kanban_section_footer span {
+    color: #9F9F9F;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.kanban_content .kanban .main_table .table tr td {
+    border-top: none;
+    padding-right: 20px;
+    background-color: #EFF3F6;
+    padding: 0px 8px;
+}
+
+.kanban_content .kanban .main_table .table tr th {
+   /* padding-right: 11px;*/
+    background-color: #0575c8;
+}
+
+.kanban_content .kanban .main_table .table tr>td{
+        padding: 8px 0px !important;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table tr th{
+    position: relative;
+    padding-left: 30px;
+    color: #fff;
+}
+
+.kanban_content .kanban .main_table .table.Lost tr th{
+    background-color: #46C5E5;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Lost tr th:before{
+    border-left-color: #46C5E5;
+}
+
+.kanban_content .kanban .main_table .table.Won  tr th{
+    background-color: #86CF68;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Won tr th:before{
+    border-left-color: #86CF68;
+}
+
+
+.kanban_content .kanban .main_table .table.Negotiation  tr th{
+    background-color: #008398;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Negotiation tr th:before{
+    border-left-color: #008398;
+}
+
+
+.kanban_content .kanban .main_table .table.Proposal  tr th{
+    background-color: #E88A20;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Proposal tr th:before{
+    border-left-color: #E88A20;
+}
+
+
+.kanban_content .kanban .main_table .table.Prospecting  tr th{
+    background-color: #b371e5;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Prospecting tr th:before{
+    border-left-color: #b371e5;
+}
+
+
+.kanban_content .kanban .main_table .table.Qualification  tr th{
+    background-color: #999;
+}
+
+.kanban_content .kanban .main_table .kanban_individual_stage .table.Qualification tr th:before{
+    border-left-color: #999;
+}
+
+ .kanban_content .kanban .main_table .kanban_individual_stage .table tr th:before {
+      content: '';
+        position: absolute;
+        border: 18px solid #EFF3F6;
+        border-left-color: #0575c8;
+        top: 0px;
+        right: 0px;
+    }
+    .kanban_content .kanban .main_table .kanban_individual_stage .table tr th:after {
+      content: '';
+    position: absolute;
+    border: 18px solid transparent;
+    border-left-color: #EFF3F6;
+    top: 0px;
+    left: 0px;
+    }
+
+.kanban_content .kanban .button_section .btn,
+.box-body .button_section .btn {
+    padding: 6px 9px !important;
+    border-radius: 5px !important;
+    background-color: #337AB7;
+    font-size: 12px;
+}
+
+.kanban_content .kanban .button_section span,
+.box-body .button_section span {
+    padding-top: 10px;
+    color: #337AB7;
+}
+
+.kanban_content .kanban .main_table .table>thead>tr>th {
+    border-bottom: none;
+}
+
+.kanban_content .kanban .border-bottom {
+    /*border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 12px;*/
+}
+
+.kanban_content .kanban .dropdown-menu li a,
+.header_section_kanban .graph-section .header-middle .add_filter .dropdown .dropdown-menu li a,
+.list_section .list_section_dropdown .dropdown-menu li a {
+    font-weight: 500 !important;
+    font-size: 12px;
+}
+
+.panel {
+    border-radius: 5px !important;
+}
+
+
+/* ================================================
+End Kanban View Table : 
+================================================ */
+
+@media (max-width: 576px) {
+    .header_section_kanban .graph-section .header .save_export_section span {
+        padding-right: 10px;
+    }
+}
+
+
+/* ================================================
+Start Datatable view css : 
+================================================ */
+
+.list_section .checkbox label {
+    padding-top: 6px;
+}
+
+.checkbox {
+    margin: 0px !important;
+}
+
+.list_section table th {
+    color: #ffffff;
+    background: #4d87b5;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.list_section table th:first-child{
+    border-radius: 15px 0px 0px 0px;
+}
+
+.list_section table th:last-child{
+    border-radius: 0px 15px 0px 0px;
+}
+
+.list_section table tr td {
+   font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    line-height: 1.36;
+    vertical-align: top;
+    color: #0f243f;
+    border-top: 1px solid #e8eced;
+}
+
+.list_section table tr td a{
+    color: #0f243f !important;
+}
+
+
+.custom-a11yselect-container{
+    margin-right: 0px !important;
+}
+
+/* ================================================
+Start Datatable view css : 
+================================================ */
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        border: none;
+    }
+}
+
+.date_range_icon
+{
+    font-size: 16px !important;
+}
+
+@media (min-width: 1200px)
+{
+    .col-md-1.add_filter {
+        width: 4.91%;
+    }
+}
+
+.add_filter .date_daily_add
+{
+  margin-top: 1px;
+} 
+
+
+/* search bar row css start*/
+.search-main
+{
+    border: none;
+    box-shadow: unset;
+    border-radius: 5px 0px 0px 5px !important;
+    background-color: #E9EFF6;
+    height: 36px;
+}
+#search-btn-icon
+{
+    padding: 5.7px 12px !important;
+    border-radius: 0px 5px 5px 0px !important;
+    /*border-top: 3px solid #e9eff6;*/
+    background-color: #E9EFF6;
+}
+#search-btn-icon:focus
+{
+    outline: none;
+}
+#search-btn-icon:focus
+{
+    box-shadow: unset;
+}
+#search-btn-icon .material-icons-outlined,.btn-icon-refresh .material-icons-outlined 
+{
+    position: relative;
+    font-size: 18px;
+    top: 3px;
+}
+#Search-bar-group
+{
+    padding-left: 11px;
+    margin-top: 23px !important;
+}
+.btn-icon-refresh {
+  border-radius: 5px !important;
+  color: #0f243f;
+  background-color: #E9EFF6;
+  border-color: #E9EFF6;
+  padding: 5.9px 8px;
+  outline: none;
+  margin-left: 10px !important;
+}
+.btn-icon-refresh:active
+{
+    box-shadow: unset;
+    outline: none !important;
+    color: #fff;
+    background-color: #337ab7 !important;
+    border-color: #2e6da4;
+}
+.date_daily_add
+{
+    padding-top: 0px !important;
+}
+@media (min-width: 768px)
+{
+.date-range-section-col {
+    margin-left: -30px;
+}
+.searchBarDiv
+{
+margin-top: 15px;
+}
+}
+.no_of_days_overdue
+{
+    font-size: 15px !important;
+    text-transform: uppercase;
+    background: #EFF3F6 !important;
+    margin: 0px;
+    padding: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* data table UI changes */
+
+@media(max-width: 991px)
+{
+    .table.table_tabular
+    {
+        width: 1000px !important;
+    }
+}

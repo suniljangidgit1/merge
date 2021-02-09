@@ -1,0 +1,20 @@
+[
+    {
+        "label": "General",
+        "rows": [
+            [{"name": "name"}, {"name": "isActive"}],
+            [{"name": "url"}, {"name": "isDefault"}],
+            [{"name": "portalRoles"}, {"name": "customId"}],
+            [false, {"name": "customUrl"}]
+        ]
+    },
+    
+    {
+        "label": "User Interface",
+        "rows": [
+            
+            [{"name": "tabList"}]
+            
+        ]
+    }
+]

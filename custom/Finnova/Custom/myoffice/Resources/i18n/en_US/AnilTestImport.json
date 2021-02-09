@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "address": "Address",
+        "dateOfBirth": "Date of Birth",
+        "resumeID": "Resume ID",
+        "resumeTitle": "Resume Title",
+        "currentCompany": "Current Company"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create AnilTestImport": "Create Anil Test Import"
+    }
+}

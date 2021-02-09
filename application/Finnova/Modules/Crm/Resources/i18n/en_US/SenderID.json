@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "senderId": "Sender ID",
+        "categoryType": "Category",
+        "status": "Status"
+    },
+    "links": [],
+    "labels": {
+        "Create SenderID": "Create Sender ID"
+    },
+    "options": {
+        "status": {
+            "Active": "Active"
+        }
+    }
+}

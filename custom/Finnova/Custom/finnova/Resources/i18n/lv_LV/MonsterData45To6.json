@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adrese"
+  },
+  "links": {
+    "meetings": "Tikšanās",
+    "calls": "Zvani",
+    "tasks": "Uzdevumi"
+  },
+  "labels": {
+    "Create MonsterData45To6": "Izveidot Monster Data (4.5 to 6)"
+  }
+}

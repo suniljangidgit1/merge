@@ -1,0 +1,21 @@
+[
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "phoneNumber"
+    },
+    {
+        "name": "website"
+    },
+    {
+        "name": "emailAddress"
+    },
+    {
+        "name": "assignedUser"
+    },
+    {
+        "name": "modifiedAt"
+    }
+]

@@ -1,0 +1,482 @@
+
+.clockpicker-popover {
+    z-index: 999999;
+}
+
+
+.input:-internal-autofill-selected
+{
+  background-color: #fff;
+}
+.create_popup_section .panel-default
+{
+  border-color: #707070;
+}
+
+.attachment .attachment-icon 
+{
+  float: right;
+  border: 1px solid grey;
+    border-radius: 10px;
+  background-color: #fff;
+}
+.attachment .attachment-icon i
+{
+transform: rotate(-45deg);
+}
+
+.create_popup_section textarea
+{
+  resize: none;
+}
+
+.create_popup_section .create_popup
+{
+  font-size: 15px !important;
+}
+
+.review_popup_section .review_popup
+{
+  font-size: 15px !important;
+}
+
+.create_popup_section .footer-btn
+{
+  background-color: #fff;
+    border:1px solid #ced4da;
+    color: #707070;
+    border-radius: 20px;
+    padding: 6px 18px;
+    box-shadow: 0px 0px 3px #989898;
+}
+.review_popup_section .feedback-btn
+{
+  background-color: white;
+   outline: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    color: #707070;
+        border: 1px solid #ced4da;
+}
+.create_popup_section .footer-btn3
+{
+  float: right;
+}
+.create_popup_section .footer-btn:hover,.create_popup_section .footer-btn:focus
+{
+  background-color: #0D5BB9;
+    border: 1px solid #0D5BB9;
+    border-radius: 20px;
+    color:#fff;
+    outline:none;
+}
+
+.review_popup_section .feedback-btn:hover,.review_popup_section .feedback-btn:focus
+{
+  background-color: #0D5BB9;
+    border: 1px solid #0D5BB9;
+    border-radius: 20px;
+    color:#fff;
+    outline:none;
+}
+
+.create_popup_section .footer-btn2
+{
+  margin-left: 27px;
+}
+
+
+.review_popup_section .reject-btn
+{
+  margin-left: 20px;
+}
+
+
+.create_popup_section .panel-body .main_body
+{
+      border: 1px solid #ddd;
+    padding: 21px 13px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.review_popup_section .panel-body .main_body
+{
+      border: 1px solid grey;
+    padding: 12px 13px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+.create_popup_section .second-attachment .file-upload-input
+{
+  float: right !important;
+
+}
+
+.review_popup_section .second-attachment .file-upload-input
+{
+  float: right !important;
+}
+
+.create_popup_section .has-success .input-group-addon 
+{
+background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+
+
+.create_popup_section .second-attachment .file-upload-button .material-icons {
+  top: -26px;
+
+}
+.review_popup_section .second-attachment .file-upload-button .material-icons {
+  top: -26px;
+
+}
+.create_popup_section .second-attachment .custom-file-upload .file-upload-input
+{
+    
+      width:91%;
+}
+.review_popup_section .second-attachment .custom-file-upload .file-upload-input
+{
+    
+      width:91%;
+}
+.create_popup_section .second-attachment .custom-file-upload .btn
+{
+  background-color: white;
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+}
+.review_popup_section .second-attachment .custom-file-upload .btn
+{
+  background-color: white;
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.create_popup_section .second-attachment .custom-file-upload
+{
+  color: grey;
+}
+.review_popup_section .second-attachment .custom-file-upload
+{
+  color: grey;
+}
+
+
+.create_popup_section .second-attachment .custom-file-upload .file-upload-wrapper .material-icons
+{
+  color: grey;
+}
+
+.create_popup_section .clockpicker .input-group-addon
+{
+  background-color: #fff;
+}
+
+.review_popup_section .clockpicker .input-group-addon
+{
+  background-color: #fff;
+}
+
+
+.custom-file-upload-hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+
+.custom-file-upload {
+  display: block;
+  width: auto;
+  font-size: 16px;
+  /*margin-top: 30px;*/
+}
+.custom-file-upload label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.clone-panel .fileList {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    padding-top: 16px;
+    }
+
+
+.file-upload-wrapper {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.file-upload-input {
+  width: 91%;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Arial';
+    padding: .375rem .75rem;
+    border:none;
+    border-radius: 5px;
+    box-shadow: unset;l
+    background-color: #fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    float: left;
+}
+
+.file-upload-input:hover, .file-upload-input:focus {
+  /*background-color: #ab3326;*/
+  outline: none;
+}
+
+.file-upload-button {
+  /*margin-top:22px;*/
+  cursor: pointer;
+    display: inline-block;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Arial';
+    /*text-transform: uppercase;*/
+    /*padding: 0.29rem .5rem;*/
+    border: 1px solid #ced4da;
+     margin-left: -1px;
+    
+    border-radius:5px;
+    background-color: #fff;
+    float: left;
+    
+}
+
+.file-upload-button .material-icons{
+    color: #707070;
+    transform: rotate(-45deg);
+    /*position: relative;*/
+   padding: 4px 2px;
+    font-size: 20px;
+}
+
+
+.create_popup_section .panel-default .panel-heading 
+{
+  background-color: #0D5BB9;
+  color:#fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.review_popup_section .panel-default .panel-heading 
+{
+  background-color: #0D5BB9;
+  color:#fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.create_popup_section .panel-default .panel-body .form-group label
+{
+    font: Bold 16px/35px Roboto;
+}
+
+.review_popup_section .panel-default .panel-body .form-group label
+{
+    font: Bold 16px/35px Roboto;
+}
+
+.create_popup_section .file-upload-button
+{
+  box-shadow: unset;
+    outline: none;
+}
+
+@media (max-width: 991px)
+{
+  .create_popup_section .file-upload-button {
+    position: absolute;
+    top: 2px !important;
+    left: 5px;
+
+   }
+
+   .file-upload-button{
+      margin-top: 0px;
+      margin-left: 12px;
+   }
+
+
+.review_popup_section .file-upload-button {
+    position: absolute;
+    top: 0px
+    left: 0px;
+
+   }
+
+   .file-upload-button{
+      margin-top: 0px;
+      margin-left: 10px;
+   }
+   .delete
+   {
+    margin-left: 0px;
+    top: 125px !important;
+    left:62px !important;
+   }
+  
+
+    .clone-panel .fileList {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    padding-top: 31px;
+  }
+}
+
+
+@media (min-width: 992px)
+{
+  .create_popup_section .file-upload-button {
+    /*position: absolute;
+    top: -179px;
+    
+    left: 745px;*/
+   }
+   .review_popup_section .file-upload-button {
+    
+    top: -59px !important;
+    left: 93px !important;
+
+   }
+}
+
+
+.review_popup_section .feedback .button_section .post_btn
+{
+      background-color: white;
+    padding: 5px 19px;
+   border:1px solid #ced4da;
+    margin-top: 14px;
+    color: #707070;
+    outline: none;
+}
+
+.review_popup_section .feedback .img-circle
+{
+  height: 50px !important;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.review_popup_section .feedback .feedback-text-field
+{
+  /*margin-top: 14px !important;*/
+}
+
+.review_popup_section .panel-default .panel-heading 
+{
+  background-color: #0D5BB9;
+  color:#fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.review_popup_section .feedback .button_section .file-upload-button
+{
+position: absolute;
+    top: -37px;
+        left: 79px;
+        outline: none;
+}
+.review_popup_section .feedback .button_section .file-upload-button i
+{
+   color: #707070;
+   padding: 2px;
+}
+.review_popup_section .panel-body
+{
+  padding: 6px 6px 0px 6px;
+}
+
+.review_popup_section .messanger-text-field
+{
+background: #FBFBFB;
+    padding: 8px;
+    border-radius: 10px;
+      /*background-color: white;*/
+}
+
+.review_popup_section .feedback .button_section{
+  padding-top: 15px;
+}
+
+.review_popup_section .sender-messanger-text-field
+{
+ background-color: #c3f7e3;
+ /*text-align: right;*/
+}
+.review_popup_section .sender
+{
+  float: right;
+}
+.review_popup_section .review_activity .file-upload-button
+{
+  display: none;
+}
+.review_popup_section .sender-messanger-text-field::placeholder
+{
+  color: black;
+}
+.review_popup_section .feedback .feedback-text-field span
+{
+     margin: 25px 0px;
+    display: inline-block;
+}
+
+
+.feedback .feedback-text-field .sender-feedback-text-field span
+{
+  display: : inline-block;
+    margin: 30px 0px;
+}
+
+.pl0{
+  padding-left: 0px;
+}
+
+
+.clone-panel .fileList li
+{
+  display: inline-block;
+    padding-left: 4px;
+    padding-right: 7px;
+    /*word-wrap: break-word;*/
+    max-width: 100%;
+}
+
+.create_popup_section  .clone-panel .file-upload
+{
+  display: none;
+}
+.delete
+  {
+    
+    position: absolute;
+    top: 41px;
+    left: 369px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    
+    padding: 8px 10px;
+    color:#707070;
+  }

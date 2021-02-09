@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Norēķinu adrese",
+    "shippingAddress": "Piegādes adrese",
+    "website": "Vietne"
+  },
+  "links": {
+    "meetings": "Tikšanās",
+    "calls": "Zvani",
+    "tasks": "Uzdevumi"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Izveidot PuneSalary 2.5 to 3 Lac"
+  }
+}

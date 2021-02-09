@@ -1,0 +1,41 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                false,
+                false
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "userPermission"
+                },
+                {
+                    "name": "assignmentPermission"
+                },
+                {
+                    "name": "portalPermission"
+                }
+            ],
+            [
+                
+                {
+                    "name": "dataPrivacyPermission"
+                },
+                {
+                    "name": "massUpdatePermission"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    }
+]

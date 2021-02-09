@@ -1,0 +1,33 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "type": "Type",
+        "category": "Category"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Automobile": "Create Automobile"
+    },
+    "options": {
+        "type": {
+            "Dealer": "Dealer",
+            "Distributor": "Distributor"
+        },
+        "category": {
+            "Phone": "Phone",
+            "Laptop": "Laptop",
+            "Home appliances": "Home appliances",
+            "Complete Electronics": "Complete Electronics",
+            "Two Wheeler": "Two Wheeler",
+            "Personal Vehicle": "Personal Vehicle",
+            "Heavy": "Heavy",
+            "Transport": "Transport"
+        }
+    }
+}

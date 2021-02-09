@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "address": "Address",
+        "testentities": "Testentities",
+        "testentityParent": "Testentity Parent"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "testentities": "Testentities",
+        "testentityParent": "Testentity Parent"
+    },
+    "labels": {
+        "Create Testentity": "Create Testentity"
+    }
+}

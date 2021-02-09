@@ -1,0 +1,78 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "website"
+                }
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "billingAddress"
+                },
+                {
+                    "name": "concernedPerson"
+                }
+            ],
+            [
+                {
+                    "name": "documents"
+                },
+                {
+                    "name": "cINNo"
+                }
+            ],
+            [
+                {
+                    "name": "dateOfIncorporation"
+                },
+                {
+                    "name": "directors"
+                }
+            ],
+            [
+                {
+                    "name": "constitution"
+                },
+                {
+                    "name": "dateOfDIscussion"
+                }
+            ],
+            [
+                {
+                    "name": "paidUpCapitalRsInCrore"
+                },
+                {
+                    "name": "chargesRsInCrore"
+                }
+            ],
+            [
+                {
+                    "name": "bankers"
+                },
+                {
+                    "name": "reference"
+                }
+            ],
+            [
+                {
+                    "name": "description",
+                    "fullWidth": true
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

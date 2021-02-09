@@ -1,0 +1,492 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "trim": true,
+            "inlineEditDisabled": true,
+            "options": []
+        },
+        "description": {
+            "type": "text",
+            "inlineEditDisabled": true
+        },
+        "website": {
+            "type": "url",
+            "strip": true
+        },
+        "emailAddress": {
+            "type": "email"
+        },
+        "phoneNumber": {
+            "type": "phone",
+            "typeList": [
+                "Office",
+                "Mobile",
+                "Fax",
+                "Other"
+            ],
+            "defaultType": "Office"
+        },
+        "billingAddress": {
+            "type": "address"
+        },
+        "billingAddressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "billingAddressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "billingAddressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddress": {
+            "type": "address",
+            "view": "crm:views/account/fields/shipping-address"
+        },
+        "shippingAddressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "shippingAddressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "shippingAddressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "Stream": {
+            "type": "varchar",
+            "maxLength": 2000,
+            "trim": true
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user",
+            "inlineEditDisabled": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "inlineEditDisabled": true
+        },
+        "closedat": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "completedat": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "createRecurringSeriesOfTasks": {
+            "notNull": true,
+            "type": "bool",
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "customStartDate1": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "customStartDate2": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "customStartDate3": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "customStartDate4": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "customStartDate5": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "customStartDate6": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "endDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "frequency": {
+            "type": "enum",
+            "options": [
+                "Daily",
+                "Weekly",
+                "Monthly",
+                "Custom"
+            ],
+            "style": {
+                "Daily": null,
+                "Weekly": null,
+                "Monthly": null,
+                "Custom": null
+            },
+            "default": "Daily",
+            "isCustom": true
+        },
+        "monthlyEndDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "monthlyRepeat": {
+            "type": "enum",
+            "options": [
+                "Every Month",
+                "Custom"
+            ],
+            "style": {
+                "Every Month": null,
+                "Custom": null
+            },
+            "default": "Every Month",
+            "isCustom": true
+        },
+        "monthlyRepeatOn": {
+            "type": "enum",
+            "options": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31"
+            ],
+            "style": {
+                "10": null,
+                "11": null,
+                "12": null,
+                "13": null,
+                "14": null,
+                "15": null,
+                "16": null,
+                "17": null,
+                "18": null,
+                "19": null,
+                "20": null,
+                "21": null,
+                "22": null,
+                "23": null,
+                "24": null,
+                "25": null,
+                "26": null,
+                "27": null,
+                "28": null,
+                "29": null,
+                "30": null,
+                "31": null,
+                "01": null,
+                "02": null,
+                "03": null,
+                "04": null,
+                "05": null,
+                "06": null,
+                "07": null,
+                "08": null,
+                "09": null
+            },
+            "default": "01",
+            "isCustom": true
+        },
+        "monthlyStartDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "numberOfRecurringTasks": {
+            "type": "enum",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "style": {
+                "1": null,
+                "2": null,
+                "3": null,
+                "4": null,
+                "5": null,
+                "6": null
+            },
+            "default": "1",
+            "isCustom": true
+        },
+        "repeat": {
+            "type": "enum",
+            "options": [
+                "Every day"
+            ],
+            "style": {
+                "Every day": null
+            },
+            "default": "Every day",
+            "isCustom": true
+        },
+        "startDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "weeklyendDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "weeklyrepeat": {
+            "type": "enum",
+            "options": [
+                "Every week",
+                "Custom"
+            ],
+            "style": {
+                "Every week": null,
+                "Custom": null
+            },
+            "default": "Every week",
+            "isCustom": true
+        },
+        "weeklyrepeatOn": {
+            "type": "enum",
+            "options": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "style": {
+                "Monday": null,
+                "Tuesday": null,
+                "Wednesday": null,
+                "Thursday": null,
+                "Friday": null,
+                "Saturday": null,
+                "Sunday": null
+            },
+            "default": "Monday",
+            "isCustom": true
+        },
+        "weeklystartDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "status": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "parent": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "priority": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "dateStart": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "dateEnd": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "dateCompleted": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        },
+        "DateCompleted": {
+            "name": "DateCompleted",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "inlineEditDisabled": true,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "DateEnd": {
+            "name": "DateEnd",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "inlineEditDisabled": true,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "attachments": {
+            "type": "attachmentMultiple",
+            "previewSize": "medium",
+            "sourceList": [],
+            "accept": [],
+            "isCustom": true,
+            "inlineEditDisabled": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "attachments": {
+            "type": "hasChildren",
+            "entity": "Attachment",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true,
+            "relationName": "attachments",
+            "disabled": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    },
+    "indexes": {
+        "name": {
+            "columns": [
+                "name",
+                "deleted"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

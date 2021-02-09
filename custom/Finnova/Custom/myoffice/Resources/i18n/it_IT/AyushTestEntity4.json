@@ -1,0 +1,36 @@
+{
+  "fields": {
+    "parent": "Genitore",
+    "dateStart": "Data inizio",
+    "dateEnd": "Data termine",
+    "duration": "Dirata",
+    "status": "Stato",
+    "reminders": "Promemoria"
+  },
+  "links": {
+    "parent": "Genitore"
+  },
+  "options": {
+    "status": {
+      "Planned": "Pianificato",
+      "Held": "Trattenuto",
+      "Not Held": "Non trattenuto"
+    }
+  },
+  "labels": {
+    "Create AyushTestEntity4": "Crea Ayush Test entity 4",
+    "Schedule AyushTestEntity4": "Pianificazione Ayush Test entity 4",
+    "Log AyushTestEntity4": "Registro Ayush Test entity 4",
+    "Set Held": "Imposta trattenuto",
+    "Set Not Held": "Imposta non trattenuto"
+  },
+  "massActions": {
+    "setHeld": "Imposta trattenuto",
+    "setNotHeld": "Imposta non trattenuto"
+  },
+  "presetFilters": {
+    "planned": "Pianificato",
+    "held": "Trattenuto",
+    "todays": "Di oggi"
+  }
+}

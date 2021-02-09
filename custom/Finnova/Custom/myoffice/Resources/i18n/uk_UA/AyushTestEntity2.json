@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Адреса виставлення рахунку",
+    "shippingAddress": "Адреса доставки",
+    "website": "Вебсайт"
+  },
+  "links": {
+    "meetings": "Зустрічі",
+    "calls": "Дзвінки",
+    "tasks": "Завдання"
+  },
+  "labels": {
+    "Create AyushTestEntity2": "Створити Ayush test entity 2"
+  }
+}

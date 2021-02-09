@@ -1,0 +1,10 @@
+{
+  "links": {
+    "meetings": "Møter",
+    "calls": "Samtaler",
+    "tasks": "Oppgaver"
+  },
+  "labels": {
+    "Create AyushTestEntity3": "Opprett Ayush Test Entity 3"
+  }
+}

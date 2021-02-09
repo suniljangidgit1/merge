@@ -1,0 +1,26 @@
+[
+    {
+        "name": "contentTemplateName"
+    },
+    {
+        "name": "campaignsName"
+    },
+    {
+        "name": "listName"
+    },
+    {
+        "name": "sendFrom"
+    },
+    {
+        "name": "smsBody"
+    },
+    {
+        "name": "scheduledAt"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    }
+]

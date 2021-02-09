@@ -1,0 +1,27 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "campaignsName": "Campaigns Name",
+        "listName": "Contact List",
+        "listId": "List ID",
+        "smsBody": "SMS Body",
+        "sendFrom": "Sender Id",
+        "sendsmsdate": "Sent SMS Date",
+        "sendsmstime": "Sent SMS Time",
+        "totalSentSms": "Total Sent SMS",
+        "totalDeliveredSMS": "Total Delivered SMS",
+        "totalNotDeliveredSMS": "Total Undelivered",
+        "contentTemplateName": "Template Name",
+        "scheduledAt": "Scheduled At"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create SentMessages": "Create Sent Messages"
+    }
+}

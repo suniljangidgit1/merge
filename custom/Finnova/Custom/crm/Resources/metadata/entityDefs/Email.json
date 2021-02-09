@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Lead",
+                "Contact",
+                "Opportunity",
+                "Case",
+                "OfficeLocation",
+                "TestDemo",
+                "NSICData",
+                "PuneSalary25To3Lac"
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adresas"
+  },
+  "links": {
+    "meetings": "Susitikimai",
+    "calls": "Skambučiai",
+    "tasks": "Užduotys"
+  },
+  "labels": {
+    "Create Insurance16thNovv": "Sukurti Insurance 16th Novv"
+  }
+}

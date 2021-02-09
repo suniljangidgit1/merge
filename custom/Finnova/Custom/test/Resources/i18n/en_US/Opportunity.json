@@ -1,0 +1,26 @@
+{
+    "options": {
+        "stage": {
+            "Prospecting": "Prospecting",
+            "Qualification": "Qualification",
+            "Proposal": "Proposal",
+            "Negotiation": "Negotiation",
+            "Closed Won": "Closed Won",
+            "Closed Lost": "Closed Lost",
+            "New": "New",
+            "Unqualified": "Unqualified",
+            "Qualified": "Qualified"
+        },
+        "lossReason": {
+            "None": "None",
+            "Lost to Competitor": "Lost to Competitor",
+            "No Budget": "No Budget",
+            "No Response": "No Response",
+            "Pricing": "Pricing"
+        }
+    },
+    "fields": {
+        "lossReason": "Loss Reason",
+        "stream": "Stream"
+    }
+}

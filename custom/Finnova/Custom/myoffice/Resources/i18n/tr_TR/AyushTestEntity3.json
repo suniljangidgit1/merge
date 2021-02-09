@@ -1,0 +1,10 @@
+{
+  "links": {
+    "meetings": "Toplantılar",
+    "calls": "(Seslenme)",
+    "tasks": "Görevler"
+  },
+  "labels": {
+    "Create AyushTestEntity3": "Ayush Test Entity 3 oluştur"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "dateTest": "Date Test",
+        "amoutTest": "Amout test",
+        "importDate": "Import Date",
+        "importDateTime": "Import Date Time",
+        "adsf": "Adsf"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create ImportTest": "Create ImportTest"
+    }
+}

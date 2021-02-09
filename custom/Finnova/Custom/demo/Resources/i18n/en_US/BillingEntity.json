@@ -1,0 +1,23 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "panno": "PAN NO",
+        "udyamRegistrationNo": "Udyam Registration No",
+        "addressstreet": "Address street",
+        "addresscity": "Address city",
+        "addressstate": "Address state",
+        "addresspostalcode": "Address postal code",
+        "emailid": "Email id",
+        "phoneno": "Phone no"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create BillingEntity": "Create BillingEntity"
+    }
+}

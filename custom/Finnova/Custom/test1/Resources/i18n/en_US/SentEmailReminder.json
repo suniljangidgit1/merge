@@ -1,0 +1,22 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "emailBody": "Email Body",
+        "emailCc": "Email CC",
+        "emailStatus": "Email Status",
+        "emailTo": "Email To",
+        "sendEmailDate": "Send Email Date",
+        "sendEmailTime": "Send Email Time",
+        "sendEmailDateTime": "SCHEDULED AT"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create SentEmailReminder": "Create Sent Email Reminder"
+    }
+}

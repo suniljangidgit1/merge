@@ -1,0 +1,25 @@
+{
+    "fields": {
+        "stream": "Stream",
+        "frequency": "Frequency",
+        "repeat": "Repeat",
+        "endDate": "End Date",
+        "startDate": "Start Date",
+        "weeklyendDate": "Weekly End Date",
+        "weeklyrepeat": "Weekly Repeat",
+        "weeklyrepeatOn": "Weekly Repeat On",
+        "weeklystartDate": "Weekly Start Date",
+        "customStartDate1": "Custom Start Date1",
+        "customStartDate2": "Custom Start Date2",
+        "customStartDate3": "Custom Start Date3",
+        "customStartDate4": "Custom Start Date4",
+        "customStartDate5": "Custom Start Date5",
+        "customStartDate6": "Custom Start Date6",
+        "monthlyEndDate": "Monthly End Date",
+        "monthlyRepeat": "Monthly Repeat",
+        "monthlyRepeatOn": "Monthly Repeat On",
+        "monthlyStartDate": "Monthly Start Date",
+        "numberOfRecurringTasks": "Number Of Recurring Tasks",
+        "createRecurringSeriesOfTasks": "Create Recurring Series Of Tasks"
+    }
+}

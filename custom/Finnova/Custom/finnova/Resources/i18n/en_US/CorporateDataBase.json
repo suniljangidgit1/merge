@@ -1,0 +1,39 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "bankers": "Bankers",
+        "cINNo": "CIN No",
+        "chargesRsInCrore": "Charges (Rs in Crore)",
+        "concernedPerson": "Concerned Person",
+        "constitution": "Constitution",
+        "dateOfDIscussion": "Date Of DIscussion",
+        "dateOfIncorporation": "Date Of Incorporation",
+        "directors": "Directors",
+        "documents": "Documents",
+        "industry": "Industry",
+        "industrySector": "Industry / Sector",
+        "reference": "Reference",
+        "stream": "Stream",
+        "paidUpCapitalRsInCrore": "Paid up Capital (Rs in Crore)"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create CorporateDataBase": "Create Corporate Data Base"
+    },
+    "options": {
+        "constitution": {
+            "Individual": "Individual",
+            "Proprietorship": "Proprietorship",
+            "Partnership Firm": "Partnership Firm",
+            "LLP": "LLP",
+            "Company - Private Limited": "Company - Private Limited",
+            "Company - Public Limited": "Company - Public Limited"
+        }
+    }
+}

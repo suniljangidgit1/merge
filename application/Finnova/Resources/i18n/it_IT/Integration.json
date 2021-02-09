@@ -1,0 +1,10 @@
+{
+  "fields": {
+    "enabled": "Abilitato",
+    "redirectUri": "Reindirizzare URI"
+  },
+  "messages": {
+    "selectIntegration": "Selezionare una integrazione dal menù.",
+    "noIntegrations": "Nessuna integrazioni è disponibile ."
+  }
+}

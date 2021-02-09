@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 760" style="enable-background:new 0 0 200 760;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#0F243F;}
+	.st2{opacity:0.15;}
+	.st3{clip-path:url(#SVGID_2_);}
+	.st4{opacity:0.5;fill:#FFFFFF;enable-background:new    ;}
+	.st5{clip-path:url(#SVGID_4_);}
+	.st6{opacity:0.5;fill:#EFF3F6;enable-background:new    ;}
+	.st7{fill:#EFF3F6;}
+	.st8{display:none;fill:#FFFFFF;}
+</style>
+<rect x="131.1" y="0" class="st0" width="68.9" height="68.9"/>
+<g id="Group_9571" transform="translate(-205 8518)">
+	<g id="Group_9466" transform="translate(205 -8518)">
+		<g id="Side_Bar">
+			<path id="Rectangle_120" class="st1" d="M0,0h150c27.6,0,50,22.4,50,50v660c0,27.6-22.4,50-50,50l0,0H0l0,0V0L0,0z"/>
+		</g>
+		<g id="Group_264" transform="translate(0 634)" class="st2">
+			<g>
+				<defs>
+					<rect id="SVGID_1_" y="0" width="200" height="126"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+				</clipPath>
+				<g id="Mask_Group_3" transform="translate(0 0)" class="st3">
+					<path id="wave_1_" class="st4" d="M-274,45.6l10.4,3.3c10.4,3.2,31.1,10.1,51.8,21.7s41.5,28.5,62.2,21.7
+						c20.7-6.7,41.5-36.7,62.2-41.7s41.5,15,62.2,15s20.8-41,51.6-55.2S74.9,16,92.8,47.4s39.1,34.9,57.8,32s46.9-39.2,67.7-42.5
+						c20.7-3.3,46.7,48.8,67.4,48.8s41.5-10,51.8-15l10.4-5v60.1H-274V45.6z"/>
+				</g>
+			</g>
+			<g>
+				<defs>
+					<rect id="SVGID_3_" y="20" width="200" height="106"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+				</clipPath>
+				<g id="Mask_Group_2" transform="translate(0 20)" class="st5">
+					<path id="wave_2_" class="st6" d="M-83.5,44.8l10.3,1.7c10.3,1.8,30.9,4.9,51.6,5c21-0.1,41.9-3.4,61.9-10
+						c20.6-6.7,41.2-16.7,61.9-23.3c20.6-6.8,41.2-9.9,61.9,3.3c20.6,13.4,41.2,43.4,61.9,51.7c20.6,8.2,41.2-4.9,61.9-5
+						c20.6,0.1,41.2,13.2,61.9,16.7s41.2-3.4,61.9-11.7c20.6-8.4,41.2-18.4,61.9-28.4l51.6-25l10.3-5v90.1H-83.5V44.8z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+	<path id="Subtraction_1" class="st7" d="M405-7758h-50c13.3,0,26-5.3,35.3-14.7c9.4-9.3,14.7-22.1,14.7-35.3V-7758z"/>
+	<path id="Subtraction_2" class="st8" d="M405-8468.4c-0.3-27.4-22.6-49.5-50-49.6h50L405-8468.4L405-8468.4z"/>
+</g>
+</svg>

@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "templateName": "Template Name",
+        "principleEntityId": "Principle Entity Id",
+        "templateId": "Template Id",
+        "contentType": "Content Type",
+        "categoryType": "Category Type",
+        "senderId": "Sender Id",
+        "templateType": "Template Type",
+        "templateContents": "Template Contents"
+    },
+    "links": [],
+    "labels": {
+        "Create ContentTemplate": "Create Content Template"
+    }
+}

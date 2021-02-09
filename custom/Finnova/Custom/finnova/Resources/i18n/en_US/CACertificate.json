@@ -1,0 +1,29 @@
+{
+    "fields": {
+        "certificateNo": "Certificate No",
+        "certificateDate": "Certificate Date",
+        "uDINNo": "UDIN No",
+        "uDINDate": "UDIN Date",
+        "account": "Account",
+        "billable": "Billable",
+        "billAmount": "Bill Amount",
+        "billAmountCurrency": "Bill Amount (Currency)",
+        "billAmountConverted": "Bill Amount (Converted)",
+        "billDate": "Bill Date",
+        "bill": "Bill Copy",
+        "certificateCopy": "Certificate Copy",
+        "workingFiles": "Working Files"
+    },
+    "links": {
+        "account": "Account"
+    },
+    "labels": {
+        "Create CACertificate": "Create CA Certificate"
+    },
+    "options": {
+        "billable": {
+            "Yes": "Yes",
+            "No": "No"
+        }
+    }
+}

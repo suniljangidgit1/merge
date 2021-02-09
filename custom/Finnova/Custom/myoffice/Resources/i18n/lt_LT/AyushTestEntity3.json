@@ -1,0 +1,10 @@
+{
+  "links": {
+    "meetings": "Susitikimai",
+    "calls": "Skambučiai",
+    "tasks": "Užduotys"
+  },
+  "labels": {
+    "Create AyushTestEntity3": "Sukurti Ayush Test Entity 3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "billingAddress": "Rechnungsadresse",
+    "shippingAddress": "Lieferadresse",
+    "website": "Webseite"
+  },
+  "links": {
+    "calls": "Anrufe",
+    "tasks": "Aufgaben"
+  },
+  "labels": {
+    "Create TestEntity2710": "Test entity 27..10 erstellen"
+  }
+}

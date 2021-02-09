@@ -1,0 +1,38 @@
+{
+    "fields": {
+        "address": "Address",
+        "companyName": "Company Name",
+        "consultantCategory": "Consultant Category",
+        "webiste": "Website",
+        "linkedInProfile": "LinkedIn Profile",
+        "concernedPersonName": "Concerned Person Name",
+        "designation": "Designation",
+        "concernedPersonAddress": "Concerned Person Address",
+        "concernedPersonAddressStreet": "Concerned Person Address Street",
+        "concernedPersonAddressCity": "Concerned Person Address City",
+        "concernedPersonAddressState": "Concerned Person Address State",
+        "concernedPersonAddressCountry": "Concerned Person Address Country",
+        "concernedPersonAddressPostalCode": "Concerned Person Address Postal Code",
+        "concernedPersonAddressMap": "Concerned Person Address Map",
+        "phone": "Phone",
+        "contacts": "Contacts",
+        "contacts1": "Contacts1"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "contacts": "Contacts",
+        "contacts1": "Contacts1"
+    },
+    "labels": {
+        "Create ConsultantAdvisor": "Create Consultant / Advisor"
+    },
+    "options": {
+        "consultantCategory": {
+            "Financial Consultant": "Financial Consultant",
+            "Engineering Consultant": "Engineering Consultant",
+            "Software Consultant": "Software Consultant"
+        }
+    }
+}

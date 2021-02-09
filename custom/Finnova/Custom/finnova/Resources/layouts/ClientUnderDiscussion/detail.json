@@ -1,0 +1,76 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "website"
+                }
+            ],
+            [
+                {
+                    "name": "emailAddress"
+                },
+                {
+                    "name": "phoneNumber"
+                }
+            ],
+            [
+                {
+                    "name": "billingAddress"
+                },
+                {
+                    "name": "leadType"
+                }
+            ],
+            [
+                {
+                    "name": "concernedPerson"
+                },
+                {
+                    "name": "designation"
+                }
+            ],
+            [
+                {
+                    "name": "ratingAgency"
+                },
+                {
+                    "name": "rating"
+                }
+            ],
+            [
+                {
+                    "name": "latestRatingDate"
+                },
+                {
+                    "name": "amountRsInCrore"
+                }
+            ],
+            [
+                {
+                    "name": "ratingStatus"
+                },
+                {
+                    "name": "presentBanker"
+                }
+            ],
+            [
+                {
+                    "name": "documents"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "description",
+                    "fullWidth": true
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

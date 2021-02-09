@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "billingAddress": "Rechnungsadresse",
+    "shippingAddress": "Lieferadresse",
+    "website": "Webseite"
+  },
+  "links": {
+    "calls": "Anrufe",
+    "tasks": "Aufgaben"
+  },
+  "labels": {
+    "Create AyushTestEntity2": "Ayush test entity 2 erstellen"
+  }
+}

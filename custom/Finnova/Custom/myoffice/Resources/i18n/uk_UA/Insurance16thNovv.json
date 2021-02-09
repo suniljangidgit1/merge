@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Адреса"
+  },
+  "links": {
+    "meetings": "Зустрічі",
+    "calls": "Дзвінки",
+    "tasks": "Завдання"
+  },
+  "labels": {
+    "Create Insurance16thNovv": "Створити Insurance 16th Novv"
+  }
+}

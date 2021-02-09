@@ -1,0 +1,16 @@
+{
+    "scopeNames": {
+        "TestDemo": "Test Demo",
+        "MonsterData45To6": "Monster Data (4.5 to 6)",
+        "HRCompanies": "HR Companies",
+        "Candidates": "Candidates",
+        "CACertificate": "CA Certificate"
+    },
+    "scopeNamesPlural": {
+        "TestDemo": "Test Demos",
+        "MonsterData45To6": "Monster Data (4.5 to 6)s",
+        "HRCompanies": "HR Companieses",
+        "Candidates": "Candidateses",
+        "CACertificate": "CA Certificates"
+    }
+}

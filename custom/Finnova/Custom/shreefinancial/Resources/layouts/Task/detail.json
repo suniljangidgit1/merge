@@ -1,0 +1,150 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "parent",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "status"
+                },
+                {
+                    "name": "priority"
+                }
+            ],
+            [
+                {
+                    "name": "dateStart"
+                },
+                {
+                    "name": "dateCompleted"
+                }
+            ],
+            [
+                {
+                    "name": "dateEnd"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "createRecurringSeriesOfTasks",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "frequency",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "repeat",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "startDate"
+                },
+                {
+                    "name": "endDate"
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeat",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "weeklyrepeatOn",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "weeklystartDate"
+                },
+                {
+                    "name": "weeklyendDate"
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeat",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "monthlyRepeatOn",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "monthlyStartDate"
+                },
+                {
+                    "name": "monthlyEndDate"
+                }
+            ],
+            [
+                {
+                    "name": "numberOfRecurringTasks",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate1"
+                },
+                {
+                    "name": "customStartDate2"
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate3"
+                },
+                {
+                    "name": "customStartDate4"
+                }
+            ],
+            [
+                {
+                    "name": "customStartDate5"
+                },
+                {
+                    "name": "customStartDate6"
+                }
+            ],
+            [
+                {
+                    "name": "description",
+                    "fullWidth": true
+                }
+            ],
+            [
+                {
+                    "name": "attachments",
+                    "fullWidth": true
+                }
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

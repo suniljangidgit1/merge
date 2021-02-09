@@ -1,0 +1,10 @@
+{
+    "fields": {
+        "stream": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        }
+    }
+}

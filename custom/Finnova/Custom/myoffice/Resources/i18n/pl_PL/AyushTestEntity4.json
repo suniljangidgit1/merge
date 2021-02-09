@@ -1,0 +1,20 @@
+{
+  "fields": {
+    "dateStart": "Data rozpoczęcia",
+    "dateEnd": "Data zakończenia",
+    "duration": "Czas trwania",
+    "reminders": "Przypomnienia"
+  },
+  "options": {
+    "status": {
+      "Planned": "Planowane"
+    }
+  },
+  "labels": {
+    "Create AyushTestEntity4": "Utwórz Ayush Test entity 4",
+    "Schedule AyushTestEntity4": "Zaplanuj Ayush Test entity 4 "
+  },
+  "presetFilters": {
+    "planned": "Planowane"
+  }
+}

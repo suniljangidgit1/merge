@@ -1,0 +1,22 @@
+{
+  "fields": {
+    "panelName": "Paneelnaam",
+    "style": "Stijl",
+    "isLarge": "Grote lettergrootte",
+    "dynamicLogicVisible": "Condities waardoor paneel zichtbaar is"
+  },
+  "options": {
+    "style": {
+      "default": "Standaard",
+      "success": "Succesvol",
+      "danger": "Gevaar",
+      "info": "info",
+      "warning": "Waarschuwing",
+      "primary": "primair"
+    }
+  },
+  "labels": {
+    "New panel": "Nieuw paneel",
+    "Layout": "lay-out"
+  }
+}

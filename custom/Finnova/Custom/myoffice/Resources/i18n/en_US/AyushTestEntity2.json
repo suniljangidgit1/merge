@@ -1,0 +1,19 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "accounts": "Ayush test entity 2",
+        "ayushTestEntity": "Ayush Test Entity"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "accounts": "Ayush test entity 2",
+        "ayushTestEntity": "Ayush Test Entity"
+    },
+    "labels": {
+        "Create AyushTestEntity2": "Create Ayush test entity 2"
+    }
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "paymentdate"
+    },
+    {
+        "name": "invoiceno"
+    },
+    {
+        "name": "account"
+    },
+    {
+        "name": "amountcredited"
+    },
+    {
+        "name": "mode"
+    },
+    {
+        "name": "transactionid"
+    },
+    {
+        "name": "paymentstatus"
+    }
+]

@@ -1,0 +1,140 @@
+.bg-head{
+    background: #d6d6d6;
+}
+.bg-head .img-logo{
+    width: 100px;
+    float: left;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.bg-sidebar{
+    background: #f0f0f0; 
+}
+
+.main-page{
+    background: #d6d6d6; 
+}
+
+.bg-footer{
+    background: #d6d6d6; 
+}
+
+.help-block{
+	color: red;
+}
+
+.loader{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+
+.loader img{
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    height: 10%;
+    width: : 10%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+
+.select2-container{
+	width:100% !important;
+}
+
+
+/* Slow-motion Zoom */
+.main-sidebar ul{
+    margin-top: 10px;
+}
+
+.main-sidebar ul li {
+    border:0;
+    padding: 5px 2px;
+    list-style: none;
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 300ms ease-in;
+    transform: scale(1); 
+}
+
+.main-sidebar ul li:hover{
+    box-shadow: 0px 0px 10px #000000;
+    z-index: 2;
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(1.2);
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(1.2);   
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(1.2);
+    transition: all 300ms ease-in;
+    transform: scale(1.2);
+}
+
+.main-sidebar ul li a:hover{
+    text-decoration: none;
+}
+
+/*css for daily sheet*/
+
+.help-block{
+            color: red;
+        }
+        .input-group, input{
+            margin-bottom: 5px;
+        }
+        table .text-left{
+            text-align: left;
+        }
+        .loader{
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 10000;
+            display: none;
+        }
+        .loader img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 10%;
+            width: : 10%;
+            transform: translate(-50%,-50%);
+            z-index: 10000;
+        }
+
+            input[type="file"] { 
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+ 
+}
+
+input:focus + label {
+  
+}
+
+.delete
+{
+    /*    top: 26px;*/
+    position: absolute;
+    top: 26px;
+    left: 367px;
+    border-radius: 5px;
+   border: 1px solid #ced4da;
+    /*margin-left: 31px;*/
+    padding: 9px 10px;
+    color:#707070;
+}
+/*css for daily sheet*/
+

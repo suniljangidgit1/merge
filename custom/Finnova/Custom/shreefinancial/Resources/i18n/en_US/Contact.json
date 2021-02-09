@@ -1,0 +1,11 @@
+{
+    "fields": {
+        "stream": "Stream",
+        "consultantAdvisors": "Consultant Advisors",
+        "consultantAdvisors1": "Consultant Advisors1"
+    },
+    "links": {
+        "consultantAdvisors": "Consultant Advisors",
+        "consultantAdvisors1": "Consultant Advisors1"
+    }
+}

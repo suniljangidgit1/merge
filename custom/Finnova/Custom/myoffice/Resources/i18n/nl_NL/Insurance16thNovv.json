@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "address": "Adres"
+  },
+  "links": {
+    "meetings": "Vergaderingen",
+    "calls": "Gesprekken",
+    "tasks": "Taken"
+  },
+  "labels": {
+    "Create Insurance16thNovv": "Klant Insurance 16th Novv"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "view": "custom:views/dashlets/addWindow",
+    "aclScope": "Account",
+    "options": {
+        
+        
+    },
+    
+}

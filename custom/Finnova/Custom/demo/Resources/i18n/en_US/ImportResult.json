@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "noOfRecords": "No of Records",
+        "entityName": "Entity Name"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create ImportResult": "Create Import Result"
+    }
+}

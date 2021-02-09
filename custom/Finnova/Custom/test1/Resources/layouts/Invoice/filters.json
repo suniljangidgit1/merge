@@ -1,0 +1,10 @@
+[
+    "billfromname",
+    "invoicedate",
+    "invoiceno",
+    "dueDate",
+    "total",
+    "account1",
+    "balance",
+    "paymentstatus"
+]

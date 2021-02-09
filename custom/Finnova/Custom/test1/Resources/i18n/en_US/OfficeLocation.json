@@ -1,0 +1,21 @@
+{
+    "fields": {
+        "billingAddress": "Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "typeofoffice": "Type of office",
+        "users": "Users",
+        "gstin": "GSTIN",
+        "user": "In Charge"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "users": "Users",
+        "user": "User"
+    },
+    "labels": {
+        "Create OfficeLocation": "Create Office Location"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "entity": "Entity",
+        "isCronJob": "Is cron job",
+        "file": "File",
+        "status": "Status",
+        "dbQuery": "Db Query",
+        "isExported": "Status",
+        "columns": "Columns"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create ExportResult": "Create Export Result"
+    },
+    "options": {
+        "isCronJob": [
+            "0",
+            "1"
+        ],
+        "status": [
+            "0",
+            "1"
+        ],
+        "isExported": {
+            "Pending": "Pending"
+        }
+    }
+}

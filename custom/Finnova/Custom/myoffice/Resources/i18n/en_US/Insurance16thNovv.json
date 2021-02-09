@@ -1,0 +1,66 @@
+{
+    "fields": {
+        "address": "Address",
+        "dateOfBirth": "Date of Birth",
+        "insuranceCompay": "Insurance Compay",
+        "policyType": "Policy Type",
+        "policyNo": "Policy No",
+        "sumAssuredRs": "Sum Assured (Rs)",
+        "sumAssuredRsCurrency": "Sum Assured (Rs) (Currency)",
+        "sumAssuredRsConverted": "Sum Assured (Rs) (Converted)",
+        "premiumRs": "Premium (Rs)",
+        "premiumRsCurrency": "Premium (Rs) (Currency)",
+        "premiumRsConverted": "Premium (Rs) (Converted)",
+        "policyStartDate": "Policy Start Date",
+        "policyEndDate": "Policy End Date",
+        "paymentFrequency": "Payment Frequency",
+        "nomineeName": "Nominee Name",
+        "nomineeAddress": "Nominee Address",
+        "nomineeAddressStreet": "Nominee Address Street",
+        "nomineeAddressCity": "Nominee Address City",
+        "nomineeAddressState": "Nominee Address State",
+        "nomineeAddressCountry": "Nominee Address Country",
+        "nomineeAddressPostalCode": "Nominee Address Postal Code",
+        "nomineeAddressMap": "Nominee Address Map",
+        "nomineeRelation": "Nominee Relation",
+        "kYCDocs": "KYC Docs",
+        "medicalDocs": "Medical Docs",
+        "policyDocs": "Policy Docs"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create Insurance16thNovv": "Create Insurance 16th Novv"
+    },
+    "options": {
+        "insuranceCompay": {
+            "LIC": "LIC",
+            "Birla": "Birla",
+            "Bajaj": "Bajaj",
+            "Tata": "Tata"
+        },
+        "policyType": {
+            "Life Insurance": "Life Insurance",
+            "Medical Insurance": "Medical Insurance",
+            "Property Insurance": "Property Insurance",
+            "Vehicle Insurance": "Vehicle Insurance"
+        },
+        "paymentFrequency": {
+            "Yearly": "Yearly",
+            "Half Yearly": "Half Yearly",
+            "Quarterly": "Quarterly",
+            "Monthly": "Monthly"
+        },
+        "nomineeRelation": {
+            "Spouse": "Spouse",
+            "Mother": "Mother",
+            "Father": "Father",
+            "Sister": "Sister",
+            "Brother": "Brother",
+            "Others": "Others"
+        }
+    }
+}

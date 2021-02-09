@@ -1,0 +1,14 @@
+{
+    "scopeNames": {
+        "OfficeLocation": "Office Location",
+        "TestDemo": "Test Demo",
+        "SenderID": "Sender ID",
+        "PuneSalary25To3Lac": "Pune Salary 2.5 to 3 Lakh"
+    },
+    "scopeNamesPlural": {
+        "OfficeLocation": "Office Locations",
+        "TestDemo": "Test Demos",
+        "SenderID": "Sender IDs",
+        "PuneSalary25To3Lac": "Pune Salary 2.5 to 3 Lakh"
+    }
+}

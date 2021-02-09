@@ -1,0 +1,328 @@
+{
+    "fields": {
+        "name": {
+            "type": "personName",
+            "isPersonalData": true
+        },
+        "salutationName": {
+            "type": "enum",
+            "options": [
+                "",
+                "Mr.",
+                "Ms.",
+                "Mrs.",
+                "Dr."
+            ]
+        },
+        "firstName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "default": "",
+            "trim": true
+        },
+        "lastName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "required": true,
+            "default": "",
+            "trim": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "emailAddress": {
+            "type": "email",
+            "isPersonalData": true
+        },
+        "phoneNumber": {
+            "type": "phone",
+            "typeList": [
+                "Mobile",
+                "Office",
+                "Home",
+                "Fax",
+                "Other"
+            ],
+            "defaultType": "Mobile",
+            "isPersonalData": true
+        },
+        "address": {
+            "type": "address",
+            "isPersonalData": true
+        },
+        "addressStreet": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "addressCity": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressState": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressCountry": {
+            "type": "varchar",
+            "trim": true
+        },
+        "addressPostalCode": {
+            "type": "varchar",
+            "trim": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user"
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "dateOfBirth": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "insuranceCompay": {
+            "type": "enum",
+            "options": [
+                "LIC",
+                "Birla",
+                "Bajaj",
+                "Tata"
+            ],
+            "style": {
+                "LIC": null,
+                "Birla": null,
+                "Bajaj": null,
+                "Tata": null
+            },
+            "default": "LIC",
+            "isCustom": true
+        },
+        "policyType": {
+            "type": "enum",
+            "options": [
+                "Life Insurance",
+                "Medical Insurance",
+                "Property Insurance",
+                "Vehicle Insurance"
+            ],
+            "style": {
+                "Life Insurance": null,
+                "Medical Insurance": null,
+                "Property Insurance": null,
+                "Vehicle Insurance": null
+            },
+            "default": "Life Insurance",
+            "isCustom": true
+        },
+        "policyNo": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "sumAssuredRs": {
+            "type": "currency",
+            "isCustom": true
+        },
+        "premiumRs": {
+            "type": "currency",
+            "isCustom": true
+        },
+        "policyStartDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "policyEndDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "paymentFrequency": {
+            "type": "enum",
+            "options": [
+                "Yearly",
+                "Half Yearly",
+                "Quarterly",
+                "Monthly"
+            ],
+            "style": {
+                "Yearly": null,
+                "Half Yearly": null,
+                "Quarterly": null,
+                "Monthly": null
+            },
+            "default": "Yearly",
+            "isCustom": true
+        },
+        "nomineeName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "nomineeAddress": {
+            "type": "address",
+            "dynamicLogicVisible": null,
+            "dynamicLogicReadOnly": null,
+            "name": "nomineeAddress",
+            "label": "Nominee Address",
+            "isPersonalData": false,
+            "inlineEditDisabled": false,
+            "tooltipText": null,
+            "tooltip": false,
+            "isCustom": true
+        },
+        "nomineeRelation": {
+            "type": "enum",
+            "options": [
+                "Spouse",
+                "Mother",
+                "Father",
+                "Sister",
+                "Brother",
+                "Others"
+            ],
+            "style": {
+                "Spouse": null,
+                "Mother": null,
+                "Father": null,
+                "Sister": null,
+                "Brother": null,
+                "Others": null
+            },
+            "default": "Spouse",
+            "isCustom": true
+        },
+        "kYCDocs": {
+            "type": "attachmentMultiple",
+            "previewSize": "medium",
+            "sourceList": [],
+            "accept": [],
+            "isCustom": true
+        },
+        "medicalDocs": {
+            "type": "attachmentMultiple",
+            "previewSize": "medium",
+            "sourceList": [],
+            "accept": [],
+            "isCustom": true
+        },
+        "policyDocs": {
+            "type": "attachmentMultiple",
+            "previewSize": "medium",
+            "sourceList": [],
+            "accept": [],
+            "isCustom": true
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "EntityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "kYCDocs": {
+            "type": "hasChildren",
+            "entity": "Attachment",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true,
+            "relationName": "attachments",
+            "disabled": true
+        },
+        "medicalDocs": {
+            "type": "hasChildren",
+            "entity": "Attachment",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true,
+            "relationName": "attachments",
+            "disabled": true
+        },
+        "policyDocs": {
+            "type": "hasChildren",
+            "entity": "Attachment",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true,
+            "relationName": "attachments",
+            "disabled": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    },
+    "indexes": {
+        "firstName": {
+            "columns": [
+                "firstName",
+                "deleted"
+            ]
+        },
+        "name": {
+            "columns": [
+                "firstName",
+                "lastName"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "billingAddress": "Faktureringsadresse",
+    "shippingAddress": "Leveringsadresse",
+    "website": "Nettside"
+  },
+  "links": {
+    "meetings": "Møter",
+    "calls": "Samtaler",
+    "tasks": "Oppgaver"
+  },
+  "labels": {
+    "Create PuneSalary25To3Lac": "Opprett PuneSalary 2.5 to 3 Lac"
+  }
+}
