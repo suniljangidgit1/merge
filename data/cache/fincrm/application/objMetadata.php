@@ -369,7 +369,7 @@ return (object) [
                         'description' => 'integrations'
                     ],
                     2 => (object) [
-                        'url' => 'http://www.fincrm.net/user-manual',
+                        'url' => 'https://www.fincrm.net/user-manual',
                         'label' => 'User Manual',
                         'iconClass' => 'fas fa-file-alt',
                         'description' => 'user manual'
@@ -2029,128 +2029,6 @@ return (object) [
                 ]
             ]
         ],
-        'Email' => (object) [
-            'controller' => 'controllers/email',
-            'acl' => 'acl/email',
-            'model' => 'models/email',
-            'views' => (object) [
-                'list' => 'views/email/list',
-                'detail' => 'views/email/detail'
-            ],
-            'recordViews' => (object) [
-                'list' => 'views/email/record/list',
-                'detail' => 'views/email/record/detail',
-                'edit' => 'views/email/record/edit',
-                'editQuick' => 'views/email/record/edit-quick',
-                'detailQuick' => 'views/email/record/detail-quick',
-                'compose' => 'views/email/record/compose',
-                'listRelated' => 'views/email/record/list-related'
-            ],
-            'modalViews' => (object) [
-                'detail' => 'views/email/modals/detail',
-                'compose' => 'views/modals/compose-email'
-            ],
-            'quickCreateModalType' => 'compose',
-            'defaultSidePanelFieldList' => [
-                0 => 'teams',
-                1 => 'replied',
-                2 => 'replies'
-            ],
-            'menu' => (object) [
-                'list' => (object) [
-                    'buttons' => [
-                        0 => (object) [
-                            'label' => 'Compose',
-                            'action' => 'composeEmail',
-                            'style' => 'danger',
-                            'acl' => 'create'
-                        ]
-                    ],
-                    'dropdown' => [
-                        0 => (object) [
-                            'label' => 'Archive Email',
-                            'link' => '#Email/create',
-                            'acl' => 'create'
-                        ],
-                        1 => false,
-                        2 => (object) [
-                            'label' => 'Email Templates',
-                            'link' => '#EmailTemplate',
-                            'acl' => 'read',
-                            'aclScope' => 'EmailTemplate'
-                        ],
-                        3 => (object) [
-                            'label' => 'Folders',
-                            'link' => '#EmailFolder',
-                            'configCheck' => '!emailFoldersDisabled'
-                        ],
-                        4 => (object) [
-                            'label' => 'Filters',
-                            'link' => '#EmailFilter'
-                        ]
-                    ]
-                ],
-                'detail' => (object) [
-                    'dropdown' => [
-                        0 => (object) [
-                            'label' => 'Reply',
-                            'action' => 'reply',
-                            'acl' => 'read'
-                        ],
-                        1 => (object) [
-                            'label' => 'Reply to All',
-                            'action' => 'replyToAll',
-                            'acl' => 'read'
-                        ],
-                        2 => (object) [
-                            'label' => 'Forward',
-                            'action' => 'forward',
-                            'acl' => 'read'
-                        ]
-                    ]
-                ]
-            ],
-            'dynamicLogic' => (object) [
-                'fields' => (object) [
-                    'replied' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isNotEmpty',
-                                    'attribute' => 'repliedId',
-                                    'data' => (object) [
-                                        'field' => 'replied'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'replies' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isNotEmpty',
-                                    'attribute' => 'repliesIds',
-                                    'data' => (object) [
-                                        'field' => 'replies'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            'filterList' => [
-                
-            ],
-            'defaultFilterData' => (object) [
-                
-            ],
-            'boolFilterList' => [
-                
-            ],
-            'iconClass' => 'local_post_office'
-        ],
         'EmailAccount' => (object) [
             'controller' => 'controllers/email-account',
             'recordViews' => (object) [
@@ -2284,6 +2162,173 @@ return (object) [
             ],
             'searchPanelDisabled' => true
         ],
+        'Email' => (object) [
+            'controller' => 'controllers/email',
+            'acl' => 'acl/email',
+            'model' => 'models/email',
+            'views' => (object) [
+                'list' => 'views/email/list',
+                'detail' => 'views/email/detail'
+            ],
+            'recordViews' => (object) [
+                'list' => 'views/email/record/list',
+                'detail' => 'views/email/record/detail',
+                'edit' => 'views/email/record/edit',
+                'editQuick' => 'views/email/record/edit-quick',
+                'detailQuick' => 'views/email/record/detail-quick',
+                'compose' => 'views/email/record/compose',
+                'listRelated' => 'views/email/record/list-related'
+            ],
+            'modalViews' => (object) [
+                'detail' => 'views/email/modals/detail',
+                'compose' => 'views/modals/compose-email'
+            ],
+            'quickCreateModalType' => 'compose',
+            'defaultSidePanelFieldList' => [
+                0 => 'teams',
+                1 => 'replied',
+                2 => 'replies'
+            ],
+            'menu' => (object) [
+                'list' => (object) [
+                    'buttons' => [
+                        0 => (object) [
+                            'label' => 'Compose',
+                            'action' => 'composeEmail',
+                            'style' => 'danger',
+                            'acl' => 'create'
+                        ]
+                    ],
+                    'dropdown' => [
+                        0 => (object) [
+                            'label' => 'Archive Email',
+                            'link' => '#Email/create',
+                            'acl' => 'create'
+                        ],
+                        1 => false,
+                        2 => (object) [
+                            'label' => 'Email Templates',
+                            'link' => '#EmailTemplate',
+                            'acl' => 'read',
+                            'aclScope' => 'EmailTemplate'
+                        ],
+                        3 => (object) [
+                            'label' => 'Folders',
+                            'link' => '#EmailFolder',
+                            'configCheck' => '!emailFoldersDisabled'
+                        ],
+                        4 => (object) [
+                            'label' => 'Filters',
+                            'link' => '#EmailFilter'
+                        ]
+                    ]
+                ],
+                'detail' => (object) [
+                    'dropdown' => [
+                        0 => (object) [
+                            'label' => 'Reply',
+                            'action' => 'reply',
+                            'acl' => 'read'
+                        ],
+                        1 => (object) [
+                            'label' => 'Reply to All',
+                            'action' => 'replyToAll',
+                            'acl' => 'read'
+                        ],
+                        2 => (object) [
+                            'label' => 'Forward',
+                            'action' => 'forward',
+                            'acl' => 'read'
+                        ]
+                    ]
+                ]
+            ],
+            'dynamicLogic' => (object) [
+                'fields' => (object) [
+                    'replied' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isNotEmpty',
+                                    'attribute' => 'repliedId',
+                                    'data' => (object) [
+                                        'field' => 'replied'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'replies' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isNotEmpty',
+                                    'attribute' => 'repliesIds',
+                                    'data' => (object) [
+                                        'field' => 'replies'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'filterList' => [
+                
+            ],
+            'defaultFilterData' => (object) [
+                
+            ],
+            'boolFilterList' => [
+                
+            ],
+            'iconClass' => 'local_post_office'
+        ],
+        'EmailTemplateCategory' => (object) [
+            'controller' => 'controllers/record-tree',
+            'collection' => 'collections/tree',
+            'menu' => (object) [
+                'listTree' => (object) [
+                    'buttons' => [
+                        0 => (object) [
+                            'label' => 'List View',
+                            'link' => '#EmailTemplateCategory/list',
+                            'acl' => 'read',
+                            'style' => 'default'
+                        ],
+                        1 => (object) [
+                            'label' => 'Email Templates',
+                            'link' => '#EmailTemplate',
+                            'acl' => 'read',
+                            'aclScope' => 'EmailTemplate',
+                            'style' => 'default'
+                        ]
+                    ]
+                ],
+                'list' => (object) [
+                    'buttons' => [
+                        0 => (object) [
+                            'label' => 'Tree View',
+                            'link' => '#EmailTemplateCategory',
+                            'acl' => 'read',
+                            'style' => 'default'
+                        ],
+                        1 => (object) [
+                            'label' => 'Email Templates',
+                            'link' => '#EmailTemplate',
+                            'acl' => 'read',
+                            'aclScope' => 'EmailTemplate',
+                            'style' => 'default'
+                        ]
+                    ]
+                ]
+            ],
+            'relationshipPanels' => (object) [
+                'emailTemplates' => (object) [
+                    'create' => false
+                ]
+            ]
+        ],
         'EmailTemplate' => (object) [
             'controller' => 'controllers/record',
             'views' => (object) [
@@ -2339,51 +2384,6 @@ return (object) [
                 4 => 'optOutLink'
             ],
             'iconClass' => 'fas fa-envelope-square'
-        ],
-        'EmailTemplateCategory' => (object) [
-            'controller' => 'controllers/record-tree',
-            'collection' => 'collections/tree',
-            'menu' => (object) [
-                'listTree' => (object) [
-                    'buttons' => [
-                        0 => (object) [
-                            'label' => 'List View',
-                            'link' => '#EmailTemplateCategory/list',
-                            'acl' => 'read',
-                            'style' => 'default'
-                        ],
-                        1 => (object) [
-                            'label' => 'Email Templates',
-                            'link' => '#EmailTemplate',
-                            'acl' => 'read',
-                            'aclScope' => 'EmailTemplate',
-                            'style' => 'default'
-                        ]
-                    ]
-                ],
-                'list' => (object) [
-                    'buttons' => [
-                        0 => (object) [
-                            'label' => 'Tree View',
-                            'link' => '#EmailTemplateCategory',
-                            'acl' => 'read',
-                            'style' => 'default'
-                        ],
-                        1 => (object) [
-                            'label' => 'Email Templates',
-                            'link' => '#EmailTemplate',
-                            'acl' => 'read',
-                            'aclScope' => 'EmailTemplate',
-                            'style' => 'default'
-                        ]
-                    ]
-                ]
-            ],
-            'relationshipPanels' => (object) [
-                'emailTemplates' => (object) [
-                    'create' => false
-                ]
-            ]
         ],
         'ExternalAccount' => (object) [
             'controller' => 'controllers/external-account'
@@ -3285,6 +3285,37 @@ return (object) [
             'kanbanViewMode' => false,
             'color' => NULL
         ],
+        'BillingEntity' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'kanbanViewMode' => false,
+            'color' => NULL,
+            'iconClass' => NULL
+        ],
         'Calendar' => (object) [
             'colors' => (object) [
                 'Meeting' => '#558BBD',
@@ -3720,6 +3751,555 @@ return (object) [
             ],
             'iconClass' => 'donut_small'
         ],
+        'ClosedTask' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#a7a726',
+            'iconClass' => 'fas fa-stop-circle',
+            'dynamicLogic' => (object) [
+                'fields' => (object) [
+                    'frequency' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'repeat' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Daily'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'weeklyrepeat' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Weekly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'weeklyrepeatOn' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Weekly'
+                                ],
+                                2 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'weeklyrepeat',
+                                    'value' => 'Custom'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'weeklystartDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Weekly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'weeklyendDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Weekly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'monthlyRepeat' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Monthly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'monthlyRepeatOn' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Monthly'
+                                ],
+                                2 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'monthlyRepeat',
+                                    'value' => 'Custom'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'monthlyStartDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Monthly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'monthlyEndDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'isTrue',
+                                    'attribute' => 'createRecurringSeriesOfTasks'
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Monthly'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate1' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'or',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '1'
+                                        ],
+                                        1 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '2'
+                                                ]
+                                            ]
+                                        ],
+                                        2 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '3'
+                                        ],
+                                        3 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '4'
+                                                ]
+                                            ]
+                                        ],
+                                        4 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '5'
+                                        ],
+                                        5 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '6'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate2' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'or',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '2'
+                                        ],
+                                        1 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '3'
+                                                ]
+                                            ]
+                                        ],
+                                        2 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '4'
+                                        ],
+                                        3 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '5'
+                                                ]
+                                            ]
+                                        ],
+                                        4 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '6'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate3' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'or',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '3'
+                                        ],
+                                        1 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '4'
+                                                ]
+                                            ]
+                                        ],
+                                        2 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '5'
+                                        ],
+                                        3 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '6'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate4' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'or',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '4'
+                                        ],
+                                        1 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '5'
+                                                ]
+                                            ]
+                                        ],
+                                        2 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '6'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate5' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'or',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '5'
+                                        ],
+                                        1 => (object) [
+                                            'type' => 'or',
+                                            'value' => [
+                                                0 => (object) [
+                                                    'type' => 'equals',
+                                                    'attribute' => 'numberOfRecurringTasks',
+                                                    'value' => '6'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'customStartDate6' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ],
+                                2 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'equals',
+                                            'attribute' => 'numberOfRecurringTasks',
+                                            'value' => '6'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'numberOfRecurringTasks' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Custom'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'endDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Daily'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'startDate' => (object) [
+                        'visible' => (object) [
+                            'conditionGroup' => [
+                                0 => (object) [
+                                    'type' => 'and',
+                                    'value' => [
+                                        0 => (object) [
+                                            'type' => 'isTrue',
+                                            'attribute' => 'createRecurringSeriesOfTasks'
+                                        ]
+                                    ]
+                                ],
+                                1 => (object) [
+                                    'type' => 'equals',
+                                    'attribute' => 'frequency',
+                                    'value' => 'Daily'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'Contact' => (object) [
             'controller' => 'controllers/record',
             'aclPortal' => 'crm:acl-portal/contact',
@@ -3832,37 +4412,42 @@ return (object) [
             'color' => '',
             'iconClass' => 'group'
         ],
-        'Document' => (object) [
+        'ContactList' => (object) [
             'controller' => 'controllers/record',
-            'views' => (object) [
-                'list' => 'crm:views/document/list'
-            ],
-            'modalViews' => (object) [
-                'select' => 'crm:views/document/modals/select-records'
-            ],
-            'filterList' => [
-                0 => 'active',
-                1 => 'draft'
-            ],
             'boolFilterList' => [
                 0 => 'onlyMy'
             ],
-            'selectDefaultFilters' => (object) [
-                'filter' => 'active'
-            ],
-            'menu' => (object) [
-                'list' => (object) [
-                    'dropdown' => [
-                        0 => (object) [
-                            'label' => 'Manage Folders',
-                            'link' => '#DocumentFolder',
-                            'acl' => 'edit',
-                            'aclScope' => 'DocumentFolder'
-                        ]
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
                     ]
                 ]
             ],
-            'iconClass' => 'far fa-file-alt'
+            'color' => '#fcfcfc',
+            'iconClass' => 'fas fa-bars',
+            'kanbanViewMode' => false
+        ],
+        'ContentTemplate' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ]
         ],
         'DocumentFolder' => (object) [
             'controller' => 'controllers/record-tree',
@@ -3904,6 +4489,38 @@ return (object) [
                 ]
             ]
         ],
+        'Document' => (object) [
+            'controller' => 'controllers/record',
+            'views' => (object) [
+                'list' => 'crm:views/document/list'
+            ],
+            'modalViews' => (object) [
+                'select' => 'crm:views/document/modals/select-records'
+            ],
+            'filterList' => [
+                0 => 'active',
+                1 => 'draft'
+            ],
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'selectDefaultFilters' => (object) [
+                'filter' => 'active'
+            ],
+            'menu' => (object) [
+                'list' => (object) [
+                    'dropdown' => [
+                        0 => (object) [
+                            'label' => 'Manage Folders',
+                            'link' => '#DocumentFolder',
+                            'acl' => 'edit',
+                            'aclScope' => 'DocumentFolder'
+                        ]
+                    ]
+                ]
+            ],
+            'iconClass' => 'far fa-file-alt'
+        ],
         'EmailQueueItem' => (object) [
             'controller' => 'controllers/record',
             'views' => (object) [
@@ -3912,6 +4529,217 @@ return (object) [
             'recordViews' => (object) [
                 'list' => 'crm:views/email-queue-item/record/list'
             ]
+        ],
+        'EmailReminder' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#b45a5a',
+            'iconClass' => 'fas fa-angle-double-left',
+            'kanbanViewMode' => false
+        ],
+        'Estimate' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#B7BDC5',
+            'iconClass' => 'insert_comment'
+        ],
+        'Export' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#e9eff6'
+        ],
+        'ExportResult' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#e9eff6'
+        ],
+        'HolidayCalender' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'kanbanViewMode' => false,
+            'color' => NULL,
+            'iconClass' => NULL
+        ],
+        'ImportResult' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'kanbanViewMode' => false,
+            'color' => NULL,
+            'iconClass' => NULL
+        ],
+        'Invoice' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#B7BDC5',
+            'iconClass' => 'local_atm'
         ],
         'KnowledgeBaseArticle' => (object) [
             'controller' => 'controllers/record',
@@ -4389,6 +5217,67 @@ return (object) [
             ],
             'iconClass' => 'business_center'
         ],
+        'MyCampaigns' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'iconClass' => 'fas fa-address-book',
+            'kanbanViewMode' => false,
+            'color' => NULL
+        ],
+        'OfficeLocation' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#22a252',
+            'iconClass' => 'fas fa-tags'
+        ],
         'Opportunity' => (object) [
             'controller' => 'controllers/record',
             'views' => (object) [
@@ -4483,6 +5372,165 @@ return (object) [
             ],
             'color' => '',
             'iconClass' => 'attach_money'
+        ],
+        'Payments' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#B7BDC5',
+            'iconClass' => 'description',
+            'kanbanViewMode' => false
+        ],
+        'SenderID' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ]
+        ],
+        'SendSMSData' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#8b3535',
+            'iconClass' => 'fas fa-angle-double-right',
+            'kanbanViewMode' => false
+        ],
+        'SentEmailReminder' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#6d1e1e',
+            'iconClass' => 'fas fa-angle-double-right'
+        ],
+        'SentMessages' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'iconClass' => 'fas fa-check',
+            'kanbanViewMode' => false,
+            'color' => NULL
+        ],
+        'SMSReminder' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ],
+            'color' => '#8b3a3a',
+            'iconClass' => 'fas fa-edit'
         ],
         'Target' => (object) [
             'controller' => 'controllers/record',
@@ -5237,623 +6285,6 @@ return (object) [
             'iconClass' => 'event_note',
             'kanbanViewMode' => true
         ],
-        'BillingEntity' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'kanbanViewMode' => false,
-            'color' => NULL,
-            'iconClass' => NULL
-        ],
-        'ClosedTask' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#a7a726',
-            'iconClass' => 'fas fa-stop-circle',
-            'dynamicLogic' => (object) [
-                'fields' => (object) [
-                    'frequency' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'repeat' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Daily'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'weeklyrepeat' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Weekly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'weeklyrepeatOn' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Weekly'
-                                ],
-                                2 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'weeklyrepeat',
-                                    'value' => 'Custom'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'weeklystartDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Weekly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'weeklyendDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Weekly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'monthlyRepeat' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Monthly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'monthlyRepeatOn' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Monthly'
-                                ],
-                                2 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'monthlyRepeat',
-                                    'value' => 'Custom'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'monthlyStartDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Monthly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'monthlyEndDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'isTrue',
-                                    'attribute' => 'createRecurringSeriesOfTasks'
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Monthly'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate1' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'or',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '1'
-                                        ],
-                                        1 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '2'
-                                                ]
-                                            ]
-                                        ],
-                                        2 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '3'
-                                        ],
-                                        3 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '4'
-                                                ]
-                                            ]
-                                        ],
-                                        4 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '5'
-                                        ],
-                                        5 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '6'
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate2' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'or',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '2'
-                                        ],
-                                        1 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '3'
-                                                ]
-                                            ]
-                                        ],
-                                        2 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '4'
-                                        ],
-                                        3 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '5'
-                                                ]
-                                            ]
-                                        ],
-                                        4 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '6'
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate3' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'or',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '3'
-                                        ],
-                                        1 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '4'
-                                                ]
-                                            ]
-                                        ],
-                                        2 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '5'
-                                        ],
-                                        3 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '6'
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate4' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'or',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '4'
-                                        ],
-                                        1 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '5'
-                                                ]
-                                            ]
-                                        ],
-                                        2 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '6'
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate5' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'or',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '5'
-                                        ],
-                                        1 => (object) [
-                                            'type' => 'or',
-                                            'value' => [
-                                                0 => (object) [
-                                                    'type' => 'equals',
-                                                    'attribute' => 'numberOfRecurringTasks',
-                                                    'value' => '6'
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'customStartDate6' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ],
-                                2 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'equals',
-                                            'attribute' => 'numberOfRecurringTasks',
-                                            'value' => '6'
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'numberOfRecurringTasks' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Custom'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'endDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Daily'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'startDate' => (object) [
-                        'visible' => (object) [
-                            'conditionGroup' => [
-                                0 => (object) [
-                                    'type' => 'and',
-                                    'value' => [
-                                        0 => (object) [
-                                            'type' => 'isTrue',
-                                            'attribute' => 'createRecurringSeriesOfTasks'
-                                        ]
-                                    ]
-                                ],
-                                1 => (object) [
-                                    'type' => 'equals',
-                                    'attribute' => 'frequency',
-                                    'value' => 'Daily'
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'ContactList' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#fcfcfc',
-            'iconClass' => 'fas fa-bars',
-            'kanbanViewMode' => false
-        ],
-        'ContentTemplate' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ]
-        ],
         'Demo' => (object) [
             'controller' => 'controllers/record',
             'boolFilterList' => [
@@ -5913,217 +6344,6 @@ return (object) [
             'color' => '#c33434',
             'iconClass' => 'fas fa-angle-right'
         ],
-        'EmailReminder' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#b45a5a',
-            'iconClass' => 'fas fa-angle-double-left',
-            'kanbanViewMode' => false
-        ],
-        'Estimate' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#B7BDC5',
-            'iconClass' => 'insert_comment'
-        ],
-        'Export' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#e9eff6'
-        ],
-        'ExportResult' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#e9eff6'
-        ],
-        'HolidayCalender' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'kanbanViewMode' => false,
-            'color' => NULL,
-            'iconClass' => NULL
-        ],
-        'ImportResult' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'kanbanViewMode' => false,
-            'color' => NULL,
-            'iconClass' => NULL
-        ],
-        'Invoice' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#B7BDC5',
-            'iconClass' => 'local_atm'
-        ],
         'MessageLog' => (object) [
             'controller' => 'controllers/record',
             'boolFilterList' => [
@@ -6155,260 +6375,6 @@ return (object) [
             'kanbanViewMode' => false,
             'color' => NULL
         ],
-        'MyCampaigns' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'iconClass' => 'fas fa-address-book',
-            'kanbanViewMode' => false,
-            'color' => NULL
-        ],
-        'OfficeLocation' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#22a252',
-            'iconClass' => 'fas fa-tags'
-        ],
-        'Payments' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#B7BDC5',
-            'iconClass' => 'description',
-            'kanbanViewMode' => false
-        ],
-        'SMSReminder' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#8b3a3a',
-            'iconClass' => 'fas fa-edit'
-        ],
-        'SendSMSData' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#8b3535',
-            'iconClass' => 'fas fa-angle-double-right',
-            'kanbanViewMode' => false
-        ],
-        'SenderID' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ]
-        ],
-        'SentEmailReminder' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'color' => '#6d1e1e',
-            'iconClass' => 'fas fa-angle-double-right'
-        ],
-        'SentMessages' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ],
-            'iconClass' => 'fas fa-check',
-            'kanbanViewMode' => false,
-            'color' => NULL
-        ],
-        'TEsting2811' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ],
-            'sidePanels' => (object) [
-                'detail' => [
-                    0 => (object) [
-                        'name' => 'activities',
-                        'label' => 'Activities',
-                        'view' => 'crm:views/record/panels/activities',
-                        'aclScope' => 'Activities'
-                    ],
-                    1 => (object) [
-                        'name' => 'history',
-                        'label' => 'History',
-                        'view' => 'crm:views/record/panels/history',
-                        'aclScope' => 'Activities'
-                    ],
-                    2 => (object) [
-                        'name' => 'tasks',
-                        'label' => 'Tasks',
-                        'view' => 'crm:views/record/panels/tasks',
-                        'aclScope' => 'Task'
-                    ]
-                ]
-            ]
-        ],
-        'Test' => (object) [
-            'controller' => 'controllers/record',
-            'boolFilterList' => [
-                0 => 'onlyMy'
-            ]
-        ],
         'TestEntity2710' => (object) [
             'controller' => 'controllers/record',
             'boolFilterList' => [
@@ -6438,6 +6404,34 @@ return (object) [
             ],
             'iconClass' => 'fas fa-angle-double-down'
         ],
+        'TEsting2811' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ],
+            'sidePanels' => (object) [
+                'detail' => [
+                    0 => (object) [
+                        'name' => 'activities',
+                        'label' => 'Activities',
+                        'view' => 'crm:views/record/panels/activities',
+                        'aclScope' => 'Activities'
+                    ],
+                    1 => (object) [
+                        'name' => 'history',
+                        'label' => 'History',
+                        'view' => 'crm:views/record/panels/history',
+                        'aclScope' => 'Activities'
+                    ],
+                    2 => (object) [
+                        'name' => 'tasks',
+                        'label' => 'Tasks',
+                        'view' => 'crm:views/record/panels/tasks',
+                        'aclScope' => 'Task'
+                    ]
+                ]
+            ]
+        ],
         'TestingEntity' => (object) [
             'controller' => 'controllers/record',
             'boolFilterList' => [
@@ -6466,6 +6460,12 @@ return (object) [
                 ]
             ],
             'iconClass' => 'fas fa-align-justify'
+        ],
+        'Test' => (object) [
+            'controller' => 'controllers/record',
+            'boolFilterList' => [
+                0 => 'onlyMy'
+            ]
         ]
     ],
     'dashlets' => (object) [
@@ -7345,102 +7345,6 @@ return (object) [
                 ]
             ]
         ],
-        'Opportunities' => (object) [
-            'view' => 'views/dashlets/abstract/record-list',
-            'aclScope' => 'Opportunity',
-            'entityType' => 'Opportunity',
-            'options' => (object) [
-                'fields' => (object) [
-                    'title' => (object) [
-                        'type' => 'varchar',
-                        'required' => true
-                    ],
-                    'autorefreshInterval' => (object) [
-                        'type' => 'enumFloat',
-                        'options' => [
-                            0 => 0,
-                            1 => 0.5,
-                            2 => 1,
-                            3 => 2,
-                            4 => 5,
-                            5 => 10
-                        ]
-                    ],
-                    'displayRecords' => (object) [
-                        'type' => 'enumInt',
-                        'options' => [
-                            0 => 3,
-                            1 => 4,
-                            2 => 5,
-                            3 => 7,
-                            4 => 10,
-                            5 => 15,
-                            6 => 20,
-                            7 => 30
-                        ]
-                    ],
-                    'expandedLayout' => (object) [
-                        'type' => 'base',
-                        'view' => 'views/dashlets/fields/records/expanded-layout'
-                    ]
-                ],
-                'defaults' => (object) [
-                    'orderBy' => 'closeDate',
-                    'order' => 'asc',
-                    'displayRecords' => 5,
-                    'populateAssignedUser' => true,
-                    'expandedLayout' => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'name',
-                                    'link' => true
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'stage'
-                                ],
-                                1 => (object) [
-                                    'name' => 'amount'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'searchData' => (object) [
-                        'bool' => (object) [
-                            'onlyMy' => true
-                        ],
-                        'primary' => 'open'
-                    ]
-                ],
-                'layout' => [
-                    0 => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'title'
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'displayRecords'
-                                ],
-                                1 => (object) [
-                                    'name' => 'autorefreshInterval'
-                                ]
-                            ],
-                            2 => [
-                                0 => (object) [
-                                    'name' => 'expandedLayout'
-                                ],
-                                1 => false
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ],
         'OpportunitiesByLeadSource' => (object) [
             'view' => 'crm:views/dashlets/opportunities-by-lead-source',
             'aclScope' => 'Opportunity',
@@ -7564,6 +7468,102 @@ return (object) [
                 ],
                 'defaults' => (object) [
                     'dateFilter' => 'currentYear'
+                ]
+            ]
+        ],
+        'Opportunities' => (object) [
+            'view' => 'views/dashlets/abstract/record-list',
+            'aclScope' => 'Opportunity',
+            'entityType' => 'Opportunity',
+            'options' => (object) [
+                'fields' => (object) [
+                    'title' => (object) [
+                        'type' => 'varchar',
+                        'required' => true
+                    ],
+                    'autorefreshInterval' => (object) [
+                        'type' => 'enumFloat',
+                        'options' => [
+                            0 => 0,
+                            1 => 0.5,
+                            2 => 1,
+                            3 => 2,
+                            4 => 5,
+                            5 => 10
+                        ]
+                    ],
+                    'displayRecords' => (object) [
+                        'type' => 'enumInt',
+                        'options' => [
+                            0 => 3,
+                            1 => 4,
+                            2 => 5,
+                            3 => 7,
+                            4 => 10,
+                            5 => 15,
+                            6 => 20,
+                            7 => 30
+                        ]
+                    ],
+                    'expandedLayout' => (object) [
+                        'type' => 'base',
+                        'view' => 'views/dashlets/fields/records/expanded-layout'
+                    ]
+                ],
+                'defaults' => (object) [
+                    'orderBy' => 'closeDate',
+                    'order' => 'asc',
+                    'displayRecords' => 5,
+                    'populateAssignedUser' => true,
+                    'expandedLayout' => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'name',
+                                    'link' => true
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'stage'
+                                ],
+                                1 => (object) [
+                                    'name' => 'amount'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'searchData' => (object) [
+                        'bool' => (object) [
+                            'onlyMy' => true
+                        ],
+                        'primary' => 'open'
+                    ]
+                ],
+                'layout' => [
+                    0 => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'title'
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'displayRecords'
+                                ],
+                                1 => (object) [
+                                    'name' => 'autorefreshInterval'
+                                ]
+                            ],
+                            2 => [
+                                0 => (object) [
+                                    'name' => 'expandedLayout'
+                                ],
+                                1 => false
+                            ]
+                        ]
+                    ]
                 ]
             ]
         ],
@@ -7701,6 +7701,194 @@ return (object) [
             'view' => 'crm:views/dashlets/tasks',
             'aclScope' => 'Task',
             'entityType' => 'Task',
+            'options' => (object) [
+                'fields' => (object) [
+                    'title' => (object) [
+                        'type' => 'varchar',
+                        'required' => true
+                    ],
+                    'autorefreshInterval' => (object) [
+                        'type' => 'enumFloat',
+                        'options' => [
+                            0 => 0,
+                            1 => 0.5,
+                            2 => 1,
+                            3 => 2,
+                            4 => 5,
+                            5 => 10
+                        ]
+                    ],
+                    'displayRecords' => (object) [
+                        'type' => 'enumInt',
+                        'options' => [
+                            0 => 3,
+                            1 => 4,
+                            2 => 5,
+                            3 => 7,
+                            4 => 10,
+                            5 => 15,
+                            6 => 20,
+                            7 => 30
+                        ]
+                    ],
+                    'expandedLayout' => (object) [
+                        'type' => 'base',
+                        'view' => 'views/dashlets/fields/records/expanded-layout'
+                    ]
+                ],
+                'defaults' => (object) [
+                    'orderBy' => 'dateEnd',
+                    'order' => 'asc',
+                    'displayRecords' => 5,
+                    'expandedLayout' => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'name',
+                                    'link' => true
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'status'
+                                ],
+                                1 => (object) [
+                                    'name' => 'dateEnd'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'searchData' => (object) [
+                        'bool' => (object) [
+                            'onlyMy' => true
+                        ],
+                        'primary' => 'actualStartingNotInFuture'
+                    ]
+                ],
+                'layout' => [
+                    0 => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'title'
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'displayRecords'
+                                ],
+                                1 => (object) [
+                                    'name' => 'autorefreshInterval'
+                                ]
+                            ],
+                            2 => [
+                                0 => (object) [
+                                    'name' => 'expandedLayout',
+                                    'fullWidth' => true
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        'addWindow' => (object) [
+            'view' => 'custom:views/dashlets/addWindow',
+            'entityType' => 'Lead',
+            'options' => (object) [
+                'fields' => (object) [
+                    'title' => (object) [
+                        'type' => 'varchar',
+                        'required' => true
+                    ],
+                    'autorefreshInterval' => (object) [
+                        'type' => 'enumFloat',
+                        'options' => [
+                            0 => 0,
+                            1 => 0.5,
+                            2 => 1,
+                            3 => 2,
+                            4 => 5,
+                            5 => 10
+                        ]
+                    ],
+                    'displayRecords' => (object) [
+                        'type' => 'enumInt',
+                        'options' => [
+                            0 => 3,
+                            1 => 4,
+                            2 => 5,
+                            3 => 7,
+                            4 => 10,
+                            5 => 15,
+                            6 => 20,
+                            7 => 30
+                        ]
+                    ],
+                    'expandedLayout' => (object) [
+                        'type' => 'base',
+                        'view' => 'views/dashlets/fields/records/expanded-layout'
+                    ]
+                ],
+                'defaults' => (object) [
+                    'orderBy' => 'dateEnd',
+                    'order' => 'asc',
+                    'displayRecords' => 5,
+                    'expandedLayout' => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'name',
+                                    'link' => true
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'status'
+                                ],
+                                1 => (object) [
+                                    'name' => 'dateEnd'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'searchData' => (object) [
+                        'bool' => (object) [
+                            'onlyMy' => true
+                        ],
+                        'primary' => 'actualStartingNotInFuture'
+                    ]
+                ],
+                'layout' => [
+                    0 => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'title'
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'displayRecords'
+                                ],
+                                1 => (object) [
+                                    'name' => 'autorefreshInterval'
+                                ]
+                            ],
+                            2 => [
+                                0 => (object) [
+                                    'name' => 'expandedLayout',
+                                    'fullWidth' => true
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        'calls' => (object) [
+            'view' => 'custom:views/dashlets/calls',
+            'entityType' => 'Lead',
             'options' => (object) [
                 'fields' => (object) [
                     'title' => (object) [
@@ -9202,6 +9390,100 @@ return (object) [
                 ]
             ]
         ],
+        'things' => (object) [
+            'view' => 'custom:views/dashlets/things',
+            'entityType' => 'Lead',
+            'options' => (object) [
+                'fields' => (object) [
+                    'title' => (object) [
+                        'type' => 'varchar',
+                        'required' => true
+                    ],
+                    'autorefreshInterval' => (object) [
+                        'type' => 'enumFloat',
+                        'options' => [
+                            0 => 0,
+                            1 => 0.5,
+                            2 => 1,
+                            3 => 2,
+                            4 => 5,
+                            5 => 10
+                        ]
+                    ],
+                    'displayRecords' => (object) [
+                        'type' => 'enumInt',
+                        'options' => [
+                            0 => 3,
+                            1 => 4,
+                            2 => 5,
+                            3 => 7,
+                            4 => 10,
+                            5 => 15,
+                            6 => 20,
+                            7 => 30
+                        ]
+                    ],
+                    'expandedLayout' => (object) [
+                        'type' => 'base',
+                        'view' => 'views/dashlets/fields/records/expanded-layout'
+                    ]
+                ],
+                'defaults' => (object) [
+                    'orderBy' => 'dateEnd',
+                    'order' => 'asc',
+                    'displayRecords' => 5,
+                    'expandedLayout' => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'name',
+                                    'link' => true
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'status'
+                                ],
+                                1 => (object) [
+                                    'name' => 'dateEnd'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'searchData' => (object) [
+                        'bool' => (object) [
+                            'onlyMy' => true
+                        ],
+                        'primary' => 'actualStartingNotInFuture'
+                    ]
+                ],
+                'layout' => [
+                    0 => (object) [
+                        'rows' => [
+                            0 => [
+                                0 => (object) [
+                                    'name' => 'title'
+                                ]
+                            ],
+                            1 => [
+                                0 => (object) [
+                                    'name' => 'displayRecords'
+                                ],
+                                1 => (object) [
+                                    'name' => 'autorefreshInterval'
+                                ]
+                            ],
+                            2 => [
+                                0 => (object) [
+                                    'name' => 'expandedLayout',
+                                    'fullWidth' => true
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'TransactionList' => (object) [
             'view' => 'custom:views/dashlets/TransactionList',
             'entityType' => 'Lead',
@@ -9389,288 +9671,6 @@ return (object) [
                     ]
                 ]
             ]
-        ],
-        'addWindow' => (object) [
-            'view' => 'custom:views/dashlets/addWindow',
-            'entityType' => 'Lead',
-            'options' => (object) [
-                'fields' => (object) [
-                    'title' => (object) [
-                        'type' => 'varchar',
-                        'required' => true
-                    ],
-                    'autorefreshInterval' => (object) [
-                        'type' => 'enumFloat',
-                        'options' => [
-                            0 => 0,
-                            1 => 0.5,
-                            2 => 1,
-                            3 => 2,
-                            4 => 5,
-                            5 => 10
-                        ]
-                    ],
-                    'displayRecords' => (object) [
-                        'type' => 'enumInt',
-                        'options' => [
-                            0 => 3,
-                            1 => 4,
-                            2 => 5,
-                            3 => 7,
-                            4 => 10,
-                            5 => 15,
-                            6 => 20,
-                            7 => 30
-                        ]
-                    ],
-                    'expandedLayout' => (object) [
-                        'type' => 'base',
-                        'view' => 'views/dashlets/fields/records/expanded-layout'
-                    ]
-                ],
-                'defaults' => (object) [
-                    'orderBy' => 'dateEnd',
-                    'order' => 'asc',
-                    'displayRecords' => 5,
-                    'expandedLayout' => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'name',
-                                    'link' => true
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'status'
-                                ],
-                                1 => (object) [
-                                    'name' => 'dateEnd'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'searchData' => (object) [
-                        'bool' => (object) [
-                            'onlyMy' => true
-                        ],
-                        'primary' => 'actualStartingNotInFuture'
-                    ]
-                ],
-                'layout' => [
-                    0 => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'title'
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'displayRecords'
-                                ],
-                                1 => (object) [
-                                    'name' => 'autorefreshInterval'
-                                ]
-                            ],
-                            2 => [
-                                0 => (object) [
-                                    'name' => 'expandedLayout',
-                                    'fullWidth' => true
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'calls' => (object) [
-            'view' => 'custom:views/dashlets/calls',
-            'entityType' => 'Lead',
-            'options' => (object) [
-                'fields' => (object) [
-                    'title' => (object) [
-                        'type' => 'varchar',
-                        'required' => true
-                    ],
-                    'autorefreshInterval' => (object) [
-                        'type' => 'enumFloat',
-                        'options' => [
-                            0 => 0,
-                            1 => 0.5,
-                            2 => 1,
-                            3 => 2,
-                            4 => 5,
-                            5 => 10
-                        ]
-                    ],
-                    'displayRecords' => (object) [
-                        'type' => 'enumInt',
-                        'options' => [
-                            0 => 3,
-                            1 => 4,
-                            2 => 5,
-                            3 => 7,
-                            4 => 10,
-                            5 => 15,
-                            6 => 20,
-                            7 => 30
-                        ]
-                    ],
-                    'expandedLayout' => (object) [
-                        'type' => 'base',
-                        'view' => 'views/dashlets/fields/records/expanded-layout'
-                    ]
-                ],
-                'defaults' => (object) [
-                    'orderBy' => 'dateEnd',
-                    'order' => 'asc',
-                    'displayRecords' => 5,
-                    'expandedLayout' => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'name',
-                                    'link' => true
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'status'
-                                ],
-                                1 => (object) [
-                                    'name' => 'dateEnd'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'searchData' => (object) [
-                        'bool' => (object) [
-                            'onlyMy' => true
-                        ],
-                        'primary' => 'actualStartingNotInFuture'
-                    ]
-                ],
-                'layout' => [
-                    0 => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'title'
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'displayRecords'
-                                ],
-                                1 => (object) [
-                                    'name' => 'autorefreshInterval'
-                                ]
-                            ],
-                            2 => [
-                                0 => (object) [
-                                    'name' => 'expandedLayout',
-                                    'fullWidth' => true
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'things' => (object) [
-            'view' => 'custom:views/dashlets/things',
-            'entityType' => 'Lead',
-            'options' => (object) [
-                'fields' => (object) [
-                    'title' => (object) [
-                        'type' => 'varchar',
-                        'required' => true
-                    ],
-                    'autorefreshInterval' => (object) [
-                        'type' => 'enumFloat',
-                        'options' => [
-                            0 => 0,
-                            1 => 0.5,
-                            2 => 1,
-                            3 => 2,
-                            4 => 5,
-                            5 => 10
-                        ]
-                    ],
-                    'displayRecords' => (object) [
-                        'type' => 'enumInt',
-                        'options' => [
-                            0 => 3,
-                            1 => 4,
-                            2 => 5,
-                            3 => 7,
-                            4 => 10,
-                            5 => 15,
-                            6 => 20,
-                            7 => 30
-                        ]
-                    ],
-                    'expandedLayout' => (object) [
-                        'type' => 'base',
-                        'view' => 'views/dashlets/fields/records/expanded-layout'
-                    ]
-                ],
-                'defaults' => (object) [
-                    'orderBy' => 'dateEnd',
-                    'order' => 'asc',
-                    'displayRecords' => 5,
-                    'expandedLayout' => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'name',
-                                    'link' => true
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'status'
-                                ],
-                                1 => (object) [
-                                    'name' => 'dateEnd'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'searchData' => (object) [
-                        'bool' => (object) [
-                            'onlyMy' => true
-                        ],
-                        'primary' => 'actualStartingNotInFuture'
-                    ]
-                ],
-                'layout' => [
-                    0 => (object) [
-                        'rows' => [
-                            0 => [
-                                0 => (object) [
-                                    'name' => 'title'
-                                ]
-                            ],
-                            1 => [
-                                0 => (object) [
-                                    'name' => 'displayRecords'
-                                ],
-                                1 => (object) [
-                                    'name' => 'autorefreshInterval'
-                                ]
-                            ],
-                            2 => [
-                                0 => (object) [
-                                    'name' => 'expandedLayout',
-                                    'fullWidth' => true
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
         ]
     ],
     'entityAcl' => (object) [
@@ -9742,18 +9742,6 @@ return (object) [
                 ]
             ]
         ],
-        'Email' => (object) [
-            'fields' => (object) [
-                'users' => (object) [
-                    'readOnly' => true
-                ]
-            ],
-            'links' => (object) [
-                'users' => (object) [
-                    'onlyAdmin' => true
-                ]
-            ]
-        ],
         'EmailAccount' => (object) [
             'fields' => (object) [
                 'password' => (object) [
@@ -9764,6 +9752,18 @@ return (object) [
                 ],
                 'fetchData' => (object) [
                     'readOnly' => true
+                ]
+            ]
+        ],
+        'Email' => (object) [
+            'fields' => (object) [
+                'users' => (object) [
+                    'readOnly' => true
+                ]
+            ],
+            'links' => (object) [
+                'users' => (object) [
+                    'onlyAdmin' => true
                 ]
             ]
         ],
@@ -10351,6 +10351,358 @@ return (object) [
                 'asc' => true
             ]
         ],
+        'EmailAccount' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'maxLength' => 100,
+                    'trim' => true,
+                    'view' => 'views/email-account/fields/email-address'
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Active',
+                        1 => 'Inactive'
+                    ],
+                    'default' => 'Active'
+                ],
+                'host' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true
+                ],
+                'port' => (object) [
+                    'type' => 'varchar',
+                    'default' => '143'
+                ],
+                'ssl' => (object) [
+                    'type' => 'bool'
+                ],
+                'username' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true
+                ],
+                'password' => (object) [
+                    'type' => 'password'
+                ],
+                'monitoredFolders' => (object) [
+                    'type' => 'varchar',
+                    'default' => 'INBOX',
+                    'view' => 'views/email-account/fields/folders',
+                    'tooltip' => true
+                ],
+                'sentFolder' => (object) [
+                    'type' => 'varchar',
+                    'view' => 'views/email-account/fields/folder'
+                ],
+                'storeSentEmails' => (object) [
+                    'type' => 'bool',
+                    'tooltip' => true
+                ],
+                'keepFetchedEmailsUnread' => (object) [
+                    'type' => 'bool'
+                ],
+                'fetchSince' => (object) [
+                    'type' => 'date',
+                    'required' => true
+                ],
+                'fetchData' => (object) [
+                    'type' => 'jsonObject',
+                    'readOnly' => true
+                ],
+                'emailFolder' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/email-account/fields/email-folder'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => true,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'useImap' => (object) [
+                    'type' => 'bool',
+                    'default' => true
+                ],
+                'useSmtp' => (object) [
+                    'type' => 'bool'
+                ],
+                'smtpHost' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true
+                ],
+                'smtpPort' => (object) [
+                    'type' => 'int',
+                    'min' => 0,
+                    'max' => 9999,
+                    'default' => 587
+                ],
+                'smtpAuth' => (object) [
+                    'type' => 'bool',
+                    'default' => true
+                ],
+                'smtpSecurity' => (object) [
+                    'type' => 'enum',
+                    'default' => 'TLS',
+                    'options' => [
+                        0 => '',
+                        1 => 'SSL',
+                        2 => 'TLS'
+                    ]
+                ],
+                'smtpUsername' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true
+                ],
+                'smtpPassword' => (object) [
+                    'type' => 'password'
+                ],
+                'smtpAuthMechanism' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'login',
+                        1 => 'crammd5',
+                        2 => 'plain'
+                    ],
+                    'default' => 'login'
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ]
+            ],
+            'links' => (object) [
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'filters' => (object) [
+                    'type' => 'hasChildren',
+                    'foreign' => 'parent',
+                    'entity' => 'EmailFilter'
+                ],
+                'emails' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Email',
+                    'foreign' => 'emailAccounts'
+                ],
+                'emailFolder' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'EmailFolder'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'name',
+                'order' => 'asc',
+                'sortBy' => 'name',
+                'asc' => true
+            ]
+        ],
+        'EmailAddress' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true
+                ],
+                'lower' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'index' => true
+                ],
+                'invalid' => (object) [
+                    'type' => 'bool'
+                ],
+                'optOut' => (object) [
+                    'type' => 'bool'
+                ]
+            ],
+            'links' => (object) [
+                
+            ],
+            'collection' => (object) [
+                'orderBy' => 'name',
+                'order' => 'asc',
+                'sortBy' => 'name',
+                'asc' => true
+            ]
+        ],
+        'EmailFilter' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'maxLength' => 100,
+                    'tooltip' => true,
+                    'trim' => true
+                ],
+                'from' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 255,
+                    'tooltip' => true,
+                    'trim' => true
+                ],
+                'to' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 255,
+                    'tooltip' => true,
+                    'trim' => true
+                ],
+                'subject' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 255,
+                    'tooltip' => true
+                ],
+                'bodyContains' => (object) [
+                    'type' => 'array',
+                    'tooltip' => true
+                ],
+                'isGlobal' => (object) [
+                    'type' => 'bool',
+                    'tooltip' => true
+                ],
+                'parent' => (object) [
+                    'type' => 'linkParent'
+                ],
+                'action' => (object) [
+                    'type' => 'enum',
+                    'default' => 'Skip',
+                    'options' => [
+                        0 => 'Skip',
+                        1 => 'Move to Folder'
+                    ],
+                    'view' => 'views/email-filter/fields/action'
+                ],
+                'emailFolder' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/email-filter/fields/email-folder'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'parent' => (object) [
+                    'type' => 'belongsToParent',
+                    'entityList' => [
+                        0 => 'User',
+                        1 => 'EmailAccount',
+                        2 => 'InboundEmail'
+                    ]
+                ],
+                'emailFolder' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'EmailFolder'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ]
+        ],
+        'EmailFolder' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'maxLength' => 64,
+                    'trim' => true
+                ],
+                'order' => (object) [
+                    'type' => 'int'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'skipNotifications' => (object) [
+                    'type' => 'bool'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'order',
+                'order' => 'asc',
+                'sortBy' => 'order',
+                'asc' => true
+            ]
+        ],
         'Email' => (object) [
             'fields' => (object) [
                 'name' => (object) [
@@ -10899,456 +11251,6 @@ return (object) [
                 ]
             ]
         ],
-        'EmailAccount' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'maxLength' => 100,
-                    'trim' => true,
-                    'view' => 'views/email-account/fields/email-address'
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Active',
-                        1 => 'Inactive'
-                    ],
-                    'default' => 'Active'
-                ],
-                'host' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true
-                ],
-                'port' => (object) [
-                    'type' => 'varchar',
-                    'default' => '143'
-                ],
-                'ssl' => (object) [
-                    'type' => 'bool'
-                ],
-                'username' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true
-                ],
-                'password' => (object) [
-                    'type' => 'password'
-                ],
-                'monitoredFolders' => (object) [
-                    'type' => 'varchar',
-                    'default' => 'INBOX',
-                    'view' => 'views/email-account/fields/folders',
-                    'tooltip' => true
-                ],
-                'sentFolder' => (object) [
-                    'type' => 'varchar',
-                    'view' => 'views/email-account/fields/folder'
-                ],
-                'storeSentEmails' => (object) [
-                    'type' => 'bool',
-                    'tooltip' => true
-                ],
-                'keepFetchedEmailsUnread' => (object) [
-                    'type' => 'bool'
-                ],
-                'fetchSince' => (object) [
-                    'type' => 'date',
-                    'required' => true
-                ],
-                'fetchData' => (object) [
-                    'type' => 'jsonObject',
-                    'readOnly' => true
-                ],
-                'emailFolder' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/email-account/fields/email-folder'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => true,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'useImap' => (object) [
-                    'type' => 'bool',
-                    'default' => true
-                ],
-                'useSmtp' => (object) [
-                    'type' => 'bool'
-                ],
-                'smtpHost' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true
-                ],
-                'smtpPort' => (object) [
-                    'type' => 'int',
-                    'min' => 0,
-                    'max' => 9999,
-                    'default' => 587
-                ],
-                'smtpAuth' => (object) [
-                    'type' => 'bool',
-                    'default' => true
-                ],
-                'smtpSecurity' => (object) [
-                    'type' => 'enum',
-                    'default' => 'TLS',
-                    'options' => [
-                        0 => '',
-                        1 => 'SSL',
-                        2 => 'TLS'
-                    ]
-                ],
-                'smtpUsername' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true
-                ],
-                'smtpPassword' => (object) [
-                    'type' => 'password'
-                ],
-                'smtpAuthMechanism' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'login',
-                        1 => 'crammd5',
-                        2 => 'plain'
-                    ],
-                    'default' => 'login'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ]
-            ],
-            'links' => (object) [
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'filters' => (object) [
-                    'type' => 'hasChildren',
-                    'foreign' => 'parent',
-                    'entity' => 'EmailFilter'
-                ],
-                'emails' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Email',
-                    'foreign' => 'emailAccounts'
-                ],
-                'emailFolder' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'EmailFolder'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'name',
-                'order' => 'asc',
-                'sortBy' => 'name',
-                'asc' => true
-            ]
-        ],
-        'EmailAddress' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true
-                ],
-                'lower' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'index' => true
-                ],
-                'invalid' => (object) [
-                    'type' => 'bool'
-                ],
-                'optOut' => (object) [
-                    'type' => 'bool'
-                ]
-            ],
-            'links' => (object) [
-                
-            ],
-            'collection' => (object) [
-                'orderBy' => 'name',
-                'order' => 'asc',
-                'sortBy' => 'name',
-                'asc' => true
-            ]
-        ],
-        'EmailFilter' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'maxLength' => 100,
-                    'tooltip' => true,
-                    'trim' => true
-                ],
-                'from' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 255,
-                    'tooltip' => true,
-                    'trim' => true
-                ],
-                'to' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 255,
-                    'tooltip' => true,
-                    'trim' => true
-                ],
-                'subject' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 255,
-                    'tooltip' => true
-                ],
-                'bodyContains' => (object) [
-                    'type' => 'array',
-                    'tooltip' => true
-                ],
-                'isGlobal' => (object) [
-                    'type' => 'bool',
-                    'tooltip' => true
-                ],
-                'parent' => (object) [
-                    'type' => 'linkParent'
-                ],
-                'action' => (object) [
-                    'type' => 'enum',
-                    'default' => 'Skip',
-                    'options' => [
-                        0 => 'Skip',
-                        1 => 'Move to Folder'
-                    ],
-                    'view' => 'views/email-filter/fields/action'
-                ],
-                'emailFolder' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/email-filter/fields/email-folder'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'parent' => (object) [
-                    'type' => 'belongsToParent',
-                    'entityList' => [
-                        0 => 'User',
-                        1 => 'EmailAccount',
-                        2 => 'InboundEmail'
-                    ]
-                ],
-                'emailFolder' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'EmailFolder'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ]
-        ],
-        'EmailFolder' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'maxLength' => 64,
-                    'trim' => true
-                ],
-                'order' => (object) [
-                    'type' => 'int'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'skipNotifications' => (object) [
-                    'type' => 'bool'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'order',
-                'order' => 'asc',
-                'sortBy' => 'order',
-                'asc' => true
-            ]
-        ],
-        'EmailTemplate' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'subject' => (object) [
-                    'type' => 'varchar'
-                ],
-                'body' => (object) [
-                    'type' => 'wysiwyg',
-                    'view' => 'views/email-template/fields/body',
-                    'useIframe' => true
-                ],
-                'isHtml' => (object) [
-                    'type' => 'bool',
-                    'default' => true
-                ],
-                'oneOff' => (object) [
-                    'type' => 'bool',
-                    'default' => false,
-                    'tooltip' => true
-                ],
-                'attachments' => (object) [
-                    'type' => 'attachmentMultiple'
-                ],
-                'category' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/link-category-tree'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ]
-            ],
-            'links' => (object) [
-                'attachments' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Attachment',
-                    'foreign' => 'parent'
-                ],
-                'category' => (object) [
-                    'type' => 'belongsTo',
-                    'foreign' => 'emailTemplates',
-                    'entity' => 'EmailTemplateCategory'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'textFilterFields' => [
-                    0 => 'name',
-                    1 => 'bodyPlain',
-                    2 => 'body',
-                    3 => 'subject'
-                ],
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ]
-        ],
         'EmailTemplateCategory' => (object) [
             'fields' => (object) [
                 'name' => (object) [
@@ -11450,6 +11352,104 @@ return (object) [
                         ]
                     ]
                 ]
+            ]
+        ],
+        'EmailTemplate' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'subject' => (object) [
+                    'type' => 'varchar'
+                ],
+                'body' => (object) [
+                    'type' => 'wysiwyg',
+                    'view' => 'views/email-template/fields/body',
+                    'useIframe' => true
+                ],
+                'isHtml' => (object) [
+                    'type' => 'bool',
+                    'default' => true
+                ],
+                'oneOff' => (object) [
+                    'type' => 'bool',
+                    'default' => false,
+                    'tooltip' => true
+                ],
+                'attachments' => (object) [
+                    'type' => 'attachmentMultiple'
+                ],
+                'category' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/fields/link-category-tree'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ]
+            ],
+            'links' => (object) [
+                'attachments' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Attachment',
+                    'foreign' => 'parent'
+                ],
+                'category' => (object) [
+                    'type' => 'belongsTo',
+                    'foreign' => 'emailTemplates',
+                    'entity' => 'EmailTemplateCategory'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'textFilterFields' => [
+                    0 => 'name',
+                    1 => 'bodyPlain',
+                    2 => 'body',
+                    3 => 'subject'
+                ],
+                'sortBy' => 'createdAt',
+                'asc' => false
             ]
         ],
         'Extension' => (object) [
@@ -14712,6 +14712,32 @@ return (object) [
                 'asc' => false
             ]
         ],
+        'UserData' => (object) [
+            'fields' => (object) [
+                'imapHandlers' => (object) [
+                    'type' => 'jsonObject'
+                ],
+                'smtpHandlers' => (object) [
+                    'type' => 'jsonObject'
+                ],
+                'auth2FA' => (object) [
+                    'type' => 'bool'
+                ],
+                'auth2FAMethod' => (object) [
+                    'type' => 'enum'
+                ],
+                'auth2FATotpSecret' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 32
+                ]
+            ],
+            'links' => (object) [
+                'user' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ]
+            ]
+        ],
         'User' => (object) [
             'fields' => (object) [
                 'isAdmin' => (object) [
@@ -15418,30 +15444,39 @@ return (object) [
                 'asc' => true
             ]
         ],
-        'UserData' => (object) [
+        'WebhookEventQueueItem' => (object) [
             'fields' => (object) [
-                'imapHandlers' => (object) [
-                    'type' => 'jsonObject'
+                'number' => (object) [
+                    'type' => 'autoincrement',
+                    'dbType' => 'bigint'
                 ],
-                'smtpHandlers' => (object) [
-                    'type' => 'jsonObject'
-                ],
-                'auth2FA' => (object) [
-                    'type' => 'bool'
-                ],
-                'auth2FAMethod' => (object) [
-                    'type' => 'enum'
-                ],
-                'auth2FATotpSecret' => (object) [
+                'event' => (object) [
                     'type' => 'varchar',
-                    'maxLength' => 32
+                    'maxLength' => 100,
+                    'required' => true
+                ],
+                'target' => (object) [
+                    'type' => 'linkParent'
+                ],
+                'data' => (object) [
+                    'type' => 'jsonObject'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'isProcessed' => (object) [
+                    'type' => 'bool'
                 ]
             ],
             'links' => (object) [
-                'user' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ]
+                
+            ],
+            'collection' => (object) [
+                'orderBy' => 'number',
+                'order' => 'desc',
+                'sortBy' => 'number',
+                'asc' => false
             ]
         ],
         'Webhook' => (object) [
@@ -15549,41 +15584,6 @@ return (object) [
                         1 => 'field'
                     ]
                 ]
-            ]
-        ],
-        'WebhookEventQueueItem' => (object) [
-            'fields' => (object) [
-                'number' => (object) [
-                    'type' => 'autoincrement',
-                    'dbType' => 'bigint'
-                ],
-                'event' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 100,
-                    'required' => true
-                ],
-                'target' => (object) [
-                    'type' => 'linkParent'
-                ],
-                'data' => (object) [
-                    'type' => 'jsonObject'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'isProcessed' => (object) [
-                    'type' => 'bool'
-                ]
-            ],
-            'links' => (object) [
-                
-            ],
-            'collection' => (object) [
-                'orderBy' => 'number',
-                'order' => 'desc',
-                'sortBy' => 'number',
-                'asc' => false
             ]
         ],
         'WebhookQueueItem' => (object) [
@@ -16219,6 +16219,303 @@ return (object) [
                         1 => 'deleted'
                     ]
                 ],
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
+        'BillingEntity' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'panno' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'udyamRegistrationNo' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'addressstreet' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'addresscity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'addressstate' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'addresspostalcode' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'emailid' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'phoneno' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'textFilterFields' => [
+                    0 => 'name'
+                ],
+                'fullTextSearch' => false,
+                'countDisabled' => false,
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
                 'name' => (object) [
                     'columns' => [
                         0 => 'name',
@@ -17315,6 +17612,582 @@ return (object) [
                 ]
             ]
         ],
+        'ClosedTask' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true,
+                    'inlineEditDisabled' => true,
+                    'options' => [
+                        
+                    ]
+                ],
+                'description' => (object) [
+                    'type' => 'text',
+                    'inlineEditDisabled' => true
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user',
+                    'inlineEditDisabled' => true
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams',
+                    'inlineEditDisabled' => true
+                ],
+                'closedat' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'completedat' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'createRecurringSeriesOfTasks' => (object) [
+                    'notNull' => true,
+                    'type' => 'bool',
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'customStartDate1' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'customStartDate2' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'customStartDate3' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'customStartDate4' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'customStartDate5' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'customStartDate6' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'endDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'frequency' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Daily',
+                        1 => 'Weekly',
+                        2 => 'Monthly',
+                        3 => 'Custom'
+                    ],
+                    'style' => (object) [
+                        'Daily' => NULL,
+                        'Weekly' => NULL,
+                        'Monthly' => NULL,
+                        'Custom' => NULL
+                    ],
+                    'default' => 'Daily',
+                    'isCustom' => true
+                ],
+                'monthlyEndDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'monthlyRepeat' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Every Month',
+                        1 => 'Custom'
+                    ],
+                    'style' => (object) [
+                        'Every Month' => NULL,
+                        'Custom' => NULL
+                    ],
+                    'default' => 'Every Month',
+                    'isCustom' => true
+                ],
+                'monthlyRepeatOn' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => '01',
+                        1 => '02',
+                        2 => '03',
+                        3 => '04',
+                        4 => '05',
+                        5 => '06',
+                        6 => '07',
+                        7 => '08',
+                        8 => '09',
+                        9 => '10',
+                        10 => '11',
+                        11 => '12',
+                        12 => '13',
+                        13 => '14',
+                        14 => '15',
+                        15 => '16',
+                        16 => '17',
+                        17 => '18',
+                        18 => '19',
+                        19 => '20',
+                        20 => '21',
+                        21 => '22',
+                        22 => '23',
+                        23 => '24',
+                        24 => '25',
+                        25 => '26',
+                        26 => '27',
+                        27 => '28',
+                        28 => '29',
+                        29 => '30',
+                        30 => '31'
+                    ],
+                    'style' => (object) [
+                        10 => NULL,
+                        11 => NULL,
+                        12 => NULL,
+                        13 => NULL,
+                        14 => NULL,
+                        15 => NULL,
+                        16 => NULL,
+                        17 => NULL,
+                        18 => NULL,
+                        19 => NULL,
+                        20 => NULL,
+                        21 => NULL,
+                        22 => NULL,
+                        23 => NULL,
+                        24 => NULL,
+                        25 => NULL,
+                        26 => NULL,
+                        27 => NULL,
+                        28 => NULL,
+                        29 => NULL,
+                        30 => NULL,
+                        31 => NULL,
+                        '01' => NULL,
+                        '02' => NULL,
+                        '03' => NULL,
+                        '04' => NULL,
+                        '05' => NULL,
+                        '06' => NULL,
+                        '07' => NULL,
+                        '08' => NULL,
+                        '09' => NULL
+                    ],
+                    'default' => '01',
+                    'isCustom' => true
+                ],
+                'monthlyStartDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'numberOfRecurringTasks' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => '1',
+                        1 => '2',
+                        2 => '3',
+                        3 => '4',
+                        4 => '5',
+                        5 => '6'
+                    ],
+                    'style' => (object) [
+                        1 => NULL,
+                        2 => NULL,
+                        3 => NULL,
+                        4 => NULL,
+                        5 => NULL,
+                        6 => NULL
+                    ],
+                    'default' => '1',
+                    'isCustom' => true
+                ],
+                'repeat' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Every day'
+                    ],
+                    'style' => (object) [
+                        'Every day' => NULL
+                    ],
+                    'default' => 'Every day',
+                    'isCustom' => true
+                ],
+                'startDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'weeklyendDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'weeklyrepeat' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Every week',
+                        1 => 'Custom'
+                    ],
+                    'style' => (object) [
+                        'Every week' => NULL,
+                        'Custom' => NULL
+                    ],
+                    'default' => 'Every week',
+                    'isCustom' => true
+                ],
+                'weeklyrepeatOn' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Monday',
+                        1 => 'Tuesday',
+                        2 => 'Wednesday',
+                        3 => 'Thursday',
+                        4 => 'Friday',
+                        5 => 'Saturday',
+                        6 => 'Sunday'
+                    ],
+                    'style' => (object) [
+                        'Monday' => NULL,
+                        'Tuesday' => NULL,
+                        'Wednesday' => NULL,
+                        'Thursday' => NULL,
+                        'Friday' => NULL,
+                        'Saturday' => NULL,
+                        'Sunday' => NULL
+                    ],
+                    'default' => 'Monday',
+                    'isCustom' => true
+                ],
+                'weeklystartDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'status' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'parent' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'priority' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'dateStart' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'dateEnd' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'dateCompleted' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'DateCompleted' => (object) [
+                    'name' => 'DateCompleted',
+                    'dynamicLogicVisible' => NULL,
+                    'dynamicLogicReadOnly' => NULL,
+                    'inlineEditDisabled' => true,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'DateEnd' => (object) [
+                    'name' => 'DateEnd',
+                    'dynamicLogicVisible' => NULL,
+                    'dynamicLogicReadOnly' => NULL,
+                    'inlineEditDisabled' => true,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'attachments' => (object) [
+                    'type' => 'attachmentMultiple',
+                    'previewSize' => 'medium',
+                    'sourceList' => [
+                        
+                    ],
+                    'accept' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'inlineEditDisabled' => true
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'attachments' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Attachment',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true,
+                    'relationName' => 'attachments',
+                    'disabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
         'Contact' => (object) [
             'fields' => (object) [
                 'name' => (object) [
@@ -17932,3937 +18805,6 @@ return (object) [
                 ]
             ]
         ],
-        'Document' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'view' => 'crm:views/document/fields/name',
-                    'trim' => true
-                ],
-                'file' => (object) [
-                    'type' => 'file',
-                    'required' => true,
-                    'view' => 'crm:views/document/fields/file'
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Active',
-                        1 => 'Draft',
-                        2 => 'Expired',
-                        3 => 'Canceled'
-                    ],
-                    'style' => (object) [
-                        'Canceled' => 'danger',
-                        'Expired' => 'danger'
-                    ]
-                ],
-                'type' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => '',
-                        1 => 'Contract',
-                        2 => 'NDA',
-                        3 => 'EULA',
-                        4 => 'License Agreement'
-                    ]
-                ],
-                'publishDate' => (object) [
-                    'type' => 'date',
-                    'required' => true,
-                    'default' => 'javascript: return this.dateTime.getToday();'
-                ],
-                'expirationDate' => (object) [
-                    'type' => 'date',
-                    'after' => 'publishDate'
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'accounts' => (object) [
-                    'type' => 'linkMultiple',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'importDisabled' => true,
-                    'noLoad' => true
-                ],
-                'folder' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/link-category-tree'
-                ]
-            ],
-            'links' => (object) [
-                'accounts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Account',
-                    'foreign' => 'documents'
-                ],
-                'opportunities' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Opportunity',
-                    'foreign' => 'documents'
-                ],
-                'leads' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Lead',
-                    'foreign' => 'documents'
-                ],
-                'contacts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Contact',
-                    'foreign' => 'documents'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'folder' => (object) [
-                    'type' => 'belongsTo',
-                    'foreign' => 'documents',
-                    'entity' => 'DocumentFolder'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ]
-        ],
-        'DocumentFolder' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'parent' => (object) [
-                    'type' => 'link'
-                ],
-                'childList' => (object) [
-                    'type' => 'jsonArray',
-                    'notStorable' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'parent' => (object) [
-                    'type' => 'belongsTo',
-                    'foreign' => 'children',
-                    'entity' => 'DocumentFolder'
-                ],
-                'children' => (object) [
-                    'type' => 'hasMany',
-                    'foreign' => 'parent',
-                    'entity' => 'DocumentFolder'
-                ],
-                'documents' => (object) [
-                    'type' => 'hasMany',
-                    'foreign' => 'folder',
-                    'entity' => 'Document'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'parent',
-                'order' => 'asc',
-                'sortBy' => 'parent',
-                'asc' => true
-            ],
-            'additionalTables' => (object) [
-                'DocumentFolderPath' => (object) [
-                    'fields' => (object) [
-                        'id' => (object) [
-                            'type' => 'id',
-                            'dbType' => 'int',
-                            'len' => '11',
-                            'autoincrement' => true
-                        ],
-                        'ascendorId' => (object) [
-                            'type' => 'varchar',
-                            'len' => '100',
-                            'index' => true
-                        ],
-                        'descendorId' => (object) [
-                            'type' => 'varchar',
-                            'len' => '24',
-                            'index' => true
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'EmailQueueItem' => (object) [
-            'fields' => (object) [
-                'massEmail' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Pending',
-                        1 => 'Sent',
-                        2 => 'Failed',
-                        3 => 'Sending'
-                    ],
-                    'readOnly' => true
-                ],
-                'attemptCount' => (object) [
-                    'type' => 'int',
-                    'readOnly' => true,
-                    'default' => 0
-                ],
-                'target' => (object) [
-                    'type' => 'linkParent',
-                    'readOnly' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'sentAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'varchar',
-                    'readOnly' => true
-                ],
-                'isTest' => (object) [
-                    'type' => 'bool'
-                ]
-            ],
-            'links' => (object) [
-                'massEmail' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'MassEmail',
-                    'foreign' => 'queueItems'
-                ],
-                'target' => (object) [
-                    'type' => 'belongsToParent'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ]
-        ],
-        'KnowledgeBaseArticle' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Draft',
-                        1 => 'In Review',
-                        2 => 'Published',
-                        3 => 'Archived'
-                    ],
-                    'view' => 'crm:views/knowledge-base-article/fields/status',
-                    'default' => 'Draft'
-                ],
-                'language' => (object) [
-                    'type' => 'enum',
-                    'view' => 'crm:views/knowledge-base-article/fields/language',
-                    'default' => '',
-                    'customizationOptionsDisabled' => true
-                ],
-                'type' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Article'
-                    ]
-                ],
-                'portals' => (object) [
-                    'type' => 'linkMultiple',
-                    'tooltip' => true
-                ],
-                'publishDate' => (object) [
-                    'type' => 'date'
-                ],
-                'expirationDate' => (object) [
-                    'type' => 'date',
-                    'after' => 'publishDate'
-                ],
-                'order' => (object) [
-                    'type' => 'int',
-                    'disableFormatting' => true,
-                    'textFilterDisabled' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'categories' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/link-multiple-category-tree'
-                ],
-                'attachments' => (object) [
-                    'type' => 'attachmentMultiple'
-                ],
-                'body' => (object) [
-                    'type' => 'wysiwyg'
-                ]
-            ],
-            'links' => (object) [
-                'cases' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Case',
-                    'foreign' => 'articles'
-                ],
-                'portals' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Portal',
-                    'foreign' => 'articles'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'categories' => (object) [
-                    'type' => 'hasMany',
-                    'foreign' => 'articles',
-                    'entity' => 'KnowledgeBaseCategory'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'order',
-                'order' => 'asc',
-                'sortBy' => 'order',
-                'asc' => true
-            ]
-        ],
-        'KnowledgeBaseCategory' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'order' => (object) [
-                    'type' => 'int',
-                    'required' => true,
-                    'disableFormatting' => true,
-                    'textFilterDisabled' => true
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'parent' => (object) [
-                    'type' => 'link'
-                ],
-                'childList' => (object) [
-                    'type' => 'jsonArray',
-                    'notStorable' => true
-                ],
-                'articlecount' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'categorycount' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'parent' => (object) [
-                    'type' => 'belongsTo',
-                    'foreign' => 'children',
-                    'entity' => 'KnowledgeBaseCategory'
-                ],
-                'children' => (object) [
-                    'type' => 'hasMany',
-                    'foreign' => 'parent',
-                    'entity' => 'KnowledgeBaseCategory'
-                ],
-                'articles' => (object) [
-                    'type' => 'hasMany',
-                    'foreign' => 'categories',
-                    'entity' => 'KnowledgeBaseArticle'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'parent',
-                'orderByColumn' => 'parentId',
-                'order' => 'asc',
-                'sortBy' => 'parent',
-                'asc' => true
-            ],
-            'additionalTables' => (object) [
-                'KnowledgeBaseCategoryPath' => (object) [
-                    'fields' => (object) [
-                        'id' => (object) [
-                            'type' => 'id',
-                            'dbType' => 'int',
-                            'len' => '11',
-                            'autoincrement' => true
-                        ],
-                        'ascendorId' => (object) [
-                            'type' => 'varchar',
-                            'len' => '100',
-                            'index' => true
-                        ],
-                        'descendorId' => (object) [
-                            'type' => 'varchar',
-                            'len' => '24',
-                            'index' => true
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'Lead' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'personName',
-                    'isPersonalData' => true
-                ],
-                'salutationName' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Mr.',
-                        1 => 'Ms.',
-                        2 => 'Mrs.',
-                        3 => 'Dr.'
-                    ],
-                    'required' => true,
-                    'style' => (object) [
-                        'Mr.' => NULL,
-                        'Ms.' => NULL,
-                        'Mrs.' => NULL,
-                        'Dr.' => NULL
-                    ],
-                    'default' => 'Mr.'
-                ],
-                'firstName' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 100,
-                    'default' => NULL,
-                    'required' => true,
-                    'options' => [
-                        
-                    ]
-                ],
-                'lastName' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 100,
-                    'default' => NULL,
-                    'required' => true,
-                    'options' => [
-                        
-                    ]
-                ],
-                'title' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 100
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'New',
-                        1 => 'Assigned',
-                        2 => 'In Process',
-                        3 => 'Converted',
-                        4 => 'Recycled',
-                        5 => 'Dead',
-                        6 => 'Open',
-                        7 => 'Qualified'
-                    ],
-                    'default' => 'New',
-                    'style' => (object) [
-                        'Converted' => 'success',
-                        'Recycled' => 'danger',
-                        'Dead' => 'danger',
-                        'New' => NULL,
-                        'Assigned' => NULL,
-                        'In Process' => NULL,
-                        'Open' => NULL,
-                        'Qualified' => NULL
-                    ],
-                    'audited' => true,
-                    'fieldManagerAdditionalParamList' => [
-                        0 => (object) [
-                            'name' => 'notActualOptions',
-                            'view' => 'views/admin/field-manager/fields/not-actual-options'
-                        ]
-                    ],
-                    'notActualOptions' => [
-                        0 => 'Converted',
-                        1 => 'Recycled',
-                        2 => 'Dead'
-                    ]
-                ],
-                'source' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Call',
-                        1 => 'Email',
-                        2 => 'Existing Customer',
-                        3 => 'Partner',
-                        4 => 'Public Relations',
-                        5 => 'Web Site',
-                        6 => 'Campaign',
-                        7 => 'Other'
-                    ],
-                    'default' => ''
-                ],
-                'industry' => (object) [
-                    'type' => 'enum',
-                    'view' => 'crm:views/lead/fields/industry',
-                    'customizationOptionsDisabled' => true,
-                    'default' => '',
-                    'isSorted' => true
-                ],
-                'opportunityAmount' => (object) [
-                    'type' => 'currency',
-                    'audited' => true
-                ],
-                'opportunityAmountConverted' => (object) [
-                    'type' => 'currencyConverted',
-                    'readOnly' => true,
-                    'importDisabled' => true
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'address' => (object) [
-                    'type' => 'address',
-                    'isPersonalData' => true
-                ],
-                'addressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'addressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email',
-                    'isPersonalData' => true
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Mobile',
-                        1 => 'Office',
-                        2 => 'Home',
-                        3 => 'Fax',
-                        4 => 'Other'
-                    ],
-                    'defaultType' => 'Mobile',
-                    'isPersonalData' => true
-                ],
-                'doNotCall' => (object) [
-                    'type' => 'bool'
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'convertedAt' => (object) [
-                    'type' => 'datetime',
-                    'layoutMassUpdateDisabled' => true,
-                    'readOnly' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'accountName' => (object) [
-                    'type' => 'varchar'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'acceptanceStatus' => (object) [
-                    'type' => 'varchar',
-                    'notStorable' => true,
-                    'exportDisabled' => true,
-                    'disabled' => true
-                ],
-                'acceptanceStatusMeetings' => (object) [
-                    'type' => 'enum',
-                    'notStorable' => true,
-                    'layoutAvailabilityList' => [
-                        0 => 'filters'
-                    ],
-                    'importDisabled' => true,
-                    'exportDisabled' => true,
-                    'view' => 'crm:views/lead/fields/acceptance-status',
-                    'link' => 'meetings',
-                    'column' => 'status'
-                ],
-                'acceptanceStatusCalls' => (object) [
-                    'type' => 'enum',
-                    'notStorable' => true,
-                    'layoutAvailabilityList' => [
-                        0 => 'filters'
-                    ],
-                    'importDisabled' => true,
-                    'exportDisabled' => true,
-                    'view' => 'crm:views/lead/fields/acceptance-status',
-                    'link' => 'calls',
-                    'column' => 'status'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'campaign' => (object) [
-                    'type' => 'link',
-                    'layoutListDisabled' => true
-                ],
-                'createdAccount' => (object) [
-                    'type' => 'link',
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true
-                ],
-                'createdContact' => (object) [
-                    'type' => 'link',
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'view' => 'crm:views/lead/fields/created-contact'
-                ],
-                'createdOpportunity' => (object) [
-                    'type' => 'link',
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'view' => 'crm:views/lead/fields/created-opportunity'
-                ],
-                'targetLists' => (object) [
-                    'type' => 'linkMultiple',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'importDisabled' => true,
-                    'noLoad' => true
-                ],
-                'targetList' => (object) [
-                    'type' => 'link',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'layoutFiltersDisabled' => true,
-                    'entity' => 'TargetList',
-                    'directAccessDisabled' => true
-                ],
-                'targetListIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'disabled' => true
-                ],
-                'leadType' => (object) [
-                    'type' => 'enum',
-                    'required' => true,
-                    'options' => [
-                        0 => 'Hot Lead',
-                        1 => 'Cold Lead',
-                        2 => 'Warm Lead',
-                        3 => 'Dead Lead'
-                    ],
-                    'style' => (object) [
-                        'Hot Lead' => NULL,
-                        'Cold Lead' => NULL,
-                        'Warm Lead' => NULL,
-                        'Dead Lead' => NULL
-                    ],
-                    'isSorted' => true,
-                    'default' => 'Hot Lead',
-                    'isCustom' => true
-                ],
-                'stream' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'opportunityAmountCurrency' => (object) [
-                    'type' => 'enum',
-                    'view' => 'views/fields/currency-list',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'customizationRequiredDisabled' => true,
-                    'customizationOptionsDisabled' => true,
-                    'customizationIsSortedDisabled' => true,
-                    'customizationDisplayAsLabelDisabled' => true,
-                    'customizationAuditedDisabled' => true,
-                    'customizationReadOnlyDisabled' => true,
-                    'customizationDefaultView' => 'views/admin/field-manager/fields/currency-default',
-                    'maxLength' => 6
-                ],
-                'addressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'meetings' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Meeting',
-                    'foreign' => 'leads',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'leads',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'cases' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Case',
-                    'foreign' => 'lead',
-                    'audited' => true
-                ],
-                'emails' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Email',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'createdAccount' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Account',
-                    'noJoin' => true,
-                    'foreign' => 'originalLead'
-                ],
-                'createdContact' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Contact',
-                    'noJoin' => true,
-                    'foreign' => 'originalLead'
-                ],
-                'createdOpportunity' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Opportunity',
-                    'noJoin' => true,
-                    'foreign' => 'originalLead'
-                ],
-                'campaign' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Campaign',
-                    'foreign' => 'leads',
-                    'noJoin' => true
-                ],
-                'campaignLogRecords' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'CampaignLogRecord',
-                    'foreign' => 'parent'
-                ],
-                'targetLists' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'TargetList',
-                    'foreign' => 'leads'
-                ],
-                'documents' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Document',
-                    'foreign' => 'leads',
-                    'audited' => true
-                ]
-            ],
-            'convertEntityList' => [
-                0 => 'Account',
-                1 => 'Contact',
-                2 => 'Opportunity'
-            ],
-            'convertFields' => (object) [
-                'Contact' => (object) [
-                    
-                ],
-                'Account' => (object) [
-                    'name' => 'accountName',
-                    'billingAddressStreet' => 'addressStreet',
-                    'billingAddressCity' => 'addressCity',
-                    'billingAddressState' => 'addressState',
-                    'billingAddressPostalCode' => 'addressPostalCode',
-                    'billingAddressCountry' => 'addressCountry'
-                ],
-                'Opportunity' => (object) [
-                    'amount' => 'opportunityAmount',
-                    'leadSource' => 'source'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'textFilterFields' => [
-                    0 => 'name',
-                    1 => 'accountName',
-                    2 => 'emailAddress'
-                ],
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'firstName' => (object) [
-                    'columns' => [
-                        0 => 'firstName',
-                        1 => 'deleted'
-                    ]
-                ],
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'firstName',
-                        1 => 'lastName'
-                    ]
-                ],
-                'status' => (object) [
-                    'columns' => [
-                        0 => 'status',
-                        1 => 'deleted'
-                    ]
-                ],
-                'createdAt' => (object) [
-                    'columns' => [
-                        0 => 'createdAt',
-                        1 => 'deleted'
-                    ]
-                ],
-                'createdAtStatus' => (object) [
-                    'columns' => [
-                        0 => 'createdAt',
-                        1 => 'status'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUserStatus' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'status'
-                    ]
-                ]
-            ]
-        ],
-        'MassEmail' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Draft',
-                        1 => 'Pending',
-                        2 => 'Complete',
-                        3 => 'In Process',
-                        4 => 'Failed'
-                    ],
-                    'default' => 'Pending'
-                ],
-                'storeSentEmails' => (object) [
-                    'type' => 'bool',
-                    'default' => false,
-                    'tooltip' => true
-                ],
-                'optOutEntirely' => (object) [
-                    'type' => 'bool',
-                    'default' => false,
-                    'tooltip' => true
-                ],
-                'fromAddress' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'view' => 'crm:views/mass-email/fields/from-address'
-                ],
-                'fromName' => (object) [
-                    'type' => 'varchar'
-                ],
-                'replyToAddress' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true
-                ],
-                'replyToName' => (object) [
-                    'type' => 'varchar'
-                ],
-                'startAt' => (object) [
-                    'type' => 'datetime',
-                    'required' => true
-                ],
-                'emailTemplate' => (object) [
-                    'type' => 'link',
-                    'required' => true,
-                    'view' => 'crm:views/mass-email/fields/email-template'
-                ],
-                'campaign' => (object) [
-                    'type' => 'link'
-                ],
-                'targetLists' => (object) [
-                    'type' => 'linkMultiple',
-                    'required' => true,
-                    'tooltip' => true
-                ],
-                'excludingTargetLists' => (object) [
-                    'type' => 'linkMultiple',
-                    'tooltip' => true
-                ],
-                'inboundEmail' => (object) [
-                    'type' => 'link'
-                ],
-                'smtpAccount' => (object) [
-                    'type' => 'base',
-                    'notStorable' => true,
-                    'view' => 'crm:views/mass-email/fields/smtp-account'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'emailTemplate' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'EmailTemplate'
-                ],
-                'campaign' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Campaign',
-                    'foreign' => 'massEmails'
-                ],
-                'targetLists' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'TargetList',
-                    'foreign' => 'massEmails'
-                ],
-                'excludingTargetLists' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'TargetList',
-                    'foreign' => 'massEmailsExcluding',
-                    'relationName' => 'massEmailTargetListExcluding'
-                ],
-                'inboundEmail' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'InboundEmail'
-                ],
-                'queueItems' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'EmailQueueItem',
-                    'foreign' => 'massEmail'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ]
-        ],
-        'Meeting' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Planned',
-                        1 => 'Held',
-                        2 => 'Not Held'
-                    ],
-                    'default' => 'Planned',
-                    'style' => (object) [
-                        'Held' => 'success'
-                    ],
-                    'audited' => true
-                ],
-                'dateStart' => (object) [
-                    'type' => 'datetimeOptional',
-                    'view' => 'crm:views/meeting/fields/date-start',
-                    'required' => true,
-                    'default' => 'javascript: return this.dateTime.getNow(15);',
-                    'audited' => true,
-                    'minuteStep' => 30
-                ],
-                'dateEnd' => (object) [
-                    'type' => 'datetimeOptional',
-                    'view' => 'crm:views/meeting/fields/date-end',
-                    'required' => true,
-                    'after' => 'dateStart',
-                    'minuteStep' => 30
-                ],
-                'isAllDay' => (object) [
-                    'type' => 'bool',
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true
-                ],
-                'duration' => (object) [
-                    'type' => 'duration',
-                    'start' => 'dateStart',
-                    'end' => 'dateEnd',
-                    'options' => [
-                        0 => 900,
-                        1 => 1800,
-                        2 => 3600,
-                        3 => 7200,
-                        4 => 10800,
-                        5 => 86400
-                    ],
-                    'default' => 3600,
-                    'notStorable' => true,
-                    'select' => 'TIMESTAMPDIFF(SECOND, meeting.date_start, meeting.date_end)',
-                    'orderBy' => 'duration {direction}'
-                ],
-                'reminders' => (object) [
-                    'type' => 'jsonArray',
-                    'notStorable' => true,
-                    'view' => 'crm:views/meeting/fields/reminders',
-                    'layoutListDisabled' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'parent' => (object) [
-                    'type' => 'linkParent',
-                    'entityList' => [
-                        0 => 'Account',
-                        1 => 'Contact',
-                        2 => 'Lead',
-                        3 => 'Opportunity',
-                        4 => 'Case',
-                        5 => 'ImportResult'
-                    ]
-                ],
-                'account' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'acceptanceStatus' => (object) [
-                    'type' => 'enum',
-                    'notStorable' => true,
-                    'options' => [
-                        0 => 'None',
-                        1 => 'Accepted',
-                        2 => 'Tentative',
-                        3 => 'Declined'
-                    ],
-                    'style' => (object) [
-                        'Accepted' => 'success',
-                        'Declined' => 'danger',
-                        'Tentative' => 'warning'
-                    ],
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'importDisabled' => true,
-                    'exportDisabled' => true,
-                    'where' => (object) [
-                        '=' => (object) [
-                            'leftJoins' => [
-                                0 => 'users',
-                                1 => 'contacts',
-                                2 => 'leads'
-                            ],
-                            'sql' => 'contactsMiddle.status = {value} OR leadsMiddle.status = {value} OR usersMiddle.status = {value}',
-                            'distinct' => true
-                        ],
-                        '<>' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status = {value})',
-                        'IN' => (object) [
-                            'leftJoins' => [
-                                0 => 'users',
-                                1 => 'leads',
-                                2 => 'contacts'
-                            ],
-                            'sql' => 'contactsMiddle.status IN {value} OR leadsMiddle.status IN {value} OR usersMiddle.status IN {value}',
-                            'distinct' => true
-                        ],
-                        'NOT IN' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IN {value})',
-                        'IS NULL' => (object) [
-                            'leftJoins' => [
-                                0 => 'users',
-                                1 => 'contacts',
-                                2 => 'leads'
-                            ],
-                            'sql' => 'contactsMiddle.status IS NULL AND leadsMiddle.status IS NULL AND usersMiddle.status IS NULL',
-                            'distinct' => true
-                        ],
-                        'IS NOT NULL' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IS NULL)'
-                    ],
-                    'view' => 'crm:views/meeting/fields/acceptance-status'
-                ],
-                'users' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'crm:views/meeting/fields/users',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'columns' => (object) [
-                        'status' => 'acceptanceStatus'
-                    ],
-                    'additionalAttributeList' => [
-                        0 => 'columns'
-                    ],
-                    'orderBy' => 'name'
-                ],
-                'contacts' => (object) [
-                    'type' => 'linkMultiple',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'view' => 'crm:views/meeting/fields/contacts',
-                    'columns' => (object) [
-                        'status' => 'acceptanceStatus'
-                    ],
-                    'additionalAttributeList' => [
-                        0 => 'columns'
-                    ],
-                    'orderBy' => 'name'
-                ],
-                'leads' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'crm:views/meeting/fields/attendees',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'columns' => (object) [
-                        'status' => 'acceptanceStatus'
-                    ],
-                    'additionalAttributeList' => [
-                        0 => 'columns'
-                    ],
-                    'orderBy' => 'name'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => true,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'stream' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'dateStartDate' => (object) [
-                    'type' => 'date',
-                    'disabled' => true
-                ],
-                'dateEndDate' => (object) [
-                    'type' => 'date',
-                    'disabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'account' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Account'
-                ],
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'users' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'User',
-                    'foreign' => 'meetings',
-                    'additionalColumns' => (object) [
-                        'status' => (object) [
-                            'type' => 'varchar',
-                            'len' => '36',
-                            'default' => 'None'
-                        ]
-                    ]
-                ],
-                'contacts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Contact',
-                    'foreign' => 'meetings',
-                    'additionalColumns' => (object) [
-                        'status' => (object) [
-                            'type' => 'varchar',
-                            'len' => '36',
-                            'default' => 'None'
-                        ]
-                    ]
-                ],
-                'leads' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Lead',
-                    'foreign' => 'meetings',
-                    'additionalColumns' => (object) [
-                        'status' => (object) [
-                            'type' => 'varchar',
-                            'len' => '36',
-                            'default' => 'None'
-                        ]
-                    ]
-                ],
-                'parent' => (object) [
-                    'type' => 'belongsToParent',
-                    'foreign' => 'meetings'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'dateStart',
-                'order' => 'desc',
-                'sortBy' => 'dateStart',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'dateStartStatus' => (object) [
-                    'columns' => [
-                        0 => 'dateStart',
-                        1 => 'status'
-                    ]
-                ],
-                'dateStart' => (object) [
-                    'columns' => [
-                        0 => 'dateStart',
-                        1 => 'deleted'
-                    ]
-                ],
-                'status' => (object) [
-                    'columns' => [
-                        0 => 'status',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUserStatus' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'status'
-                    ]
-                ]
-            ]
-        ],
-        'Opportunity' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'amount' => (object) [
-                    'type' => 'currency',
-                    'required' => true,
-                    'audited' => true
-                ],
-                'amountConverted' => (object) [
-                    'type' => 'currencyConverted',
-                    'readOnly' => true,
-                    'importDisabled' => true
-                ],
-                'amountWeightedConverted' => (object) [
-                    'type' => 'float',
-                    'readOnly' => true,
-                    'notStorable' => true,
-                    'select' => (object) [
-                        'sql' => 'opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100',
-                        'leftJoins' => [
-                            0 => [
-                                0 => 'Currency',
-                                1 => 'amountCurrencyRate',
-                                2 => (object) [
-                                    'amountCurrencyRate.id:' => 'amountCurrency'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'where' => (object) [
-                        '=' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) = {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        '<' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) < {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        '>' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) > {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        '<=' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <= {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        '>=' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) >= {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        '<>' => (object) [
-                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <> {value}',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        'IS NULL' => (object) [
-                            'sql' => 'opportunity.amount IS NULL',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ],
-                        'IS NOT NULL' => (object) [
-                            'sql' => 'opportunity.amount IS NOT NULL',
-                            'leftJoins' => [
-                                0 => [
-                                    0 => 'Currency',
-                                    1 => 'amountCurrencyRate',
-                                    2 => (object) [
-                                        'amountCurrencyRate.id:' => 'amountCurrency'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'orderBy' => (object) [
-                        'sql' => 'amountWeightedConverted {direction}',
-                        'leftJoins' => [
-                            0 => [
-                                0 => 'Currency',
-                                1 => 'amountCurrencyRate',
-                                2 => (object) [
-                                    'amountCurrencyRate.id:' => 'amountCurrency'
-                                ]
-                            ]
-                        ]
-                    ],
-                    'view' => 'views/fields/currency-converted'
-                ],
-                'account' => (object) [
-                    'type' => 'link'
-                ],
-                'contacts' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'crm:views/opportunity/fields/contacts',
-                    'columns' => (object) [
-                        'role' => 'opportunityRole'
-                    ],
-                    'additionalAttributeList' => [
-                        0 => 'columns'
-                    ],
-                    'orderBy' => 'name'
-                ],
-                'stage' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Unqualified',
-                        1 => 'Qualified',
-                        2 => 'Proposal',
-                        3 => 'Negotiation',
-                        4 => 'Closed Won',
-                        5 => 'Closed Lost'
-                    ],
-                    'view' => 'crm:views/opportunity/fields/stage',
-                    'default' => 'Unqualified',
-                    'audited' => true,
-                    'probabilityMap' => (object) [
-                        'Prospecting' => 10,
-                        'Qualification' => 20,
-                        'Proposal' => 50,
-                        'Negotiation' => 80,
-                        'Closed Won' => 100,
-                        'Closed Lost' => 0,
-                        'Unqualified' => 10,
-                        'Qualified' => 20
-                    ],
-                    'style' => (object) [
-                        'Closed Won' => 'success',
-                        'Closed Lost' => 'danger',
-                        'Unqualified' => NULL,
-                        'Qualified' => NULL,
-                        'Proposal' => NULL,
-                        'Negotiation' => NULL
-                    ],
-                    'fieldManagerAdditionalParamList' => [
-                        0 => (object) [
-                            'name' => 'probabilityMap',
-                            'view' => 'crm:views/opportunity/admin/field-manager/fields/probability-map'
-                        ]
-                    ],
-                    'isSorted' => false
-                ],
-                'lastStage' => (object) [
-                    'type' => 'enum',
-                    'view' => 'crm:views/opportunity/fields/last-stage',
-                    'customizationOptionsDisabled' => true,
-                    'customizationDefaultDisabled' => true
-                ],
-                'probability' => (object) [
-                    'type' => 'int',
-                    'required' => true,
-                    'min' => 0,
-                    'max' => 100
-                ],
-                'leadSource' => (object) [
-                    'type' => 'enum',
-                    'view' => 'crm:views/opportunity/fields/lead-source',
-                    'customizationOptionsDisabled' => true,
-                    'translation' => 'Lead.options.source',
-                    'default' => ''
-                ],
-                'closeDate' => (object) [
-                    'type' => 'date',
-                    'required' => true,
-                    'audited' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'campaign' => (object) [
-                    'type' => 'link'
-                ],
-                'originalLead' => (object) [
-                    'type' => 'link',
-                    'layoutMassUpdateDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'readOnly' => true,
-                    'view' => 'views/fields/link-one'
-                ],
-                'contactRole' => (object) [
-                    'type' => 'enum',
-                    'notStorable' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutAvailabilityList' => [
-                        0 => 'listForContact'
-                    ],
-                    'customizationDefaultDisabled' => true,
-                    'customizationRequiredDisabled' => true,
-                    'customizationIsSortedDisabled' => true,
-                    'customizationAuditedDisabled' => true,
-                    'customizationReadOnlyDisabled' => true,
-                    'where' => (object) [
-                        '=' => (object) [
-                            'leftJoins' => [
-                                0 => 'contacts'
-                            ],
-                            'sql' => 'contactsMiddle.role = {value}',
-                            'distinct' => true
-                        ],
-                        '<>' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role = {value})',
-                        'IN' => (object) [
-                            'leftJoins' => [
-                                0 => 'contacts'
-                            ],
-                            'sql' => 'contactsMiddle.role IN {value}',
-                            'distinct' => true
-                        ],
-                        'NOT IN' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IN {value})',
-                        'LIKE' => (object) [
-                            'leftJoins' => [
-                                0 => 'contacts'
-                            ],
-                            'sql' => 'contactsMiddle.role LIKE {value}',
-                            'distinct' => true
-                        ],
-                        'IS NULL' => (object) [
-                            'leftJoins' => [
-                                0 => 'contacts'
-                            ],
-                            'sql' => 'contactsMiddle.role IS NULL',
-                            'distinct' => true
-                        ],
-                        'IS NOT NULL' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IS NULL)'
-                    ],
-                    'view' => 'crm:views/opportunity/fields/contact-role',
-                    'customizationOptionsDisabled' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => false,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'lossReason' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'None',
-                        1 => 'Lost to Competitor',
-                        2 => 'No Budget',
-                        3 => 'No Response',
-                        4 => 'Pricing'
-                    ],
-                    'style' => (object) [
-                        'None' => NULL,
-                        'Lost to Competitor' => NULL,
-                        'No Budget' => NULL,
-                        'No Response' => NULL,
-                        'Pricing' => NULL
-                    ],
-                    'default' => 'None',
-                    'isCustom' => true
-                ],
-                'stream' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'amountCurrency' => (object) [
-                    'type' => 'enum',
-                    'view' => 'views/fields/currency-list',
-                    'layoutDetailDisabled' => true,
-                    'layoutListDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'customizationRequiredDisabled' => true,
-                    'customizationOptionsDisabled' => true,
-                    'customizationIsSortedDisabled' => true,
-                    'customizationDisplayAsLabelDisabled' => true,
-                    'customizationAuditedDisabled' => true,
-                    'customizationReadOnlyDisabled' => true,
-                    'customizationDefaultView' => 'views/admin/field-manager/fields/currency-default',
-                    'maxLength' => 6
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'account' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Account',
-                    'foreign' => 'opportunities'
-                ],
-                'contacts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Contact',
-                    'foreign' => 'opportunities',
-                    'additionalColumns' => (object) [
-                        'role' => (object) [
-                            'type' => 'varchar',
-                            'len' => 50
-                        ]
-                    ]
-                ],
-                'meetings' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true,
-                    'audited' => true
-                ],
-                'emails' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Email',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'documents' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Document',
-                    'foreign' => 'opportunities',
-                    'audited' => true
-                ],
-                'campaign' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Campaign',
-                    'foreign' => 'opportunities',
-                    'noJoin' => true
-                ],
-                'originalLead' => (object) [
-                    'type' => 'hasOne',
-                    'entity' => 'Lead',
-                    'foreign' => 'createdOpportunity'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'stage' => (object) [
-                    'columns' => [
-                        0 => 'stage',
-                        1 => 'deleted'
-                    ]
-                ],
-                'lastStage' => (object) [
-                    'columns' => [
-                        0 => 'lastStage'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ],
-                'createdAt' => (object) [
-                    'columns' => [
-                        0 => 'createdAt',
-                        1 => 'deleted'
-                    ]
-                ],
-                'createdAtStage' => (object) [
-                    'columns' => [
-                        0 => 'createdAt',
-                        1 => 'stage'
-                    ]
-                ],
-                'assignedUserStage' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'stage'
-                    ]
-                ]
-            ]
-        ],
-        'Reminder' => (object) [
-            'fields' => (object) [
-                'remindAt' => (object) [
-                    'type' => 'datetime',
-                    'index' => true
-                ],
-                'startAt' => (object) [
-                    'type' => 'datetime',
-                    'index' => true
-                ],
-                'type' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Popup',
-                        1 => 'Email'
-                    ],
-                    'maxLength' => 36,
-                    'index' => true,
-                    'default' => 'Popup'
-                ],
-                'seconds' => (object) [
-                    'type' => 'enumInt',
-                    'options' => [
-                        0 => 0,
-                        1 => 60,
-                        2 => 120,
-                        3 => 300,
-                        4 => 600,
-                        5 => 900,
-                        6 => 1800,
-                        7 => 3600,
-                        8 => 7200,
-                        9 => 10800,
-                        10 => 18000,
-                        11 => 86400,
-                        12 => 172800,
-                        13 => 259200,
-                        14 => 432000
-                    ],
-                    'default' => 0
-                ],
-                'entityType' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 100
-                ],
-                'entityId' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 50
-                ],
-                'userId' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 50
-                ],
-                'isSubmitted' => (object) [
-                    'type' => 'bool'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'remindAt',
-                'order' => 'desc',
-                'sortBy' => 'remindAt',
-                'asc' => false
-            ]
-        ],
-        'Target' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'personName'
-                ],
-                'salutationName' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => '',
-                        1 => 'Mr.',
-                        2 => 'Mrs.',
-                        3 => 'Ms.',
-                        4 => 'Dr.',
-                        5 => 'Drs.'
-                    ]
-                ],
-                'firstName' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 100,
-                    'default' => ''
-                ],
-                'lastName' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 100,
-                    'required' => true,
-                    'default' => ''
-                ],
-                'title' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 100
-                ],
-                'accountName' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 100
-                ],
-                'website' => (object) [
-                    'type' => 'url'
-                ],
-                'address' => (object) [
-                    'type' => 'address'
-                ],
-                'addressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'addressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'addressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Mobile',
-                        1 => 'Office',
-                        2 => 'Home',
-                        3 => 'Fax',
-                        4 => 'Other'
-                    ],
-                    'defaultType' => 'Mobile'
-                ],
-                'doNotCall' => (object) [
-                    'type' => 'bool'
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'addressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'firstName' => (object) [
-                    'columns' => [
-                        0 => 'firstName',
-                        1 => 'deleted'
-                    ]
-                ],
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'firstName',
-                        1 => 'lastName'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ]
-            ]
-        ],
-        'TargetList' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'entryCount' => (object) [
-                    'type' => 'int',
-                    'readOnly' => true,
-                    'notStorable' => true,
-                    'layoutFiltersDisabled' => true,
-                    'layoutMassUpdateDisabled' => true
-                ],
-                'optedOutCount' => (object) [
-                    'type' => 'int',
-                    'readOnly' => true,
-                    'notStorable' => true,
-                    'layoutListDisabled' => true,
-                    'layoutFiltersDisabled' => true,
-                    'layoutMassUpdateDisabled' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'campaigns' => (object) [
-                    'type' => 'link'
-                ],
-                'includingActionList' => (object) [
-                    'type' => 'multiEnum',
-                    'view' => 'crm:views/target-list/fields/including-action-list',
-                    'layoutDetailDisabled' => true,
-                    'layoutFiltersDisabled' => true,
-                    'layoutLinkDisabled' => true,
-                    'notStorable' => true,
-                    'disabled' => true
-                ],
-                'excludingActionList' => (object) [
-                    'type' => 'multiEnum',
-                    'view' => 'crm:views/target-list/fields/including-action-list',
-                    'layoutDetailDisabled' => true,
-                    'layoutFiltersDisabled' => true,
-                    'layoutLinkDisabled' => true,
-                    'notStorable' => true,
-                    'disabled' => true
-                ],
-                'targetStatus' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Listed',
-                        1 => 'Opted Out'
-                    ],
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'exportDisabled' => true,
-                    'importDisabled' => true,
-                    'view' => 'crm:views/target-list/fields/target-status'
-                ],
-                'isOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutMassUpdateDisabled' => true,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'campaigns' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Campaign',
-                    'foreign' => 'targetLists'
-                ],
-                'massEmails' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'MassEmail',
-                    'foreign' => 'targetLists'
-                ],
-                'campaignsExcluding' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Campaign',
-                    'foreign' => 'excludingTargetLists'
-                ],
-                'massEmailsExcluding' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'MassEmail',
-                    'foreign' => 'excludingTargetLists'
-                ],
-                'accounts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Account',
-                    'foreign' => 'targetLists',
-                    'additionalColumns' => (object) [
-                        'optedOut' => (object) [
-                            'type' => 'bool'
-                        ]
-                    ]
-                ],
-                'contacts' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Contact',
-                    'foreign' => 'targetLists',
-                    'additionalColumns' => (object) [
-                        'optedOut' => (object) [
-                            'type' => 'bool'
-                        ]
-                    ]
-                ],
-                'leads' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Lead',
-                    'foreign' => 'targetLists',
-                    'additionalColumns' => (object) [
-                        'optedOut' => (object) [
-                            'type' => 'bool'
-                        ]
-                    ]
-                ],
-                'users' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'User',
-                    'foreign' => 'targetLists',
-                    'additionalColumns' => (object) [
-                        'optedOut' => (object) [
-                            'type' => 'bool'
-                        ]
-                    ]
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'createdAt' => (object) [
-                    'columns' => [
-                        0 => 'createdAt',
-                        1 => 'deleted'
-                    ]
-                ]
-            ]
-        ],
-        'Task' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Open',
-                        1 => 'Started',
-                        2 => 'Completed'
-                    ],
-                    'style' => (object) [
-                        'Completed' => 'completed',
-                        'Started' => 'started',
-                        'Open' => 'open'
-                    ],
-                    'default' => 'Open',
-                    'audited' => true,
-                    'fieldManagerAdditionalParamList' => [
-                        0 => (object) [
-                            'name' => 'notActualOptions',
-                            'view' => 'views/admin/field-manager/fields/not-actual-options'
-                        ]
-                    ],
-                    'notActualOptions' => [
-                        0 => 'Completed',
-                        1 => 'Canceled',
-                        2 => 'Deferred'
-                    ],
-                    'required' => false,
-                    'isSorted' => false,
-                    'readOnly' => false,
-                    'tooltip' => false
-                ],
-                'priority' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Low',
-                        1 => 'Normal',
-                        2 => 'High',
-                        3 => 'Urgent'
-                    ],
-                    'default' => 'Normal',
-                    'displayAsLabel' => true,
-                    'style' => (object) [
-                        'High' => 'high',
-                        'Urgent' => 'urgent',
-                        'Low' => 'low',
-                        'Normal' => 'normal'
-                    ],
-                    'audited' => true
-                ],
-                'dateStart' => (object) [
-                    'type' => 'datetimeOptional',
-                    'before' => NULL,
-                    'notNull' => false,
-                    'required' => true,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'minuteStep' => 30
-                ],
-                'dateEnd' => (object) [
-                    'type' => 'datetimeOptional',
-                    'after' => NULL,
-                    'view' => 'crm:views/task/fields/date-end',
-                    'audited' => true,
-                    'notNull' => false,
-                    'required' => true,
-                    'useNumericFormat' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'minuteStep' => 30
-                ],
-                'dateStartDate' => (object) [
-                    'readOnly' => false,
-                    'type' => 'date',
-                    'disabled' => true
-                ],
-                'dateEndDate' => (object) [
-                    'readOnly' => false,
-                    'type' => 'date',
-                    'disabled' => true
-                ],
-                'dateCompleted' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'isOverdue' => (object) [
-                    'type' => 'bool',
-                    'readOnly' => true,
-                    'notStorable' => true,
-                    'view' => 'crm:views/task/fields/is-overdue',
-                    'disabled' => true
-                ],
-                'reminders' => (object) [
-                    'type' => 'jsonArray',
-                    'notStorable' => true,
-                    'view' => 'crm:views/meeting/fields/reminders'
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'parent' => (object) [
-                    'type' => 'linkParent',
-                    'entityList' => [
-                        0 => 'Account',
-                        1 => 'Contact',
-                        2 => 'Lead',
-                        3 => 'Opportunity',
-                        4 => 'Case',
-                        5 => 'ImportResult'
-                    ]
-                ],
-                'account' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'contact' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => true,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'attachments' => (object) [
-                    'type' => 'attachmentMultiple',
-                    'sourceList' => [
-                        0 => 'Document'
-                    ]
-                ],
-                'createRecurringSeriesOfTasks' => (object) [
-                    'notNull' => true,
-                    'type' => 'bool',
-                    'default' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'startDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'endDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'after' => NULL
-                ],
-                'frequency' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => 'Daily',
-                        1 => 'Weekly',
-                        2 => 'Monthly',
-                        3 => 'Custom'
-                    ],
-                    'default' => 'Daily',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        'Daily' => NULL,
-                        'Weekly' => NULL,
-                        'Monthly' => NULL,
-                        'Custom' => NULL
-                    ]
-                ],
-                'repeat' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => 'Every day'
-                    ],
-                    'default' => 'Every day',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        'Every day' => NULL
-                    ]
-                ],
-                'weeklyrepeat' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => 'Every week',
-                        1 => 'Custom'
-                    ],
-                    'default' => 'Every week',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        'Every week' => NULL,
-                        'Custom' => NULL
-                    ]
-                ],
-                'weeklyrepeatOn' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => 'Monday',
-                        1 => 'Tuesday',
-                        2 => 'Wednesday',
-                        3 => 'Thursday',
-                        4 => 'Friday',
-                        5 => 'Saturday',
-                        6 => 'Sunday'
-                    ],
-                    'default' => 'Monday',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        'Monday' => NULL,
-                        'Tuesday' => NULL,
-                        'Wednesday' => NULL,
-                        'Thursday' => NULL,
-                        'Friday' => NULL,
-                        'Saturday' => NULL,
-                        'Sunday' => NULL
-                    ]
-                ],
-                'weeklystartDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'weeklyendDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'after' => NULL
-                ],
-                'monthlyRepeatOn' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => '01',
-                        1 => '02',
-                        2 => '03',
-                        3 => '04',
-                        4 => '05',
-                        5 => '06',
-                        6 => '07',
-                        7 => '08',
-                        8 => '09',
-                        9 => '10',
-                        10 => '11',
-                        11 => '12',
-                        12 => '13',
-                        13 => '14',
-                        14 => '15',
-                        15 => '16',
-                        16 => '17',
-                        17 => '18',
-                        18 => '19',
-                        19 => '20',
-                        20 => '21',
-                        21 => '22',
-                        22 => '23',
-                        23 => '24',
-                        24 => '25',
-                        25 => '26',
-                        26 => '27',
-                        27 => '28',
-                        28 => '29',
-                        29 => '30',
-                        30 => '31'
-                    ],
-                    'default' => '01',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        10 => NULL,
-                        11 => NULL,
-                        12 => NULL,
-                        13 => NULL,
-                        14 => NULL,
-                        15 => NULL,
-                        16 => NULL,
-                        17 => NULL,
-                        18 => NULL,
-                        19 => NULL,
-                        20 => NULL,
-                        21 => NULL,
-                        22 => NULL,
-                        23 => NULL,
-                        24 => NULL,
-                        25 => NULL,
-                        26 => NULL,
-                        27 => NULL,
-                        28 => NULL,
-                        29 => NULL,
-                        30 => NULL,
-                        31 => NULL,
-                        '01' => NULL,
-                        '02' => NULL,
-                        '03' => NULL,
-                        '04' => NULL,
-                        '05' => NULL,
-                        '06' => NULL,
-                        '07' => NULL,
-                        '08' => NULL,
-                        '09' => NULL
-                    ]
-                ],
-                'monthlyStartDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'monthlyEndDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'after' => NULL
-                ],
-                'monthlyRepeat' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => 'Every Month',
-                        1 => 'Custom'
-                    ],
-                    'default' => 'Every Month',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        'Every Month' => NULL,
-                        'Custom' => NULL
-                    ]
-                ],
-                'numberOfRecurringTasks' => (object) [
-                    'type' => 'enum',
-                    'required' => false,
-                    'options' => [
-                        0 => '1',
-                        1 => '2',
-                        2 => '3',
-                        3 => '4',
-                        4 => '5',
-                        5 => '6'
-                    ],
-                    'default' => '1',
-                    'isSorted' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true,
-                    'style' => (object) [
-                        1 => NULL,
-                        2 => NULL,
-                        3 => NULL,
-                        4 => NULL,
-                        5 => NULL,
-                        6 => NULL
-                    ]
-                ],
-                'customStartDate1' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'customStartDate2' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'customStartDate3' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'customStartDate4' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'customStartDate5' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'customStartDate6' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'required' => false,
-                    'useNumericFormat' => false,
-                    'audited' => false,
-                    'readOnly' => false,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'completedAt' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'closedAt' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'stream' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User',
-                    'foreign' => 'tasks'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'entityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'parent' => (object) [
-                    'type' => 'belongsToParent',
-                    'foreign' => 'tasks'
-                ],
-                'account' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Account'
-                ],
-                'contact' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'Contact'
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'dateStartStatus' => (object) [
-                    'columns' => [
-                        0 => 'dateStart',
-                        1 => 'status'
-                    ]
-                ],
-                'dateEndStatus' => (object) [
-                    'columns' => [
-                        0 => 'dateEnd',
-                        1 => 'status'
-                    ]
-                ],
-                'dateStart' => (object) [
-                    'columns' => [
-                        0 => 'dateStart',
-                        1 => 'deleted'
-                    ]
-                ],
-                'status' => (object) [
-                    'columns' => [
-                        0 => 'status',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUserStatus' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'status'
-                    ]
-                ]
-            ]
-        ],
-        'BillingEntity' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
-                    ],
-                    'defaultType' => 'Office'
-                ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
-                ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => false,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'panno' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'udyamRegistrationNo' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'addressstreet' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'addresscity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'addressstate' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'addresspostalcode' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'emailid' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'phoneno' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'meetings' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'textFilterFields' => [
-                    0 => 'name'
-                ],
-                'fullTextSearch' => false,
-                'countDisabled' => false,
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'name',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ]
-            ]
-        ],
-        'ClosedTask' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true,
-                    'inlineEditDisabled' => true,
-                    'options' => [
-                        
-                    ]
-                ],
-                'description' => (object) [
-                    'type' => 'text',
-                    'inlineEditDisabled' => true
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
-                    ],
-                    'defaultType' => 'Office'
-                ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
-                ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => false,
-                    'view' => 'views/fields/assigned-user',
-                    'inlineEditDisabled' => true
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams',
-                    'inlineEditDisabled' => true
-                ],
-                'closedat' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'completedat' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'createRecurringSeriesOfTasks' => (object) [
-                    'notNull' => true,
-                    'type' => 'bool',
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'customStartDate1' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'customStartDate2' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'customStartDate3' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'customStartDate4' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'customStartDate5' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'customStartDate6' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'endDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'frequency' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Daily',
-                        1 => 'Weekly',
-                        2 => 'Monthly',
-                        3 => 'Custom'
-                    ],
-                    'style' => (object) [
-                        'Daily' => NULL,
-                        'Weekly' => NULL,
-                        'Monthly' => NULL,
-                        'Custom' => NULL
-                    ],
-                    'default' => 'Daily',
-                    'isCustom' => true
-                ],
-                'monthlyEndDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'monthlyRepeat' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Every Month',
-                        1 => 'Custom'
-                    ],
-                    'style' => (object) [
-                        'Every Month' => NULL,
-                        'Custom' => NULL
-                    ],
-                    'default' => 'Every Month',
-                    'isCustom' => true
-                ],
-                'monthlyRepeatOn' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => '01',
-                        1 => '02',
-                        2 => '03',
-                        3 => '04',
-                        4 => '05',
-                        5 => '06',
-                        6 => '07',
-                        7 => '08',
-                        8 => '09',
-                        9 => '10',
-                        10 => '11',
-                        11 => '12',
-                        12 => '13',
-                        13 => '14',
-                        14 => '15',
-                        15 => '16',
-                        16 => '17',
-                        17 => '18',
-                        18 => '19',
-                        19 => '20',
-                        20 => '21',
-                        21 => '22',
-                        22 => '23',
-                        23 => '24',
-                        24 => '25',
-                        25 => '26',
-                        26 => '27',
-                        27 => '28',
-                        28 => '29',
-                        29 => '30',
-                        30 => '31'
-                    ],
-                    'style' => (object) [
-                        10 => NULL,
-                        11 => NULL,
-                        12 => NULL,
-                        13 => NULL,
-                        14 => NULL,
-                        15 => NULL,
-                        16 => NULL,
-                        17 => NULL,
-                        18 => NULL,
-                        19 => NULL,
-                        20 => NULL,
-                        21 => NULL,
-                        22 => NULL,
-                        23 => NULL,
-                        24 => NULL,
-                        25 => NULL,
-                        26 => NULL,
-                        27 => NULL,
-                        28 => NULL,
-                        29 => NULL,
-                        30 => NULL,
-                        31 => NULL,
-                        '01' => NULL,
-                        '02' => NULL,
-                        '03' => NULL,
-                        '04' => NULL,
-                        '05' => NULL,
-                        '06' => NULL,
-                        '07' => NULL,
-                        '08' => NULL,
-                        '09' => NULL
-                    ],
-                    'default' => '01',
-                    'isCustom' => true
-                ],
-                'monthlyStartDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'numberOfRecurringTasks' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => '1',
-                        1 => '2',
-                        2 => '3',
-                        3 => '4',
-                        4 => '5',
-                        5 => '6'
-                    ],
-                    'style' => (object) [
-                        1 => NULL,
-                        2 => NULL,
-                        3 => NULL,
-                        4 => NULL,
-                        5 => NULL,
-                        6 => NULL
-                    ],
-                    'default' => '1',
-                    'isCustom' => true
-                ],
-                'repeat' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Every day'
-                    ],
-                    'style' => (object) [
-                        'Every day' => NULL
-                    ],
-                    'default' => 'Every day',
-                    'isCustom' => true
-                ],
-                'startDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'weeklyendDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'weeklyrepeat' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Every week',
-                        1 => 'Custom'
-                    ],
-                    'style' => (object) [
-                        'Every week' => NULL,
-                        'Custom' => NULL
-                    ],
-                    'default' => 'Every week',
-                    'isCustom' => true
-                ],
-                'weeklyrepeatOn' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Monday',
-                        1 => 'Tuesday',
-                        2 => 'Wednesday',
-                        3 => 'Thursday',
-                        4 => 'Friday',
-                        5 => 'Saturday',
-                        6 => 'Sunday'
-                    ],
-                    'style' => (object) [
-                        'Monday' => NULL,
-                        'Tuesday' => NULL,
-                        'Wednesday' => NULL,
-                        'Thursday' => NULL,
-                        'Friday' => NULL,
-                        'Saturday' => NULL,
-                        'Sunday' => NULL
-                    ],
-                    'default' => 'Monday',
-                    'isCustom' => true
-                ],
-                'weeklystartDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'status' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'parent' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'priority' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'dateStart' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'dateEnd' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'dateCompleted' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'DateCompleted' => (object) [
-                    'name' => 'DateCompleted',
-                    'dynamicLogicVisible' => NULL,
-                    'dynamicLogicReadOnly' => NULL,
-                    'inlineEditDisabled' => true,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'DateEnd' => (object) [
-                    'name' => 'DateEnd',
-                    'dynamicLogicVisible' => NULL,
-                    'dynamicLogicReadOnly' => NULL,
-                    'inlineEditDisabled' => true,
-                    'tooltip' => false,
-                    'isCustom' => true
-                ],
-                'attachments' => (object) [
-                    'type' => 'attachmentMultiple',
-                    'previewSize' => 'medium',
-                    'sourceList' => [
-                        
-                    ],
-                    'accept' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'inlineEditDisabled' => true
-                ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'meetings' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'attachments' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Attachment',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true,
-                    'relationName' => 'attachments',
-                    'disabled' => true
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'name',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ]
-            ]
-        ],
         'ContactList' => (object) [
             'fields' => (object) [
                 'name' => (object) [
@@ -22267,7 +19209,7 @@ return (object) [
                 ]
             ]
         ],
-        'Demo' => (object) [
+        'DocumentFolder' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -22276,92 +19218,6 @@ return (object) [
                 ],
                 'description' => (object) [
                     'type' => 'text'
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
-                    ],
-                    'defaultType' => 'Office'
-                ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
-                ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',
@@ -22373,67 +19229,22 @@ return (object) [
                 ],
                 'createdBy' => (object) [
                     'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
+                    'readOnly' => true
                 ],
                 'modifiedBy' => (object) [
                     'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => false,
-                    'view' => 'views/fields/assigned-user'
+                    'readOnly' => true
                 ],
                 'teams' => (object) [
                     'type' => 'linkMultiple',
                     'view' => 'views/fields/teams'
                 ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
+                'parent' => (object) [
+                    'type' => 'link'
                 ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
+                'childList' => (object) [
+                    'type' => 'jsonArray',
+                    'notStorable' => true
                 ]
             ],
             'links' => (object) [
@@ -22445,151 +19256,104 @@ return (object) [
                     'type' => 'belongsTo',
                     'entity' => 'User'
                 ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
                 'teams' => (object) [
                     'type' => 'hasMany',
                     'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
+                    'relationName' => 'entityTeam',
                     'layoutRelationshipsDisabled' => true
                 ],
-                'meetings' => (object) [
+                'parent' => (object) [
+                    'type' => 'belongsTo',
+                    'foreign' => 'children',
+                    'entity' => 'DocumentFolder'
+                ],
+                'children' => (object) [
                     'type' => 'hasMany',
-                    'entity' => 'Meeting',
                     'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
+                    'entity' => 'DocumentFolder'
                 ],
-                'calls' => (object) [
+                'documents' => (object) [
                     'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
+                    'foreign' => 'folder',
+                    'entity' => 'Document'
                 ]
             ],
             'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
-                'sortBy' => 'createdAt',
-                'asc' => false
+                'orderBy' => 'parent',
+                'order' => 'asc',
+                'sortBy' => 'parent',
+                'asc' => true
             ],
-            'indexes' => (object) [
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'name',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
+            'additionalTables' => (object) [
+                'DocumentFolderPath' => (object) [
+                    'fields' => (object) [
+                        'id' => (object) [
+                            'type' => 'id',
+                            'dbType' => 'int',
+                            'len' => '11',
+                            'autoincrement' => true
+                        ],
+                        'ascendorId' => (object) [
+                            'type' => 'varchar',
+                            'len' => '100',
+                            'index' => true
+                        ],
+                        'descendorId' => (object) [
+                            'type' => 'varchar',
+                            'len' => '24',
+                            'index' => true
+                        ]
                     ]
                 ]
             ]
         ],
-        'Designation' => (object) [
+        'Document' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
                     'required' => true,
+                    'view' => 'crm:views/document/fields/name',
                     'trim' => true
+                ],
+                'file' => (object) [
+                    'type' => 'file',
+                    'required' => true,
+                    'view' => 'crm:views/document/fields/file'
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Active',
+                        1 => 'Draft',
+                        2 => 'Expired',
+                        3 => 'Canceled'
+                    ],
+                    'style' => (object) [
+                        'Canceled' => 'danger',
+                        'Expired' => 'danger'
+                    ]
+                ],
+                'type' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => '',
+                        1 => 'Contract',
+                        2 => 'NDA',
+                        3 => 'EULA',
+                        4 => 'License Agreement'
+                    ]
+                ],
+                'publishDate' => (object) [
+                    'type' => 'date',
+                    'required' => true,
+                    'default' => 'javascript: return this.dateTime.getToday();'
+                ],
+                'expirationDate' => (object) [
+                    'type' => 'date',
+                    'after' => 'publishDate'
                 ],
                 'description' => (object) [
                     'type' => 'text'
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
-                    ],
-                    'defaultType' => 'Office'
-                ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
-                ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',
@@ -22604,11 +19368,6 @@ return (object) [
                     'readOnly' => true,
                     'view' => 'views/fields/user'
                 ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
-                ],
                 'modifiedBy' => (object) [
                     'type' => 'link',
                     'readOnly' => true,
@@ -22616,55 +19375,46 @@ return (object) [
                 ],
                 'assignedUser' => (object) [
                     'type' => 'link',
-                    'required' => false,
                     'view' => 'views/fields/assigned-user'
                 ],
                 'teams' => (object) [
                     'type' => 'linkMultiple',
                     'view' => 'views/fields/teams'
                 ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
+                'accounts' => (object) [
+                    'type' => 'linkMultiple',
                     'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
                     'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
+                    'layoutMassUpdateDisabled' => true,
+                    'importDisabled' => true,
+                    'noLoad' => true
                 ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
+                'folder' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/fields/link-category-tree'
                 ]
             ],
             'links' => (object) [
+                'accounts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Account',
+                    'foreign' => 'documents'
+                ],
+                'opportunities' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Opportunity',
+                    'foreign' => 'documents'
+                ],
+                'leads' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Lead',
+                    'foreign' => 'documents'
+                ],
+                'contacts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Contact',
+                    'foreign' => 'documents'
+                ],
                 'createdBy' => (object) [
                     'type' => 'belongsTo',
                     'entity' => 'User'
@@ -22680,26 +19430,13 @@ return (object) [
                 'teams' => (object) [
                     'type' => 'hasMany',
                     'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
+                    'relationName' => 'entityTeam',
                     'layoutRelationshipsDisabled' => true
                 ],
-                'meetings' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
+                'folder' => (object) [
+                    'type' => 'belongsTo',
+                    'foreign' => 'documents',
+                    'entity' => 'DocumentFolder'
                 ]
             ],
             'collection' => (object) [
@@ -22707,20 +19444,64 @@ return (object) [
                 'order' => 'desc',
                 'sortBy' => 'createdAt',
                 'asc' => false
-            ],
-            'indexes' => (object) [
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'name',
-                        1 => 'deleted'
-                    ]
+            ]
+        ],
+        'EmailQueueItem' => (object) [
+            'fields' => (object) [
+                'massEmail' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
                 ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Pending',
+                        1 => 'Sent',
+                        2 => 'Failed',
+                        3 => 'Sending'
+                    ],
+                    'readOnly' => true
+                ],
+                'attemptCount' => (object) [
+                    'type' => 'int',
+                    'readOnly' => true,
+                    'default' => 0
+                ],
+                'target' => (object) [
+                    'type' => 'linkParent',
+                    'readOnly' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'sentAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'varchar',
+                    'readOnly' => true
+                ],
+                'isTest' => (object) [
+                    'type' => 'bool'
                 ]
+            ],
+            'links' => (object) [
+                'massEmail' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'MassEmail',
+                    'foreign' => 'queueItems'
+                ],
+                'target' => (object) [
+                    'type' => 'belongsToParent'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
             ]
         ],
         'EmailReminder' => (object) [
@@ -25533,7 +22314,133 @@ return (object) [
                 ]
             ]
         ],
-        'MessageLog' => (object) [
+        'KnowledgeBaseArticle' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Draft',
+                        1 => 'In Review',
+                        2 => 'Published',
+                        3 => 'Archived'
+                    ],
+                    'view' => 'crm:views/knowledge-base-article/fields/status',
+                    'default' => 'Draft'
+                ],
+                'language' => (object) [
+                    'type' => 'enum',
+                    'view' => 'crm:views/knowledge-base-article/fields/language',
+                    'default' => '',
+                    'customizationOptionsDisabled' => true
+                ],
+                'type' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Article'
+                    ]
+                ],
+                'portals' => (object) [
+                    'type' => 'linkMultiple',
+                    'tooltip' => true
+                ],
+                'publishDate' => (object) [
+                    'type' => 'date'
+                ],
+                'expirationDate' => (object) [
+                    'type' => 'date',
+                    'after' => 'publishDate'
+                ],
+                'order' => (object) [
+                    'type' => 'int',
+                    'disableFormatting' => true,
+                    'textFilterDisabled' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'categories' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/link-multiple-category-tree'
+                ],
+                'attachments' => (object) [
+                    'type' => 'attachmentMultiple'
+                ],
+                'body' => (object) [
+                    'type' => 'wysiwyg'
+                ]
+            ],
+            'links' => (object) [
+                'cases' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Case',
+                    'foreign' => 'articles'
+                ],
+                'portals' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Portal',
+                    'foreign' => 'articles'
+                ],
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'categories' => (object) [
+                    'type' => 'hasMany',
+                    'foreign' => 'articles',
+                    'entity' => 'KnowledgeBaseCategory'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'order',
+                'order' => 'asc',
+                'sortBy' => 'order',
+                'asc' => true
+            ]
+        ],
+        'KnowledgeBaseCategory' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -25543,91 +22450,295 @@ return (object) [
                 'description' => (object) [
                     'type' => 'text'
                 ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'order' => (object) [
+                    'type' => 'int',
+                    'required' => true,
+                    'disableFormatting' => true,
+                    'textFilterDisabled' => true
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'parent' => (object) [
+                    'type' => 'link'
+                ],
+                'childList' => (object) [
+                    'type' => 'jsonArray',
+                    'notStorable' => true
+                ],
+                'articlecount' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'categorycount' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'parent' => (object) [
+                    'type' => 'belongsTo',
+                    'foreign' => 'children',
+                    'entity' => 'KnowledgeBaseCategory'
+                ],
+                'children' => (object) [
+                    'type' => 'hasMany',
+                    'foreign' => 'parent',
+                    'entity' => 'KnowledgeBaseCategory'
+                ],
+                'articles' => (object) [
+                    'type' => 'hasMany',
+                    'foreign' => 'categories',
+                    'entity' => 'KnowledgeBaseArticle'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'parent',
+                'orderByColumn' => 'parentId',
+                'order' => 'asc',
+                'sortBy' => 'parent',
+                'asc' => true
+            ],
+            'additionalTables' => (object) [
+                'KnowledgeBaseCategoryPath' => (object) [
+                    'fields' => (object) [
+                        'id' => (object) [
+                            'type' => 'id',
+                            'dbType' => 'int',
+                            'len' => '11',
+                            'autoincrement' => true
+                        ],
+                        'ascendorId' => (object) [
+                            'type' => 'varchar',
+                            'len' => '100',
+                            'index' => true
+                        ],
+                        'descendorId' => (object) [
+                            'type' => 'varchar',
+                            'len' => '24',
+                            'index' => true
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        'Lead' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'personName',
+                    'isPersonalData' => true
+                ],
+                'salutationName' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Mr.',
+                        1 => 'Ms.',
+                        2 => 'Mrs.',
+                        3 => 'Dr.'
+                    ],
+                    'required' => true,
+                    'style' => (object) [
+                        'Mr.' => NULL,
+                        'Ms.' => NULL,
+                        'Mrs.' => NULL,
+                        'Dr.' => NULL
+                    ],
+                    'default' => 'Mr.'
+                ],
+                'firstName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 100,
+                    'default' => NULL,
+                    'required' => true,
+                    'options' => [
+                        
+                    ]
+                ],
+                'lastName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 100,
+                    'default' => NULL,
+                    'required' => true,
+                    'options' => [
+                        
+                    ]
+                ],
+                'title' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 100
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'New',
+                        1 => 'Assigned',
+                        2 => 'In Process',
+                        3 => 'Converted',
+                        4 => 'Recycled',
+                        5 => 'Dead',
+                        6 => 'Open',
+                        7 => 'Qualified'
+                    ],
+                    'default' => 'New',
+                    'style' => (object) [
+                        'Converted' => 'success',
+                        'Recycled' => 'danger',
+                        'Dead' => 'danger',
+                        'New' => NULL,
+                        'Assigned' => NULL,
+                        'In Process' => NULL,
+                        'Open' => NULL,
+                        'Qualified' => NULL
+                    ],
+                    'audited' => true,
+                    'fieldManagerAdditionalParamList' => [
+                        0 => (object) [
+                            'name' => 'notActualOptions',
+                            'view' => 'views/admin/field-manager/fields/not-actual-options'
+                        ]
+                    ],
+                    'notActualOptions' => [
+                        0 => 'Converted',
+                        1 => 'Recycled',
+                        2 => 'Dead'
+                    ]
+                ],
+                'source' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Call',
+                        1 => 'Email',
+                        2 => 'Existing Customer',
+                        3 => 'Partner',
+                        4 => 'Public Relations',
+                        5 => 'Web Site',
+                        6 => 'Campaign',
+                        7 => 'Other'
+                    ],
+                    'default' => ''
+                ],
+                'industry' => (object) [
+                    'type' => 'enum',
+                    'view' => 'crm:views/lead/fields/industry',
+                    'customizationOptionsDisabled' => true,
+                    'default' => '',
+                    'isSorted' => true
+                ],
+                'opportunityAmount' => (object) [
+                    'type' => 'currency',
+                    'audited' => true
+                ],
+                'opportunityAmountConverted' => (object) [
+                    'type' => 'currencyConverted',
+                    'readOnly' => true,
+                    'importDisabled' => true
+                ],
                 'website' => (object) [
                     'type' => 'url',
                     'strip' => true
                 ],
+                'address' => (object) [
+                    'type' => 'address',
+                    'isPersonalData' => true
+                ],
+                'addressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'addressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
                 'emailAddress' => (object) [
-                    'type' => 'email'
+                    'type' => 'email',
+                    'isPersonalData' => true
                 ],
                 'phoneNumber' => (object) [
                     'type' => 'phone',
                     'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
+                        0 => 'Mobile',
+                        1 => 'Office',
+                        2 => 'Home',
+                        3 => 'Fax',
+                        4 => 'Other'
                     ],
-                    'defaultType' => 'Office'
+                    'defaultType' => 'Mobile',
+                    'isPersonalData' => true
                 ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
+                'doNotCall' => (object) [
+                    'type' => 'bool'
                 ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
+                'description' => (object) [
+                    'type' => 'text'
                 ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
+                'convertedAt' => (object) [
+                    'type' => 'datetime',
+                    'layoutMassUpdateDisabled' => true,
+                    'readOnly' => true
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',
@@ -25642,26 +22753,117 @@ return (object) [
                     'readOnly' => true,
                     'view' => 'views/fields/user'
                 ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
-                ],
                 'modifiedBy' => (object) [
                     'type' => 'link',
                     'readOnly' => true,
                     'view' => 'views/fields/user'
                 ],
+                'accountName' => (object) [
+                    'type' => 'varchar'
+                ],
                 'assignedUser' => (object) [
                     'type' => 'link',
-                    'required' => false,
                     'view' => 'views/fields/assigned-user'
+                ],
+                'acceptanceStatus' => (object) [
+                    'type' => 'varchar',
+                    'notStorable' => true,
+                    'exportDisabled' => true,
+                    'disabled' => true
+                ],
+                'acceptanceStatusMeetings' => (object) [
+                    'type' => 'enum',
+                    'notStorable' => true,
+                    'layoutAvailabilityList' => [
+                        0 => 'filters'
+                    ],
+                    'importDisabled' => true,
+                    'exportDisabled' => true,
+                    'view' => 'crm:views/lead/fields/acceptance-status',
+                    'link' => 'meetings',
+                    'column' => 'status'
+                ],
+                'acceptanceStatusCalls' => (object) [
+                    'type' => 'enum',
+                    'notStorable' => true,
+                    'layoutAvailabilityList' => [
+                        0 => 'filters'
+                    ],
+                    'importDisabled' => true,
+                    'exportDisabled' => true,
+                    'view' => 'crm:views/lead/fields/acceptance-status',
+                    'link' => 'calls',
+                    'column' => 'status'
                 ],
                 'teams' => (object) [
                     'type' => 'linkMultiple',
                     'view' => 'views/fields/teams'
                 ],
-                'subDomainName' => (object) [
+                'campaign' => (object) [
+                    'type' => 'link',
+                    'layoutListDisabled' => true
+                ],
+                'createdAccount' => (object) [
+                    'type' => 'link',
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true
+                ],
+                'createdContact' => (object) [
+                    'type' => 'link',
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'view' => 'crm:views/lead/fields/created-contact'
+                ],
+                'createdOpportunity' => (object) [
+                    'type' => 'link',
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'view' => 'crm:views/lead/fields/created-opportunity'
+                ],
+                'targetLists' => (object) [
+                    'type' => 'linkMultiple',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'importDisabled' => true,
+                    'noLoad' => true
+                ],
+                'targetList' => (object) [
+                    'type' => 'link',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'layoutFiltersDisabled' => true,
+                    'entity' => 'TargetList',
+                    'directAccessDisabled' => true
+                ],
+                'targetListIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'disabled' => true
+                ],
+                'leadType' => (object) [
+                    'type' => 'enum',
+                    'required' => true,
+                    'options' => [
+                        0 => 'Hot Lead',
+                        1 => 'Cold Lead',
+                        2 => 'Warm Lead',
+                        3 => 'Dead Lead'
+                    ],
+                    'style' => (object) [
+                        'Hot Lead' => NULL,
+                        'Cold Lead' => NULL,
+                        'Warm Lead' => NULL,
+                        'Dead Lead' => NULL
+                    ],
+                    'isSorted' => true,
+                    'default' => 'Hot Lead',
+                    'isCustom' => true
+                ],
+                'stream' => (object) [
                     'type' => 'varchar',
                     'trim' => true,
                     'options' => [
@@ -25669,42 +22871,31 @@ return (object) [
                     ],
                     'isCustom' => true
                 ],
-                'totalMessages' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
+                'opportunityAmountCurrency' => (object) [
+                    'type' => 'enum',
+                    'view' => 'views/fields/currency-list',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'customizationRequiredDisabled' => true,
+                    'customizationOptionsDisabled' => true,
+                    'customizationIsSortedDisabled' => true,
+                    'customizationDisplayAsLabelDisabled' => true,
+                    'customizationAuditedDisabled' => true,
+                    'customizationReadOnlyDisabled' => true,
+                    'customizationDefaultView' => 'views/admin/field-manager/fields/currency-default',
+                    'maxLength' => 6
                 ],
-                'sentMessages' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'remainingMessages' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'planExpiryDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'senderId' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
+                'addressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
                 ],
                 'emailAddressIsOptedOut' => (object) [
                     'type' => 'bool',
@@ -25725,26 +22916,6 @@ return (object) [
                     'mergeDisabled' => true,
                     'customizationDefaultDisabled' => true,
                     'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
                 ]
             ],
             'links' => (object) [
@@ -25763,43 +22934,600 @@ return (object) [
                 'teams' => (object) [
                     'type' => 'hasMany',
                     'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
+                    'relationName' => 'entityTeam',
                     'layoutRelationshipsDisabled' => true
                 ],
                 'meetings' => (object) [
                     'type' => 'hasMany',
                     'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
+                    'foreign' => 'leads',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
                 ],
                 'calls' => (object) [
                     'type' => 'hasMany',
                     'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
+                    'foreign' => 'leads',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
                 ],
                 'tasks' => (object) [
                     'type' => 'hasChildren',
                     'entity' => 'Task',
                     'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
+                ],
+                'cases' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Case',
+                    'foreign' => 'lead',
+                    'audited' => true
+                ],
+                'emails' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Email',
+                    'foreign' => 'parent',
                     'layoutRelationshipsDisabled' => true
+                ],
+                'createdAccount' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Account',
+                    'noJoin' => true,
+                    'foreign' => 'originalLead'
+                ],
+                'createdContact' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Contact',
+                    'noJoin' => true,
+                    'foreign' => 'originalLead'
+                ],
+                'createdOpportunity' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Opportunity',
+                    'noJoin' => true,
+                    'foreign' => 'originalLead'
+                ],
+                'campaign' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Campaign',
+                    'foreign' => 'leads',
+                    'noJoin' => true
+                ],
+                'campaignLogRecords' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'CampaignLogRecord',
+                    'foreign' => 'parent'
+                ],
+                'targetLists' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'TargetList',
+                    'foreign' => 'leads'
+                ],
+                'documents' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Document',
+                    'foreign' => 'leads',
+                    'audited' => true
+                ]
+            ],
+            'convertEntityList' => [
+                0 => 'Account',
+                1 => 'Contact',
+                2 => 'Opportunity'
+            ],
+            'convertFields' => (object) [
+                'Contact' => (object) [
+                    
+                ],
+                'Account' => (object) [
+                    'name' => 'accountName',
+                    'billingAddressStreet' => 'addressStreet',
+                    'billingAddressCity' => 'addressCity',
+                    'billingAddressState' => 'addressState',
+                    'billingAddressPostalCode' => 'addressPostalCode',
+                    'billingAddressCountry' => 'addressCountry'
+                ],
+                'Opportunity' => (object) [
+                    'amount' => 'opportunityAmount',
+                    'leadSource' => 'source'
                 ]
             ],
             'collection' => (object) [
                 'orderBy' => 'createdAt',
                 'order' => 'desc',
                 'textFilterFields' => [
-                    0 => 'name'
+                    0 => 'name',
+                    1 => 'accountName',
+                    2 => 'emailAddress'
                 ],
-                'fullTextSearch' => false,
-                'countDisabled' => false,
                 'sortBy' => 'createdAt',
                 'asc' => false
             ],
             'indexes' => (object) [
+                'firstName' => (object) [
+                    'columns' => [
+                        0 => 'firstName',
+                        1 => 'deleted'
+                    ]
+                ],
                 'name' => (object) [
                     'columns' => [
-                        0 => 'name',
+                        0 => 'firstName',
+                        1 => 'lastName'
+                    ]
+                ],
+                'status' => (object) [
+                    'columns' => [
+                        0 => 'status',
+                        1 => 'deleted'
+                    ]
+                ],
+                'createdAt' => (object) [
+                    'columns' => [
+                        0 => 'createdAt',
+                        1 => 'deleted'
+                    ]
+                ],
+                'createdAtStatus' => (object) [
+                    'columns' => [
+                        0 => 'createdAt',
+                        1 => 'status'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUserStatus' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'status'
+                    ]
+                ]
+            ]
+        ],
+        'MassEmail' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Draft',
+                        1 => 'Pending',
+                        2 => 'Complete',
+                        3 => 'In Process',
+                        4 => 'Failed'
+                    ],
+                    'default' => 'Pending'
+                ],
+                'storeSentEmails' => (object) [
+                    'type' => 'bool',
+                    'default' => false,
+                    'tooltip' => true
+                ],
+                'optOutEntirely' => (object) [
+                    'type' => 'bool',
+                    'default' => false,
+                    'tooltip' => true
+                ],
+                'fromAddress' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'view' => 'crm:views/mass-email/fields/from-address'
+                ],
+                'fromName' => (object) [
+                    'type' => 'varchar'
+                ],
+                'replyToAddress' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true
+                ],
+                'replyToName' => (object) [
+                    'type' => 'varchar'
+                ],
+                'startAt' => (object) [
+                    'type' => 'datetime',
+                    'required' => true
+                ],
+                'emailTemplate' => (object) [
+                    'type' => 'link',
+                    'required' => true,
+                    'view' => 'crm:views/mass-email/fields/email-template'
+                ],
+                'campaign' => (object) [
+                    'type' => 'link'
+                ],
+                'targetLists' => (object) [
+                    'type' => 'linkMultiple',
+                    'required' => true,
+                    'tooltip' => true
+                ],
+                'excludingTargetLists' => (object) [
+                    'type' => 'linkMultiple',
+                    'tooltip' => true
+                ],
+                'inboundEmail' => (object) [
+                    'type' => 'link'
+                ],
+                'smtpAccount' => (object) [
+                    'type' => 'base',
+                    'notStorable' => true,
+                    'view' => 'crm:views/mass-email/fields/smtp-account'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'emailTemplate' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'EmailTemplate'
+                ],
+                'campaign' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Campaign',
+                    'foreign' => 'massEmails'
+                ],
+                'targetLists' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'TargetList',
+                    'foreign' => 'massEmails'
+                ],
+                'excludingTargetLists' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'TargetList',
+                    'foreign' => 'massEmailsExcluding',
+                    'relationName' => 'massEmailTargetListExcluding'
+                ],
+                'inboundEmail' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'InboundEmail'
+                ],
+                'queueItems' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'EmailQueueItem',
+                    'foreign' => 'massEmail'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ]
+        ],
+        'Meeting' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Planned',
+                        1 => 'Held',
+                        2 => 'Not Held'
+                    ],
+                    'default' => 'Planned',
+                    'style' => (object) [
+                        'Held' => 'success'
+                    ],
+                    'audited' => true
+                ],
+                'dateStart' => (object) [
+                    'type' => 'datetimeOptional',
+                    'view' => 'crm:views/meeting/fields/date-start',
+                    'required' => true,
+                    'default' => 'javascript: return this.dateTime.getNow(15);',
+                    'audited' => true,
+                    'minuteStep' => 30
+                ],
+                'dateEnd' => (object) [
+                    'type' => 'datetimeOptional',
+                    'view' => 'crm:views/meeting/fields/date-end',
+                    'required' => true,
+                    'after' => 'dateStart',
+                    'minuteStep' => 30
+                ],
+                'isAllDay' => (object) [
+                    'type' => 'bool',
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true
+                ],
+                'duration' => (object) [
+                    'type' => 'duration',
+                    'start' => 'dateStart',
+                    'end' => 'dateEnd',
+                    'options' => [
+                        0 => 900,
+                        1 => 1800,
+                        2 => 3600,
+                        3 => 7200,
+                        4 => 10800,
+                        5 => 86400
+                    ],
+                    'default' => 3600,
+                    'notStorable' => true,
+                    'select' => 'TIMESTAMPDIFF(SECOND, meeting.date_start, meeting.date_end)',
+                    'orderBy' => 'duration {direction}'
+                ],
+                'reminders' => (object) [
+                    'type' => 'jsonArray',
+                    'notStorable' => true,
+                    'view' => 'crm:views/meeting/fields/reminders',
+                    'layoutListDisabled' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'parent' => (object) [
+                    'type' => 'linkParent',
+                    'entityList' => [
+                        0 => 'Account',
+                        1 => 'Contact',
+                        2 => 'Lead',
+                        3 => 'Opportunity',
+                        4 => 'Case',
+                        5 => 'ImportResult'
+                    ]
+                ],
+                'account' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'acceptanceStatus' => (object) [
+                    'type' => 'enum',
+                    'notStorable' => true,
+                    'options' => [
+                        0 => 'None',
+                        1 => 'Accepted',
+                        2 => 'Tentative',
+                        3 => 'Declined'
+                    ],
+                    'style' => (object) [
+                        'Accepted' => 'success',
+                        'Declined' => 'danger',
+                        'Tentative' => 'warning'
+                    ],
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'importDisabled' => true,
+                    'exportDisabled' => true,
+                    'where' => (object) [
+                        '=' => (object) [
+                            'leftJoins' => [
+                                0 => 'users',
+                                1 => 'contacts',
+                                2 => 'leads'
+                            ],
+                            'sql' => 'contactsMiddle.status = {value} OR leadsMiddle.status = {value} OR usersMiddle.status = {value}',
+                            'distinct' => true
+                        ],
+                        '<>' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status = {value})',
+                        'IN' => (object) [
+                            'leftJoins' => [
+                                0 => 'users',
+                                1 => 'leads',
+                                2 => 'contacts'
+                            ],
+                            'sql' => 'contactsMiddle.status IN {value} OR leadsMiddle.status IN {value} OR usersMiddle.status IN {value}',
+                            'distinct' => true
+                        ],
+                        'NOT IN' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IN {value})',
+                        'IS NULL' => (object) [
+                            'leftJoins' => [
+                                0 => 'users',
+                                1 => 'contacts',
+                                2 => 'leads'
+                            ],
+                            'sql' => 'contactsMiddle.status IS NULL AND leadsMiddle.status IS NULL AND usersMiddle.status IS NULL',
+                            'distinct' => true
+                        ],
+                        'IS NOT NULL' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IS NULL)'
+                    ],
+                    'view' => 'crm:views/meeting/fields/acceptance-status'
+                ],
+                'users' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'crm:views/meeting/fields/users',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'columns' => (object) [
+                        'status' => 'acceptanceStatus'
+                    ],
+                    'additionalAttributeList' => [
+                        0 => 'columns'
+                    ],
+                    'orderBy' => 'name'
+                ],
+                'contacts' => (object) [
+                    'type' => 'linkMultiple',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'view' => 'crm:views/meeting/fields/contacts',
+                    'columns' => (object) [
+                        'status' => 'acceptanceStatus'
+                    ],
+                    'additionalAttributeList' => [
+                        0 => 'columns'
+                    ],
+                    'orderBy' => 'name'
+                ],
+                'leads' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'crm:views/meeting/fields/attendees',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'columns' => (object) [
+                        'status' => 'acceptanceStatus'
+                    ],
+                    'additionalAttributeList' => [
+                        0 => 'columns'
+                    ],
+                    'orderBy' => 'name'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => true,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'stream' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'dateStartDate' => (object) [
+                    'type' => 'date',
+                    'disabled' => true
+                ],
+                'dateEndDate' => (object) [
+                    'type' => 'date',
+                    'disabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'account' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Account'
+                ],
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'users' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'User',
+                    'foreign' => 'meetings',
+                    'additionalColumns' => (object) [
+                        'status' => (object) [
+                            'type' => 'varchar',
+                            'len' => '36',
+                            'default' => 'None'
+                        ]
+                    ]
+                ],
+                'contacts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Contact',
+                    'foreign' => 'meetings',
+                    'additionalColumns' => (object) [
+                        'status' => (object) [
+                            'type' => 'varchar',
+                            'len' => '36',
+                            'default' => 'None'
+                        ]
+                    ]
+                ],
+                'leads' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Lead',
+                    'foreign' => 'meetings',
+                    'additionalColumns' => (object) [
+                        'status' => (object) [
+                            'type' => 'varchar',
+                            'len' => '36',
+                            'default' => 'None'
+                        ]
+                    ]
+                ],
+                'parent' => (object) [
+                    'type' => 'belongsToParent',
+                    'foreign' => 'meetings'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'dateStart',
+                'order' => 'desc',
+                'sortBy' => 'dateStart',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'dateStartStatus' => (object) [
+                    'columns' => [
+                        0 => 'dateStart',
+                        1 => 'status'
+                    ]
+                ],
+                'dateStart' => (object) [
+                    'columns' => [
+                        0 => 'dateStart',
+                        1 => 'deleted'
+                    ]
+                ],
+                'status' => (object) [
+                    'columns' => [
+                        0 => 'status',
                         1 => 'deleted'
                     ]
                 ],
@@ -25807,6 +23535,12 @@ return (object) [
                     'columns' => [
                         0 => 'assignedUserId',
                         1 => 'deleted'
+                    ]
+                ],
+                'assignedUserStatus' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'status'
                     ]
                 ]
             ]
@@ -26393,6 +24127,485 @@ return (object) [
                 ]
             ]
         ],
+        'Opportunity' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'amount' => (object) [
+                    'type' => 'currency',
+                    'required' => true,
+                    'audited' => true
+                ],
+                'amountConverted' => (object) [
+                    'type' => 'currencyConverted',
+                    'readOnly' => true,
+                    'importDisabled' => true
+                ],
+                'amountWeightedConverted' => (object) [
+                    'type' => 'float',
+                    'readOnly' => true,
+                    'notStorable' => true,
+                    'select' => (object) [
+                        'sql' => 'opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100',
+                        'leftJoins' => [
+                            0 => [
+                                0 => 'Currency',
+                                1 => 'amountCurrencyRate',
+                                2 => (object) [
+                                    'amountCurrencyRate.id:' => 'amountCurrency'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'where' => (object) [
+                        '=' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) = {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        '<' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) < {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        '>' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) > {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        '<=' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <= {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        '>=' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) >= {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        '<>' => (object) [
+                            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <> {value}',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'IS NULL' => (object) [
+                            'sql' => 'opportunity.amount IS NULL',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'IS NOT NULL' => (object) [
+                            'sql' => 'opportunity.amount IS NOT NULL',
+                            'leftJoins' => [
+                                0 => [
+                                    0 => 'Currency',
+                                    1 => 'amountCurrencyRate',
+                                    2 => (object) [
+                                        'amountCurrencyRate.id:' => 'amountCurrency'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'orderBy' => (object) [
+                        'sql' => 'amountWeightedConverted {direction}',
+                        'leftJoins' => [
+                            0 => [
+                                0 => 'Currency',
+                                1 => 'amountCurrencyRate',
+                                2 => (object) [
+                                    'amountCurrencyRate.id:' => 'amountCurrency'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'view' => 'views/fields/currency-converted'
+                ],
+                'account' => (object) [
+                    'type' => 'link'
+                ],
+                'contacts' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'crm:views/opportunity/fields/contacts',
+                    'columns' => (object) [
+                        'role' => 'opportunityRole'
+                    ],
+                    'additionalAttributeList' => [
+                        0 => 'columns'
+                    ],
+                    'orderBy' => 'name'
+                ],
+                'stage' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Unqualified',
+                        1 => 'Qualified',
+                        2 => 'Proposal',
+                        3 => 'Negotiation',
+                        4 => 'Closed Won',
+                        5 => 'Closed Lost'
+                    ],
+                    'view' => 'crm:views/opportunity/fields/stage',
+                    'default' => 'Unqualified',
+                    'audited' => true,
+                    'probabilityMap' => (object) [
+                        'Prospecting' => 10,
+                        'Qualification' => 20,
+                        'Proposal' => 50,
+                        'Negotiation' => 80,
+                        'Closed Won' => 100,
+                        'Closed Lost' => 0,
+                        'Unqualified' => 10,
+                        'Qualified' => 20
+                    ],
+                    'style' => (object) [
+                        'Closed Won' => 'success',
+                        'Closed Lost' => 'danger',
+                        'Unqualified' => NULL,
+                        'Qualified' => NULL,
+                        'Proposal' => NULL,
+                        'Negotiation' => NULL
+                    ],
+                    'fieldManagerAdditionalParamList' => [
+                        0 => (object) [
+                            'name' => 'probabilityMap',
+                            'view' => 'crm:views/opportunity/admin/field-manager/fields/probability-map'
+                        ]
+                    ],
+                    'isSorted' => false
+                ],
+                'lastStage' => (object) [
+                    'type' => 'enum',
+                    'view' => 'crm:views/opportunity/fields/last-stage',
+                    'customizationOptionsDisabled' => true,
+                    'customizationDefaultDisabled' => true
+                ],
+                'probability' => (object) [
+                    'type' => 'int',
+                    'required' => true,
+                    'min' => 0,
+                    'max' => 100
+                ],
+                'leadSource' => (object) [
+                    'type' => 'enum',
+                    'view' => 'crm:views/opportunity/fields/lead-source',
+                    'customizationOptionsDisabled' => true,
+                    'translation' => 'Lead.options.source',
+                    'default' => ''
+                ],
+                'closeDate' => (object) [
+                    'type' => 'date',
+                    'required' => true,
+                    'audited' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'campaign' => (object) [
+                    'type' => 'link'
+                ],
+                'originalLead' => (object) [
+                    'type' => 'link',
+                    'layoutMassUpdateDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'readOnly' => true,
+                    'view' => 'views/fields/link-one'
+                ],
+                'contactRole' => (object) [
+                    'type' => 'enum',
+                    'notStorable' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutAvailabilityList' => [
+                        0 => 'listForContact'
+                    ],
+                    'customizationDefaultDisabled' => true,
+                    'customizationRequiredDisabled' => true,
+                    'customizationIsSortedDisabled' => true,
+                    'customizationAuditedDisabled' => true,
+                    'customizationReadOnlyDisabled' => true,
+                    'where' => (object) [
+                        '=' => (object) [
+                            'leftJoins' => [
+                                0 => 'contacts'
+                            ],
+                            'sql' => 'contactsMiddle.role = {value}',
+                            'distinct' => true
+                        ],
+                        '<>' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role = {value})',
+                        'IN' => (object) [
+                            'leftJoins' => [
+                                0 => 'contacts'
+                            ],
+                            'sql' => 'contactsMiddle.role IN {value}',
+                            'distinct' => true
+                        ],
+                        'NOT IN' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IN {value})',
+                        'LIKE' => (object) [
+                            'leftJoins' => [
+                                0 => 'contacts'
+                            ],
+                            'sql' => 'contactsMiddle.role LIKE {value}',
+                            'distinct' => true
+                        ],
+                        'IS NULL' => (object) [
+                            'leftJoins' => [
+                                0 => 'contacts'
+                            ],
+                            'sql' => 'contactsMiddle.role IS NULL',
+                            'distinct' => true
+                        ],
+                        'IS NOT NULL' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IS NULL)'
+                    ],
+                    'view' => 'crm:views/opportunity/fields/contact-role',
+                    'customizationOptionsDisabled' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'lossReason' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'None',
+                        1 => 'Lost to Competitor',
+                        2 => 'No Budget',
+                        3 => 'No Response',
+                        4 => 'Pricing'
+                    ],
+                    'style' => (object) [
+                        'None' => NULL,
+                        'Lost to Competitor' => NULL,
+                        'No Budget' => NULL,
+                        'No Response' => NULL,
+                        'Pricing' => NULL
+                    ],
+                    'default' => 'None',
+                    'isCustom' => true
+                ],
+                'stream' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'amountCurrency' => (object) [
+                    'type' => 'enum',
+                    'view' => 'views/fields/currency-list',
+                    'layoutDetailDisabled' => true,
+                    'layoutListDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'customizationRequiredDisabled' => true,
+                    'customizationOptionsDisabled' => true,
+                    'customizationIsSortedDisabled' => true,
+                    'customizationDisplayAsLabelDisabled' => true,
+                    'customizationAuditedDisabled' => true,
+                    'customizationReadOnlyDisabled' => true,
+                    'customizationDefaultView' => 'views/admin/field-manager/fields/currency-default',
+                    'maxLength' => 6
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'account' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Account',
+                    'foreign' => 'opportunities'
+                ],
+                'contacts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Contact',
+                    'foreign' => 'opportunities',
+                    'additionalColumns' => (object) [
+                        'role' => (object) [
+                            'type' => 'varchar',
+                            'len' => 50
+                        ]
+                    ]
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true,
+                    'audited' => true
+                ],
+                'emails' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Email',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'documents' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Document',
+                    'foreign' => 'opportunities',
+                    'audited' => true
+                ],
+                'campaign' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Campaign',
+                    'foreign' => 'opportunities',
+                    'noJoin' => true
+                ],
+                'originalLead' => (object) [
+                    'type' => 'hasOne',
+                    'entity' => 'Lead',
+                    'foreign' => 'createdOpportunity'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'stage' => (object) [
+                    'columns' => [
+                        0 => 'stage',
+                        1 => 'deleted'
+                    ]
+                ],
+                'lastStage' => (object) [
+                    'columns' => [
+                        0 => 'lastStage'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ],
+                'createdAt' => (object) [
+                    'columns' => [
+                        0 => 'createdAt',
+                        1 => 'deleted'
+                    ]
+                ],
+                'createdAtStage' => (object) [
+                    'columns' => [
+                        0 => 'createdAt',
+                        1 => 'stage'
+                    ]
+                ],
+                'assignedUserStage' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'stage'
+                    ]
+                ]
+            ]
+        ],
         'Payments' => (object) [
             'fields' => (object) [
                 'name' => (object) [
@@ -26779,7 +24992,71 @@ return (object) [
                 ]
             ]
         ],
-        'SMSReminder' => (object) [
+        'Reminder' => (object) [
+            'fields' => (object) [
+                'remindAt' => (object) [
+                    'type' => 'datetime',
+                    'index' => true
+                ],
+                'startAt' => (object) [
+                    'type' => 'datetime',
+                    'index' => true
+                ],
+                'type' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Popup',
+                        1 => 'Email'
+                    ],
+                    'maxLength' => 36,
+                    'index' => true,
+                    'default' => 'Popup'
+                ],
+                'seconds' => (object) [
+                    'type' => 'enumInt',
+                    'options' => [
+                        0 => 0,
+                        1 => 60,
+                        2 => 120,
+                        3 => 300,
+                        4 => 600,
+                        5 => 900,
+                        6 => 1800,
+                        7 => 3600,
+                        8 => 7200,
+                        9 => 10800,
+                        10 => 18000,
+                        11 => 86400,
+                        12 => 172800,
+                        13 => 259200,
+                        14 => 432000
+                    ],
+                    'default' => 0
+                ],
+                'entityType' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 100
+                ],
+                'entityId' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 50
+                ],
+                'userId' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 50
+                ],
+                'isSubmitted' => (object) [
+                    'type' => 'bool'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'remindAt',
+                'order' => 'desc',
+                'sortBy' => 'remindAt',
+                'asc' => false
+            ]
+        ],
+        'SenderID' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -26788,92 +25065,6 @@ return (object) [
                 ],
                 'description' => (object) [
                     'type' => 'text'
-                ],
-                'website' => (object) [
-                    'type' => 'url',
-                    'strip' => true
-                ],
-                'emailAddress' => (object) [
-                    'type' => 'email'
-                ],
-                'phoneNumber' => (object) [
-                    'type' => 'phone',
-                    'typeList' => [
-                        0 => 'Office',
-                        1 => 'Mobile',
-                        2 => 'Fax',
-                        3 => 'Other'
-                    ],
-                    'defaultType' => 'Office'
-                ],
-                'billingAddress' => (object) [
-                    'type' => 'address'
-                ],
-                'billingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'billingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'billingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
-                ],
-                'shippingAddress' => (object) [
-                    'type' => 'address',
-                    'view' => 'crm:views/account/fields/shipping-address'
-                ],
-                'shippingAddressStreet' => (object) [
-                    'type' => 'text',
-                    'maxLength' => 255,
-                    'dbType' => 'varchar'
-                ],
-                'shippingAddressCity' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-city',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressState' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-state',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressCountry' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'maxLength' => 255,
-                    'view' => 'views/fields/address-country',
-                    'customizationOptionsDisabled' => true
-                ],
-                'shippingAddressPostalCode' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 40,
-                    'trim' => true
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',
@@ -26888,11 +25079,6 @@ return (object) [
                     'readOnly' => true,
                     'view' => 'views/fields/user'
                 ],
-                'Stream' => (object) [
-                    'type' => 'varchar',
-                    'maxLength' => 2000,
-                    'trim' => true
-                ],
                 'modifiedBy' => (object) [
                     'type' => 'link',
                     'readOnly' => true,
@@ -26900,14 +25086,14 @@ return (object) [
                 ],
                 'assignedUser' => (object) [
                     'type' => 'link',
-                    'required' => false,
+                    'required' => true,
                     'view' => 'views/fields/assigned-user'
                 ],
                 'teams' => (object) [
                     'type' => 'linkMultiple',
                     'view' => 'views/fields/teams'
                 ],
-                'folderName' => (object) [
+                'senderId' => (object) [
                     'type' => 'varchar',
                     'trim' => true,
                     'options' => [
@@ -26915,40 +25101,7 @@ return (object) [
                     ],
                     'isCustom' => true
                 ],
-                'mobileNo' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'reminderDate' => (object) [
-                    'notNull' => false,
-                    'type' => 'date',
-                    'isCustom' => true
-                ],
-                'reminderTime' => (object) [
-                    'name' => 'reminderTime',
-                    'label' => 'Reminder Time',
-                    'type' => 'Time',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true,
-                    'dynamicLogicVisible' => NULL,
-                    'dynamicLogicReadOnly' => NULL,
-                    'inlineEditDisabled' => false,
-                    'tooltip' => false
-                ],
-                'smsBody' => (object) [
-                    'type' => 'text',
-                    'rowsMin' => 2,
-                    'cutHeight' => 200,
-                    'isCustom' => true
-                ],
-                'smsStatus' => (object) [
+                'categoryType' => (object) [
                     'type' => 'varchar',
                     'trim' => true,
                     'options' => [
@@ -26957,76 +25110,15 @@ return (object) [
                     'isCustom' => true
                 ],
                 'status' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
+                    'type' => 'enum',
                     'options' => [
-                        
+                        0 => 'Active'
                     ],
-                    'isCustom' => true
-                ],
-                'sendSmsDateTime' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
+                    'style' => (object) [
+                        'Active' => NULL
                     ],
+                    'default' => 'Active',
                     'isCustom' => true
-                ],
-                'sendFrom' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'contentTemplateName' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'emailAddressIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'mergeDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'phoneNumberIsOptedOut' => (object) [
-                    'type' => 'bool',
-                    'notStorable' => true,
-                    'layoutDetailDisabled' => true,
-                    'layoutDefaultSidePanelDisabled' => true,
-                    'foreignAccessDisabled' => true,
-                    'mergeDisabled' => true,
-                    'customizationDefaultDisabled' => true,
-                    'customizationReadOnlyDisabled' => true
-                ],
-                'billingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
-                ],
-                'shippingAddressMap' => (object) [
-                    'type' => 'map',
-                    'notStorable' => true,
-                    'readOnly' => true,
-                    'layoutListDisabled' => true,
-                    'provider' => 'Google',
-                    'height' => 300,
-                    'exportDisabled' => true,
-                    'importDisabled' => true
                 ]
             ],
             'links' => (object) [
@@ -27047,34 +25139,11 @@ return (object) [
                     'entity' => 'Team',
                     'relationName' => 'EntityTeam',
                     'layoutRelationshipsDisabled' => true
-                ],
-                'meetings' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Meeting',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'calls' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Call',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
-                ],
-                'tasks' => (object) [
-                    'type' => 'hasChildren',
-                    'entity' => 'Task',
-                    'foreign' => 'parent',
-                    'layoutRelationshipsDisabled' => true
                 ]
             ],
             'collection' => (object) [
                 'orderBy' => 'createdAt',
                 'order' => 'desc',
-                'textFilterFields' => [
-                    0 => 'name'
-                ],
-                'fullTextSearch' => false,
-                'countDisabled' => false,
                 'sortBy' => 'createdAt',
                 'asc' => false
             ],
@@ -27405,112 +25474,6 @@ return (object) [
                 ],
                 'fullTextSearch' => false,
                 'countDisabled' => false,
-                'sortBy' => 'createdAt',
-                'asc' => false
-            ],
-            'indexes' => (object) [
-                'name' => (object) [
-                    'columns' => [
-                        0 => 'name',
-                        1 => 'deleted'
-                    ]
-                ],
-                'assignedUser' => (object) [
-                    'columns' => [
-                        0 => 'assignedUserId',
-                        1 => 'deleted'
-                    ]
-                ]
-            ]
-        ],
-        'SenderID' => (object) [
-            'fields' => (object) [
-                'name' => (object) [
-                    'type' => 'varchar',
-                    'required' => true,
-                    'trim' => true
-                ],
-                'description' => (object) [
-                    'type' => 'text'
-                ],
-                'createdAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'modifiedAt' => (object) [
-                    'type' => 'datetime',
-                    'readOnly' => true
-                ],
-                'createdBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'link',
-                    'readOnly' => true,
-                    'view' => 'views/fields/user'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'link',
-                    'required' => true,
-                    'view' => 'views/fields/assigned-user'
-                ],
-                'teams' => (object) [
-                    'type' => 'linkMultiple',
-                    'view' => 'views/fields/teams'
-                ],
-                'senderId' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'categoryType' => (object) [
-                    'type' => 'varchar',
-                    'trim' => true,
-                    'options' => [
-                        
-                    ],
-                    'isCustom' => true
-                ],
-                'status' => (object) [
-                    'type' => 'enum',
-                    'options' => [
-                        0 => 'Active'
-                    ],
-                    'style' => (object) [
-                        'Active' => NULL
-                    ],
-                    'default' => 'Active',
-                    'isCustom' => true
-                ]
-            ],
-            'links' => (object) [
-                'createdBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'modifiedBy' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'assignedUser' => (object) [
-                    'type' => 'belongsTo',
-                    'entity' => 'User'
-                ],
-                'teams' => (object) [
-                    'type' => 'hasMany',
-                    'entity' => 'Team',
-                    'relationName' => 'EntityTeam',
-                    'layoutRelationshipsDisabled' => true
-                ]
-            ],
-            'collection' => (object) [
-                'orderBy' => 'createdAt',
-                'order' => 'desc',
                 'sortBy' => 'createdAt',
                 'asc' => false
             ],
@@ -28173,7 +26136,1310 @@ return (object) [
                 ]
             ]
         ],
-        'TEsting2811' => (object) [
+        'SMSReminder' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'folderName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'mobileNo' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'reminderDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'reminderTime' => (object) [
+                    'name' => 'reminderTime',
+                    'label' => 'Reminder Time',
+                    'type' => 'Time',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true,
+                    'dynamicLogicVisible' => NULL,
+                    'dynamicLogicReadOnly' => NULL,
+                    'inlineEditDisabled' => false,
+                    'tooltip' => false
+                ],
+                'smsBody' => (object) [
+                    'type' => 'text',
+                    'rowsMin' => 2,
+                    'cutHeight' => 200,
+                    'isCustom' => true
+                ],
+                'smsStatus' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'status' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'sendSmsDateTime' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'sendFrom' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'contentTemplateName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'textFilterFields' => [
+                    0 => 'name'
+                ],
+                'fullTextSearch' => false,
+                'countDisabled' => false,
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
+        'Target' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'personName'
+                ],
+                'salutationName' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => '',
+                        1 => 'Mr.',
+                        2 => 'Mrs.',
+                        3 => 'Ms.',
+                        4 => 'Dr.',
+                        5 => 'Drs.'
+                    ]
+                ],
+                'firstName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 100,
+                    'default' => ''
+                ],
+                'lastName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 100,
+                    'required' => true,
+                    'default' => ''
+                ],
+                'title' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 100
+                ],
+                'accountName' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 100
+                ],
+                'website' => (object) [
+                    'type' => 'url'
+                ],
+                'address' => (object) [
+                    'type' => 'address'
+                ],
+                'addressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'addressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'addressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Mobile',
+                        1 => 'Office',
+                        2 => 'Home',
+                        3 => 'Fax',
+                        4 => 'Other'
+                    ],
+                    'defaultType' => 'Mobile'
+                ],
+                'doNotCall' => (object) [
+                    'type' => 'bool'
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'addressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'firstName' => (object) [
+                    'columns' => [
+                        0 => 'firstName',
+                        1 => 'deleted'
+                    ]
+                ],
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'firstName',
+                        1 => 'lastName'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
+        'TargetList' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'entryCount' => (object) [
+                    'type' => 'int',
+                    'readOnly' => true,
+                    'notStorable' => true,
+                    'layoutFiltersDisabled' => true,
+                    'layoutMassUpdateDisabled' => true
+                ],
+                'optedOutCount' => (object) [
+                    'type' => 'int',
+                    'readOnly' => true,
+                    'notStorable' => true,
+                    'layoutListDisabled' => true,
+                    'layoutFiltersDisabled' => true,
+                    'layoutMassUpdateDisabled' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'campaigns' => (object) [
+                    'type' => 'link'
+                ],
+                'includingActionList' => (object) [
+                    'type' => 'multiEnum',
+                    'view' => 'crm:views/target-list/fields/including-action-list',
+                    'layoutDetailDisabled' => true,
+                    'layoutFiltersDisabled' => true,
+                    'layoutLinkDisabled' => true,
+                    'notStorable' => true,
+                    'disabled' => true
+                ],
+                'excludingActionList' => (object) [
+                    'type' => 'multiEnum',
+                    'view' => 'crm:views/target-list/fields/including-action-list',
+                    'layoutDetailDisabled' => true,
+                    'layoutFiltersDisabled' => true,
+                    'layoutLinkDisabled' => true,
+                    'notStorable' => true,
+                    'disabled' => true
+                ],
+                'targetStatus' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Listed',
+                        1 => 'Opted Out'
+                    ],
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'exportDisabled' => true,
+                    'importDisabled' => true,
+                    'view' => 'crm:views/target-list/fields/target-status'
+                ],
+                'isOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutMassUpdateDisabled' => true,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'campaigns' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Campaign',
+                    'foreign' => 'targetLists'
+                ],
+                'massEmails' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'MassEmail',
+                    'foreign' => 'targetLists'
+                ],
+                'campaignsExcluding' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Campaign',
+                    'foreign' => 'excludingTargetLists'
+                ],
+                'massEmailsExcluding' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'MassEmail',
+                    'foreign' => 'excludingTargetLists'
+                ],
+                'accounts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Account',
+                    'foreign' => 'targetLists',
+                    'additionalColumns' => (object) [
+                        'optedOut' => (object) [
+                            'type' => 'bool'
+                        ]
+                    ]
+                ],
+                'contacts' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Contact',
+                    'foreign' => 'targetLists',
+                    'additionalColumns' => (object) [
+                        'optedOut' => (object) [
+                            'type' => 'bool'
+                        ]
+                    ]
+                ],
+                'leads' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Lead',
+                    'foreign' => 'targetLists',
+                    'additionalColumns' => (object) [
+                        'optedOut' => (object) [
+                            'type' => 'bool'
+                        ]
+                    ]
+                ],
+                'users' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'User',
+                    'foreign' => 'targetLists',
+                    'additionalColumns' => (object) [
+                        'optedOut' => (object) [
+                            'type' => 'bool'
+                        ]
+                    ]
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'createdAt' => (object) [
+                    'columns' => [
+                        0 => 'createdAt',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
+        'Task' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'status' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Open',
+                        1 => 'Started',
+                        2 => 'Completed'
+                    ],
+                    'style' => (object) [
+                        'Completed' => 'completed',
+                        'Started' => 'started',
+                        'Open' => 'open'
+                    ],
+                    'default' => 'Open',
+                    'audited' => true,
+                    'fieldManagerAdditionalParamList' => [
+                        0 => (object) [
+                            'name' => 'notActualOptions',
+                            'view' => 'views/admin/field-manager/fields/not-actual-options'
+                        ]
+                    ],
+                    'notActualOptions' => [
+                        0 => 'Completed',
+                        1 => 'Canceled',
+                        2 => 'Deferred'
+                    ],
+                    'required' => false,
+                    'isSorted' => false,
+                    'readOnly' => false,
+                    'tooltip' => false
+                ],
+                'priority' => (object) [
+                    'type' => 'enum',
+                    'options' => [
+                        0 => 'Low',
+                        1 => 'Normal',
+                        2 => 'High',
+                        3 => 'Urgent'
+                    ],
+                    'default' => 'Normal',
+                    'displayAsLabel' => true,
+                    'style' => (object) [
+                        'High' => 'high',
+                        'Urgent' => 'urgent',
+                        'Low' => 'low',
+                        'Normal' => 'normal'
+                    ],
+                    'audited' => true
+                ],
+                'dateStart' => (object) [
+                    'type' => 'datetimeOptional',
+                    'before' => NULL,
+                    'notNull' => false,
+                    'required' => true,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'minuteStep' => 30
+                ],
+                'dateEnd' => (object) [
+                    'type' => 'datetimeOptional',
+                    'after' => NULL,
+                    'view' => 'crm:views/task/fields/date-end',
+                    'audited' => true,
+                    'notNull' => false,
+                    'required' => true,
+                    'useNumericFormat' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'minuteStep' => 30
+                ],
+                'dateStartDate' => (object) [
+                    'readOnly' => false,
+                    'type' => 'date',
+                    'disabled' => true
+                ],
+                'dateEndDate' => (object) [
+                    'readOnly' => false,
+                    'type' => 'date',
+                    'disabled' => true
+                ],
+                'dateCompleted' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'isOverdue' => (object) [
+                    'type' => 'bool',
+                    'readOnly' => true,
+                    'notStorable' => true,
+                    'view' => 'crm:views/task/fields/is-overdue',
+                    'disabled' => true
+                ],
+                'reminders' => (object) [
+                    'type' => 'jsonArray',
+                    'notStorable' => true,
+                    'view' => 'crm:views/meeting/fields/reminders'
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'parent' => (object) [
+                    'type' => 'linkParent',
+                    'entityList' => [
+                        0 => 'Account',
+                        1 => 'Contact',
+                        2 => 'Lead',
+                        3 => 'Opportunity',
+                        4 => 'Case',
+                        5 => 'ImportResult'
+                    ]
+                ],
+                'account' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'contact' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => true,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'attachments' => (object) [
+                    'type' => 'attachmentMultiple',
+                    'sourceList' => [
+                        0 => 'Document'
+                    ]
+                ],
+                'createRecurringSeriesOfTasks' => (object) [
+                    'notNull' => true,
+                    'type' => 'bool',
+                    'default' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'startDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'endDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'after' => NULL
+                ],
+                'frequency' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => 'Daily',
+                        1 => 'Weekly',
+                        2 => 'Monthly',
+                        3 => 'Custom'
+                    ],
+                    'default' => 'Daily',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        'Daily' => NULL,
+                        'Weekly' => NULL,
+                        'Monthly' => NULL,
+                        'Custom' => NULL
+                    ]
+                ],
+                'repeat' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => 'Every day'
+                    ],
+                    'default' => 'Every day',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        'Every day' => NULL
+                    ]
+                ],
+                'weeklyrepeat' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => 'Every week',
+                        1 => 'Custom'
+                    ],
+                    'default' => 'Every week',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        'Every week' => NULL,
+                        'Custom' => NULL
+                    ]
+                ],
+                'weeklyrepeatOn' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => 'Monday',
+                        1 => 'Tuesday',
+                        2 => 'Wednesday',
+                        3 => 'Thursday',
+                        4 => 'Friday',
+                        5 => 'Saturday',
+                        6 => 'Sunday'
+                    ],
+                    'default' => 'Monday',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        'Monday' => NULL,
+                        'Tuesday' => NULL,
+                        'Wednesday' => NULL,
+                        'Thursday' => NULL,
+                        'Friday' => NULL,
+                        'Saturday' => NULL,
+                        'Sunday' => NULL
+                    ]
+                ],
+                'weeklystartDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'weeklyendDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'after' => NULL
+                ],
+                'monthlyRepeatOn' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => '01',
+                        1 => '02',
+                        2 => '03',
+                        3 => '04',
+                        4 => '05',
+                        5 => '06',
+                        6 => '07',
+                        7 => '08',
+                        8 => '09',
+                        9 => '10',
+                        10 => '11',
+                        11 => '12',
+                        12 => '13',
+                        13 => '14',
+                        14 => '15',
+                        15 => '16',
+                        16 => '17',
+                        17 => '18',
+                        18 => '19',
+                        19 => '20',
+                        20 => '21',
+                        21 => '22',
+                        22 => '23',
+                        23 => '24',
+                        24 => '25',
+                        25 => '26',
+                        26 => '27',
+                        27 => '28',
+                        28 => '29',
+                        29 => '30',
+                        30 => '31'
+                    ],
+                    'default' => '01',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        10 => NULL,
+                        11 => NULL,
+                        12 => NULL,
+                        13 => NULL,
+                        14 => NULL,
+                        15 => NULL,
+                        16 => NULL,
+                        17 => NULL,
+                        18 => NULL,
+                        19 => NULL,
+                        20 => NULL,
+                        21 => NULL,
+                        22 => NULL,
+                        23 => NULL,
+                        24 => NULL,
+                        25 => NULL,
+                        26 => NULL,
+                        27 => NULL,
+                        28 => NULL,
+                        29 => NULL,
+                        30 => NULL,
+                        31 => NULL,
+                        '01' => NULL,
+                        '02' => NULL,
+                        '03' => NULL,
+                        '04' => NULL,
+                        '05' => NULL,
+                        '06' => NULL,
+                        '07' => NULL,
+                        '08' => NULL,
+                        '09' => NULL
+                    ]
+                ],
+                'monthlyStartDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'monthlyEndDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'after' => NULL
+                ],
+                'monthlyRepeat' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => 'Every Month',
+                        1 => 'Custom'
+                    ],
+                    'default' => 'Every Month',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        'Every Month' => NULL,
+                        'Custom' => NULL
+                    ]
+                ],
+                'numberOfRecurringTasks' => (object) [
+                    'type' => 'enum',
+                    'required' => false,
+                    'options' => [
+                        0 => '1',
+                        1 => '2',
+                        2 => '3',
+                        3 => '4',
+                        4 => '5',
+                        5 => '6'
+                    ],
+                    'default' => '1',
+                    'isSorted' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true,
+                    'style' => (object) [
+                        1 => NULL,
+                        2 => NULL,
+                        3 => NULL,
+                        4 => NULL,
+                        5 => NULL,
+                        6 => NULL
+                    ]
+                ],
+                'customStartDate1' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'customStartDate2' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'customStartDate3' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'customStartDate4' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'customStartDate5' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'customStartDate6' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'required' => false,
+                    'useNumericFormat' => false,
+                    'audited' => false,
+                    'readOnly' => false,
+                    'tooltip' => false,
+                    'isCustom' => true
+                ],
+                'completedAt' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'closedAt' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'stream' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User',
+                    'foreign' => 'tasks'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'entityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'parent' => (object) [
+                    'type' => 'belongsToParent',
+                    'foreign' => 'tasks'
+                ],
+                'account' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Account'
+                ],
+                'contact' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'Contact'
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'dateStartStatus' => (object) [
+                    'columns' => [
+                        0 => 'dateStart',
+                        1 => 'status'
+                    ]
+                ],
+                'dateEndStatus' => (object) [
+                    'columns' => [
+                        0 => 'dateEnd',
+                        1 => 'status'
+                    ]
+                ],
+                'dateStart' => (object) [
+                    'columns' => [
+                        0 => 'dateStart',
+                        1 => 'deleted'
+                    ]
+                ],
+                'status' => (object) [
+                    'columns' => [
+                        0 => 'status',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUserStatus' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'status'
+                    ]
+                ]
+            ]
+        ],
+        'Demo' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -28401,7 +27667,7 @@ return (object) [
                 ]
             ]
         ],
-        'Test' => (object) [
+        'Designation' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -28410,6 +27676,92 @@ return (object) [
                 ],
                 'description' => (object) [
                     'type' => 'text'
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',
@@ -28424,6 +27776,11 @@ return (object) [
                     'readOnly' => true,
                     'view' => 'views/fields/user'
                 ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
                 'modifiedBy' => (object) [
                     'type' => 'link',
                     'readOnly' => true,
@@ -28431,12 +27788,52 @@ return (object) [
                 ],
                 'assignedUser' => (object) [
                     'type' => 'link',
-                    'required' => true,
+                    'required' => false,
                     'view' => 'views/fields/assigned-user'
                 ],
                 'teams' => (object) [
                     'type' => 'linkMultiple',
                     'view' => 'views/fields/teams'
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
                 ]
             ],
             'links' => (object) [
@@ -28456,6 +27853,24 @@ return (object) [
                     'type' => 'hasMany',
                     'entity' => 'Team',
                     'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
                     'layoutRelationshipsDisabled' => true
                 ]
             ],
@@ -28480,7 +27895,513 @@ return (object) [
                 ]
             ]
         ],
+        'MessageLog' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'subDomainName' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'totalMessages' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'sentMessages' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'remainingMessages' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'planExpiryDate' => (object) [
+                    'notNull' => false,
+                    'type' => 'date',
+                    'isCustom' => true
+                ],
+                'senderId' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'options' => [
+                        
+                    ],
+                    'isCustom' => true
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'textFilterFields' => [
+                    0 => 'name'
+                ],
+                'fullTextSearch' => false,
+                'countDisabled' => false,
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
         'TestEntity2710' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'website' => (object) [
+                    'type' => 'url',
+                    'strip' => true
+                ],
+                'emailAddress' => (object) [
+                    'type' => 'email'
+                ],
+                'phoneNumber' => (object) [
+                    'type' => 'phone',
+                    'typeList' => [
+                        0 => 'Office',
+                        1 => 'Mobile',
+                        2 => 'Fax',
+                        3 => 'Other'
+                    ],
+                    'defaultType' => 'Office'
+                ],
+                'billingAddress' => (object) [
+                    'type' => 'address'
+                ],
+                'billingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'billingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'billingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'shippingAddress' => (object) [
+                    'type' => 'address',
+                    'view' => 'crm:views/account/fields/shipping-address'
+                ],
+                'shippingAddressStreet' => (object) [
+                    'type' => 'text',
+                    'maxLength' => 255,
+                    'dbType' => 'varchar'
+                ],
+                'shippingAddressCity' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-city',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressState' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-state',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressCountry' => (object) [
+                    'type' => 'varchar',
+                    'trim' => true,
+                    'maxLength' => 255,
+                    'view' => 'views/fields/address-country',
+                    'customizationOptionsDisabled' => true
+                ],
+                'shippingAddressPostalCode' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 40,
+                    'trim' => true
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'Stream' => (object) [
+                    'type' => 'varchar',
+                    'maxLength' => 2000,
+                    'trim' => true
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => false,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ],
+                'emailAddressIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'mergeDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'phoneNumberIsOptedOut' => (object) [
+                    'type' => 'bool',
+                    'notStorable' => true,
+                    'layoutDetailDisabled' => true,
+                    'layoutDefaultSidePanelDisabled' => true,
+                    'foreignAccessDisabled' => true,
+                    'mergeDisabled' => true,
+                    'customizationDefaultDisabled' => true,
+                    'customizationReadOnlyDisabled' => true
+                ],
+                'billingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ],
+                'shippingAddressMap' => (object) [
+                    'type' => 'map',
+                    'notStorable' => true,
+                    'readOnly' => true,
+                    'layoutListDisabled' => true,
+                    'provider' => 'Google',
+                    'height' => 300,
+                    'exportDisabled' => true,
+                    'importDisabled' => true
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'meetings' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Meeting',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'calls' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Call',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ],
+                'tasks' => (object) [
+                    'type' => 'hasChildren',
+                    'entity' => 'Task',
+                    'foreign' => 'parent',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
+        ],
+        'TEsting2811' => (object) [
             'fields' => (object) [
                 'name' => (object) [
                     'type' => 'varchar',
@@ -28935,6 +28856,85 @@ return (object) [
                     ]
                 ]
             ]
+        ],
+        'Test' => (object) [
+            'fields' => (object) [
+                'name' => (object) [
+                    'type' => 'varchar',
+                    'required' => true,
+                    'trim' => true
+                ],
+                'description' => (object) [
+                    'type' => 'text'
+                ],
+                'createdAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'modifiedAt' => (object) [
+                    'type' => 'datetime',
+                    'readOnly' => true
+                ],
+                'createdBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'link',
+                    'readOnly' => true,
+                    'view' => 'views/fields/user'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'link',
+                    'required' => true,
+                    'view' => 'views/fields/assigned-user'
+                ],
+                'teams' => (object) [
+                    'type' => 'linkMultiple',
+                    'view' => 'views/fields/teams'
+                ]
+            ],
+            'links' => (object) [
+                'createdBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'modifiedBy' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'assignedUser' => (object) [
+                    'type' => 'belongsTo',
+                    'entity' => 'User'
+                ],
+                'teams' => (object) [
+                    'type' => 'hasMany',
+                    'entity' => 'Team',
+                    'relationName' => 'EntityTeam',
+                    'layoutRelationshipsDisabled' => true
+                ]
+            ],
+            'collection' => (object) [
+                'orderBy' => 'createdAt',
+                'order' => 'desc',
+                'sortBy' => 'createdAt',
+                'asc' => false
+            ],
+            'indexes' => (object) [
+                'name' => (object) [
+                    'columns' => [
+                        0 => 'name',
+                        1 => 'deleted'
+                    ]
+                ],
+                'assignedUser' => (object) [
+                    'columns' => [
+                        0 => 'assignedUserId',
+                        1 => 'deleted'
+                    ]
+                ]
+            ]
         ]
     ],
     'fields' => (object) [
@@ -28995,6 +28995,42 @@ return (object) [
             'skipOrmDefs' => true,
             'personalData' => true
         ],
+        'arrayInt' => (object) [
+            'params' => [
+                0 => (object) [
+                    'name' => 'required',
+                    'type' => 'bool',
+                    'default' => false
+                ],
+                1 => (object) [
+                    'name' => 'options',
+                    'type' => 'arrayInt'
+                ],
+                2 => (object) [
+                    'name' => 'translation',
+                    'type' => 'varchar',
+                    'hidden' => true
+                ],
+                3 => (object) [
+                    'name' => 'noEmptyString',
+                    'type' => 'bool',
+                    'default' => false
+                ],
+                4 => (object) [
+                    'name' => 'audited',
+                    'type' => 'bool'
+                ],
+                5 => (object) [
+                    'name' => 'readOnly',
+                    'type' => 'bool'
+                ]
+            ],
+            'filter' => true,
+            'notCreatable' => true,
+            'fieldDefs' => (object) [
+                'type' => 'jsonArray'
+            ]
+        ],
         'array' => (object) [
             'params' => [
                 0 => (object) [
@@ -29050,42 +29086,6 @@ return (object) [
             'translatedOptions' => true,
             'dynamicLogicOptions' => true,
             'personalData' => true
-        ],
-        'arrayInt' => (object) [
-            'params' => [
-                0 => (object) [
-                    'name' => 'required',
-                    'type' => 'bool',
-                    'default' => false
-                ],
-                1 => (object) [
-                    'name' => 'options',
-                    'type' => 'arrayInt'
-                ],
-                2 => (object) [
-                    'name' => 'translation',
-                    'type' => 'varchar',
-                    'hidden' => true
-                ],
-                3 => (object) [
-                    'name' => 'noEmptyString',
-                    'type' => 'bool',
-                    'default' => false
-                ],
-                4 => (object) [
-                    'name' => 'audited',
-                    'type' => 'bool'
-                ],
-                5 => (object) [
-                    'name' => 'readOnly',
-                    'type' => 'bool'
-                ]
-            ],
-            'filter' => true,
-            'notCreatable' => true,
-            'fieldDefs' => (object) [
-                'type' => 'jsonArray'
-            ]
         ],
         'attachmentMultiple' => (object) [
             'params' => [
@@ -29276,6 +29276,14 @@ return (object) [
             ],
             'notCreatable' => true
         ],
+        'currencyConverted' => (object) [
+            'params' => [
+                
+            ],
+            'filter' => true,
+            'notCreatable' => true,
+            'skipOrmDefs' => true
+        ],
         'currency' => (object) [
             'params' => [
                 0 => (object) [
@@ -29338,14 +29346,6 @@ return (object) [
             ],
             'filter' => true,
             'personalData' => true
-        ],
-        'currencyConverted' => (object) [
-            'params' => [
-                
-            ],
-            'filter' => true,
-            'notCreatable' => true,
-            'skipOrmDefs' => true
         ],
         'date' => (object) [
             'params' => [
@@ -29659,6 +29659,56 @@ return (object) [
             'textFilter' => true,
             'personalData' => true
         ],
+        'enumFloat' => (object) [
+            'params' => [
+                0 => (object) [
+                    'name' => 'options',
+                    'type' => 'array'
+                ],
+                1 => (object) [
+                    'name' => 'default',
+                    'type' => 'float'
+                ],
+                2 => (object) [
+                    'name' => 'audited',
+                    'type' => 'bool'
+                ],
+                3 => (object) [
+                    'name' => 'readOnly',
+                    'type' => 'bool'
+                ]
+            ],
+            'filter' => true,
+            'notCreatable' => true,
+            'fieldDefs' => (object) [
+                'type' => 'float'
+            ]
+        ],
+        'enumInt' => (object) [
+            'params' => [
+                0 => (object) [
+                    'name' => 'options',
+                    'type' => 'array'
+                ],
+                1 => (object) [
+                    'name' => 'default',
+                    'type' => 'int'
+                ],
+                2 => (object) [
+                    'name' => 'audited',
+                    'type' => 'bool'
+                ],
+                3 => (object) [
+                    'name' => 'readOnly',
+                    'type' => 'bool'
+                ]
+            ],
+            'filter' => true,
+            'notCreatable' => true,
+            'fieldDefs' => (object) [
+                'type' => 'int'
+            ]
+        ],
         'enum' => (object) [
             'params' => [
                 0 => (object) [
@@ -29713,56 +29763,6 @@ return (object) [
             'translatedOptions' => true,
             'dynamicLogicOptions' => true,
             'personalData' => true
-        ],
-        'enumFloat' => (object) [
-            'params' => [
-                0 => (object) [
-                    'name' => 'options',
-                    'type' => 'array'
-                ],
-                1 => (object) [
-                    'name' => 'default',
-                    'type' => 'float'
-                ],
-                2 => (object) [
-                    'name' => 'audited',
-                    'type' => 'bool'
-                ],
-                3 => (object) [
-                    'name' => 'readOnly',
-                    'type' => 'bool'
-                ]
-            ],
-            'filter' => true,
-            'notCreatable' => true,
-            'fieldDefs' => (object) [
-                'type' => 'float'
-            ]
-        ],
-        'enumInt' => (object) [
-            'params' => [
-                0 => (object) [
-                    'name' => 'options',
-                    'type' => 'array'
-                ],
-                1 => (object) [
-                    'name' => 'default',
-                    'type' => 'int'
-                ],
-                2 => (object) [
-                    'name' => 'audited',
-                    'type' => 'bool'
-                ],
-                3 => (object) [
-                    'name' => 'readOnly',
-                    'type' => 'bool'
-                ]
-            ],
-            'filter' => true,
-            'notCreatable' => true,
-            'fieldDefs' => (object) [
-                'type' => 'int'
-            ]
         ],
         'file' => (object) [
             'params' => [
@@ -30708,24 +30708,6 @@ return (object) [
             'acl' => false,
             'customizable' => false
         ],
-        'Email' => (object) [
-            'entity' => true,
-            'layouts' => false,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => 'recordAllAccountContactOwnNo',
-            'notifications' => true,
-            'object' => true,
-            'customizable' => true,
-            'activity' => true,
-            'activityStatusList' => [
-                0 => 'Draft'
-            ],
-            'historyStatusList' => [
-                0 => 'Archived',
-                1 => 'Sent'
-            ]
-        ],
         'EmailAccount' => (object) [
             'entity' => true,
             'layouts' => false,
@@ -30754,12 +30736,23 @@ return (object) [
             'object' => false,
             'customizable' => false
         ],
-        'EmailTemplate' => (object) [
+        'Email' => (object) [
             'entity' => true,
             'layouts' => false,
             'tab' => true,
             'acl' => true,
-            'customizable' => false
+            'aclPortal' => 'recordAllAccountContactOwnNo',
+            'notifications' => true,
+            'object' => true,
+            'customizable' => true,
+            'activity' => true,
+            'activityStatusList' => [
+                0 => 'Draft'
+            ],
+            'historyStatusList' => [
+                0 => 'Archived',
+                1 => 'Sent'
+            ]
         ],
         'EmailTemplateCategory' => (object) [
             'entity' => true,
@@ -30770,6 +30763,13 @@ return (object) [
             'importable' => false,
             'type' => 'CategoryTree',
             'notifications' => false
+        ],
+        'EmailTemplate' => (object) [
+            'entity' => true,
+            'layouts' => false,
+            'tab' => true,
+            'acl' => true,
+            'customizable' => false
         ],
         'Extension' => (object) [
             'entity' => true,
@@ -30950,6 +30950,9 @@ return (object) [
             'acl' => false,
             'customizable' => false
         ],
+        'UserData' => (object) [
+            'entity' => true
+        ],
         'User' => (object) [
             'entity' => true,
             'layouts' => true,
@@ -30968,15 +30971,12 @@ return (object) [
             'customizable' => true,
             'object' => true
         ],
-        'UserData' => (object) [
+        'WebhookEventQueueItem' => (object) [
             'entity' => true
         ],
         'Webhook' => (object) [
             'entity' => true,
             'acl' => 'boolean'
-        ],
-        'WebhookEventQueueItem' => (object) [
-            'entity' => true
         ],
         'WebhookQueueItem' => (object) [
             'entity' => true
@@ -31005,6 +31005,31 @@ return (object) [
             'aclPortal' => 'boolean',
             'module' => 'Crm',
             'customizable' => false
+        ],
+        'BillingEntity' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
         ],
         'Calendar' => (object) [
             'entity' => false,
@@ -31080,6 +31105,30 @@ return (object) [
             'object' => true,
             'statusField' => 'status'
         ],
+        'ClosedTask' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
         'Contact' => (object) [
             'entity' => true,
             'layouts' => true,
@@ -31093,6 +31142,68 @@ return (object) [
             'notifications' => true,
             'object' => true,
             'hasPersonalData' => true
+        ],
+        'ContactList' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'ContentTemplate' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Base',
+            'isCustom' => true
+        ],
+        'DocumentFolder' => (object) [
+            'entity' => true,
+            'layouts' => false,
+            'tab' => false,
+            'acl' => 'recordAllTeamNo',
+            'aclPortal' => 'recordAllNo',
+            'module' => 'Crm',
+            'customizable' => true,
+            'importable' => false,
+            'type' => 'CategoryTree',
+            'stream' => false,
+            'notifications' => false
         ],
         'Document' => (object) [
             'entity' => true,
@@ -31113,19 +31224,6 @@ return (object) [
             'notifications' => true,
             'object' => true
         ],
-        'DocumentFolder' => (object) [
-            'entity' => true,
-            'layouts' => false,
-            'tab' => false,
-            'acl' => 'recordAllTeamNo',
-            'aclPortal' => 'recordAllNo',
-            'module' => 'Crm',
-            'customizable' => true,
-            'importable' => false,
-            'type' => 'CategoryTree',
-            'stream' => false,
-            'notifications' => false
-        ],
         'EmailQueueItem' => (object) [
             'entity' => true,
             'layouts' => false,
@@ -31135,6 +31233,177 @@ return (object) [
             'object' => false,
             'customizable' => false,
             'module' => 'Crm'
+        ],
+        'EmailReminder' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'Estimate' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
+        'Export' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
+        'ExportResult' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
+        'HolidayCalender' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'ImportResult' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'Invoice' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
         ],
         'KnowledgeBaseArticle' => (object) [
             'entity' => true,
@@ -31208,6 +31477,55 @@ return (object) [
             ],
             'statusField' => 'status'
         ],
+        'MyCampaigns' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'OfficeLocation' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
         'Opportunity' => (object) [
             'entity' => true,
             'layouts' => true,
@@ -31225,6 +31543,31 @@ return (object) [
                 0 => 'Closed Lost'
             ]
         ],
+        'Payments' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
         'Reminder' => (object) [
             'entity' => true,
             'layouts' => false,
@@ -31233,6 +31576,128 @@ return (object) [
             'module' => 'Crm',
             'customizable' => false,
             'importable' => false
+        ],
+        'SenderID' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Base',
+            'isCustom' => true
+        ],
+        'SendSMSData' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'SentEmailReminder' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
+        ],
+        'SentMessages' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => false,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true,
+            'statusField' => NULL
+        ],
+        'SMSReminder' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'module' => 'Custom',
+            'customizable' => true,
+            'stream' => true,
+            'importable' => true,
+            'notifications' => true,
+            'object' => true,
+            'hasPersonalData' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'disabled' => false,
+            'type' => 'Company',
+            'isCustom' => true
         ],
         'Target' => (object) [
             'entity' => false,
@@ -31290,100 +31755,6 @@ return (object) [
                 1 => 'Deferred'
             ]
         ],
-        'BillingEntity' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'ClosedTask' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'ContactList' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'ContentTemplate' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Base',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
         'Demo' => (object) [
             'entity' => true,
             'layouts' => true,
@@ -31430,170 +31801,6 @@ return (object) [
             'object' => true,
             'isCustom' => true
         ],
-        'EmailReminder' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'Estimate' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'Export' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'ExportResult' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'HolidayCalender' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'ImportResult' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'Invoice' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
         'MessageLog' => (object) [
             'entity' => true,
             'layouts' => true,
@@ -31618,31 +31825,7 @@ return (object) [
             'isCustom' => true,
             'statusField' => NULL
         ],
-        'MyCampaigns' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'OfficeLocation' => (object) [
+        'TestEntity2710' => (object) [
             'entity' => true,
             'layouts' => true,
             'tab' => true,
@@ -31664,195 +31847,8 @@ return (object) [
             'module' => 'Custom',
             'object' => true,
             'isCustom' => true
-        ],
-        'Payments' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'SMSReminder' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'SendSMSData' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
-        ],
-        'SenderID' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Base',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'SentEmailReminder' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'SentMessages' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true,
-            'statusField' => NULL
         ],
         'TEsting2811' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => true,
-            'disabled' => false,
-            'type' => 'Company',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'Test' => (object) [
-            'entity' => true,
-            'layouts' => true,
-            'tab' => true,
-            'acl' => true,
-            'aclPortal' => true,
-            'aclPortalLevelList' => [
-                0 => 'all',
-                1 => 'account',
-                2 => 'contact',
-                3 => 'own',
-                4 => 'no'
-            ],
-            'customizable' => true,
-            'importable' => true,
-            'notifications' => true,
-            'stream' => false,
-            'disabled' => false,
-            'type' => 'Base',
-            'module' => 'Custom',
-            'object' => true,
-            'isCustom' => true
-        ],
-        'TestEntity2710' => (object) [
             'entity' => true,
             'layouts' => true,
             'tab' => true,
@@ -31894,6 +31890,29 @@ return (object) [
             'stream' => true,
             'disabled' => false,
             'type' => 'Company',
+            'module' => 'Custom',
+            'object' => true,
+            'isCustom' => true
+        ],
+        'Test' => (object) [
+            'entity' => true,
+            'layouts' => true,
+            'tab' => true,
+            'acl' => true,
+            'aclPortal' => true,
+            'aclPortalLevelList' => [
+                0 => 'all',
+                1 => 'account',
+                2 => 'contact',
+                3 => 'own',
+                4 => 'no'
+            ],
+            'customizable' => true,
+            'importable' => true,
+            'notifications' => true,
+            'stream' => false,
+            'disabled' => false,
+            'type' => 'Base',
             'module' => 'Custom',
             'object' => true,
             'isCustom' => true

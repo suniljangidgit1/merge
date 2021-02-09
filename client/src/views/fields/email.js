@@ -213,7 +213,6 @@ Finnova.define('views/fields/email', 'views/fields/varchar', function (Dep) {
                 }.bind(this), 10);
             },
             'click [data-action="addEmailAddress"]': function () {
-
                 var data = Finnova.Utils.cloneDeep(this.fetchEmailAddressData());
 
                 o = {

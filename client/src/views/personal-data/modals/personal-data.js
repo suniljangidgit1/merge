@@ -39,6 +39,13 @@ Finnova.define('views/personal-data/modals/personal-data', ['views/modal'], func
         setup: function () {
             Dep.prototype.setup.call(this);
 
+            /*this.buttonList = [
+                {
+                    name: 'cancel',
+                    label: 'Close'
+                }
+            ];*/
+
             this.headerHtml = this.getLanguage().translate('Personal Data');
             this.headerHtml += ': ' + Handlebars.Utils.escapeExpression(this.model.get('name'));
 

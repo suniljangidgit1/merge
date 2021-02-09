@@ -1,9 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <?php
 session_start();
 error_reporting(~E_ALL);
@@ -42,7 +36,7 @@ $project = explode('/', $_SERVER['REQUEST_URI'])[1];
 
 if($result3)
 {
-    $sql3="select * from billing_entity";
+    $sql3="select * from billing_entity where deleted = '0'";
     $result3=mysqli_query($conn,$sql3);
     $billing_entity_num_rows = mysqli_num_rows($result3);
 
@@ -67,5 +61,4 @@ $.confirm({
         }
     });
 </script>";*/
-
 ?>

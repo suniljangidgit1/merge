@@ -158,6 +158,18 @@
             "trim": true,
             "options": [],
             "isCustom": true
+        },
+        "sendFrom": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "contentTemplateName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
         }
     },
     "links": {

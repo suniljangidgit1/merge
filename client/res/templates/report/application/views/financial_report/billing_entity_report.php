@@ -2,6 +2,10 @@
 	div.dataTables_wrapper div.dataTables_filter{
 		text-align: right;
 	}
+
+	.dataTables_filter{
+		display:none;
+	}
 </style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -72,7 +76,7 @@
 	                     			<div class="col-lg-5 col-md-6 col-sm-6 ">
 	                     				<div class="form-group">
 	                     					<div class="input-group" id="Search-bar-group">
-										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text">
+										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text" autocomplete="off">
 										      <div class="input-group-btn">
 										        <button type="button" class="btn search btn-icon" id="search-btn-icon">
 								                    <span class="material-icons-outlined">search</span>
@@ -245,7 +249,7 @@
 	        <div class="modal-content" style="border-radius: 20px !important;">
 	            <div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal">&times;</button>
-	                <h4 class="modal-title text-center"><b>Invoice List</b></h4>
+	                <h4 class="modal-title"><b>Invoice List</b></h4>
 	            </div>
 	            <div class="modal-body">
 	            	
@@ -264,7 +268,7 @@
 	        <div class="modal-content" style="border-radius: 20px !important;">
 	            <div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal">&times;</button>
-	                <h4 class="modal-title text-center"><b>Payment summary</b></h4>
+	                <h4 class="modal-title"><b>Payment Summary</b></h4>
 	            </div>
 	            <div class="modal-body">
                    <div class="payment_SummaryForm"></div>
@@ -276,11 +280,6 @@
 <!-- Popup to show the list of all invoices of billing entity -->
 
 <!-- START SCRIPT SECTION -->
-<style>
-	.dataTables_filter {
-	   display: none;
-	}
-</style>
 <script>
 	$(document).ready(function(){
 
@@ -303,6 +302,7 @@
 					// Read values
 					data.invoice_start_date = startDateInvoice;
 					data.invoice_end_date = endDateInvoice;
+					data.searchName = $("#srch-term").val();
 				}
 			},
 			'columns': [
@@ -313,14 +313,39 @@
 				{ data: 'amt_receivable' },
 				{ data: 'view' },
 			],
-			'searching': true,
+			"searching": true,
 			"bInfo": false,
 			"bLengthChange" : false,
 	    });
 
-	    $('#srch-term').keyup(function(){
-			table.search($('#srch-term').val()).draw();
+
+		$(document).on("keyup", "#srch-term", function(){
+			table.search($("#srch-term").val()).draw();
 		});
+
+		$(document).on("click", ".btn-icon-refresh", function(){
+			$("#srch-term").val("");
+			$("#billingentity_reportrange").daterangepicker({
+				startDate: start,
+				endDate: end,
+				maxDate: moment(),
+				ranges: {
+					'Today': [moment(), moment()],
+					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+					'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+					'This Month': [moment().startOf('month'), moment().endOf('month')],
+					'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+				},
+				"alwaysShowCalendars": true,
+				locale: { 
+					format: "DD-MM-YYYY",
+					separator: ' To ',
+				},
+			});
+			table.search("").draw();
+		});
+
 	});
 </script>
 
@@ -537,6 +562,9 @@ $('#billingentity_reportrange').daterangepicker({
 				"dom": '<"pull-left"f><"pull-right"l>tip',
 				"lengthMenu": [20, 50, 75, 100 ],
     			"pageLength": 20,
+    			"searching": false,
+    			"bInfo": false,
+    			"bLengthChange" : false,
     			'serverMethod': 'post',
     			"ajax":{
     				'url':'<?php echo base_url("Financial/get_records_billing_entitywise"); ?>',
@@ -545,8 +573,7 @@ $('#billingentity_reportrange').daterangepicker({
 						// Read values
 						data.invoice_start_date = startDateInvoice;
 						data.invoice_end_date = endDateInvoice;
-						var name = $("#srch-term").val();
-						data.searchByName = name;
+						data.searchName = $("#srch-term").val();
 					} 
     			},
 		        "columns": [
@@ -556,10 +583,7 @@ $('#billingentity_reportrange').daterangepicker({
 		            { "data": "total_tds" },
 		            { "data": "amt_receivable" },
 		            { "data": "view" },
-		        ] ,
-		        'searching': false,
-				"bInfo": false,
-				"bLengthChange" : false,
+		        ] 
 			});
 			/*$.ajax({
 				url			: '<?php echo base_url("billing_entitywise-report/1"); ?>',
@@ -641,8 +665,6 @@ $('#billingentity_reportrange').daterangepicker({
 			});
 		});
 	});
-
-	
 
 	// ######## START KANBAN SCRIPT ######## 
 

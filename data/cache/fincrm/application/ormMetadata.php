@@ -1028,6 +1028,768 @@ return array (
       'order' => 'ASC',
     ),
   ),
+  'EmailAccount' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Active',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'host' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'port' => 
+      array (
+        'type' => 'varchar',
+        'default' => '143',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'ssl' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'username' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'password' => 
+      array (
+        'type' => 'password',
+        'fieldType' => 'password',
+      ),
+      'monitoredFolders' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'INBOX',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'sentFolder' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'storeSentEmails' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'keepFetchedEmailsUnread' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'fetchSince' => 
+      array (
+        'type' => 'date',
+        'fieldType' => 'date',
+      ),
+      'fetchData' => 
+      array (
+        'type' => 'jsonObject',
+        'fieldType' => 'jsonObject',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'useImap' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'default' => true,
+        'fieldType' => 'bool',
+      ),
+      'useSmtp' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'smtpHost' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'smtpPort' => 
+      array (
+        'type' => 'int',
+        'default' => '587',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'smtpAuth' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'default' => true,
+        'fieldType' => 'bool',
+      ),
+      'smtpSecurity' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'TLS',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'smtpUsername' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'smtpPassword' => 
+      array (
+        'type' => 'password',
+        'fieldType' => 'password',
+      ),
+      'smtpAuthMechanism' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'login',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailFolderId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'emailFolderName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'emailFolder',
+        'foreign' => 'name',
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'emailsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'filtersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'filtersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailFolder' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'EmailFolder',
+        'key' => 'emailFolderId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'emails' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Email',
+        'relationName' => 'emailEmailAccount',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'emailAccountId',
+          1 => 'emailId',
+        ),
+        'foreign' => 'emailAccounts',
+      ),
+      'filters' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'EmailFilter',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'name',
+      'order' => 'ASC',
+    ),
+  ),
+  'EmailAddress' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'lower' => 
+      array (
+        'type' => 'varchar',
+        'index' => true,
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'invalid' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'optOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+    ),
+    'relations' => 
+    array (
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'name',
+      'order' => 'ASC',
+    ),
+  ),
+  'EmailFilter' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'from' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'to' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'subject' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'bodyContains' => 
+      array (
+        'type' => 'jsonArray',
+        'storeArrayValues' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'isGlobal' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'action' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Skip',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => 'parent',
+        'attributeRole' => 'id',
+        'fieldType' => 'linkParent',
+        'notNull' => false,
+      ),
+      'parentType' => 
+      array (
+        'type' => 'foreignType',
+        'notNull' => false,
+        'index' => 'parent',
+        'len' => 100,
+        'attributeRole' => 'type',
+        'fieldType' => 'linkParent',
+        'dbType' => 'varchar',
+      ),
+      'parentName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'relation' => 'parent',
+        'isParentName' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'linkParent',
+      ),
+      'emailFolderId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'emailFolderName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'emailFolder',
+        'foreign' => 'name',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailFolder' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'EmailFolder',
+        'key' => 'emailFolderId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'parent' => 
+      array (
+        'type' => 'belongsToParent',
+        'key' => 'parentId',
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'EmailFolder' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'len' => 64,
+        'fieldType' => 'varchar',
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'order' => 
+      array (
+        'type' => 'int',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'skipNotifications' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+    ),
+    'relations' => 
+    array (
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'order',
+      'order' => 'ASC',
+    ),
+  ),
   'Email' => 
   array (
     'fields' => 
@@ -2110,7 +2872,7 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'EmailAccount' => 
+  'EmailTemplateCategory' => 
   array (
     'fields' => 
     array (
@@ -2125,616 +2887,6 @@ return array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Active',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'host' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'port' => 
-      array (
-        'type' => 'varchar',
-        'default' => '143',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'ssl' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'username' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'password' => 
-      array (
-        'type' => 'password',
-        'fieldType' => 'password',
-      ),
-      'monitoredFolders' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'INBOX',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'sentFolder' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'storeSentEmails' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'keepFetchedEmailsUnread' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'fetchSince' => 
-      array (
-        'type' => 'date',
-        'fieldType' => 'date',
-      ),
-      'fetchData' => 
-      array (
-        'type' => 'jsonObject',
-        'fieldType' => 'jsonObject',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'useImap' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'default' => true,
-        'fieldType' => 'bool',
-      ),
-      'useSmtp' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'smtpHost' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'smtpPort' => 
-      array (
-        'type' => 'int',
-        'default' => '587',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'smtpAuth' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'default' => true,
-        'fieldType' => 'bool',
-      ),
-      'smtpSecurity' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'TLS',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'smtpUsername' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'smtpPassword' => 
-      array (
-        'type' => 'password',
-        'fieldType' => 'password',
-      ),
-      'smtpAuthMechanism' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'login',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailFolderId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'emailFolderName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'emailFolder',
-        'foreign' => 'name',
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'emailsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'filtersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'filtersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailFolder' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'EmailFolder',
-        'key' => 'emailFolderId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'emails' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Email',
-        'relationName' => 'emailEmailAccount',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'emailAccountId',
-          1 => 'emailId',
-        ),
-        'foreign' => 'emailAccounts',
-      ),
-      'filters' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'EmailFilter',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'name',
-      'order' => 'ASC',
-    ),
-  ),
-  'EmailAddress' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'lower' => 
-      array (
-        'type' => 'varchar',
-        'index' => true,
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'invalid' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'optOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-    ),
-    'relations' => 
-    array (
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'name',
-      'order' => 'ASC',
-    ),
-  ),
-  'EmailFilter' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'from' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'to' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'subject' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'bodyContains' => 
-      array (
-        'type' => 'jsonArray',
-        'storeArrayValues' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'isGlobal' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'action' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Skip',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'parent',
-        'attributeRole' => 'id',
-        'fieldType' => 'linkParent',
-        'notNull' => false,
-      ),
-      'parentType' => 
-      array (
-        'type' => 'foreignType',
-        'notNull' => false,
-        'index' => 'parent',
-        'len' => 100,
-        'attributeRole' => 'type',
-        'fieldType' => 'linkParent',
-        'dbType' => 'varchar',
-      ),
-      'parentName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'relation' => 'parent',
-        'isParentName' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'linkParent',
-      ),
-      'emailFolderId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'emailFolderName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'emailFolder',
-        'foreign' => 'name',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailFolder' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'EmailFolder',
-        'key' => 'emailFolderId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'parent' => 
-      array (
-        'type' => 'belongsToParent',
-        'key' => 'parentId',
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'EmailFolder' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'len' => 64,
-        'fieldType' => 'varchar',
       ),
       'deleted' => 
       array (
@@ -2747,12 +2899,10 @@ return array (
         'fieldType' => 'int',
         'len' => 11,
       ),
-      'skipNotifications' => 
+      'description' => 
       array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
+        'type' => 'text',
+        'fieldType' => 'text',
       ),
       'createdAt' => 
       array (
@@ -2766,29 +2916,11 @@ return array (
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'assignedUserId' => 
+      'childList' => 
       array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'fieldType' => 'jsonArray',
       ),
       'createdById' => 
       array (
@@ -2838,16 +2970,114 @@ return array (
           2 => 'lastName',
         ),
       ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'parentName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'parent',
+        'foreign' => 'name',
+      ),
+      'emailTemplatesIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailTemplatesNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
     ),
     'relations' => 
     array (
-      'assignedUser' => 
+      'emailTemplates' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'EmailTemplate',
+        'foreignKey' => 'categoryId',
+        'foreign' => 'category',
+      ),
+      'children' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'EmailTemplateCategory',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'parent' => 
       array (
         'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
+        'entity' => 'EmailTemplateCategory',
+        'key' => 'parentId',
         'foreignKey' => 'id',
-        'foreign' => NULL,
+        'foreign' => 'children',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'EmailTemplateCategory',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
       ),
       'modifiedBy' => 
       array (
@@ -2866,9 +3096,36 @@ return array (
         'foreign' => NULL,
       ),
     ),
+    'additionalTables' => 
+    array (
+      'EmailTemplateCategoryPath' => 
+      array (
+        'fields' => 
+        array (
+          'id' => 
+          array (
+            'type' => 'id',
+            'dbType' => 'int',
+            'len' => '11',
+            'autoincrement' => true,
+          ),
+          'ascendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '100',
+            'index' => true,
+          ),
+          'descendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '24',
+            'index' => true,
+          ),
+        ),
+      ),
+    ),
     'collection' => 
     array (
-      'orderBy' => 'order',
       'order' => 'ASC',
     ),
   ),
@@ -3157,263 +3414,6 @@ return array (
     array (
       'orderBy' => 'createdAt',
       'order' => 'DESC',
-    ),
-  ),
-  'EmailTemplateCategory' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'order' => 
-      array (
-        'type' => 'int',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'childList' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'parentName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'parent',
-        'foreign' => 'name',
-      ),
-      'emailTemplatesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailTemplatesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailTemplates' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'EmailTemplate',
-        'foreignKey' => 'categoryId',
-        'foreign' => 'category',
-      ),
-      'children' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'EmailTemplateCategory',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'parent' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'EmailTemplateCategory',
-        'key' => 'parentId',
-        'foreignKey' => 'id',
-        'foreign' => 'children',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'EmailTemplateCategory',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'additionalTables' => 
-    array (
-      'EmailTemplateCategoryPath' => 
-      array (
-        'fields' => 
-        array (
-          'id' => 
-          array (
-            'type' => 'id',
-            'dbType' => 'int',
-            'len' => '11',
-            'autoincrement' => true,
-          ),
-          'ascendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '100',
-            'index' => true,
-          ),
-          'descendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '24',
-            'index' => true,
-          ),
-        ),
-      ),
-    ),
-    'collection' => 
-    array (
-      'order' => 'ASC',
     ),
   ),
   'Extension' => 
@@ -8468,6 +8468,88 @@ return array (
       'order' => 'DESC',
     ),
   ),
+  'UserData' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'imapHandlers' => 
+      array (
+        'type' => 'jsonObject',
+        'fieldType' => 'jsonObject',
+      ),
+      'smtpHandlers' => 
+      array (
+        'type' => 'jsonObject',
+        'fieldType' => 'jsonObject',
+      ),
+      'auth2FA' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'auth2FAMethod' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'auth2FATotpSecret' => 
+      array (
+        'type' => 'varchar',
+        'len' => 32,
+        'fieldType' => 'varchar',
+      ),
+      'userId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'notNull' => false,
+      ),
+      'userName' => 
+      array (
+        'type' => 'foreign',
+        'relation' => 'user',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+        'notStorable' => false,
+      ),
+    ),
+    'relations' => 
+    array (
+      'user' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'userId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+  ),
   'User' => 
   array (
     'fields' => 
@@ -10160,7 +10242,7 @@ return array (
       'order' => 'ASC',
     ),
   ),
-  'UserData' => 
+  'WebhookEventQueueItem' => 
   array (
     'fields' => 
     array (
@@ -10180,66 +10262,76 @@ return array (
         'type' => 'bool',
         'default' => false,
       ),
-      'imapHandlers' => 
+      'number' => 
+      array (
+        'type' => 'int',
+        'dbType' => 'bigint',
+        'autoincrement' => true,
+        'unique' => true,
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'event' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'data' => 
       array (
         'type' => 'jsonObject',
         'fieldType' => 'jsonObject',
       ),
-      'smtpHandlers' => 
+      'createdAt' => 
       array (
-        'type' => 'jsonObject',
-        'fieldType' => 'jsonObject',
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
       ),
-      'auth2FA' => 
+      'isProcessed' => 
       array (
         'type' => 'bool',
         'notNull' => true,
         'fieldType' => 'bool',
         'default' => false,
       ),
-      'auth2FAMethod' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'auth2FATotpSecret' => 
-      array (
-        'type' => 'varchar',
-        'len' => 32,
-        'fieldType' => 'varchar',
-      ),
-      'userId' => 
+      'targetId' => 
       array (
         'dbType' => 'varchar',
         'len' => 24,
         'type' => 'foreignId',
-        'index' => true,
+        'index' => 'target',
+        'attributeRole' => 'id',
+        'fieldType' => 'linkParent',
         'notNull' => false,
       ),
-      'userName' => 
+      'targetType' => 
       array (
-        'type' => 'foreign',
-        'relation' => 'user',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-        'notStorable' => false,
+        'type' => 'foreignType',
+        'notNull' => false,
+        'index' => 'target',
+        'len' => 100,
+        'attributeRole' => 'type',
+        'fieldType' => 'linkParent',
+        'dbType' => 'varchar',
+      ),
+      'targetName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'relation' => 'target',
+        'isParentName' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'linkParent',
       ),
     ),
     'relations' => 
     array (
-      'user' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'userId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'number',
+      'order' => 'DESC',
     ),
   ),
   'Webhook' => 
@@ -10449,98 +10541,6 @@ return array (
     'collection' => 
     array (
       'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'WebhookEventQueueItem' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'number' => 
-      array (
-        'type' => 'int',
-        'dbType' => 'bigint',
-        'autoincrement' => true,
-        'unique' => true,
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'event' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'data' => 
-      array (
-        'type' => 'jsonObject',
-        'fieldType' => 'jsonObject',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'isProcessed' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'targetId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'target',
-        'attributeRole' => 'id',
-        'fieldType' => 'linkParent',
-        'notNull' => false,
-      ),
-      'targetType' => 
-      array (
-        'type' => 'foreignType',
-        'notNull' => false,
-        'index' => 'target',
-        'len' => 100,
-        'attributeRole' => 'type',
-        'fieldType' => 'linkParent',
-        'dbType' => 'varchar',
-      ),
-      'targetName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'relation' => 'target',
-        'isParentName' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'linkParent',
-      ),
-    ),
-    'relations' => 
-    array (
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'number',
       'order' => 'DESC',
     ),
   ),
@@ -12040,6 +12040,983 @@ return array (
         ),
         'key' => 'IDX_CREATED_AT',
       ),
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'BillingEntity' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressBillingEntityForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressBillingEntityForeignMiddle',
+              2 => 
+              array (
+                'emailAddressBillingEntityForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressBillingEntityForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressBillingEntityForeign',
+              2 => 
+              array (
+                'emailAddressBillingEntityForeign.id:' => 'emailAddressBillingEntityForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'billing_entity.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'BillingEntity\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberBillingEntityForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberBillingEntityForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberBillingEntityForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberBillingEntityForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberBillingEntityForeign',
+              2 => 
+              array (
+                'phoneNumberBillingEntityForeign.id:' => 'phoneNumberBillingEntityForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'billing_entity.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'BillingEntity\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'panno' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'udyamRegistrationNo' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'addressstreet' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'addresscity' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'addressstate' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'addresspostalcode' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailid' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'phoneno' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 'billing_entity.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'BillingEntity\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'BillingEntity',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'BillingEntity',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'BillingEntity',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
       'name' => 
       array (
         'columns' => 
@@ -14448,6 +15425,1167 @@ return array (
       'order' => 'DESC',
     ),
   ),
+  'ClosedTask' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressClosedTaskForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressClosedTaskForeignMiddle',
+              2 => 
+              array (
+                'emailAddressClosedTaskForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressClosedTaskForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressClosedTaskForeign',
+              2 => 
+              array (
+                'emailAddressClosedTaskForeign.id:' => 'emailAddressClosedTaskForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'closed_task.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'ClosedTask\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberClosedTaskForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberClosedTaskForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberClosedTaskForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberClosedTaskForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberClosedTaskForeign',
+              2 => 
+              array (
+                'phoneNumberClosedTaskForeign.id:' => 'phoneNumberClosedTaskForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'closed_task.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'ClosedTask\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'closedat' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'completedat' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'createRecurringSeriesOfTasks' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'customStartDate1' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate2' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate3' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate4' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate5' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate6' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'endDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'frequency' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Daily',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'monthlyEndDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'monthlyRepeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every Month',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'monthlyRepeatOn' => 
+      array (
+        'type' => 'varchar',
+        'default' => '01',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'monthlyStartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'numberOfRecurringTasks' => 
+      array (
+        'type' => 'varchar',
+        'default' => '1',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'repeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every day',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'startDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'weeklyendDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'weeklyrepeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every week',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'weeklyrepeatOn' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Monday',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'weeklystartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'parent' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'priority' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateStart' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateEnd' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateCompleted' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 'closed_task.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'ClosedTask\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'attachmentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'orderBy' => 
+        array (
+          0 => 
+          array (
+            0 => 'createdAt',
+            1 => 'ASC',
+          ),
+          1 => 
+          array (
+            0 => 'name',
+            1 => 'ASC',
+          ),
+        ),
+        'isLinkMultipleIdList' => true,
+        'relation' => 'attachments',
+        'isLinkStub' => false,
+      ),
+      'attachmentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'isLinkStub' => false,
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'attachmentsTypes' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'ClosedTask',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'ClosedTask',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'ClosedTask',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'attachments' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Attachment',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+        'conditions' => 
+        array (
+          'OR' => 
+          array (
+            0 => 
+            array (
+              'field' => NULL,
+            ),
+            1 => 
+            array (
+              'field' => 'attachments',
+            ),
+          ),
+        ),
+        'relationName' => 'attachments',
+      ),
+    ),
+    'indexes' => 
+    array (
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
   'Contact' => 
   array (
     'fields' => 
@@ -16075,8973 +18213,6 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'Document' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'type' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'publishDate' => 
-      array (
-        'type' => 'date',
-        'fieldType' => 'date',
-      ),
-      'expirationDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'fileId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => false,
-        'notNull' => false,
-      ),
-      'fileName' => 
-      array (
-        'type' => 'foreign',
-        'relation' => 'file',
-        'foreign' => 'name',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'accountsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'accounts',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'accountsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'folderId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'folderName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'folder',
-        'foreign' => 'name',
-      ),
-      'contactsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'contactsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'leadsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'leadsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'opportunitiesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'opportunitiesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'file' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Attachment',
-        'key' => 'fileId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'folder' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'DocumentFolder',
-        'key' => 'folderId',
-        'foreignKey' => 'id',
-        'foreign' => 'documents',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Document',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'contacts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Contact',
-        'relationName' => 'contactDocument',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'documentId',
-          1 => 'contactId',
-        ),
-        'foreign' => 'documents',
-      ),
-      'leads' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Lead',
-        'relationName' => 'documentLead',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'documentId',
-          1 => 'leadId',
-        ),
-        'foreign' => 'documents',
-      ),
-      'opportunities' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Opportunity',
-        'relationName' => 'documentOpportunity',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'documentId',
-          1 => 'opportunityId',
-        ),
-        'foreign' => 'documents',
-      ),
-      'accounts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Account',
-        'relationName' => 'accountDocument',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'documentId',
-          1 => 'accountId',
-        ),
-        'foreign' => 'documents',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'DocumentFolder' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'childList' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'parentName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'parent',
-        'foreign' => 'name',
-      ),
-      'documentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'documentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'documents' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Document',
-        'foreignKey' => 'folderId',
-        'foreign' => 'folder',
-      ),
-      'children' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'DocumentFolder',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'parent' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'DocumentFolder',
-        'key' => 'parentId',
-        'foreignKey' => 'id',
-        'foreign' => 'children',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'DocumentFolder',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'additionalTables' => 
-    array (
-      'DocumentFolderPath' => 
-      array (
-        'fields' => 
-        array (
-          'id' => 
-          array (
-            'type' => 'id',
-            'dbType' => 'int',
-            'len' => '11',
-            'autoincrement' => true,
-          ),
-          'ascendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '100',
-            'index' => true,
-          ),
-          'descendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '24',
-            'index' => true,
-          ),
-        ),
-      ),
-    ),
-    'collection' => 
-    array (
-      'order' => 'ASC',
-    ),
-  ),
-  'EmailQueueItem' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'attemptCount' => 
-      array (
-        'type' => 'int',
-        'default' => '0',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'sentAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'isTest' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'massEmailId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'massEmailName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'massEmail',
-        'foreign' => 'name',
-      ),
-      'targetId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'target',
-        'attributeRole' => 'id',
-        'fieldType' => 'linkParent',
-        'notNull' => false,
-      ),
-      'targetType' => 
-      array (
-        'type' => 'foreignType',
-        'notNull' => false,
-        'index' => 'target',
-        'len' => 100,
-        'attributeRole' => 'type',
-        'fieldType' => 'linkParent',
-        'dbType' => 'varchar',
-      ),
-      'targetName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'relation' => 'target',
-        'isParentName' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'linkParent',
-      ),
-    ),
-    'relations' => 
-    array (
-      'target' => 
-      array (
-        'type' => 'belongsToParent',
-        'key' => 'targetId',
-      ),
-      'massEmail' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'MassEmail',
-        'key' => 'massEmailId',
-        'foreignKey' => 'id',
-        'foreign' => 'queueItems',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'KnowledgeBaseArticle' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Draft',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'language' => 
-      array (
-        'type' => 'varchar',
-        'default' => '',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'type' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'publishDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'expirationDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'order' => 
-      array (
-        'type' => 'int',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'body' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'portalsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'portals',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'portalsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'categoriesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'categories',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'categoriesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'attachmentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'orderBy' => 
-        array (
-          0 => 
-          array (
-            0 => 'createdAt',
-            1 => 'ASC',
-          ),
-          1 => 
-          array (
-            0 => 'name',
-            1 => 'ASC',
-          ),
-        ),
-        'isLinkMultipleIdList' => true,
-        'relation' => 'attachments',
-        'isLinkStub' => false,
-      ),
-      'attachmentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'isLinkStub' => false,
-      ),
-      'casesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'casesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'attachmentsTypes' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'categories' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'KnowledgeBaseCategory',
-        'relationName' => 'knowledgeBaseArticleKnowledgeBaseCategory',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'knowledgeBaseArticleId',
-          1 => 'knowledgeBaseCategoryId',
-        ),
-        'foreign' => 'articles',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'KnowledgeBaseArticle',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'portals' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Portal',
-        'relationName' => 'knowledgeBaseArticlePortal',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'knowledgeBaseArticleId',
-          1 => 'portalId',
-        ),
-        'foreign' => 'articles',
-      ),
-      'cases' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Case',
-        'relationName' => 'caseKnowledgeBaseArticle',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'knowledgeBaseArticleId',
-          1 => 'caseId',
-        ),
-        'foreign' => 'articles',
-      ),
-      'attachments' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Attachment',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-        'conditions' => 
-        array (
-          'OR' => 
-          array (
-            0 => 
-            array (
-              'field' => NULL,
-            ),
-            1 => 
-            array (
-              'field' => 'attachments',
-            ),
-          ),
-        ),
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'order',
-      'order' => 'ASC',
-    ),
-  ),
-  'KnowledgeBaseCategory' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'order' => 
-      array (
-        'type' => 'int',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'childList' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'articlecount' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'categorycount' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'parentName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'parent',
-        'foreign' => 'name',
-      ),
-      'articlesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'articlesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'childrenNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'articles' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'KnowledgeBaseArticle',
-        'relationName' => 'knowledgeBaseArticleKnowledgeBaseCategory',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'knowledgeBaseCategoryId',
-          1 => 'knowledgeBaseArticleId',
-        ),
-        'foreign' => 'categories',
-      ),
-      'children' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'KnowledgeBaseCategory',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'parent' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'KnowledgeBaseCategory',
-        'key' => 'parentId',
-        'foreignKey' => 'id',
-        'foreign' => 'children',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'KnowledgeBaseCategory',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'additionalTables' => 
-    array (
-      'KnowledgeBaseCategoryPath' => 
-      array (
-        'fields' => 
-        array (
-          'id' => 
-          array (
-            'type' => 'id',
-            'dbType' => 'int',
-            'len' => '11',
-            'autoincrement' => true,
-          ),
-          'ascendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '100',
-            'index' => true,
-          ),
-          'descendorId' => 
-          array (
-            'type' => 'varchar',
-            'len' => '24',
-            'index' => true,
-          ),
-        ),
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'parentId',
-      'order' => 'ASC',
-    ),
-  ),
-  'Lead' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'select' => 'TRIM(CONCAT(IFNULL(lead.first_name, \'\'), \' \', IFNULL(lead.last_name, \'\')))',
-        'where' => 
-        array (
-          'LIKE' => '(lead.first_name LIKE {value} OR lead.last_name LIKE {value} OR CONCAT(lead.first_name, \' \', lead.last_name) LIKE {value} OR CONCAT(lead.last_name, \' \', lead.first_name) LIKE {value})',
-          '=' => '(lead.first_name = {value} OR lead.last_name = {value} OR CONCAT(lead.first_name, \' \', lead.last_name) = {value} OR CONCAT(lead.last_name, \' \', lead.first_name) = {value})',
-        ),
-        'orderBy' => 'lead.first_name {direction}, lead.last_name',
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'salutationName' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Mr.',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'firstName' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'lastName' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'title' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'New',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'source' => 
-      array (
-        'type' => 'varchar',
-        'default' => '',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'industry' => 
-      array (
-        'type' => 'varchar',
-        'default' => '',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'opportunityAmount' => 
-      array (
-        'type' => 'float',
-        'fieldType' => 'currency',
-        'orderBy' => 
-        array (
-          'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'opportunityAmountCurrencyRate',
-              2 => 
-              array (
-                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'attributeRole' => 'value',
-      ),
-      'website' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'addressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressLeadForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressLeadForeignMiddle',
-              2 => 
-              array (
-                'emailAddressLeadForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressLeadForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressLeadForeign',
-              2 => 
-              array (
-                'emailAddressLeadForeign.id:' => 'emailAddressLeadForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'lead.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Lead\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberLeadForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberLeadForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberLeadForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberLeadForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberLeadForeign',
-              2 => 
-              array (
-                'phoneNumberLeadForeign.id:' => 'phoneNumberLeadForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'lead.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Lead\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'doNotCall' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'convertedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'accountName' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'acceptanceStatus' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'acceptanceStatusMeetings' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'relation' => 'meetings',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'acceptanceStatusCalls' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'relation' => 'calls',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'targetListIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'leadType' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Hot Lead',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'stream' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'opportunityAmountCurrency' => 
-      array (
-        'type' => 'varchar',
-        'len' => 6,
-        'fieldType' => 'currency',
-        'attributeRole' => 'currency',
-      ),
-      'addressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'opportunityAmountConverted' => 
-      array (
-        'type' => 'float',
-        'select' => 
-        array (
-          'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'opportunityAmountCurrencyRate',
-              2 => 
-              array (
-                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => '{alias}.opportunity_amount * opportunityAmountCurrencyRateLeadForeign.rate',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'opportunityAmountCurrencyRateLeadForeign',
-              2 => 
-              array (
-                'opportunityAmountCurrencyRateLeadForeign.id:' => '{alias}.opportunityAmountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          '=' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate = {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate > {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate < {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>=' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate >= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<=' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate <= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<>' => 
-          array (
-            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate <> {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'opportunityAmountCurrencyRate',
-                2 => 
-                array (
-                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-                ),
-              ),
-            ),
-          ),
-          'IS NULL' => 
-          array (
-            'sql' => 'lead.opportunity_amount IS NULL',
-          ),
-          'IS NOT NULL' => 
-          array (
-            'sql' => 'lead.opportunity_amount IS NOT NULL',
-          ),
-        ),
-        'notStorable' => true,
-        'orderBy' => 
-        array (
-          'sql' => 'opportunityAmountConverted {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'opportunityAmountCurrencyRate',
-              2 => 
-              array (
-                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'attributeRole' => 'valueConverted',
-        'fieldType' => 'currency',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'lead.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Lead\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'campaignId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'campaignName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'campaign',
-        'foreign' => 'name',
-      ),
-      'createdAccountId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdAccountName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdAccount',
-        'foreign' => 'name',
-      ),
-      'createdContactId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdContactName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdContact',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'createdOpportunityId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdOpportunityName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdOpportunity',
-        'foreign' => 'name',
-      ),
-      'targetListsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'targetLists',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'targetListsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'targetListId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'targetList',
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notStorable' => true,
-        'notNull' => false,
-      ),
-      'targetListName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-      ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'documentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'documentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'campaignLogRecordsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'campaignLogRecordsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'casesIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'casesNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailAddresses' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Lead',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Lead',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'documents' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Document',
-        'relationName' => 'documentLead',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'leadId',
-          1 => 'documentId',
-        ),
-        'foreign' => 'leads',
-      ),
-      'targetLists' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'TargetList',
-        'relationName' => 'leadTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'leadId',
-          1 => 'targetListId',
-        ),
-        'foreign' => 'leads',
-        'additionalColumns' => 
-        array (
-          'optedOut' => 
-          array (
-            'type' => 'bool',
-          ),
-        ),
-      ),
-      'campaignLogRecords' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'CampaignLogRecord',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'campaign' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Campaign',
-        'key' => 'campaignId',
-        'foreignKey' => 'id',
-        'foreign' => 'leads',
-        'noJoin' => true,
-      ),
-      'createdOpportunity' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Opportunity',
-        'key' => 'createdOpportunityId',
-        'foreignKey' => 'id',
-        'foreign' => 'originalLead',
-        'noJoin' => true,
-      ),
-      'createdContact' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Contact',
-        'key' => 'createdContactId',
-        'foreignKey' => 'id',
-        'foreign' => 'originalLead',
-        'noJoin' => true,
-      ),
-      'createdAccount' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Account',
-        'key' => 'createdAccountId',
-        'foreignKey' => 'id',
-        'foreign' => 'originalLead',
-        'noJoin' => true,
-      ),
-      'emails' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Email',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'cases' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Case',
-        'foreignKey' => 'leadId',
-        'foreign' => 'lead',
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Call',
-        'relationName' => 'callLead',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'leadId',
-          1 => 'callId',
-        ),
-        'foreign' => 'leads',
-        'additionalColumns' => 
-        array (
-          'status' => 
-          array (
-            'type' => 'varchar',
-            'len' => '36',
-            'default' => 'None',
-          ),
-        ),
-      ),
-      'meetings' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Meeting',
-        'relationName' => 'leadMeeting',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'leadId',
-          1 => 'meetingId',
-        ),
-        'foreign' => 'leads',
-        'additionalColumns' => 
-        array (
-          'status' => 
-          array (
-            'type' => 'varchar',
-            'len' => '36',
-            'default' => 'None',
-          ),
-        ),
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Lead',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'firstName' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'firstName',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_FIRST_NAME',
-      ),
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'firstName',
-          1 => 'lastName',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'status' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'status',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_STATUS',
-      ),
-      'createdAt' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'createdAt',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_CREATED_AT',
-      ),
-      'createdAtStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'createdAt',
-          1 => 'status',
-        ),
-        'key' => 'IDX_CREATED_AT_STATUS',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-      'assignedUserStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'status',
-        ),
-        'key' => 'IDX_ASSIGNED_USER_STATUS',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'MassEmail' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Pending',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'storeSentEmails' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'default' => false,
-        'fieldType' => 'bool',
-      ),
-      'optOutEntirely' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'default' => false,
-        'fieldType' => 'bool',
-      ),
-      'fromAddress' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'fromName' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'replyToAddress' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'replyToName' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'startAt' => 
-      array (
-        'type' => 'datetime',
-        'fieldType' => 'datetime',
-      ),
-      'smtpAccount' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'fieldType' => 'base',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'emailTemplateId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'emailTemplateName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'emailTemplate',
-        'foreign' => 'name',
-      ),
-      'campaignId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'campaignName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'campaign',
-        'foreign' => 'name',
-      ),
-      'targetListsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'targetLists',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'targetListsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'excludingTargetListsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'excludingTargetLists',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'excludingTargetListsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'inboundEmailId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'inboundEmailName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'inboundEmail',
-        'foreign' => 'name',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'queueItemsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'queueItemsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'queueItems' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'EmailQueueItem',
-        'foreignKey' => 'massEmailId',
-        'foreign' => 'massEmail',
-      ),
-      'inboundEmail' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'InboundEmail',
-        'key' => 'inboundEmailId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'excludingTargetLists' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'TargetList',
-        'relationName' => 'massEmailTargetListExcluding',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'massEmailId',
-          1 => 'targetListId',
-        ),
-        'foreign' => 'massEmailsExcluding',
-      ),
-      'targetLists' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'TargetList',
-        'relationName' => 'massEmailTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'massEmailId',
-          1 => 'targetListId',
-        ),
-        'foreign' => 'massEmails',
-      ),
-      'campaign' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Campaign',
-        'key' => 'campaignId',
-        'foreignKey' => 'id',
-        'foreign' => 'massEmails',
-      ),
-      'emailTemplate' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'EmailTemplate',
-        'key' => 'emailTemplateId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'Meeting' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Planned',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateStart' => 
-      array (
-        'type' => 'datetime',
-        'fieldType' => 'datetime',
-      ),
-      'dateEnd' => 
-      array (
-        'type' => 'datetime',
-        'fieldType' => 'datetime',
-      ),
-      'isAllDay' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'duration' => 
-      array (
-        'type' => 'int',
-        'notStorable' => true,
-        'default' => '3600',
-        'select' => 'TIMESTAMPDIFF(SECOND, meeting.date_start, meeting.date_end)',
-        'orderBy' => 'duration {direction}',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'reminders' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'acceptanceStatus' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'where' => 
-        array (
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'users',
-              1 => 'contacts',
-              2 => 'leads',
-            ),
-            'sql' => 'contactsMiddle.status = {value} OR leadsMiddle.status = {value} OR usersMiddle.status = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status = {value})',
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'users',
-              1 => 'leads',
-              2 => 'contacts',
-            ),
-            'sql' => 'contactsMiddle.status IN {value} OR leadsMiddle.status IN {value} OR usersMiddle.status IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IN {value})',
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'users',
-              1 => 'contacts',
-              2 => 'leads',
-            ),
-            'sql' => 'contactsMiddle.status IS NULL AND leadsMiddle.status IS NULL AND usersMiddle.status IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IS NULL)',
-        ),
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'stream' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateStartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'dateEndDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'parent',
-        'attributeRole' => 'id',
-        'fieldType' => 'linkParent',
-        'notNull' => false,
-      ),
-      'parentType' => 
-      array (
-        'type' => 'foreignType',
-        'notNull' => false,
-        'index' => 'parent',
-        'len' => 100,
-        'attributeRole' => 'type',
-        'fieldType' => 'linkParent',
-        'dbType' => 'varchar',
-      ),
-      'parentName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'relation' => 'parent',
-        'isParentName' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'linkParent',
-      ),
-      'accountId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'accountName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'account',
-        'foreign' => 'name',
-      ),
-      'usersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'users',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'orderBy' => 'name',
-        'isLinkStub' => false,
-      ),
-      'usersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'usersColumns' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'columns' => 
-        array (
-          'status' => 'acceptanceStatus',
-        ),
-        'attributeRole' => 'columnsMap',
-      ),
-      'contactsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'contacts',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'orderBy' => 'name',
-        'isLinkStub' => false,
-      ),
-      'contactsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'contactsColumns' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'columns' => 
-        array (
-          'status' => 'acceptanceStatus',
-        ),
-        'attributeRole' => 'columnsMap',
-      ),
-      'leadsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'leads',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'orderBy' => 'name',
-        'isLinkStub' => false,
-      ),
-      'leadsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'leadsColumns' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'columns' => 
-        array (
-          'status' => 'acceptanceStatus',
-        ),
-        'attributeRole' => 'columnsMap',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-    ),
-    'relations' => 
-    array (
-      'parent' => 
-      array (
-        'type' => 'belongsToParent',
-        'key' => 'parentId',
-      ),
-      'leads' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Lead',
-        'relationName' => 'leadMeeting',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'meetingId',
-          1 => 'leadId',
-        ),
-        'foreign' => 'meetings',
-        'additionalColumns' => 
-        array (
-          'status' => 
-          array (
-            'type' => 'varchar',
-            'len' => '36',
-            'default' => 'None',
-          ),
-        ),
-      ),
-      'contacts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Contact',
-        'relationName' => 'contactMeeting',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'meetingId',
-          1 => 'contactId',
-        ),
-        'foreign' => 'meetings',
-        'additionalColumns' => 
-        array (
-          'status' => 
-          array (
-            'type' => 'varchar',
-            'len' => '36',
-            'default' => 'None',
-          ),
-        ),
-      ),
-      'users' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'User',
-        'relationName' => 'meetingUser',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'meetingId',
-          1 => 'userId',
-        ),
-        'foreign' => 'meetings',
-        'additionalColumns' => 
-        array (
-          'status' => 
-          array (
-            'type' => 'varchar',
-            'len' => '36',
-            'default' => 'None',
-          ),
-        ),
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Meeting',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'account' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Account',
-        'key' => 'accountId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'dateStartStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'dateStart',
-          1 => 'status',
-        ),
-        'key' => 'IDX_DATE_START_STATUS',
-      ),
-      'dateStart' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'dateStart',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_DATE_START',
-      ),
-      'status' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'status',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_STATUS',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-      'assignedUserStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'status',
-        ),
-        'key' => 'IDX_ASSIGNED_USER_STATUS',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'dateStart',
-      'order' => 'DESC',
-    ),
-  ),
-  'Opportunity' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'amount' => 
-      array (
-        'type' => 'float',
-        'fieldType' => 'currency',
-        'orderBy' => 
-        array (
-          'sql' => 'opportunity.amount * amountCurrencyRate.rate {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRate',
-              2 => 
-              array (
-                'amountCurrencyRate.id:' => 'amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'attributeRole' => 'value',
-      ),
-      'amountWeightedConverted' => 
-      array (
-        'type' => 'float',
-        'notNull' => false,
-        'notStorable' => true,
-        'select' => 
-        array (
-          'sql' => 'opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRate',
-              2 => 
-              array (
-                'amountCurrencyRate.id:' => 'amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'amountWeightedConverted {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRate',
-              2 => 
-              array (
-                'amountCurrencyRate.id:' => 'amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          '=' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) = {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) < {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) > {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<=' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>=' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) >= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<>' => 
-          array (
-            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <> {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          'IS NULL' => 
-          array (
-            'sql' => 'opportunity.amount IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          'IS NOT NULL' => 
-          array (
-            'sql' => 'opportunity.amount IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-        ),
-        'fieldType' => 'float',
-      ),
-      'stage' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Unqualified',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'lastStage' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'probability' => 
-      array (
-        'type' => 'int',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'leadSource' => 
-      array (
-        'type' => 'varchar',
-        'default' => '',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'closeDate' => 
-      array (
-        'type' => 'date',
-        'fieldType' => 'date',
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'contactRole' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'where' => 
-        array (
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'contacts',
-            ),
-            'sql' => 'contactsMiddle.role = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role = {value})',
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'contacts',
-            ),
-            'sql' => 'contactsMiddle.role IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IN {value})',
-          'LIKE' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'contacts',
-            ),
-            'sql' => 'contactsMiddle.role LIKE {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 'contacts',
-            ),
-            'sql' => 'contactsMiddle.role IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IS NULL)',
-        ),
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'lossReason' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'None',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'stream' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'amountCurrency' => 
-      array (
-        'type' => 'varchar',
-        'len' => 6,
-        'fieldType' => 'currency',
-        'attributeRole' => 'currency',
-      ),
-      'amountConverted' => 
-      array (
-        'type' => 'float',
-        'select' => 
-        array (
-          'sql' => 'opportunity.amount * amountCurrencyRate.rate',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRate',
-              2 => 
-              array (
-                'amountCurrencyRate.id:' => 'amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => '{alias}.amount * amountCurrencyRateOpportunityForeign.rate',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRateOpportunityForeign',
-              2 => 
-              array (
-                'amountCurrencyRateOpportunityForeign.id:' => '{alias}.amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          '=' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate = {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate > {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate < {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '>=' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate >= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<=' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate <= {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          '<>' => 
-          array (
-            'sql' => 'opportunity.amount * amountCurrencyRate.rate <> {value}',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'Currency',
-                1 => 'amountCurrencyRate',
-                2 => 
-                array (
-                  'amountCurrencyRate.id:' => 'amountCurrency',
-                ),
-              ),
-            ),
-          ),
-          'IS NULL' => 
-          array (
-            'sql' => 'opportunity.amount IS NULL',
-          ),
-          'IS NOT NULL' => 
-          array (
-            'sql' => 'opportunity.amount IS NOT NULL',
-          ),
-        ),
-        'notStorable' => true,
-        'orderBy' => 
-        array (
-          'sql' => 'amountConverted {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'Currency',
-              1 => 'amountCurrencyRate',
-              2 => 
-              array (
-                'amountCurrencyRate.id:' => 'amountCurrency',
-              ),
-            ),
-          ),
-        ),
-        'attributeRole' => 'valueConverted',
-        'fieldType' => 'currency',
-      ),
-      'accountId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'accountName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'account',
-        'foreign' => 'name',
-      ),
-      'contactsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'contacts',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-        'orderBy' => 'name',
-        'isLinkStub' => false,
-      ),
-      'contactsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-        'isLinkStub' => false,
-      ),
-      'contactsColumns' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'columns' => 
-        array (
-          'role' => 'opportunityRole',
-        ),
-        'attributeRole' => 'columnsMap',
-      ),
-      'campaignId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'campaignName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'campaign',
-        'foreign' => 'name',
-      ),
-      'originalLeadId' => 
-      array (
-        'type' => 'varchar',
-        'index' => 'originalLead',
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notStorable' => true,
-      ),
-      'originalLeadName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'documentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'documentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'emailsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'originalLead' => 
-      array (
-        'type' => 'hasOne',
-        'entity' => 'Lead',
-        'foreignKey' => 'createdOpportunityId',
-        'foreign' => 'createdOpportunity',
-        'noJoin' => true,
-      ),
-      'campaign' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Campaign',
-        'key' => 'campaignId',
-        'foreignKey' => 'id',
-        'foreign' => 'opportunities',
-        'noJoin' => true,
-      ),
-      'documents' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Document',
-        'relationName' => 'documentOpportunity',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'opportunityId',
-          1 => 'documentId',
-        ),
-        'foreign' => 'opportunities',
-      ),
-      'emails' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Email',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'contacts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Contact',
-        'relationName' => 'contactOpportunity',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'opportunityId',
-          1 => 'contactId',
-        ),
-        'foreign' => 'opportunities',
-        'additionalColumns' => 
-        array (
-          'role' => 
-          array (
-            'type' => 'varchar',
-            'len' => 50,
-          ),
-        ),
-      ),
-      'account' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Account',
-        'key' => 'accountId',
-        'foreignKey' => 'id',
-        'foreign' => 'opportunities',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Opportunity',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'stage' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'stage',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_STAGE',
-      ),
-      'lastStage' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'lastStage',
-        ),
-        'key' => 'IDX_LAST_STAGE',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-      'createdAt' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'createdAt',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_CREATED_AT',
-      ),
-      'createdAtStage' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'createdAt',
-          1 => 'stage',
-        ),
-        'key' => 'IDX_CREATED_AT_STAGE',
-      ),
-      'assignedUserStage' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'stage',
-        ),
-        'key' => 'IDX_ASSIGNED_USER_STAGE',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'Reminder' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'remindAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'index' => true,
-        'fieldType' => 'datetime',
-      ),
-      'startAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'index' => true,
-        'fieldType' => 'datetime',
-      ),
-      'type' => 
-      array (
-        'type' => 'varchar',
-        'len' => 36,
-        'index' => true,
-        'default' => 'Popup',
-        'fieldType' => 'varchar',
-      ),
-      'seconds' => 
-      array (
-        'type' => 'int',
-        'default' => '0',
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'entityType' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'entityId' => 
-      array (
-        'type' => 'varchar',
-        'len' => 50,
-        'fieldType' => 'varchar',
-      ),
-      'userId' => 
-      array (
-        'type' => 'varchar',
-        'len' => 50,
-        'fieldType' => 'varchar',
-      ),
-      'isSubmitted' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-    ),
-    'relations' => 
-    array (
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'remindAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'Target' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'select' => 'TRIM(CONCAT(IFNULL(target.first_name, \'\'), \' \', IFNULL(target.last_name, \'\')))',
-        'where' => 
-        array (
-          'LIKE' => '(target.first_name LIKE {value} OR target.last_name LIKE {value} OR CONCAT(target.first_name, \' \', target.last_name) LIKE {value} OR CONCAT(target.last_name, \' \', target.first_name) LIKE {value})',
-          '=' => '(target.first_name = {value} OR target.last_name = {value} OR CONCAT(target.first_name, \' \', target.last_name) = {value} OR CONCAT(target.last_name, \' \', target.first_name) = {value})',
-        ),
-        'orderBy' => 'target.first_name {direction}, target.last_name',
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'salutationName' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'firstName' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'default' => '',
-        'fieldType' => 'varchar',
-      ),
-      'lastName' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'default' => '',
-        'fieldType' => 'varchar',
-      ),
-      'title' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'accountName' => 
-      array (
-        'type' => 'varchar',
-        'len' => 100,
-        'fieldType' => 'varchar',
-      ),
-      'website' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'addressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'addressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressTargetForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressTargetForeignMiddle',
-              2 => 
-              array (
-                'emailAddressTargetForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressTargetForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressTargetForeign',
-              2 => 
-              array (
-                'emailAddressTargetForeign.id:' => 'emailAddressTargetForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'target.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Target\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberTargetForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberTargetForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberTargetForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberTargetForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberTargetForeign',
-              2 => 
-              array (
-                'phoneNumberTargetForeign.id:' => 'phoneNumberTargetForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'target.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Target\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'doNotCall' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'addressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'target.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Target\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailAddresses' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Target',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Target',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Target',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'firstName' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'firstName',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_FIRST_NAME',
-      ),
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'firstName',
-          1 => 'lastName',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'TargetList' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'entryCount' => 
-      array (
-        'type' => 'int',
-        'notStorable' => true,
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'optedOutCount' => 
-      array (
-        'type' => 'int',
-        'notStorable' => true,
-        'fieldType' => 'int',
-        'len' => 11,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'includingActionList' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'storeArrayValues' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'excludingActionList' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'storeArrayValues' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'targetStatus' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'isOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'campaignsId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'campaigns',
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'campaignsName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-      ),
-      'usersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'usersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'leadsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'leadsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'contactsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'contactsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'accountsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'accountsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'massEmailsExcludingIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'massEmailsExcludingNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'campaignsExcludingIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'campaignsExcludingNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'massEmailsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'massEmailsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'campaignsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => false,
-      ),
-      'campaignsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => false,
-      ),
-    ),
-    'relations' => 
-    array (
-      'users' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'User',
-        'relationName' => 'targetListUser',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'userId',
-        ),
-        'foreign' => 'targetLists',
-        'additionalColumns' => 
-        array (
-          'optedOut' => 
-          array (
-            'type' => 'bool',
-          ),
-        ),
-      ),
-      'leads' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Lead',
-        'relationName' => 'leadTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'leadId',
-        ),
-        'foreign' => 'targetLists',
-        'additionalColumns' => 
-        array (
-          'optedOut' => 
-          array (
-            'type' => 'bool',
-          ),
-        ),
-      ),
-      'contacts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Contact',
-        'relationName' => 'contactTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'contactId',
-        ),
-        'foreign' => 'targetLists',
-        'additionalColumns' => 
-        array (
-          'optedOut' => 
-          array (
-            'type' => 'bool',
-          ),
-        ),
-      ),
-      'accounts' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Account',
-        'relationName' => 'accountTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'accountId',
-        ),
-        'foreign' => 'targetLists',
-        'additionalColumns' => 
-        array (
-          'optedOut' => 
-          array (
-            'type' => 'bool',
-          ),
-        ),
-      ),
-      'massEmailsExcluding' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'MassEmail',
-        'relationName' => 'massEmailTargetListExcluding',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'massEmailId',
-        ),
-        'foreign' => 'excludingTargetLists',
-      ),
-      'campaignsExcluding' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Campaign',
-        'relationName' => 'campaignTargetListExcluding',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'campaignId',
-        ),
-        'foreign' => 'excludingTargetLists',
-      ),
-      'massEmails' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'MassEmail',
-        'relationName' => 'massEmailTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'massEmailId',
-        ),
-        'foreign' => 'targetLists',
-      ),
-      'campaigns' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Campaign',
-        'relationName' => 'campaignTargetList',
-        'key' => 'id',
-        'foreignKey' => 'id',
-        'midKeys' => 
-        array (
-          0 => 'targetListId',
-          1 => 'campaignId',
-        ),
-        'foreign' => 'targetLists',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'TargetList',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'createdAt' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'createdAt',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_CREATED_AT',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'Task' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Open',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'priority' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Normal',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateStart' => 
-      array (
-        'type' => 'datetime',
-        'fieldType' => 'datetime',
-      ),
-      'dateEnd' => 
-      array (
-        'type' => 'datetime',
-        'fieldType' => 'datetime',
-      ),
-      'dateStartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'dateEndDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'dateCompleted' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'isOverdue' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'reminders' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'fieldType' => 'jsonArray',
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'createRecurringSeriesOfTasks' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'default' => false,
-        'fieldType' => 'bool',
-      ),
-      'startDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'endDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'frequency' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Daily',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'repeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every day',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'weeklyrepeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every week',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'weeklyrepeatOn' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Monday',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'weeklystartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'weeklyendDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'monthlyRepeatOn' => 
-      array (
-        'type' => 'varchar',
-        'default' => '01',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'monthlyStartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'monthlyEndDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'monthlyRepeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every Month',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'numberOfRecurringTasks' => 
-      array (
-        'type' => 'varchar',
-        'default' => '1',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'customStartDate1' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate2' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate3' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate4' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate5' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate6' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'completedAt' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'closedAt' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'stream' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'parentId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => 'parent',
-        'attributeRole' => 'id',
-        'fieldType' => 'linkParent',
-        'notNull' => false,
-      ),
-      'parentType' => 
-      array (
-        'type' => 'foreignType',
-        'notNull' => false,
-        'index' => 'parent',
-        'len' => 100,
-        'attributeRole' => 'type',
-        'fieldType' => 'linkParent',
-        'dbType' => 'varchar',
-      ),
-      'parentName' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'relation' => 'parent',
-        'isParentName' => true,
-        'attributeRole' => 'name',
-        'fieldType' => 'linkParent',
-      ),
-      'accountId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'accountName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'account',
-        'foreign' => 'name',
-      ),
-      'contactId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'contactName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'contact',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'attachmentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'orderBy' => 
-        array (
-          0 => 
-          array (
-            0 => 'createdAt',
-            1 => 'ASC',
-          ),
-          1 => 
-          array (
-            0 => 'name',
-            1 => 'ASC',
-          ),
-        ),
-        'isLinkMultipleIdList' => true,
-        'relation' => 'attachments',
-        'isLinkStub' => false,
-      ),
-      'attachmentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'isLinkStub' => false,
-      ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'attachmentsTypes' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'contact' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Contact',
-        'key' => 'contactId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'account' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'Account',
-        'key' => 'accountId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'parent' => 
-      array (
-        'type' => 'belongsToParent',
-        'key' => 'parentId',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'entityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Task',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => 'tasks',
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'attachments' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Attachment',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-        'conditions' => 
-        array (
-          'OR' => 
-          array (
-            0 => 
-            array (
-              'field' => NULL,
-            ),
-            1 => 
-            array (
-              'field' => 'attachments',
-            ),
-          ),
-        ),
-      ),
-    ),
-    'indexes' => 
-    array (
-      'dateStartStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'dateStart',
-          1 => 'status',
-        ),
-        'key' => 'IDX_DATE_START_STATUS',
-      ),
-      'dateEndStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'dateEnd',
-          1 => 'status',
-        ),
-        'key' => 'IDX_DATE_END_STATUS',
-      ),
-      'dateStart' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'dateStart',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_DATE_START',
-      ),
-      'status' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'status',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_STATUS',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-      'assignedUserStatus' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'status',
-        ),
-        'key' => 'IDX_ASSIGNED_USER_STATUS',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'BillingEntity' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'website' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressBillingEntityForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressBillingEntityForeignMiddle',
-              2 => 
-              array (
-                'emailAddressBillingEntityForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressBillingEntityForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressBillingEntityForeign',
-              2 => 
-              array (
-                'emailAddressBillingEntityForeign.id:' => 'emailAddressBillingEntityForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'billing_entity.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'BillingEntity\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberBillingEntityForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberBillingEntityForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberBillingEntityForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberBillingEntityForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberBillingEntityForeign',
-              2 => 
-              array (
-                'phoneNumberBillingEntityForeign.id:' => 'phoneNumberBillingEntityForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'billing_entity.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'BillingEntity\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'billingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'billingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'Stream' => 
-      array (
-        'type' => 'varchar',
-        'len' => 2000,
-        'fieldType' => 'varchar',
-      ),
-      'panno' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'udyamRegistrationNo' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addressstreet' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addresscity' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addressstate' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'addresspostalcode' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailid' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'phoneno' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddressIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'billingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'billing_entity.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'BillingEntity\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailAddresses' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'BillingEntity',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'BillingEntity',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'EntityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'BillingEntity',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'name',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'ClosedTask' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'website' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressClosedTaskForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressClosedTaskForeignMiddle',
-              2 => 
-              array (
-                'emailAddressClosedTaskForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressClosedTaskForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressClosedTaskForeign',
-              2 => 
-              array (
-                'emailAddressClosedTaskForeign.id:' => 'emailAddressClosedTaskForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'closed_task.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'ClosedTask\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberClosedTaskForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberClosedTaskForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberClosedTaskForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberClosedTaskForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberClosedTaskForeign',
-              2 => 
-              array (
-                'phoneNumberClosedTaskForeign.id:' => 'phoneNumberClosedTaskForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'closed_task.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'ClosedTask\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'billingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'billingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'Stream' => 
-      array (
-        'type' => 'varchar',
-        'len' => 2000,
-        'fieldType' => 'varchar',
-      ),
-      'closedat' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'completedat' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createRecurringSeriesOfTasks' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'fieldType' => 'bool',
-        'default' => false,
-      ),
-      'customStartDate1' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate2' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate3' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate4' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate5' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'customStartDate6' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'endDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'frequency' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Daily',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'monthlyEndDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'monthlyRepeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every Month',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'monthlyRepeatOn' => 
-      array (
-        'type' => 'varchar',
-        'default' => '01',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'monthlyStartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'numberOfRecurringTasks' => 
-      array (
-        'type' => 'varchar',
-        'default' => '1',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'repeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every day',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'startDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'weeklyendDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'weeklyrepeat' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Every week',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'weeklyrepeatOn' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Monday',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'weeklystartDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'parent' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'priority' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateStart' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateEnd' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'dateCompleted' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddressIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'billingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'closed_task.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'ClosedTask\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'attachmentsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'orderBy' => 
-        array (
-          0 => 
-          array (
-            0 => 'createdAt',
-            1 => 'ASC',
-          ),
-          1 => 
-          array (
-            0 => 'name',
-            1 => 'ASC',
-          ),
-        ),
-        'isLinkMultipleIdList' => true,
-        'relation' => 'attachments',
-        'isLinkStub' => false,
-      ),
-      'attachmentsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'isLinkStub' => false,
-      ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'attachmentsTypes' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-      ),
-    ),
-    'relations' => 
-    array (
-      'emailAddresses' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'ClosedTask',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'ClosedTask',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'EntityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'ClosedTask',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'attachments' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Attachment',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-        'conditions' => 
-        array (
-          'OR' => 
-          array (
-            0 => 
-            array (
-              'field' => NULL,
-            ),
-            1 => 
-            array (
-              'field' => 'attachments',
-            ),
-          ),
-        ),
-        'relationName' => 'attachments',
-      ),
-    ),
-    'indexes' => 
-    array (
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'name',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
   'ContactList' => 
   array (
     'fields' => 
@@ -26225,7 +19396,7 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'Demo' => 
+  'DocumentFolder' => 
   array (
     'fields' => 
     array (
@@ -26251,379 +19422,279 @@ return array (
         'type' => 'text',
         'fieldType' => 'text',
       ),
-      'website' => 
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'childList' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'parentName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'parent',
+        'foreign' => 'name',
+      ),
+      'documentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'documentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'documents' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Document',
+        'foreignKey' => 'folderId',
+        'foreign' => 'folder',
+      ),
+      'children' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'DocumentFolder',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'parent' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'DocumentFolder',
+        'key' => 'parentId',
+        'foreignKey' => 'id',
+        'foreign' => 'children',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'DocumentFolder',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'additionalTables' => 
+    array (
+      'DocumentFolderPath' => 
+      array (
+        'fields' => 
+        array (
+          'id' => 
+          array (
+            'type' => 'id',
+            'dbType' => 'int',
+            'len' => '11',
+            'autoincrement' => true,
+          ),
+          'ascendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '100',
+            'index' => true,
+          ),
+          'descendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '24',
+            'index' => true,
+          ),
+        ),
+      ),
+    ),
+    'collection' => 
+    array (
+      'order' => 'ASC',
+    ),
+  ),
+  'Document' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
       ),
-      'emailAddress' => 
+      'deleted' => 
       array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressDemoForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressDemoForeignMiddle',
-              2 => 
-              array (
-                'emailAddressDemoForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressDemoForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressDemoForeign',
-              2 => 
-              array (
-                'emailAddressDemoForeign.id:' => 'emailAddressDemoForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'demo.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Demo\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
+        'type' => 'bool',
+        'default' => false,
       ),
-      'phoneNumber' => 
+      'status' => 
       array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberDemoForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberDemoForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberDemoForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberDemoForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberDemoForeign',
-              2 => 
-              array (
-                'phoneNumberDemoForeign.id:' => 'phoneNumberDemoForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'demo.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Demo\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
       ),
-      'billingAddressStreet' => 
+      'type' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'publishDate' => 
+      array (
+        'type' => 'date',
+        'fieldType' => 'date',
+      ),
+      'expirationDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'description' => 
       array (
         'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
         'fieldType' => 'text',
-      ),
-      'billingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
       ),
       'createdAt' => 
       array (
@@ -26637,222 +19708,19 @@ return array (
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'Stream' => 
+      'fileId' => 
       array (
-        'type' => 'varchar',
-        'len' => 2000,
-        'fieldType' => 'varchar',
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => false,
+        'notNull' => false,
       ),
-      'emailAddressIsOptedOut' => 
+      'fileName' => 
       array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'billingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'demo.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Demo\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
+        'type' => 'foreign',
+        'relation' => 'file',
+        'foreign' => 'name',
       ),
       'createdById' => 
       array (
@@ -26944,55 +19812,76 @@ return array (
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple',
       ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
+      'accountsIds' => 
       array (
         'type' => 'jsonArray',
         'notStorable' => true,
-        'notExportable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'accounts',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
       ),
-      'followersNames' => 
+      'accountsNames' => 
       array (
         'type' => 'jsonObject',
         'notStorable' => true,
-        'notExportable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
       ),
-      'tasksIds' => 
+      'folderId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'folderName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'folder',
+        'foreign' => 'name',
+      ),
+      'contactsIds' => 
       array (
         'type' => 'jsonArray',
         'notStorable' => true,
         'isLinkStub' => true,
       ),
-      'tasksNames' => 
+      'contactsNames' => 
       array (
         'type' => 'jsonObject',
         'notStorable' => true,
         'isLinkStub' => true,
       ),
-      'callsIds' => 
+      'leadsIds' => 
       array (
         'type' => 'jsonArray',
         'notStorable' => true,
         'isLinkStub' => true,
       ),
-      'callsNames' => 
+      'leadsNames' => 
       array (
         'type' => 'jsonObject',
         'notStorable' => true,
         'isLinkStub' => true,
       ),
-      'meetingsIds' => 
+      'opportunitiesIds' => 
       array (
         'type' => 'jsonArray',
         'notStorable' => true,
         'isLinkStub' => true,
       ),
-      'meetingsNames' => 
+      'opportunitiesNames' => 
       array (
         'type' => 'jsonObject',
         'notStorable' => true,
@@ -27001,89 +19890,27 @@ return array (
     ),
     'relations' => 
     array (
-      'emailAddresses' => 
+      'file' => 
       array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Demo',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
+        'type' => 'belongsTo',
+        'entity' => 'Attachment',
+        'key' => 'fileId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
       ),
-      'phoneNumbers' => 
+      'folder' => 
       array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Demo',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
+        'type' => 'belongsTo',
+        'entity' => 'DocumentFolder',
+        'key' => 'folderId',
+        'foreignKey' => 'id',
+        'foreign' => 'documents',
       ),
       'teams' => 
       array (
         'type' => 'manyMany',
         'entity' => 'Team',
-        'relationName' => 'EntityTeam',
+        'relationName' => 'entityTeam',
         'midKeys' => 
         array (
           0 => 'entityId',
@@ -27091,7 +19918,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'Demo',
+          'entityType' => 'Document',
         ),
         'additionalColumns' => 
         array (
@@ -27126,26 +19953,61 @@ return array (
         'foreignKey' => 'id',
         'foreign' => NULL,
       ),
-    ),
-    'indexes' => 
-    array (
-      'name' => 
+      'contacts' => 
       array (
-        'columns' => 
+        'type' => 'manyMany',
+        'entity' => 'Contact',
+        'relationName' => 'contactDocument',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
         array (
-          0 => 'name',
-          1 => 'deleted',
+          0 => 'documentId',
+          1 => 'contactId',
         ),
-        'key' => 'IDX_NAME',
+        'foreign' => 'documents',
       ),
-      'assignedUser' => 
+      'leads' => 
       array (
-        'columns' => 
+        'type' => 'manyMany',
+        'entity' => 'Lead',
+        'relationName' => 'documentLead',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
         array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
+          0 => 'documentId',
+          1 => 'leadId',
         ),
-        'key' => 'IDX_ASSIGNED_USER',
+        'foreign' => 'documents',
+      ),
+      'opportunities' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Opportunity',
+        'relationName' => 'documentOpportunity',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'documentId',
+          1 => 'opportunityId',
+        ),
+        'foreign' => 'documents',
+      ),
+      'accounts' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Account',
+        'relationName' => 'accountDocument',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'documentId',
+          1 => 'accountId',
+        ),
+        'foreign' => 'documents',
       ),
     ),
     'collection' => 
@@ -27154,7 +20016,7 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'Designation' => 
+  'EmailQueueItem' => 
   array (
     'fields' => 
     array (
@@ -27167,392 +20029,25 @@ return array (
       'name' => 
       array (
         'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
+        'notStorable' => true,
       ),
       'deleted' => 
       array (
         'type' => 'bool',
         'default' => false,
       ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'website' => 
+      'status' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
       ),
-      'emailAddress' => 
+      'attemptCount' => 
       array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressDesignationForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressDesignationForeignMiddle',
-              2 => 
-              array (
-                'emailAddressDesignationForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressDesignationForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressDesignationForeign',
-              2 => 
-              array (
-                'emailAddressDesignationForeign.id:' => 'emailAddressDesignationForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'designation.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Designation\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberDesignationForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberDesignationForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberDesignationForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberDesignationForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberDesignationForeign',
-              2 => 
-              array (
-                'phoneNumberDesignationForeign.id:' => 'phoneNumberDesignationForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 'designation.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Designation\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'billingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'billingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
+        'type' => 'int',
+        'default' => '0',
+        'fieldType' => 'int',
+        'len' => 11,
       ),
       'createdAt' => 
       array (
@@ -27560,230 +20055,26 @@ return array (
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'modifiedAt' => 
+      'sentAt' => 
       array (
         'type' => 'datetime',
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'Stream' => 
+      'emailAddress' => 
       array (
         'type' => 'varchar',
-        'len' => 2000,
         'fieldType' => 'varchar',
+        'len' => 255,
       ),
-      'emailAddressIsOptedOut' => 
+      'isTest' => 
       array (
         'type' => 'bool',
         'notNull' => true,
-        'notStorable' => true,
         'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
         'default' => false,
       ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'billingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 'designation.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Designation\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-      ),
-      'createdById' => 
+      'massEmailId' => 
       array (
         'dbType' => 'varchar',
         'len' => 24,
@@ -27793,288 +20084,59 @@ return array (
         'fieldType' => 'link',
         'notNull' => false,
       ),
-      'createdByName' => 
+      'massEmailName' => 
       array (
         'type' => 'foreign',
         'notStorable' => false,
         'attributeRole' => 'name',
         'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
+        'relation' => 'massEmail',
+        'foreign' => 'name',
       ),
-      'modifiedById' => 
+      'targetId' => 
       array (
         'dbType' => 'varchar',
         'len' => 24,
         'type' => 'foreignId',
-        'index' => true,
+        'index' => 'target',
         'attributeRole' => 'id',
-        'fieldType' => 'link',
+        'fieldType' => 'linkParent',
         'notNull' => false,
       ),
-      'modifiedByName' => 
+      'targetType' => 
       array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
+        'type' => 'foreignType',
+        'notNull' => false,
+        'index' => 'target',
+        'len' => 100,
+        'attributeRole' => 'type',
+        'fieldType' => 'linkParent',
         'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
       ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-      'isFollowed' => 
+      'targetName' => 
       array (
         'type' => 'varchar',
         'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
+        'relation' => 'target',
+        'isParentName' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'linkParent',
       ),
     ),
     'relations' => 
     array (
-      'emailAddresses' => 
+      'target' => 
       array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Designation',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
+        'type' => 'belongsToParent',
+        'key' => 'targetId',
       ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Designation',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'EntityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'Designation',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
+      'massEmail' => 
       array (
         'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
+        'entity' => 'MassEmail',
+        'key' => 'massEmailId',
         'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'name',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
+        'foreign' => 'queueItems',
       ),
     ),
     'collection' => 
@@ -37367,7 +29429,384 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'MessageLog' => 
+  'KnowledgeBaseArticle' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Draft',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'language' => 
+      array (
+        'type' => 'varchar',
+        'default' => '',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'type' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'publishDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'expirationDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'order' => 
+      array (
+        'type' => 'int',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'body' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'portalsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'portals',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'portalsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'categoriesIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'categories',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'categoriesNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'attachmentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'orderBy' => 
+        array (
+          0 => 
+          array (
+            0 => 'createdAt',
+            1 => 'ASC',
+          ),
+          1 => 
+          array (
+            0 => 'name',
+            1 => 'ASC',
+          ),
+        ),
+        'isLinkMultipleIdList' => true,
+        'relation' => 'attachments',
+        'isLinkStub' => false,
+      ),
+      'attachmentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'isLinkStub' => false,
+      ),
+      'casesIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'casesNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'attachmentsTypes' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'categories' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'KnowledgeBaseCategory',
+        'relationName' => 'knowledgeBaseArticleKnowledgeBaseCategory',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'knowledgeBaseArticleId',
+          1 => 'knowledgeBaseCategoryId',
+        ),
+        'foreign' => 'articles',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'KnowledgeBaseArticle',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'portals' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Portal',
+        'relationName' => 'knowledgeBaseArticlePortal',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'knowledgeBaseArticleId',
+          1 => 'portalId',
+        ),
+        'foreign' => 'articles',
+      ),
+      'cases' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Case',
+        'relationName' => 'caseKnowledgeBaseArticle',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'knowledgeBaseArticleId',
+          1 => 'caseId',
+        ),
+        'foreign' => 'articles',
+      ),
+      'attachments' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Attachment',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+        'conditions' => 
+        array (
+          'OR' => 
+          array (
+            0 => 
+            array (
+              'field' => NULL,
+            ),
+            1 => 
+            array (
+              'field' => 'attachments',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'order',
+      'order' => 'ASC',
+    ),
+  ),
+  'KnowledgeBaseCategory' => 
   array (
     'fields' => 
     array (
@@ -37393,11 +29832,388 @@ return array (
         'type' => 'text',
         'fieldType' => 'text',
       ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'order' => 
+      array (
+        'type' => 'int',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'childList' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'articlecount' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'categorycount' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'parentName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'parent',
+        'foreign' => 'name',
+      ),
+      'articlesIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'articlesNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'childrenNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'articles' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'KnowledgeBaseArticle',
+        'relationName' => 'knowledgeBaseArticleKnowledgeBaseCategory',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'knowledgeBaseCategoryId',
+          1 => 'knowledgeBaseArticleId',
+        ),
+        'foreign' => 'categories',
+      ),
+      'children' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'KnowledgeBaseCategory',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'parent' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'KnowledgeBaseCategory',
+        'key' => 'parentId',
+        'foreignKey' => 'id',
+        'foreign' => 'children',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'KnowledgeBaseCategory',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'additionalTables' => 
+    array (
+      'KnowledgeBaseCategoryPath' => 
+      array (
+        'fields' => 
+        array (
+          'id' => 
+          array (
+            'type' => 'id',
+            'dbType' => 'int',
+            'len' => '11',
+            'autoincrement' => true,
+          ),
+          'ascendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '100',
+            'index' => true,
+          ),
+          'descendorId' => 
+          array (
+            'type' => 'varchar',
+            'len' => '24',
+            'index' => true,
+          ),
+        ),
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'parentId',
+      'order' => 'ASC',
+    ),
+  ),
+  'Lead' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'select' => 'TRIM(CONCAT(IFNULL(lead.first_name, \'\'), \' \', IFNULL(lead.last_name, \'\')))',
+        'where' => 
+        array (
+          'LIKE' => '(lead.first_name LIKE {value} OR lead.last_name LIKE {value} OR CONCAT(lead.first_name, \' \', lead.last_name) LIKE {value} OR CONCAT(lead.last_name, \' \', lead.first_name) LIKE {value})',
+          '=' => '(lead.first_name = {value} OR lead.last_name = {value} OR CONCAT(lead.first_name, \' \', lead.last_name) = {value} OR CONCAT(lead.last_name, \' \', lead.first_name) = {value})',
+        ),
+        'orderBy' => 'lead.first_name {direction}, lead.last_name',
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'salutationName' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Mr.',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'firstName' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'lastName' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'title' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'New',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'source' => 
+      array (
+        'type' => 'varchar',
+        'default' => '',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'industry' => 
+      array (
+        'type' => 'varchar',
+        'default' => '',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'opportunityAmount' => 
+      array (
+        'type' => 'float',
+        'fieldType' => 'currency',
+        'orderBy' => 
+        array (
+          'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'opportunityAmountCurrencyRate',
+              2 => 
+              array (
+                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'attributeRole' => 'value',
+      ),
       'website' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
+      ),
+      'addressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'addressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
       ),
       'emailAddress' => 
       array (
@@ -37422,38 +30238,38 @@ return array (
         ),
         'selectForeign' => 
         array (
-          'sql' => 'emailAddressMessageLogForeign.name',
+          'sql' => 'emailAddressLeadForeign.name',
           'leftJoins' => 
           array (
             0 => 
             array (
               0 => 'EntityEmailAddress',
-              1 => 'emailAddressMessageLogForeignMiddle',
+              1 => 'emailAddressLeadForeignMiddle',
               2 => 
               array (
-                'emailAddressMessageLogForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressMessageLogForeignMiddle.primary' => 1,
+                'emailAddressLeadForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressLeadForeignMiddle.primary' => 1,
               ),
             ),
             1 => 
             array (
               0 => 'EmailAddress',
-              1 => 'emailAddressMessageLogForeign',
+              1 => 'emailAddressLeadForeign',
               2 => 
               array (
-                'emailAddressMessageLogForeign.id:' => 'emailAddressMessageLogForeignMiddle.emailAddressId',
+                'emailAddressLeadForeign.id:' => 'emailAddressLeadForeignMiddle.emailAddressId',
               ),
             ),
           ),
         ),
         'where' => 
         array (
-          'LIKE' => 'message_log.id IN (
+          'LIKE' => 'lead.id IN (
                                 SELECT entity_id
                                 FROM entity_email_address
                                 JOIN email_address ON email_address.id = entity_email_address.email_address_id
                                 WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'MessageLog\' AND
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Lead\' AND
                                     email_address.deleted = 0 AND email_address.lower LIKE {value}
                             )',
           '=' => 
@@ -37575,38 +30391,38 @@ return array (
         ),
         'selectForeign' => 
         array (
-          'sql' => 'phoneNumberMessageLogForeign.name',
+          'sql' => 'phoneNumberLeadForeign.name',
           'leftJoins' => 
           array (
             0 => 
             array (
               0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberMessageLogForeignMiddle',
+              1 => 'phoneNumberLeadForeignMiddle',
               2 => 
               array (
-                'phoneNumberMessageLogForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberMessageLogForeignMiddle.primary' => 1,
+                'phoneNumberLeadForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberLeadForeignMiddle.primary' => 1,
               ),
             ),
             1 => 
             array (
               0 => 'PhoneNumber',
-              1 => 'phoneNumberMessageLogForeign',
+              1 => 'phoneNumberLeadForeign',
               2 => 
               array (
-                'phoneNumberMessageLogForeign.id:' => 'phoneNumberMessageLogForeignMiddle.phoneNumberId',
+                'phoneNumberLeadForeign.id:' => 'phoneNumberLeadForeignMiddle.phoneNumberId',
               ),
             ),
           ),
         ),
         'where' => 
         array (
-          'LIKE' => 'message_log.id IN (
+          'LIKE' => 'lead.id IN (
                                 SELECT entity_id
                                 FROM entity_phone_number
                                 JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
                                 WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'MessageLog\' AND
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Lead\' AND
                                     phone_number.deleted = 0 AND phone_number.name LIKE {value}
                             )',
           '=' => 
@@ -37705,67 +30521,23 @@ return array (
           ),
         ),
       ),
-      'billingAddressStreet' => 
+      'doNotCall' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
       array (
         'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
         'fieldType' => 'text',
       ),
-      'billingAddressCity' => 
+      'convertedAt' => 
       array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
       ),
       'createdAt' => 
       array (
@@ -37779,47 +30551,72 @@ return array (
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'Stream' => 
-      array (
-        'type' => 'varchar',
-        'len' => 2000,
-        'fieldType' => 'varchar',
-      ),
-      'subDomainName' => 
+      'accountName' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
       ),
-      'totalMessages' => 
+      'acceptanceStatus' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'acceptanceStatusMeetings' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'relation' => 'meetings',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'acceptanceStatusCalls' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'relation' => 'calls',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'targetListIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'leadType' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Hot Lead',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'stream' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
       ),
-      'sentMessages' => 
+      'opportunityAmountCurrency' => 
       array (
         'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
+        'len' => 6,
+        'fieldType' => 'currency',
+        'attributeRole' => 'currency',
       ),
-      'remainingMessages' => 
+      'addressMap' => 
       array (
         'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'planExpiryDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'senderId' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
       ),
       'emailAddressIsOptedOut' => 
       array (
@@ -37911,19 +30708,167 @@ return array (
         'orderBy' => 'phoneNumbers.opt_out {direction}',
         'default' => false,
       ),
-      'billingAddressMap' => 
+      'opportunityAmountConverted' => 
       array (
-        'type' => 'varchar',
-        'notExportable' => true,
+        'type' => 'float',
+        'select' => 
+        array (
+          'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'opportunityAmountCurrencyRate',
+              2 => 
+              array (
+                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => '{alias}.opportunity_amount * opportunityAmountCurrencyRateLeadForeign.rate',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'opportunityAmountCurrencyRateLeadForeign',
+              2 => 
+              array (
+                'opportunityAmountCurrencyRateLeadForeign.id:' => '{alias}.opportunityAmountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          '=' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate = {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate > {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate < {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>=' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate >= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<=' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate <= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<>' => 
+          array (
+            'sql' => 'lead.opportunity_amount * opportunityAmountCurrencyRate.rate <> {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'opportunityAmountCurrencyRate',
+                2 => 
+                array (
+                  'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+                ),
+              ),
+            ),
+          ),
+          'IS NULL' => 
+          array (
+            'sql' => 'lead.opportunity_amount IS NULL',
+          ),
+          'IS NOT NULL' => 
+          array (
+            'sql' => 'lead.opportunity_amount IS NOT NULL',
+          ),
+        ),
         'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
+        'orderBy' => 
+        array (
+          'sql' => 'opportunityAmountConverted {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'opportunityAmountCurrencyRate',
+              2 => 
+              array (
+                'opportunityAmountCurrencyRate.id:' => 'opportunityAmountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'attributeRole' => 'valueConverted',
+        'fieldType' => 'currency',
       ),
       'emailAddressData' => 
       array (
@@ -37944,12 +30889,12 @@ return array (
         'notExportable' => true,
         'where' => 
         array (
-          'LIKE' => 'message_log.id IN (
+          'LIKE' => 'lead.id IN (
                                 SELECT entity_id
                                 FROM entity_phone_number
                                 JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
                                 WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'MessageLog\' AND
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Lead\' AND
                                     phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
                             )',
           '=' => 
@@ -38122,6 +31067,191 @@ return array (
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple',
       ),
+      'campaignId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'campaignName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'campaign',
+        'foreign' => 'name',
+      ),
+      'createdAccountId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdAccountName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdAccount',
+        'foreign' => 'name',
+      ),
+      'createdContactId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdContactName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdContact',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'createdOpportunityId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdOpportunityName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdOpportunity',
+        'foreign' => 'name',
+      ),
+      'targetListsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'targetLists',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'targetListsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'targetListId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => 'targetList',
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notStorable' => true,
+        'notNull' => false,
+      ),
+      'targetListName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'documentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'documentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'campaignLogRecordsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'campaignLogRecordsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'casesIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'casesNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
       'tasksIds' => 
       array (
         'type' => 'jsonArray',
@@ -38173,7 +31303,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'MessageLog',
+          'entityType' => 'Lead',
         ),
         'additionalColumns' => 
         array (
@@ -38201,7 +31331,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'MessageLog',
+          'entityType' => 'Lead',
         ),
         'additionalColumns' => 
         array (
@@ -38217,6 +31347,100 @@ return array (
           ),
         ),
       ),
+      'documents' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Document',
+        'relationName' => 'documentLead',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'leadId',
+          1 => 'documentId',
+        ),
+        'foreign' => 'leads',
+      ),
+      'targetLists' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'TargetList',
+        'relationName' => 'leadTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'leadId',
+          1 => 'targetListId',
+        ),
+        'foreign' => 'leads',
+        'additionalColumns' => 
+        array (
+          'optedOut' => 
+          array (
+            'type' => 'bool',
+          ),
+        ),
+      ),
+      'campaignLogRecords' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'CampaignLogRecord',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'campaign' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Campaign',
+        'key' => 'campaignId',
+        'foreignKey' => 'id',
+        'foreign' => 'leads',
+        'noJoin' => true,
+      ),
+      'createdOpportunity' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Opportunity',
+        'key' => 'createdOpportunityId',
+        'foreignKey' => 'id',
+        'foreign' => 'originalLead',
+        'noJoin' => true,
+      ),
+      'createdContact' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Contact',
+        'key' => 'createdContactId',
+        'foreignKey' => 'id',
+        'foreign' => 'originalLead',
+        'noJoin' => true,
+      ),
+      'createdAccount' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Account',
+        'key' => 'createdAccountId',
+        'foreignKey' => 'id',
+        'foreign' => 'originalLead',
+        'noJoin' => true,
+      ),
+      'emails' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Email',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'cases' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Case',
+        'foreignKey' => 'leadId',
+        'foreign' => 'lead',
+      ),
       'tasks' => 
       array (
         'type' => 'hasChildren',
@@ -38227,23 +31451,55 @@ return array (
       ),
       'calls' => 
       array (
-        'type' => 'hasMany',
+        'type' => 'manyMany',
         'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
+        'relationName' => 'callLead',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'leadId',
+          1 => 'callId',
+        ),
+        'foreign' => 'leads',
+        'additionalColumns' => 
+        array (
+          'status' => 
+          array (
+            'type' => 'varchar',
+            'len' => '36',
+            'default' => 'None',
+          ),
+        ),
       ),
       'meetings' => 
       array (
-        'type' => 'hasMany',
+        'type' => 'manyMany',
         'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
+        'relationName' => 'leadMeeting',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'leadId',
+          1 => 'meetingId',
+        ),
+        'foreign' => 'leads',
+        'additionalColumns' => 
+        array (
+          'status' => 
+          array (
+            'type' => 'varchar',
+            'len' => '36',
+            'default' => 'None',
+          ),
+        ),
       ),
       'teams' => 
       array (
         'type' => 'manyMany',
         'entity' => 'Team',
-        'relationName' => 'EntityTeam',
+        'relationName' => 'entityTeam',
         'midKeys' => 
         array (
           0 => 'entityId',
@@ -38251,7 +31507,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'MessageLog',
+          'entityType' => 'Lead',
         ),
         'additionalColumns' => 
         array (
@@ -38289,14 +31545,50 @@ return array (
     ),
     'indexes' => 
     array (
+      'firstName' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'firstName',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_FIRST_NAME',
+      ),
       'name' => 
       array (
         'columns' => 
         array (
-          0 => 'name',
-          1 => 'deleted',
+          0 => 'firstName',
+          1 => 'lastName',
         ),
         'key' => 'IDX_NAME',
+      ),
+      'status' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'status',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_STATUS',
+      ),
+      'createdAt' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'createdAt',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_CREATED_AT',
+      ),
+      'createdAtStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'createdAt',
+          1 => 'status',
+        ),
+        'key' => 'IDX_CREATED_AT_STATUS',
       ),
       'assignedUser' => 
       array (
@@ -38307,10 +31599,911 @@ return array (
         ),
         'key' => 'IDX_ASSIGNED_USER',
       ),
+      'assignedUserStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'status',
+        ),
+        'key' => 'IDX_ASSIGNED_USER_STATUS',
+      ),
     ),
     'collection' => 
     array (
       'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'MassEmail' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Pending',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'storeSentEmails' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'default' => false,
+        'fieldType' => 'bool',
+      ),
+      'optOutEntirely' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'default' => false,
+        'fieldType' => 'bool',
+      ),
+      'fromAddress' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'fromName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'replyToAddress' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'replyToName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'startAt' => 
+      array (
+        'type' => 'datetime',
+        'fieldType' => 'datetime',
+      ),
+      'smtpAccount' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'fieldType' => 'base',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'emailTemplateId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'emailTemplateName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'emailTemplate',
+        'foreign' => 'name',
+      ),
+      'campaignId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'campaignName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'campaign',
+        'foreign' => 'name',
+      ),
+      'targetListsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'targetLists',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'targetListsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'excludingTargetListsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'excludingTargetLists',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'excludingTargetListsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'inboundEmailId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'inboundEmailName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'inboundEmail',
+        'foreign' => 'name',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'queueItemsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'queueItemsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'queueItems' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'EmailQueueItem',
+        'foreignKey' => 'massEmailId',
+        'foreign' => 'massEmail',
+      ),
+      'inboundEmail' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'InboundEmail',
+        'key' => 'inboundEmailId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'excludingTargetLists' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'TargetList',
+        'relationName' => 'massEmailTargetListExcluding',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'massEmailId',
+          1 => 'targetListId',
+        ),
+        'foreign' => 'massEmailsExcluding',
+      ),
+      'targetLists' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'TargetList',
+        'relationName' => 'massEmailTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'massEmailId',
+          1 => 'targetListId',
+        ),
+        'foreign' => 'massEmails',
+      ),
+      'campaign' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Campaign',
+        'key' => 'campaignId',
+        'foreignKey' => 'id',
+        'foreign' => 'massEmails',
+      ),
+      'emailTemplate' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'EmailTemplate',
+        'key' => 'emailTemplateId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'Meeting' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Planned',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateStart' => 
+      array (
+        'type' => 'datetime',
+        'fieldType' => 'datetime',
+      ),
+      'dateEnd' => 
+      array (
+        'type' => 'datetime',
+        'fieldType' => 'datetime',
+      ),
+      'isAllDay' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'duration' => 
+      array (
+        'type' => 'int',
+        'notStorable' => true,
+        'default' => '3600',
+        'select' => 'TIMESTAMPDIFF(SECOND, meeting.date_start, meeting.date_end)',
+        'orderBy' => 'duration {direction}',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'reminders' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'acceptanceStatus' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'where' => 
+        array (
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'users',
+              1 => 'contacts',
+              2 => 'leads',
+            ),
+            'sql' => 'contactsMiddle.status = {value} OR leadsMiddle.status = {value} OR usersMiddle.status = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status = {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status = {value})',
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'users',
+              1 => 'leads',
+              2 => 'contacts',
+            ),
+            'sql' => 'contactsMiddle.status IN {value} OR leadsMiddle.status IN {value} OR usersMiddle.status IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IN {value}) AND meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IN {value})',
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'users',
+              1 => 'contacts',
+              2 => 'leads',
+            ),
+            'sql' => 'contactsMiddle.status IS NULL AND leadsMiddle.status IS NULL AND usersMiddle.status IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 'meeting.id NOT IN (SELECT meeting_id FROM contact_meeting WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM meeting_user WHERE deleted = 0 AND status IS NULL) OR meeting.id NOT IN (SELECT meeting_id FROM lead_meeting WHERE deleted = 0 AND status IS NULL)',
+        ),
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'stream' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateStartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'dateEndDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => 'parent',
+        'attributeRole' => 'id',
+        'fieldType' => 'linkParent',
+        'notNull' => false,
+      ),
+      'parentType' => 
+      array (
+        'type' => 'foreignType',
+        'notNull' => false,
+        'index' => 'parent',
+        'len' => 100,
+        'attributeRole' => 'type',
+        'fieldType' => 'linkParent',
+        'dbType' => 'varchar',
+      ),
+      'parentName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'relation' => 'parent',
+        'isParentName' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'linkParent',
+      ),
+      'accountId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'accountName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'account',
+        'foreign' => 'name',
+      ),
+      'usersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'users',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'orderBy' => 'name',
+        'isLinkStub' => false,
+      ),
+      'usersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'usersColumns' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'columns' => 
+        array (
+          'status' => 'acceptanceStatus',
+        ),
+        'attributeRole' => 'columnsMap',
+      ),
+      'contactsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'contacts',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'orderBy' => 'name',
+        'isLinkStub' => false,
+      ),
+      'contactsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'contactsColumns' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'columns' => 
+        array (
+          'status' => 'acceptanceStatus',
+        ),
+        'attributeRole' => 'columnsMap',
+      ),
+      'leadsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'leads',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'orderBy' => 'name',
+        'isLinkStub' => false,
+      ),
+      'leadsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'leadsColumns' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'columns' => 
+        array (
+          'status' => 'acceptanceStatus',
+        ),
+        'attributeRole' => 'columnsMap',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+    ),
+    'relations' => 
+    array (
+      'parent' => 
+      array (
+        'type' => 'belongsToParent',
+        'key' => 'parentId',
+      ),
+      'leads' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Lead',
+        'relationName' => 'leadMeeting',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'meetingId',
+          1 => 'leadId',
+        ),
+        'foreign' => 'meetings',
+        'additionalColumns' => 
+        array (
+          'status' => 
+          array (
+            'type' => 'varchar',
+            'len' => '36',
+            'default' => 'None',
+          ),
+        ),
+      ),
+      'contacts' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Contact',
+        'relationName' => 'contactMeeting',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'meetingId',
+          1 => 'contactId',
+        ),
+        'foreign' => 'meetings',
+        'additionalColumns' => 
+        array (
+          'status' => 
+          array (
+            'type' => 'varchar',
+            'len' => '36',
+            'default' => 'None',
+          ),
+        ),
+      ),
+      'users' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'User',
+        'relationName' => 'meetingUser',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'meetingId',
+          1 => 'userId',
+        ),
+        'foreign' => 'meetings',
+        'additionalColumns' => 
+        array (
+          'status' => 
+          array (
+            'type' => 'varchar',
+            'len' => '36',
+            'default' => 'None',
+          ),
+        ),
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Meeting',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'account' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Account',
+        'key' => 'accountId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'dateStartStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'dateStart',
+          1 => 'status',
+        ),
+        'key' => 'IDX_DATE_START_STATUS',
+      ),
+      'dateStart' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'dateStart',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_DATE_START',
+      ),
+      'status' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'status',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_STATUS',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+      'assignedUserStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'status',
+        ),
+        'key' => 'IDX_ASSIGNED_USER_STATUS',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'dateStart',
       'order' => 'DESC',
     ),
   ),
@@ -40264,6 +34457,956 @@ return array (
       'order' => 'DESC',
     ),
   ),
+  'Opportunity' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'amount' => 
+      array (
+        'type' => 'float',
+        'fieldType' => 'currency',
+        'orderBy' => 
+        array (
+          'sql' => 'opportunity.amount * amountCurrencyRate.rate {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRate',
+              2 => 
+              array (
+                'amountCurrencyRate.id:' => 'amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'attributeRole' => 'value',
+      ),
+      'amountWeightedConverted' => 
+      array (
+        'type' => 'float',
+        'notNull' => false,
+        'notStorable' => true,
+        'select' => 
+        array (
+          'sql' => 'opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRate',
+              2 => 
+              array (
+                'amountCurrencyRate.id:' => 'amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'amountWeightedConverted {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRate',
+              2 => 
+              array (
+                'amountCurrencyRate.id:' => 'amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          '=' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) = {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) < {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) > {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<=' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>=' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) >= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<>' => 
+          array (
+            'sql' => '(opportunity.amount * amountCurrencyRate.rate * opportunity.probability / 100) <> {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          'IS NULL' => 
+          array (
+            'sql' => 'opportunity.amount IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          'IS NOT NULL' => 
+          array (
+            'sql' => 'opportunity.amount IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+        ),
+        'fieldType' => 'float',
+      ),
+      'stage' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Unqualified',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'lastStage' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'probability' => 
+      array (
+        'type' => 'int',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'leadSource' => 
+      array (
+        'type' => 'varchar',
+        'default' => '',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'closeDate' => 
+      array (
+        'type' => 'date',
+        'fieldType' => 'date',
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'contactRole' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'where' => 
+        array (
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'contacts',
+            ),
+            'sql' => 'contactsMiddle.role = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role = {value})',
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'contacts',
+            ),
+            'sql' => 'contactsMiddle.role IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IN {value})',
+          'LIKE' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'contacts',
+            ),
+            'sql' => 'contactsMiddle.role LIKE {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 'contacts',
+            ),
+            'sql' => 'contactsMiddle.role IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 'opportunity.id NOT IN (SELECT opportunity_id FROM contact_opportunity WHERE deleted = 0 AND role IS NULL)',
+        ),
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'lossReason' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'None',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'stream' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'amountCurrency' => 
+      array (
+        'type' => 'varchar',
+        'len' => 6,
+        'fieldType' => 'currency',
+        'attributeRole' => 'currency',
+      ),
+      'amountConverted' => 
+      array (
+        'type' => 'float',
+        'select' => 
+        array (
+          'sql' => 'opportunity.amount * amountCurrencyRate.rate',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRate',
+              2 => 
+              array (
+                'amountCurrencyRate.id:' => 'amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => '{alias}.amount * amountCurrencyRateOpportunityForeign.rate',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRateOpportunityForeign',
+              2 => 
+              array (
+                'amountCurrencyRateOpportunityForeign.id:' => '{alias}.amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          '=' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate = {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate > {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate < {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '>=' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate >= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<=' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate <= {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          '<>' => 
+          array (
+            'sql' => 'opportunity.amount * amountCurrencyRate.rate <> {value}',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'Currency',
+                1 => 'amountCurrencyRate',
+                2 => 
+                array (
+                  'amountCurrencyRate.id:' => 'amountCurrency',
+                ),
+              ),
+            ),
+          ),
+          'IS NULL' => 
+          array (
+            'sql' => 'opportunity.amount IS NULL',
+          ),
+          'IS NOT NULL' => 
+          array (
+            'sql' => 'opportunity.amount IS NOT NULL',
+          ),
+        ),
+        'notStorable' => true,
+        'orderBy' => 
+        array (
+          'sql' => 'amountConverted {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'Currency',
+              1 => 'amountCurrencyRate',
+              2 => 
+              array (
+                'amountCurrencyRate.id:' => 'amountCurrency',
+              ),
+            ),
+          ),
+        ),
+        'attributeRole' => 'valueConverted',
+        'fieldType' => 'currency',
+      ),
+      'accountId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'accountName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'account',
+        'foreign' => 'name',
+      ),
+      'contactsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'contacts',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'orderBy' => 'name',
+        'isLinkStub' => false,
+      ),
+      'contactsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false,
+      ),
+      'contactsColumns' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'columns' => 
+        array (
+          'role' => 'opportunityRole',
+        ),
+        'attributeRole' => 'columnsMap',
+      ),
+      'campaignId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'campaignName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'campaign',
+        'foreign' => 'name',
+      ),
+      'originalLeadId' => 
+      array (
+        'type' => 'varchar',
+        'index' => 'originalLead',
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notStorable' => true,
+      ),
+      'originalLeadName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'documentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'documentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'emailsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'originalLead' => 
+      array (
+        'type' => 'hasOne',
+        'entity' => 'Lead',
+        'foreignKey' => 'createdOpportunityId',
+        'foreign' => 'createdOpportunity',
+        'noJoin' => true,
+      ),
+      'campaign' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Campaign',
+        'key' => 'campaignId',
+        'foreignKey' => 'id',
+        'foreign' => 'opportunities',
+        'noJoin' => true,
+      ),
+      'documents' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Document',
+        'relationName' => 'documentOpportunity',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'opportunityId',
+          1 => 'documentId',
+        ),
+        'foreign' => 'opportunities',
+      ),
+      'emails' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Email',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'contacts' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Contact',
+        'relationName' => 'contactOpportunity',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'opportunityId',
+          1 => 'contactId',
+        ),
+        'foreign' => 'opportunities',
+        'additionalColumns' => 
+        array (
+          'role' => 
+          array (
+            'type' => 'varchar',
+            'len' => 50,
+          ),
+        ),
+      ),
+      'account' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Account',
+        'key' => 'accountId',
+        'foreignKey' => 'id',
+        'foreign' => 'opportunities',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Opportunity',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'stage' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'stage',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_STAGE',
+      ),
+      'lastStage' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'lastStage',
+        ),
+        'key' => 'IDX_LAST_STAGE',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+      'createdAt' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'createdAt',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_CREATED_AT',
+      ),
+      'createdAtStage' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'createdAt',
+          1 => 'stage',
+        ),
+        'key' => 'IDX_CREATED_AT_STAGE',
+      ),
+      'assignedUserStage' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'stage',
+        ),
+        'key' => 'IDX_ASSIGNED_USER_STAGE',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
   'Payments' => 
   array (
     'fields' => 
@@ -41660,7 +36803,91 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'SMSReminder' => 
+  'Reminder' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'remindAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'index' => true,
+        'fieldType' => 'datetime',
+      ),
+      'startAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'index' => true,
+        'fieldType' => 'datetime',
+      ),
+      'type' => 
+      array (
+        'type' => 'varchar',
+        'len' => 36,
+        'index' => true,
+        'default' => 'Popup',
+        'fieldType' => 'varchar',
+      ),
+      'seconds' => 
+      array (
+        'type' => 'int',
+        'default' => '0',
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'entityType' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'entityId' => 
+      array (
+        'type' => 'varchar',
+        'len' => 50,
+        'fieldType' => 'varchar',
+      ),
+      'userId' => 
+      array (
+        'type' => 'varchar',
+        'len' => 50,
+        'fieldType' => 'varchar',
+      ),
+      'isSubmitted' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+    ),
+    'relations' => 
+    array (
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'remindAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'SenderID' => 
   array (
     'fields' => 
     array (
@@ -41686,380 +36913,6 @@ return array (
         'type' => 'text',
         'fieldType' => 'text',
       ),
-      'website' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddress' => 
-      array (
-        'type' => 'email',
-        'notStorable' => true,
-        'fieldType' => 'email',
-        'select' => 
-        array (
-          'sql' => 'emailAddresses.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'emailAddressSMSReminderForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityEmailAddress',
-              1 => 'emailAddressSMSReminderForeignMiddle',
-              2 => 
-              array (
-                'emailAddressSMSReminderForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressSMSReminderForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'EmailAddress',
-              1 => 'emailAddressSMSReminderForeign',
-              2 => 
-              array (
-                'emailAddressSMSReminderForeign.id:' => 'emailAddressSMSReminderForeignMiddle.emailAddressId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 's_m_s_reminder.id IN (
-                                SELECT entity_id
-                                FROM entity_email_address
-                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
-                                WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'SMSReminder\' AND
-                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddressesMultiple',
-              ),
-            ),
-            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'emailAddresses.lower {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'emailAddresses',
-              1 => 'emailAddresses',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'phoneNumber' => 
-      array (
-        'type' => 'phone',
-        'notStorable' => true,
-        'fieldType' => 'phone',
-        'select' => 
-        array (
-          'sql' => 'phoneNumbers.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-        'selectForeign' => 
-        array (
-          'sql' => 'phoneNumberSMSReminderForeign.name',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberSMSReminderForeignMiddle',
-              2 => 
-              array (
-                'phoneNumberSMSReminderForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberSMSReminderForeignMiddle.primary' => 1,
-              ),
-            ),
-            1 => 
-            array (
-              0 => 'PhoneNumber',
-              1 => 'phoneNumberSMSReminderForeign',
-              2 => 
-              array (
-                'phoneNumberSMSReminderForeign.id:' => 'phoneNumberSMSReminderForeignMiddle.phoneNumberId',
-              ),
-            ),
-          ),
-        ),
-        'where' => 
-        array (
-          'LIKE' => 's_m_s_reminder.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'SMSReminder\' AND
-                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
-        'orderBy' => 
-        array (
-          'sql' => 'phoneNumbers.name {direction}',
-          'leftJoins' => 
-          array (
-            0 => 
-            array (
-              0 => 'phoneNumbers',
-              1 => 'phoneNumbers',
-              2 => 
-              array (
-                'primary' => 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-      'billingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'billingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'billingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressStreet' => 
-      array (
-        'type' => 'text',
-        'dbType' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'text',
-      ),
-      'shippingAddressCity' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressState' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressCountry' => 
-      array (
-        'type' => 'varchar',
-        'len' => 255,
-        'fieldType' => 'varchar',
-      ),
-      'shippingAddressPostalCode' => 
-      array (
-        'type' => 'varchar',
-        'len' => 40,
-        'fieldType' => 'varchar',
-      ),
       'createdAt' => 
       array (
         'type' => 'datetime',
@@ -42072,41 +36925,13 @@ return array (
         'notNull' => false,
         'fieldType' => 'datetime',
       ),
-      'Stream' => 
-      array (
-        'type' => 'varchar',
-        'len' => 2000,
-        'fieldType' => 'varchar',
-      ),
-      'folderName' => 
+      'senderId' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
         'len' => 255,
       ),
-      'mobileNo' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'reminderDate' => 
-      array (
-        'type' => 'date',
-        'notNull' => false,
-        'fieldType' => 'date',
-      ),
-      'reminderTime' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'Time',
-      ),
-      'smsBody' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'smsStatus' => 
+      'categoryType' => 
       array (
         'type' => 'varchar',
         'fieldType' => 'varchar',
@@ -42115,237 +36940,9 @@ return array (
       'status' => 
       array (
         'type' => 'varchar',
+        'default' => 'Active',
         'fieldType' => 'varchar',
         'len' => 255,
-      ),
-      'sendSmsDateTime' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'sendFrom' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'contentTemplateName' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'emailAddressIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'emailAddresses.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'emailAddresses',
-                1 => 'emailAddresses',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'emailAddresses.opt_out {direction}',
-        'default' => false,
-      ),
-      'phoneNumberIsOptedOut' => 
-      array (
-        'type' => 'bool',
-        'notNull' => true,
-        'notStorable' => true,
-        'fieldType' => 'bool',
-        'select' => 'phoneNumbers.opt_out',
-        'where' => 
-        array (
-          '= TRUE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-          '= FALSE' => 
-          array (
-            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbers',
-                2 => 
-                array (
-                  'primary' => 1,
-                ),
-              ),
-            ),
-          ),
-        ),
-        'orderBy' => 'phoneNumbers.opt_out {direction}',
-        'default' => false,
-      ),
-      'billingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'shippingAddressMap' => 
-      array (
-        'type' => 'varchar',
-        'notExportable' => true,
-        'notStorable' => true,
-        'fieldType' => 'map',
-      ),
-      'emailAddressData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberData' => 
-      array (
-        'type' => 'text',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'phoneNumberNumeric' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-        'where' => 
-        array (
-          'LIKE' => 's_m_s_reminder.id IN (
-                                SELECT entity_id
-                                FROM entity_phone_number
-                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
-                                WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'SMSReminder\' AND
-                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
-                            )',
-          '=' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
-            'distinct' => true,
-          ),
-          '<>' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
-            'distinct' => true,
-          ),
-          'IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
-            'distinct' => true,
-          ),
-          'NOT IN' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
-            'distinct' => true,
-          ),
-          'IS NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
-            'distinct' => true,
-          ),
-          'IS NOT NULL' => 
-          array (
-            'leftJoins' => 
-            array (
-              0 => 
-              array (
-                0 => 'phoneNumbers',
-                1 => 'phoneNumbersNumericMultiple',
-              ),
-            ),
-            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
-            'distinct' => true,
-          ),
-        ),
       ),
       'createdById' => 
       array (
@@ -42437,141 +37034,9 @@ return array (
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple',
       ),
-      'isFollowed' => 
-      array (
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'followersNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'notExportable' => true,
-      ),
-      'tasksIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'tasksNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'callsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
-      'meetingsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkStub' => true,
-      ),
     ),
     'relations' => 
     array (
-      'emailAddresses' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'EmailAddress',
-        'relationName' => 'entityEmailAddress',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'emailAddressId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'SMSReminder',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'phoneNumbers' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'PhoneNumber',
-        'relationName' => 'entityPhoneNumber',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'phoneNumberId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'SMSReminder',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-          'primary' => 
-          array (
-            'type' => 'bool',
-            'default' => false,
-          ),
-        ),
-      ),
-      'tasks' => 
-      array (
-        'type' => 'hasChildren',
-        'entity' => 'Task',
-        'foreignKey' => 'parentId',
-        'foreignType' => 'parentType',
-        'foreign' => 'parent',
-      ),
-      'calls' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Call',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
-      'meetings' => 
-      array (
-        'type' => 'hasMany',
-        'entity' => 'Meeting',
-        'foreignKey' => 'parentId',
-        'foreign' => 'parent',
-      ),
       'teams' => 
       array (
         'type' => 'manyMany',
@@ -42584,7 +37049,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'SMSReminder',
+          'entityType' => 'SenderID',
         ),
         'additionalColumns' => 
         array (
@@ -43584,231 +38049,6 @@ return array (
         'conditions' => 
         array (
           'entityType' => 'SendSMSData',
-        ),
-        'additionalColumns' => 
-        array (
-          'entityType' => 
-          array (
-            'type' => 'varchar',
-            'len' => 100,
-          ),
-        ),
-      ),
-      'assignedUser' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'assignedUserId',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'modifiedBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'modifiedById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-      'createdBy' => 
-      array (
-        'type' => 'belongsTo',
-        'entity' => 'User',
-        'key' => 'createdById',
-        'foreignKey' => 'id',
-        'foreign' => NULL,
-      ),
-    ),
-    'indexes' => 
-    array (
-      'name' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'name',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_NAME',
-      ),
-      'assignedUser' => 
-      array (
-        'columns' => 
-        array (
-          0 => 'assignedUserId',
-          1 => 'deleted',
-        ),
-        'key' => 'IDX_ASSIGNED_USER',
-      ),
-    ),
-    'collection' => 
-    array (
-      'orderBy' => 'createdAt',
-      'order' => 'DESC',
-    ),
-  ),
-  'SenderID' => 
-  array (
-    'fields' => 
-    array (
-      'id' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'id',
-      ),
-      'name' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'deleted' => 
-      array (
-        'type' => 'bool',
-        'default' => false,
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'fieldType' => 'text',
-      ),
-      'createdAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'modifiedAt' => 
-      array (
-        'type' => 'datetime',
-        'notNull' => false,
-        'fieldType' => 'datetime',
-      ),
-      'senderId' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'categoryType' => 
-      array (
-        'type' => 'varchar',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'status' => 
-      array (
-        'type' => 'varchar',
-        'default' => 'Active',
-        'fieldType' => 'varchar',
-        'len' => 255,
-      ),
-      'createdById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'createdByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'createdBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'modifiedById' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'modifiedByName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'modifiedBy',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'assignedUserId' => 
-      array (
-        'dbType' => 'varchar',
-        'len' => 24,
-        'type' => 'foreignId',
-        'index' => true,
-        'attributeRole' => 'id',
-        'fieldType' => 'link',
-        'notNull' => false,
-      ),
-      'assignedUserName' => 
-      array (
-        'type' => 'foreign',
-        'notStorable' => false,
-        'attributeRole' => 'name',
-        'fieldType' => 'link',
-        'relation' => 'assignedUser',
-        'foreign' => 
-        array (
-          0 => 'firstName',
-          1 => ' ',
-          2 => 'lastName',
-        ),
-      ),
-      'teamsIds' => 
-      array (
-        'type' => 'jsonArray',
-        'notStorable' => true,
-        'isLinkMultipleIdList' => true,
-        'relation' => 'teams',
-        'isUnordered' => true,
-        'attributeRole' => 'idList',
-        'fieldType' => 'linkMultiple',
-      ),
-      'teamsNames' => 
-      array (
-        'type' => 'jsonObject',
-        'notStorable' => true,
-        'isLinkMultipleNameMap' => true,
-        'attributeRole' => 'nameMap',
-        'fieldType' => 'linkMultiple',
-      ),
-    ),
-    'relations' => 
-    array (
-      'teams' => 
-      array (
-        'type' => 'manyMany',
-        'entity' => 'Team',
-        'relationName' => 'EntityTeam',
-        'midKeys' => 
-        array (
-          0 => 'entityId',
-          1 => 'teamId',
-        ),
-        'conditions' => 
-        array (
-          'entityType' => 'SenderID',
         ),
         'additionalColumns' => 
         array (
@@ -45846,7 +40086,7 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'TEsting2811' => 
+  'SMSReminder' => 
   array (
     'fields' => 
     array (
@@ -45901,38 +40141,38 @@ return array (
         ),
         'selectForeign' => 
         array (
-          'sql' => 'emailAddressTEsting2811Foreign.name',
+          'sql' => 'emailAddressSMSReminderForeign.name',
           'leftJoins' => 
           array (
             0 => 
             array (
               0 => 'EntityEmailAddress',
-              1 => 'emailAddressTEsting2811ForeignMiddle',
+              1 => 'emailAddressSMSReminderForeignMiddle',
               2 => 
               array (
-                'emailAddressTEsting2811ForeignMiddle.entityId:' => '{alias}.id',
-                'emailAddressTEsting2811ForeignMiddle.primary' => 1,
+                'emailAddressSMSReminderForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressSMSReminderForeignMiddle.primary' => 1,
               ),
             ),
             1 => 
             array (
               0 => 'EmailAddress',
-              1 => 'emailAddressTEsting2811Foreign',
+              1 => 'emailAddressSMSReminderForeign',
               2 => 
               array (
-                'emailAddressTEsting2811Foreign.id:' => 'emailAddressTEsting2811ForeignMiddle.emailAddressId',
+                'emailAddressSMSReminderForeign.id:' => 'emailAddressSMSReminderForeignMiddle.emailAddressId',
               ),
             ),
           ),
         ),
         'where' => 
         array (
-          'LIKE' => 't_esting2811.id IN (
+          'LIKE' => 's_m_s_reminder.id IN (
                                 SELECT entity_id
                                 FROM entity_email_address
                                 JOIN email_address ON email_address.id = entity_email_address.email_address_id
                                 WHERE
-                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'TEsting2811\' AND
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'SMSReminder\' AND
                                     email_address.deleted = 0 AND email_address.lower LIKE {value}
                             )',
           '=' => 
@@ -46054,38 +40294,2993 @@ return array (
         ),
         'selectForeign' => 
         array (
-          'sql' => 'phoneNumberTEsting2811Foreign.name',
+          'sql' => 'phoneNumberSMSReminderForeign.name',
           'leftJoins' => 
           array (
             0 => 
             array (
               0 => 'EntityPhoneNumber',
-              1 => 'phoneNumberTEsting2811ForeignMiddle',
+              1 => 'phoneNumberSMSReminderForeignMiddle',
               2 => 
               array (
-                'phoneNumberTEsting2811ForeignMiddle.entityId:' => '{alias}.id',
-                'phoneNumberTEsting2811ForeignMiddle.primary' => 1,
+                'phoneNumberSMSReminderForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberSMSReminderForeignMiddle.primary' => 1,
               ),
             ),
             1 => 
             array (
               0 => 'PhoneNumber',
-              1 => 'phoneNumberTEsting2811Foreign',
+              1 => 'phoneNumberSMSReminderForeign',
               2 => 
               array (
-                'phoneNumberTEsting2811Foreign.id:' => 'phoneNumberTEsting2811ForeignMiddle.phoneNumberId',
+                'phoneNumberSMSReminderForeign.id:' => 'phoneNumberSMSReminderForeignMiddle.phoneNumberId',
               ),
             ),
           ),
         ),
         'where' => 
         array (
-          'LIKE' => 't_esting2811.id IN (
+          'LIKE' => 's_m_s_reminder.id IN (
                                 SELECT entity_id
                                 FROM entity_phone_number
                                 JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
                                 WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'TEsting2811\' AND
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'SMSReminder\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'folderName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'mobileNo' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'reminderDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'reminderTime' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'Time',
+      ),
+      'smsBody' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'smsStatus' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'sendSmsDateTime' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'sendFrom' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'contentTemplateName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 's_m_s_reminder.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'SMSReminder\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'SMSReminder',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'SMSReminder',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'SMSReminder',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'Target' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'select' => 'TRIM(CONCAT(IFNULL(target.first_name, \'\'), \' \', IFNULL(target.last_name, \'\')))',
+        'where' => 
+        array (
+          'LIKE' => '(target.first_name LIKE {value} OR target.last_name LIKE {value} OR CONCAT(target.first_name, \' \', target.last_name) LIKE {value} OR CONCAT(target.last_name, \' \', target.first_name) LIKE {value})',
+          '=' => '(target.first_name = {value} OR target.last_name = {value} OR CONCAT(target.first_name, \' \', target.last_name) = {value} OR CONCAT(target.last_name, \' \', target.first_name) = {value})',
+        ),
+        'orderBy' => 'target.first_name {direction}, target.last_name',
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'salutationName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'firstName' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'default' => '',
+        'fieldType' => 'varchar',
+      ),
+      'lastName' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'default' => '',
+        'fieldType' => 'varchar',
+      ),
+      'title' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'accountName' => 
+      array (
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'addressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'addressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'addressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressTargetForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressTargetForeignMiddle',
+              2 => 
+              array (
+                'emailAddressTargetForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressTargetForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressTargetForeign',
+              2 => 
+              array (
+                'emailAddressTargetForeign.id:' => 'emailAddressTargetForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'target.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Target\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberTargetForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberTargetForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberTargetForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberTargetForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberTargetForeign',
+              2 => 
+              array (
+                'phoneNumberTargetForeign.id:' => 'phoneNumberTargetForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'target.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Target\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'doNotCall' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'addressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 'target.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Target\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Target',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Target',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Target',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'firstName' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'firstName',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_FIRST_NAME',
+      ),
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'firstName',
+          1 => 'lastName',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'TargetList' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'entryCount' => 
+      array (
+        'type' => 'int',
+        'notStorable' => true,
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'optedOutCount' => 
+      array (
+        'type' => 'int',
+        'notStorable' => true,
+        'fieldType' => 'int',
+        'len' => 11,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'includingActionList' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'storeArrayValues' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'excludingActionList' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'storeArrayValues' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'targetStatus' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'isOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'campaignsId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => 'campaigns',
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'campaignsName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+      ),
+      'usersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'usersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'leadsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'leadsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'contactsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'contactsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'accountsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'accountsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'massEmailsExcludingIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'massEmailsExcludingNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'campaignsExcludingIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'campaignsExcludingNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'massEmailsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'massEmailsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'campaignsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => false,
+      ),
+      'campaignsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => false,
+      ),
+    ),
+    'relations' => 
+    array (
+      'users' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'User',
+        'relationName' => 'targetListUser',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'userId',
+        ),
+        'foreign' => 'targetLists',
+        'additionalColumns' => 
+        array (
+          'optedOut' => 
+          array (
+            'type' => 'bool',
+          ),
+        ),
+      ),
+      'leads' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Lead',
+        'relationName' => 'leadTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'leadId',
+        ),
+        'foreign' => 'targetLists',
+        'additionalColumns' => 
+        array (
+          'optedOut' => 
+          array (
+            'type' => 'bool',
+          ),
+        ),
+      ),
+      'contacts' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Contact',
+        'relationName' => 'contactTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'contactId',
+        ),
+        'foreign' => 'targetLists',
+        'additionalColumns' => 
+        array (
+          'optedOut' => 
+          array (
+            'type' => 'bool',
+          ),
+        ),
+      ),
+      'accounts' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Account',
+        'relationName' => 'accountTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'accountId',
+        ),
+        'foreign' => 'targetLists',
+        'additionalColumns' => 
+        array (
+          'optedOut' => 
+          array (
+            'type' => 'bool',
+          ),
+        ),
+      ),
+      'massEmailsExcluding' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'MassEmail',
+        'relationName' => 'massEmailTargetListExcluding',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'massEmailId',
+        ),
+        'foreign' => 'excludingTargetLists',
+      ),
+      'campaignsExcluding' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Campaign',
+        'relationName' => 'campaignTargetListExcluding',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'campaignId',
+        ),
+        'foreign' => 'excludingTargetLists',
+      ),
+      'massEmails' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'MassEmail',
+        'relationName' => 'massEmailTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'massEmailId',
+        ),
+        'foreign' => 'targetLists',
+      ),
+      'campaigns' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Campaign',
+        'relationName' => 'campaignTargetList',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => 
+        array (
+          0 => 'targetListId',
+          1 => 'campaignId',
+        ),
+        'foreign' => 'targetLists',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'TargetList',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'createdAt' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'createdAt',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_CREATED_AT',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'Task' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'status' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Open',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'priority' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Normal',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'dateStart' => 
+      array (
+        'type' => 'datetime',
+        'fieldType' => 'datetime',
+      ),
+      'dateEnd' => 
+      array (
+        'type' => 'datetime',
+        'fieldType' => 'datetime',
+      ),
+      'dateStartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'dateEndDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'dateCompleted' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'isOverdue' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'default' => false,
+      ),
+      'reminders' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'fieldType' => 'jsonArray',
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'createRecurringSeriesOfTasks' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'default' => false,
+        'fieldType' => 'bool',
+      ),
+      'startDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'endDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'frequency' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Daily',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'repeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every day',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'weeklyrepeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every week',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'weeklyrepeatOn' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Monday',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'weeklystartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'weeklyendDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'monthlyRepeatOn' => 
+      array (
+        'type' => 'varchar',
+        'default' => '01',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'monthlyStartDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'monthlyEndDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'monthlyRepeat' => 
+      array (
+        'type' => 'varchar',
+        'default' => 'Every Month',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'numberOfRecurringTasks' => 
+      array (
+        'type' => 'varchar',
+        'default' => '1',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'customStartDate1' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate2' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate3' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate4' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate5' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'customStartDate6' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'completedAt' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'closedAt' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'stream' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'parentId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => 'parent',
+        'attributeRole' => 'id',
+        'fieldType' => 'linkParent',
+        'notNull' => false,
+      ),
+      'parentType' => 
+      array (
+        'type' => 'foreignType',
+        'notNull' => false,
+        'index' => 'parent',
+        'len' => 100,
+        'attributeRole' => 'type',
+        'fieldType' => 'linkParent',
+        'dbType' => 'varchar',
+      ),
+      'parentName' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'relation' => 'parent',
+        'isParentName' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'linkParent',
+      ),
+      'accountId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'accountName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'account',
+        'foreign' => 'name',
+      ),
+      'contactId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'contactName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'contact',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'attachmentsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'orderBy' => 
+        array (
+          0 => 
+          array (
+            0 => 'createdAt',
+            1 => 'ASC',
+          ),
+          1 => 
+          array (
+            0 => 'name',
+            1 => 'ASC',
+          ),
+        ),
+        'isLinkMultipleIdList' => true,
+        'relation' => 'attachments',
+        'isLinkStub' => false,
+      ),
+      'attachmentsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'isLinkStub' => false,
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'attachmentsTypes' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'contact' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Contact',
+        'key' => 'contactId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'account' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'Account',
+        'key' => 'accountId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'parent' => 
+      array (
+        'type' => 'belongsToParent',
+        'key' => 'parentId',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Task',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => 'tasks',
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'attachments' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Attachment',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+        'conditions' => 
+        array (
+          'OR' => 
+          array (
+            0 => 
+            array (
+              'field' => NULL,
+            ),
+            1 => 
+            array (
+              'field' => 'attachments',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'indexes' => 
+    array (
+      'dateStartStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'dateStart',
+          1 => 'status',
+        ),
+        'key' => 'IDX_DATE_START_STATUS',
+      ),
+      'dateEndStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'dateEnd',
+          1 => 'status',
+        ),
+        'key' => 'IDX_DATE_END_STATUS',
+      ),
+      'dateStart' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'dateStart',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_DATE_START',
+      ),
+      'status' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'status',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_STATUS',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+      'assignedUserStatus' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'status',
+        ),
+        'key' => 'IDX_ASSIGNED_USER_STATUS',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'Demo' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressDemoForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressDemoForeignMiddle',
+              2 => 
+              array (
+                'emailAddressDemoForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressDemoForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressDemoForeign',
+              2 => 
+              array (
+                'emailAddressDemoForeign.id:' => 'emailAddressDemoForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'demo.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Demo\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberDemoForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberDemoForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberDemoForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberDemoForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberDemoForeign',
+              2 => 
+              array (
+                'phoneNumberDemoForeign.id:' => 'phoneNumberDemoForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'demo.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Demo\' AND
                                     phone_number.deleted = 0 AND phone_number.name LIKE {value}
                             )',
           '=' => 
@@ -46387,12 +43582,12 @@ return array (
         'notExportable' => true,
         'where' => 
         array (
-          'LIKE' => 't_esting2811.id IN (
+          'LIKE' => 'demo.id IN (
                                 SELECT entity_id
                                 FROM entity_phone_number
                                 JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
                                 WHERE
-                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'TEsting2811\' AND
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Demo\' AND
                                     phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
                             )',
           '=' => 
@@ -46634,7 +43829,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'TEsting2811',
+          'entityType' => 'Demo',
         ),
         'additionalColumns' => 
         array (
@@ -46662,7 +43857,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'TEsting2811',
+          'entityType' => 'Demo',
         ),
         'additionalColumns' => 
         array (
@@ -46712,7 +43907,7 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'TEsting2811',
+          'entityType' => 'Demo',
         ),
         'additionalColumns' => 
         array (
@@ -46775,7 +43970,7 @@ return array (
       'order' => 'DESC',
     ),
   ),
-  'Test' => 
+  'Designation' => 
   array (
     'fields' => 
     array (
@@ -46801,6 +43996,380 @@ return array (
         'type' => 'text',
         'fieldType' => 'text',
       ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressDesignationForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressDesignationForeignMiddle',
+              2 => 
+              array (
+                'emailAddressDesignationForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressDesignationForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressDesignationForeign',
+              2 => 
+              array (
+                'emailAddressDesignationForeign.id:' => 'emailAddressDesignationForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'designation.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'Designation\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberDesignationForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberDesignationForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberDesignationForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberDesignationForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberDesignationForeign',
+              2 => 
+              array (
+                'phoneNumberDesignationForeign.id:' => 'phoneNumberDesignationForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'designation.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Designation\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
       'createdAt' => 
       array (
         'type' => 'datetime',
@@ -46812,6 +44381,223 @@ return array (
         'type' => 'datetime',
         'notNull' => false,
         'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 'designation.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'Designation\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
       ),
       'createdById' => 
       array (
@@ -46903,9 +44689,141 @@ return array (
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple',
       ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
     ),
     'relations' => 
     array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Designation',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Designation',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
       'teams' => 
       array (
         'type' => 'manyMany',
@@ -46918,7 +44836,954 @@ return array (
         ),
         'conditions' => 
         array (
-          'entityType' => 'Test',
+          'entityType' => 'Designation',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'MessageLog' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressMessageLogForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressMessageLogForeignMiddle',
+              2 => 
+              array (
+                'emailAddressMessageLogForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressMessageLogForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressMessageLogForeign',
+              2 => 
+              array (
+                'emailAddressMessageLogForeign.id:' => 'emailAddressMessageLogForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'message_log.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'MessageLog\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberMessageLogForeign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberMessageLogForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberMessageLogForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberMessageLogForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberMessageLogForeign',
+              2 => 
+              array (
+                'phoneNumberMessageLogForeign.id:' => 'phoneNumberMessageLogForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 'message_log.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'MessageLog\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'subDomainName' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'totalMessages' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'sentMessages' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'remainingMessages' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'planExpiryDate' => 
+      array (
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date',
+      ),
+      'senderId' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 'message_log.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'MessageLog\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'MessageLog',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'MessageLog',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'MessageLog',
         ),
         'additionalColumns' => 
         array (
@@ -47910,6 +46775,935 @@ return array (
       'order' => 'DESC',
     ),
   ),
+  'TEsting2811' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'website' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'emailAddress' => 
+      array (
+        'type' => 'email',
+        'notStorable' => true,
+        'fieldType' => 'email',
+        'select' => 
+        array (
+          'sql' => 'emailAddresses.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'emailAddressTEsting2811Foreign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityEmailAddress',
+              1 => 'emailAddressTEsting2811ForeignMiddle',
+              2 => 
+              array (
+                'emailAddressTEsting2811ForeignMiddle.entityId:' => '{alias}.id',
+                'emailAddressTEsting2811ForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'EmailAddress',
+              1 => 'emailAddressTEsting2811Foreign',
+              2 => 
+              array (
+                'emailAddressTEsting2811Foreign.id:' => 'emailAddressTEsting2811ForeignMiddle.emailAddressId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 't_esting2811.id IN (
+                                SELECT entity_id
+                                FROM entity_email_address
+                                JOIN email_address ON email_address.id = entity_email_address.email_address_id
+                                WHERE
+                                    entity_email_address.deleted = 0 AND entity_email_address.entity_type = \'TEsting2811\' AND
+                                    email_address.deleted = 0 AND email_address.lower LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddressesMultiple',
+              ),
+            ),
+            'sql' => 'emailAddressesMultiple.lower IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'emailAddresses.lower {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'emailAddresses',
+              1 => 'emailAddresses',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'phoneNumber' => 
+      array (
+        'type' => 'phone',
+        'notStorable' => true,
+        'fieldType' => 'phone',
+        'select' => 
+        array (
+          'sql' => 'phoneNumbers.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+        'selectForeign' => 
+        array (
+          'sql' => 'phoneNumberTEsting2811Foreign.name',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'EntityPhoneNumber',
+              1 => 'phoneNumberTEsting2811ForeignMiddle',
+              2 => 
+              array (
+                'phoneNumberTEsting2811ForeignMiddle.entityId:' => '{alias}.id',
+                'phoneNumberTEsting2811ForeignMiddle.primary' => 1,
+              ),
+            ),
+            1 => 
+            array (
+              0 => 'PhoneNumber',
+              1 => 'phoneNumberTEsting2811Foreign',
+              2 => 
+              array (
+                'phoneNumberTEsting2811Foreign.id:' => 'phoneNumberTEsting2811ForeignMiddle.phoneNumberId',
+              ),
+            ),
+          ),
+        ),
+        'where' => 
+        array (
+          'LIKE' => 't_esting2811.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'TEsting2811\' AND
+                                    phone_number.deleted = 0 AND phone_number.name LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersMultiple.name IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+        'orderBy' => 
+        array (
+          'sql' => 'phoneNumbers.name {direction}',
+          'leftJoins' => 
+          array (
+            0 => 
+            array (
+              0 => 'phoneNumbers',
+              1 => 'phoneNumbers',
+              2 => 
+              array (
+                'primary' => 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'billingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'billingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'billingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressStreet' => 
+      array (
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text',
+      ),
+      'shippingAddressCity' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressState' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressCountry' => 
+      array (
+        'type' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'varchar',
+      ),
+      'shippingAddressPostalCode' => 
+      array (
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'Stream' => 
+      array (
+        'type' => 'varchar',
+        'len' => 2000,
+        'fieldType' => 'varchar',
+      ),
+      'emailAddressIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'emailAddresses.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = true AND emailAddresses.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'emailAddresses.opt_out = false OR emailAddresses.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'emailAddresses',
+                1 => 'emailAddresses',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'emailAddresses.opt_out {direction}',
+        'default' => false,
+      ),
+      'phoneNumberIsOptedOut' => 
+      array (
+        'type' => 'bool',
+        'notNull' => true,
+        'notStorable' => true,
+        'fieldType' => 'bool',
+        'select' => 'phoneNumbers.opt_out',
+        'where' => 
+        array (
+          '= TRUE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = true AND phoneNumbers.opt_out IS NOT NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+          '= FALSE' => 
+          array (
+            'sql' => 'phoneNumbers.opt_out = false OR phoneNumbers.opt_out IS NULL',
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbers',
+                2 => 
+                array (
+                  'primary' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+        'orderBy' => 'phoneNumbers.opt_out {direction}',
+        'default' => false,
+      ),
+      'billingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'shippingAddressMap' => 
+      array (
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map',
+      ),
+      'emailAddressData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberData' => 
+      array (
+        'type' => 'text',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'phoneNumberNumeric' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+        'where' => 
+        array (
+          'LIKE' => 't_esting2811.id IN (
+                                SELECT entity_id
+                                FROM entity_phone_number
+                                JOIN phone_number ON phone_number.id = entity_phone_number.phone_number_id
+                                WHERE
+                                    entity_phone_number.deleted = 0 AND entity_phone_number.entity_type = \'TEsting2811\' AND
+                                    phone_number.deleted = 0 AND phone_number.numeric LIKE {value}
+                            )',
+          '=' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric = {value}',
+            'distinct' => true,
+          ),
+          '<>' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric <> {value}',
+            'distinct' => true,
+          ),
+          'IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IN {value}',
+            'distinct' => true,
+          ),
+          'NOT IN' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric NOT IN {value}',
+            'distinct' => true,
+          ),
+          'IS NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NULL',
+            'distinct' => true,
+          ),
+          'IS NOT NULL' => 
+          array (
+            'leftJoins' => 
+            array (
+              0 => 
+              array (
+                0 => 'phoneNumbers',
+                1 => 'phoneNumbersNumericMultiple',
+              ),
+            ),
+            'sql' => 'phoneNumbersNumericMultiple.numeric IS NOT NULL',
+            'distinct' => true,
+          ),
+        ),
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+      'isFollowed' => 
+      array (
+        'type' => 'varchar',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'followersNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true,
+      ),
+      'tasksIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'tasksNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'callsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+      'meetingsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true,
+      ),
+    ),
+    'relations' => 
+    array (
+      'emailAddresses' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'EmailAddress',
+        'relationName' => 'entityEmailAddress',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'emailAddressId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'TEsting2811',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'phoneNumbers' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'PhoneNumber',
+        'relationName' => 'entityPhoneNumber',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'phoneNumberId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'TEsting2811',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+          'primary' => 
+          array (
+            'type' => 'bool',
+            'default' => false,
+          ),
+        ),
+      ),
+      'tasks' => 
+      array (
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent',
+      ),
+      'calls' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'meetings' => 
+      array (
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent',
+      ),
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'TEsting2811',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
   'TestingEntity' => 
   array (
     'fields' => 
@@ -48777,6 +48571,212 @@ return array (
         'conditions' => 
         array (
           'entityType' => 'TestingEntity',
+        ),
+        'additionalColumns' => 
+        array (
+          'entityType' => 
+          array (
+            'type' => 'varchar',
+            'len' => 100,
+          ),
+        ),
+      ),
+      'assignedUser' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'modifiedBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+      'createdBy' => 
+      array (
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'name' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'name',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_NAME',
+      ),
+      'assignedUser' => 
+      array (
+        'columns' => 
+        array (
+          0 => 'assignedUserId',
+          1 => 'deleted',
+        ),
+        'key' => 'IDX_ASSIGNED_USER',
+      ),
+    ),
+    'collection' => 
+    array (
+      'orderBy' => 'createdAt',
+      'order' => 'DESC',
+    ),
+  ),
+  'Test' => 
+  array (
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'id',
+      ),
+      'name' => 
+      array (
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255,
+      ),
+      'deleted' => 
+      array (
+        'type' => 'bool',
+        'default' => false,
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'fieldType' => 'text',
+      ),
+      'createdAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'modifiedAt' => 
+      array (
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime',
+      ),
+      'createdById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'createdByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'modifiedById' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'modifiedByName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'assignedUserId' => 
+      array (
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false,
+      ),
+      'assignedUserName' => 
+      array (
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 
+        array (
+          0 => 'firstName',
+          1 => ' ',
+          2 => 'lastName',
+        ),
+      ),
+      'teamsIds' => 
+      array (
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+      ),
+      'teamsNames' => 
+      array (
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+      ),
+    ),
+    'relations' => 
+    array (
+      'teams' => 
+      array (
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'EntityTeam',
+        'midKeys' => 
+        array (
+          0 => 'entityId',
+          1 => 'teamId',
+        ),
+        'conditions' => 
+        array (
+          'entityType' => 'Test',
         ),
         'additionalColumns' => 
         array (

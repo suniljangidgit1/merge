@@ -358,16 +358,8 @@
     'columns': [
       
        { data: 'id' },
-       { data: 'first_name',
-        render : function(data, type, row) {
-              return '<span class="mycus-class2">'+data+'</span>'
-          } 
-       },
-       { data: 'working_from',
-        render : function(data, type, row) {
-              return '<span class="mycus-class2">'+data+'</span>'
-          } 
-       },
+       { data: 'first_name' },
+       { data: 'working_from' },
        { data: 'daily_sheet_date' },
        { data: 'in_time' },
        { data: 'out_time' },
@@ -674,13 +666,13 @@ $(document).on("click" , "tr[role=row]" , function(event){
               var day = time.split("-")[2];
               if ( response.data.feedback[i].feedback_by == "6" ){
 
-                   var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class="col-xs-12"><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
+                   var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class=""><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
                      
                   $(".reviewer").prepend(senderExsitingFeedback);
                 
                 } else{
 
-                   var reciverExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class="col-xs-12"><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
+                   var reciverExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class=""><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
 
                   $(".reviewer").prepend(reciverExsitingFeedback);
 

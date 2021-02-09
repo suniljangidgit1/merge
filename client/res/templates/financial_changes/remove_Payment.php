@@ -14,7 +14,7 @@ $payment_id=$_GET['id'];
 $sql1="select * from payments where id='$payment_id'";
 $result1=mysqli_query($conn,$sql1);
 $row1=mysqli_fetch_assoc($result1);
-$invoiceno=$row1['invoiceno'];
+$invoiceno = $row1['invoiceno'];
 
 //delete payment data
 $sql2="delete from payments where id='$payment_id'";
@@ -82,7 +82,7 @@ $project = explode('/', $_SERVER['REQUEST_URI'])[1];
 
 if($result_invoice_update)
 {
-    $sql3="select * from payments";
+    $sql3="select * from payments where deleted = '0' ";
     $result3=mysqli_query($conn,$sql3);
     $payment_num_rows = mysqli_num_rows($result3);
 

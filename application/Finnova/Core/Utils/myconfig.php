@@ -1,11 +1,12 @@
 <?php
 
-$HTTP_HOST 		= $_SERVER['SERVER_NAME'];
-$servername 	= "164.52.205.204";
-$username 		= "proadmin";
-$password 		= 'mJmxCj*92WuFcfB_';
-$dbname 		= "crmdev";
 
+$HTTP_HOST 		= $_SERVER['SERVER_NAME'];
+//$HTTP_HOST=$_SERVER['HTTP_HOST'];
+$servername 	= "localhost";
+$username 		= "root";
+$password 		= 'root';
+$dbname 		= "crmdev";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -14,13 +15,14 @@ if ($conn->connect_error) {
 }
 
 //$sql = "SELECT * FROM host_record where status=2";
-if($HTTP_HOST=='164.52.205.201'){
+if($HTTP_HOST=='crm.com'){
 	$sql = "SELECT * FROM host_record where domain_url like '%$HTTP_HOST%' AND status=2";
 }else{
 	$sql = "SELECT * FROM host_record where domain_url like '%$HTTP_HOST%' AND status=1";
 }
 
 $domainName='';
+// $result = $conn->query($sql);
 $result = mysqli_query($conn, $sql);
 $HostResult=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -47,7 +49,7 @@ if($HostResult['domain_url']==$HTTP_HOST){
 	$hashSecretKey 	= $finalConfigArray['hashSecretKey'];
 
 
-	if($HTTP_HOST=='164.52.205.201'){
+	if($HTTP_HOST=='crm.com'){
 		$testconfigfile='data/defaultconfig.php';
 		$cacheDataPath='default';
 	}else if($HTTP_HOST=='dev.fincrm.net'){

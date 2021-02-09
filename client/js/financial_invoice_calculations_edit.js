@@ -8,8 +8,33 @@ $("#edit_datepicker").datepicker({
 })
 // .datepicker('update', new Date());
 
- $(document).on("focus", ".editInvoiceDate", function(e){
+ /*$(document).on("focus", ".editInvoiceDate", function(e){
       $(".editInvoiceDate").datepicker({format: "dd/mm/yyyy",autoclose:true,todayHighlight: true});
+    });*/
+ $(document).on("click", "#edit_invoice_date,.edit_invoice_date_datepicker", function(e){
+      e.stopImmediatePropagation();
+      e.preventDefault();    
+     $("#edit_invoice_date").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true, 
+      todayHighlight: true,
+      changeMonth: true,
+      changeYear: true,
+     }).trigger("focus");
+    });
+
+ $(document).on("click", "#edit_due_date,.edit_invoice_due_date_datepicker", function(e){
+      e.stopImmediatePropagation();
+      e.preventDefault();    
+     $("#edit_due_date").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true, 
+      todayHighlight: true,
+      changeMonth: true,
+      changeYear: true,
+      autoclose: true,
+      todayHighlight: true,
+     }).trigger("focus");
     });
 
 /*$(".edit_invoice_date ").change(function(){
@@ -3362,55 +3387,65 @@ $(document).on("click", "#update_invoiceBTN_new", function(event){
                     newFileEditInvFlag = 1;
                 });
 
-                if(newFileEditInvFlag)
-                {
-                    $("#edit_invoiceModal .email-blur-effect, #edit_invoiceModal .email-loader").show();
-                }
-                
-                $.ajax({
-                    type    : "POST",
-                    url     : "../../client/res/templates/financial_changes/update_invoice.php",
-                    dataType  : "json",
-                    processData: false,
-                    contentType: false,
-                    data: form,
-                    success: function(data)
-                    {
-                        if(data.status == "true")
-                        {
-                            if(newFileEditInvFlag)
-                            {
-                                $("#edit_invoiceModal .email-blur-effect, #edit_invoiceModal .email-loader").hide();
-                            }
-                            $.confirm({
-                                title: 'Success!',
-                                content: data.msg,
-                                buttons: {
-                                    Ok: function () {
-                                        $('button[data-action="reset"]').trigger('click');
-                                        // $(function (){
 
-                                            // $('#edit_invoice_main_details').modal('toggle');
-                                            $('#edit_invoiceModal').modal('hide');
-                                        // });
-                                        // $('#updateinvoiceForm')[0].reset();
-                                         $(".modal-backdrop.in").remove();
-                                         
-                                    }
-                                }
-                            });
-                        }
-                        else
-                        {
-                            $.alert({
-                                title: 'Alert!',
-                                content: data.msg,
-                                type: 'dark',
-                                typeAnimated: true,
-                            });
-                        }
+                // if($("#edit_invoiceModal #invalidFormat").val() == 0)
+                // {   
+                    if(newFileEditInvFlag)
+                    {
+                        $("#edit_invoiceModal .email-blur-effect, #edit_invoiceModal .email-loader").show();
                     }
-                });
+
+                    $.ajax({
+                        type    : "POST",
+                        url     : "../../client/res/templates/financial_changes/update_invoice.php",
+                        dataType  : "json",
+                        processData: false,
+                        contentType: false,
+                        data: form,
+                        success: function(data)
+                        {
+                            if(data.status == "true")
+                            {
+                                if(newFileEditInvFlag)
+                                {
+                                    $("#edit_invoiceModal .email-blur-effect, #edit_invoiceModal .email-loader").hide();
+                                }
+                                $.confirm({
+                                    title: 'Success!',
+                                    content: data.msg,
+                                    buttons: {
+                                        Ok: function () {
+                                            $('button[data-action="reset"]').trigger('click');
+                                            // $(function (){
+
+                                                // $('#edit_invoice_main_details').modal('toggle');
+                                                $('#edit_invoiceModal').modal('hide');
+                                            // });
+                                            // $('#updateinvoiceForm')[0].reset();
+                                             $(".modal-backdrop.in").remove();
+                                             
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                $.alert({
+                                    title: 'Alert!',
+                                    content: data.msg,
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                });
+                            }
+                        }
+                    });
+                // }
+                // else {
+                //     $("#edit_invoiceModal").animate({ 
+                //         scrollTop:  $(".edit_invoice_filesList").offset().top 
+                //     }, 100); 
+                //     return false;
+                // }
             }
         }
     // });
@@ -3959,7 +3994,7 @@ $(document).on("keyup", "#edit_invoice_disc_amt", function(e_edit_invoice_disc_a
       e_edit_invoice_disc_amt.preventDefault();
       e_edit_invoice_disc_amt.stopImmediatePropagation();
 
-      alert("success");
+      // alert("success");
 
       var a=$(this).closest('tr').find(".discount_section").find(".custom-a11yselect-btn .custom-a11yselect-text").text();
       var selected_gst_type = $(this).closest('tr').next().find(".GST_section .custom-a11yselect-btn .custom-a11yselect-text").text();
@@ -4495,6 +4530,10 @@ function calculate_invoice_summary_edit()
                     var disc_amt = 0;
                 }
             }
+            else {
+                disc_amt = 0;
+            }
+
             // var disc_amt = current.find(".main_amount .calculated_discount").val();
             var current1 = $("#updateinvoiceForm .edit_invoice_participantRow .CGST_TR_section").eq(s);
             var curr_igst= current1.find(".item_igst_amount").val();
@@ -4507,7 +4546,7 @@ function calculate_invoice_summary_edit()
             total_calculated_disc = parseFloat(total_calculated_disc) + parseFloat(disc_amt);
         }
     }
-    // alert("total_disc: "+total_disc+" === total_calculated_disc: "+total_calculated_disc);
+    // alert("main_amount: "+main_amount+" === total_disc: "+total_disc+" === total_calculated_disc: "+total_calculated_disc);
     if(flag == true){
 
         /*if($("#edit_total_invoice_value").val()!=0 && $("#edit_total_invoice_value").val()!=main_amount){
@@ -4522,6 +4561,16 @@ function calculate_invoice_summary_edit()
             var total_disc = parseFloat($("#edit_invoice_calculated_disc_amt").val());
             var invoice_disc = $("#updateinvoiceForm").find("#edit_invoice_calculated_disc_amt").val();
         }*/
+        
+        /*if($("#edit_invoice_disc_amt").is(":visible") && ($("#edit_invoice_disc_amt").val()!=0 && $("#edit_invoice_disc_amt").val() != ""))
+        {
+            $("#updateinvoiceForm").find("#edit_invoice_calculated_disc_amt").val($("#edit_invoice_disc_amt").val());
+            total_calculated_disc = parseFloat($("#edit_invoice_disc_amt").val());
+        }
+        else {
+            total_calculated_disc = parseFloat(total_calculated_disc);
+        }*/
+        
         if(total_calculated_disc!=0){
             var total_disc = parseFloat(total_calculated_disc);
         }
@@ -4529,7 +4578,6 @@ function calculate_invoice_summary_edit()
             var total_disc = 0;
         }
         
-
         if($("#edit_invoice_totalpaid_amount").val()){
             var total_paidAmt = parseFloat($("#edit_invoice_totalpaid_amount").val());
         }
@@ -4537,8 +4585,9 @@ function calculate_invoice_summary_edit()
             var total_paidAmt = 0;
         }
 
+        // alert("main_amount: "+main_amount+" === total_disc: "+total_disc+" === total_calculated_disc: "+total_calculated_disc+" === edit_total_invoice_value: "+edit_total_invoice_value+" === total_paidAmt:"+total_paidAmt);
 
-        var total_disc = parseFloat(main_amount) - parseFloat($("#edit_total_invoice_value").val()) - total_paidAmt;
+        // var total_disc = parseFloat(main_amount) - parseFloat($("#edit_total_invoice_value").val());
 
         var invoice_disc = $("#updateinvoiceForm").find("#edit_invoice_calculated_disc_amt").val();
         var invoice_igst = $("#updateinvoiceForm #edit_Calculate_discounts .CGST_TR_section").find(".invoice_igst_amount").val();
@@ -4546,7 +4595,9 @@ function calculate_invoice_summary_edit()
         var invoice_sgst = $("#updateinvoiceForm #edit_Calculate_discounts .CGST_TR_section").find(".invoice_sgst_amount").val();
         
         total_disc = parseFloat(total_disc) + parseFloat(invoice_disc);
-        
+
+        // alert("main_amount: "+main_amount+" === total_disc: "+total_disc+" === total_calculated_disc: "+total_calculated_disc+" === edit_total_invoice_value: "+edit_total_invoice_value+" === total_paidAmt:"+total_paidAmt);
+
         total_taxes = parseFloat(total_taxes) + parseFloat(invoice_igst) + parseFloat(invoice_cgst) + parseFloat(invoice_sgst);
         
         var element = $("#edit_invoice_calculation #edit_main_calculation");
@@ -4767,10 +4818,14 @@ function geteditFilenames(){
                     type: 'dark',
                     typeAnimated: true,
                 });*/
-                $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+                $fileHtml= $fileHtml+"<li class='wrongFileFormat'><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div><input type='hidden' name='invalidFormat' id='invalidFormat' value='1' /></li>";
+
+                setTimeout(function () {
+                    $("li.wrongFileFormat").remove();
+                }, 1000);
             }
             else{  
-                $fileHtml= $fileHtml+"<li><div class='col-xs-6 col-sm-6 col-md-6'>"+fileName+"</div><div class='col-xs-6 col-sm-6 col-md-6'><span class='material-icons-outlined edit_unlinkFile' data-id='' data-name='"+fileName+"' aria-hidden='true' onclick='edit_unLinkfile(this);' style='cursor: pointer; font-size: 14px;top: 3px; margin-left: 5px;' >close</span></div></li>";
+                $fileHtml= $fileHtml+"<li><div class='col-xs-6 col-sm-6 col-md-6'>"+fileName+"</div><div class='col-xs-6 col-sm-6 col-md-6'><span class='material-icons-outlined edit_unlinkFile' data-id='' data-name='"+fileName+"' aria-hidden='true' onclick='edit_unLinkfile(this);' style='cursor: pointer; font-size: 14px;top: 3px; margin-left: 5px;'>close</span></div><input type='hidden' name='invalidFormat' id='invalidFormat' value='0' /></li>";
             }
         });
         $(".edit_invoice_filesList").append($fileHtml);
@@ -4982,7 +5037,8 @@ function cal_invoice_level_amts_edit(elem='')
     if($("#edit_invoice_totalpaid_amount").is(":visible") && $("#edit_invoice_totalpaid_amount").val()!=0)
     {
         total_paid = $("#edit_invoice_totalpaid_amount").val();
-    }else{
+    }
+    else {
         total_paid = 0;
     }
 

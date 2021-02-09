@@ -19,6 +19,9 @@
         "monthlyRepeat": "Monthly Repeat",
         "monthlyRepeatOn": "Monthly Repeat On",
         "monthlyStartDate": "Monthly Start Date",
-        "numberOfRecurringTasks": "Number Of Recurring Tasks"
+        "numberOfRecurringTasks": "Number Of Recurring Tasks",
+        "createRecurringSeriesOfTasks": "Create Recurring Series Of Tasks",
+        "dateStart": "Start Date",
+        "dateEnd": "Due Date"
     }
 }

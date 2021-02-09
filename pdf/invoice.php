@@ -295,7 +295,6 @@ $html = '<html xmlns="http://www.w3.org/1999/xhtml">
                     }
                     else {
                         $html .= '<th align="center" style="background-color:#061F33;color:#FFFFFF;border: 1px solid #fff;width:92px;"><b>Amount<div>(Rs.)</div></b></th>';
-
                     }
 
             $html .= '</tr>';
@@ -537,10 +536,6 @@ $html = '<html xmlns="http://www.w3.org/1999/xhtml">
                         </td>
                         <td colspan="10" style="border: 1px solid #ccc;">
                             <b>Bank Details: </b><br>';
-
-                            if($row1['holder_name']){
-                                $html .= '&nbsp;&nbsp;A/C Holder Name: '.$row1['holder_name'].'<br>';
-                            }
 
                             if($row1['bankname']){
                                 $html .= '&nbsp;&nbsp;Bank name: '.$row1['bankname'].'<br>';
@@ -870,7 +865,6 @@ if(isset($_REQUEST['invoice_recordId']))
         {
             // transfer file from s3 buckets to local
             include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/wasabi_connect.php');
-
             $result = $client->getObject(array(
                 'Bucket' => 'fincrm',
                 'Key'    => 'Production/'.$_SERVER['SERVER_NAME'].'/financial_files/invoices/'.$user.'/'.$id.'/'.$row1['filename'],
@@ -887,7 +881,7 @@ if(isset($_REQUEST['invoice_recordId']))
             $manager = new \Aws\S3\Transfer($s3, $source, $dest);
 
             //Perform the transfer synchronously
-            $manager->transfer();*/
+            $manager->transfer();
 
             $file_path = $_SERVER["DOCUMENT_ROOT"]."/client/res/templates/financial_changes/invoice/zipFolder/".$row1['filename'];
             
@@ -904,10 +898,8 @@ if(isset($_REQUEST['invoice_recordId']))
                     $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/invoice/uploads/".$zip->getNameIndex($i);
                 }
                 $zip->close();
-            }
-            
-            // $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/invoice/zipFolder/".$row1["filename"];
-
+            }*/
+            $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/invoice/zipFolder/".$row1["filename"];
         }
         // echo '<pre>';print_r($attachments);die;
 

@@ -3,27 +3,27 @@
 
 /*
 * To built ucfirst of each word of string
-* @return 	= (string)
+* @return   = (string)
 */
 function optionText($string=""){
-	
-    // $string 	= 'hi_abc_xyz';
-	$newString 	= str_replace( "_", " ", $string);
-	$stringArr	= explode(" ", $newString);
+    
+    // $string  = 'hi_abc_xyz';
+    $newString  = str_replace( "_", " ", $string);
+    $stringArr  = explode(" ", $newString);
 
-	$capString = "";
-	foreach ($stringArr as $key => $value) {
-		
-		$capString .= ucfirst($value)." ";
-	}
+    $capString = "";
+    foreach ($stringArr as $key => $value) {
+        
+        $capString .= ucfirst($value)." ";
+    }
 
-	return $capString;
+    return $capString;
 }
 
 
 /*
 * To get entity columns dynamically from database
-* @return 	= (json)
+* @return   = (json)
 */
 
 $data["status"] = "false";
@@ -40,19 +40,19 @@ if ( !mysqli_connect_errno() ) {
         
         $table = strtolower(preg_replace('/\B([A-Z])/', '_$1', $_GET['entityName']));
         // echo  "TABLE NAME ===> ".$table;
-        $query 	= "SHOW COLUMNS FROM `".$table."`";
+        $query  = "SHOW COLUMNS FROM `".$table."`";
 
         // echo "<br>MYSQL QUERY ===> ".$query."<br>";
         $result = mysqli_query($conn,$query);
 
         $columns = array();
         while ($row = mysqli_fetch_row($result)) {
-	        
-	        if ( strpos( strtolower($row[0]), 'id' ) == false &&strpos( strtolower($row[0]), 'at' ) == false && strtolower($row[0]) != "id" && strtolower($row[0]) != "deleted" ) {
-	            
-	            $optionText = optionText($row[0]);
-	            $columns[$row[0]] = $optionText;
-	        }
+            
+            if ( strpos( strtolower($row[0]), 'id' ) == false &&strpos( strtolower($row[0]), 'at' ) == false && strtolower($row[0]) != "id" && strtolower($row[0]) != "deleted" ) {
+                
+                $optionText = optionText($row[0]);
+                $columns[$row[0]] = $optionText;
+            }
         }
         $columns['Email'] = 'Email';
         $columns['Phone'] = 'Phone';

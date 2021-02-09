@@ -18,9 +18,13 @@
         "name": "source"
     },
     {
+        "name": "createdBy"
+    },
+    {
         "name": "assignedUser"
     },
     {
-        "name": "modifiedAt"
+        "name": "createdAt",
+        "width": 13
     }
 ]

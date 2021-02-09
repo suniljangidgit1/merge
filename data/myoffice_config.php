@@ -1,6 +1,6 @@
 <?php
 return [
-    'cacheTimestamp' => 1611507422,
+    'cacheTimestamp' => 1610078209,
     'database' => [
         'driver' => 'pdo_mysql',
         'host' => '164.52.205.204',
@@ -104,10 +104,7 @@ return [
         16 => 'Insurance16thNovv',
         17 => 'LeadsInsurance',
         18 => 'NBFC',
-        19 => 'RealEstateData',
-        20 => 'FinanceClients',
-        21 => 'GoalBasedPlanning',
-        22 => 'MarketingAgency'
+        19 => 'RealEstateData'
     ],
     'quickCreateList' => [
         0 => 'Account',

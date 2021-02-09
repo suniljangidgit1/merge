@@ -367,6 +367,8 @@
     }
     $("#create_invoice").click(function(){
       var el1 = $("#FinanceInvoiceModal .close");
+
+      $("#save_invoice_BTN_new").removeAttr("disabled");
       resetData(el1);
     });
     /* New Create Invoice form Script End */
@@ -1699,7 +1701,7 @@ $('.input-group.date').datepicker({format: "dd/mm/yyyy",autoclose: true,todayHig
     }
     if(afterhash =='#ClosedTask')
     {
-      $("#create").css("display","none");
+      $("#create_record").css("display","none");
     }
 </script>
 <!-- Custom Export script End -->
@@ -2006,7 +2008,7 @@ $(document).ready(function(){
                  <div class="col-sm-6 col-md-6">
                   <div class="form-group">
                     <label >Payment Type <span class="text-danger">*</span></label>
-                      <select id="payment_type" name="payment_type" class="form-control" disabled required>
+                      <select id="payment_type" name="payment_type" class="form-control" disabled required disabled>
                         {{!--<option value="Select Payment Type">Select Payment Type</option>--}}
                         <option value="Against Invoice">Against Invoice</option>
                       </select>
@@ -2022,7 +2024,7 @@ $(document).ready(function(){
                   <div class="form-group">
                     <label for="">Date of Payment <span class="text-danger">*</span></label>
                       <div  id="datepicker2" class="input-group date" data-date-format="mm-dd-yyyy">
-                      <input type="text"  name="payment_date" class="form-control" placeholder="" required>
+                      <input type="text"  name="payment_date" class="form-control" placeholder="" onkeydown="return false;" required>
                       <span class="btn btn-default_gray input-group-addon"><i class="material-icons-outlined" style="font-size:16px !important;">date_range</i></span>
                     </div>
                    </div>
@@ -2036,7 +2038,7 @@ $(document).ready(function(){
                 
               </div>
 
-               <div class="row">
+               <!-- <div class="row">
                 <div class="col-md-6" id="billed_amount_div" style="display:none">
                   <div class="form-group">
                     <label >Amount</label>
@@ -2048,7 +2050,7 @@ $(document).ready(function(){
                     <label >TDS Deducted</label>
                    </div>
                 </div>
-              </div>
+              </div> -->
              <!-- <div class="row">
                 <div class="col-md-6" id="net_amount_div" style="display:none">
                   <div class="form-group">
@@ -5638,7 +5640,7 @@ $.ajax({
                                             <div class="col-xs-12 col-sm-12 col-md-2">
                                                 <div class="clip-upload">
                                                     <label for="file-input">
-                                                        <span class=""><i class="fa fa-paperclip fa-lg" style="color:#000; font-size:20px;cursor: pointer;" aria-hidden="true"></i></span>
+                                                        <span class="btn btn-default_gray btn-icon"><i class="fa fa-paperclip fa-lg" style=" font-size:20px;cursor: pointer;" aria-hidden="true"></i></span>
                                                     </label>
 
                                                     <input type="file" class="file-input hide" multiple name="attachment[]"  id="file-input" />
@@ -5996,7 +5998,15 @@ function IsEmail(email) {
                 if(selectedINVDate > selectedDUEDate){
                   count++;
                     if(count==3){
-                      $.alert("Due date can not be before invoice date.");
+                      // $.alert("Due date can not be before invoice date.");
+
+                      $.alert({
+                        title: 'Alert!',
+                        content: 'Due date can not be before invoice date.',
+                        type: 'dark',
+                        typeAnimated: true,
+                        draggable: false,
+                      });
 
                       document.getElementById("date2").value="";
                       count=0;
@@ -6159,7 +6169,7 @@ $.ajax({
       for (var i = 0; i < len; i++) 
       {
 
-             $("#payment_data").append('<tr><td><div class="form-group"><input type="text" id="invoiceno" name="invoiceno[]" value="' + result[i].invoiceno + '" class="form-control" placeholder="" readonly></div></td><td><div class="form-group"><input type="text" id=""  name="invoicedate[]" value="' + result[i].invoicedate + '" class="form-control" readonly placeholder="" ></div></td><td> <div class="form-group"><input type="text" id="invoice_amount'+i+'"  name="invoice_amount[]" class="form-control" readonly value="' + result[i].total + '" placeholder="" ></div></td><td> <div class="form-group"><input readonly type="text" id="due_amount'+i+'" value="' + result[i].balance + '"  name="due_amount[]" value="0" data-count="'+i+'" class="form-control due_amount" placeholder="" ><input type="hidden" id="due_amount_'+i+'" value="' + result[i].balance + '"  name="due_amount[]" value="0" data-count="'+i+'" class="form-control due_amount" placeholder="" ></div></td><td> <div class="form-group"><input type="text" id="tds1'+i+'"  name="tds1[]" data-count="'+i+'" onchange="cal(\''+i+'\')"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control tds2" placeholder="" ></div></td><td> <div class="form-group"><input type="text" value="0" id="net_amount'+i+'" data-count="'+i+'" onchange="cal1(\''+i+'\')" name="net_amount[]" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control net_amount" placeholder="" ></div></td><td> <select name="mode1[]" id="" class="payment_mode_history form-control" ><option value="Cheque">Cheque</option><option value="Cash">Cash</option><option value="RTGS/NEFT/IMPS">RTGS/NEFT/IMPS</option><option value="Online">Online</option><option value="Others">Others</option></select></td><td> <div class="form-group"><input type="text" id="transaction_id" name="transaction_id1[]" class="form-control" placeholder="" ></div></td></tr>');
+             $("#payment_data").append('<tr><td><div class="form-group"><input type="text" id="invoiceno" name="invoiceno[]" value="' + result[i].invoiceno + '" class="form-control" placeholder="" readonly></div></td><td><div class="form-group"><input type="text" id=""  name="invoicedate[]" value="' + result[i].invoicedate + '" class="form-control" readonly placeholder="" ></div></td><td> <div class="form-group"><input type="text" id="invoice_amount'+i+'"  name="invoice_amount[]" class="form-control" readonly value="' + result[i].total + '" placeholder="" ></div></td><td> <div class="form-group"><input readonly type="text" id="due_amount'+i+'" value="' + result[i].balance + '"  name="due_amount[]" value="0" data-count="'+i+'" class="form-control due_amount" placeholder="" ><input type="hidden" id="due_amount_'+i+'" value="' + result[i].balance + '"  name="due_amount[]" value="0" data-count="'+i+'" class="form-control due_amount" placeholder="" ></div></td><td> <div class="form-group"><input type="text" id="tds1'+i+'" name="tds1[]" data-count="'+i+'" onchange="cal(\''+i+'\')"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control tds2" placeholder="" value="0"></div></td><td> <div class="form-group"><input type="text" value="0" id="net_amount'+i+'" data-count="'+i+'" onchange="cal1(\''+i+'\')" name="net_amount[]" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control net_amount" placeholder="" ></div></td><td> <select name="mode1[]" id="" class="payment_mode_history form-control" ><option value="Cheque">Cheque</option><option value="Cash">Cash</option><option value="RTGS/NEFT/IMPS">RTGS/NEFT/IMPS</option><option value="Online">Online</option><option value="Others">Others</option></select></td><td> <div class="form-group"><input type="text" id="transaction_id" name="transaction_id1[]" class="form-control" placeholder="" ></div></td></tr>');
       }
       $(".payment_mode_history").customA11ySelect();
     }
@@ -6341,7 +6351,33 @@ $.ajax({
               // jQuery.each(jQuery('#file')[0].files, function(i, file) {
                     // form.append('file['+i+']', file);
               // });
-                
+              /*var flag = 0;
+              var getLength = $("input[name='tds1[]']").length;
+              for(var i=0;i<getLength;i++)
+              {
+                if($("#tds1"+i).val() == "" || $("#tds1"+i).val() == 0)
+                {
+                   flag = 1;
+                }
+                if($("#net_amount"+i).val() == "" || $("#net_amount"+i).val() == 0)
+                {
+                   flag = 1;
+                }
+              }
+
+              if(flag)
+              {
+                $.alert({
+                  title: 'Warning!',
+                  content:'Please enter amount to pay either tds or received',
+                  type: 'dark',
+                  typeAnimated: true,
+                  draggable: false,
+                });
+                return false;
+              }
+              else
+              {*/
                 $.ajax({
                   type    : "POST",
                   url     : "../../client/res/templates/financial_changes/save_payment.php",
@@ -6351,32 +6387,29 @@ $.ajax({
                   data: form,
                   success: function(data)
                   {
-
-                     if(data)
-                             {
-                                 $.confirm({
-                                    title: 'Success!',
-                                    content: 'Created Successfully!',
-                                    type: 'dark',
-                                    typeAnimated: true,
-                                    draggable: false,
-                                    buttons: {
-                                      Ok: function () {
-                                        //window.location.reload();
-                                        $('button[data-action="reset"]').trigger('click');
-                                        $(function () {
-                                         $('#payment').modal('toggle');
-                                      });
-                                       $('#createPaymentForm')[0].reset();
-                                      }
-                                    }
-                                 });
-                             }
- 
-
+                    if(data)
+                    {
+                      $.confirm({
+                        title: 'Success!',
+                        content: 'Created Successfully!',
+                        type: 'dark',
+                        typeAnimated: true,
+                        draggable: false,
+                        buttons: {
+                          Ok: function () {
+                            //window.location.reload();
+                            $('button[data-action="reset"]').trigger('click');
+                            $(function () {
+                               $('#payment').modal('toggle');
+                            });
+                            $('#createPaymentForm')[0].reset();
+                          }
+                        }
+                      });
+                    }
                   }
                 });
-               
+              // } 
           });
       });
     </script>
@@ -8952,7 +8985,7 @@ function create_save_operation()
 <script>
 $('#billing_entity .close').on('click', function(e) {
   document.getElementById("createBillingEntityForm").reset();
-
+  $('#billing_entity .form-group').removeClass('has-error');
   $(".Overview_details .temp-error,.Overview_details .Invalid-temp-error").addClass("display_none");
   // for account type
 
@@ -9496,6 +9529,8 @@ $(document).on('click','#create_billing_entity',function()
       </div>
       </div>
     </div>
+    <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+    <div class="email-blur-effect" style="display: none;"></div>
   </div>
 
 
@@ -10057,6 +10092,8 @@ $(document).on('click','#create_billing_entity',function()
     </div>
   </div>
 </div>
+  <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+  <div class="email-blur-effect" style="display: none;"></div>
 </div>
 
 <div id="InvoicePrviewModel" class="modal fade" role="dialog"></div>
@@ -10307,6 +10344,8 @@ function resetData(current)
     $(".invoice_BillingFromAddress").css("display","none");
     $(".invoice_BillingToAddress").css("display","none");
 
+    $("#save_invoice_BTN_new").removeAttr("disabled");
+
     // ============ Code added by Sachin ============
 
     var element=$(".invoice_participantRow .invoice_main-group").length;
@@ -10449,12 +10488,12 @@ function resetData(current)
 
 <script type="text/javascript">
 $(function () {
-$("#invoice_date, #due_date").datepicker({
-autoclose: true,
-todayHighlight: true,
-format: "dd/mm/yyyy",
-orientation: "top"
-}).datepicker('update', new Date());
+  $("#invoice_date, #due_date").datepicker({
+    autoclose: true,
+    todayHighlight: true,
+    format: "dd/mm/yyyy",
+    orientation: "top"
+  }).datepicker('update', new Date());
 });
 </script>
 
@@ -10728,7 +10767,14 @@ $(document).on("change","#due_date_val",function(){
             if(selectedINVDate  >  selectedORDDate){
               count1++;
               if(count1== 2){
-                $.alert("Due date can not be before invoice date.");
+                // $.alert("Due date can not be before invoice date.");
+                $.alert({
+                  title: 'Alert!',
+                  content: 'Due date can not be before invoice date.',
+                  type: 'dark',
+                  typeAnimated: true,
+                  draggable: false,
+                });
                 $(".due_date").val('');
                 $(".invoice_date").val("");
                 count1=0;
@@ -10755,7 +10801,14 @@ $(document).on("change","#due_date_val",function(){
             if(selectedINVDate > selectedDUEDate){
               count++;
               if(count==2){
-                $.alert("Due date can not be before invoice date.");
+                // $.alert("Due date can not be before invoice date.");
+                $.alert({
+                  title: 'Alert!',
+                  content: 'Due date can not be before invoice date.',
+                  type: 'dark',
+                  typeAnimated: true,
+                  draggable: false,
+                });
                 // document.getElementById("due_date").val(val1);
                 $(".due_date").val('');
                 count=0;

@@ -44,7 +44,7 @@ for($i=0;$i<$length;$i++) {
 	        <br />
 
 	        <select class="accordion--form__textarea required Facebook_Mapping_Select for form-control" name="<?php echo $data[0]->field_data[$i]->name; ?>" id="Title" style="width: 100%" required>
-	        	<option value="">Please Select</option>
+	        	<option value=""></option>
 				<?php 
 					$sql = "SELECT * FROM lead";
 					$except_fields = array('id','deleted','created_at','modified_at','created_by_id','modified_by_id', 'assigned_user_id', 'campaign_id', 'created_account_id', 'created_contact_id', 'created_opportunity_id','source');
@@ -58,9 +58,7 @@ for($i=0;$i<$length;$i++) {
 						}
 					  }
 					}
-				?>
-				<option value="email">Email</option>				
-				<option value="phone">Phone</option>
+				?>				
 			</select>
 	        <img src="//graph.facebook.com/<?php echo $facebookUserId; ?>/picture?type=large" class="input_img">
         </div>

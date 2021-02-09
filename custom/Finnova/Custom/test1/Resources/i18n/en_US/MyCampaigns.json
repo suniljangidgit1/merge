@@ -4,13 +4,16 @@
         "shippingAddress": "Shipping Address",
         "website": "Website",
         "campaignsName": "Campaigns Name",
-        "listName": "List Name",
+        "listName": "Contact List",
         "listId": "List id",
         "smsBody": "SMS Body",
-        "sendFrom": "Send From",
+        "sendFrom": "Sender Id",
         "sendSmsTime": "Send SMS Time",
         "sendSmsDate": "Send SMS Date",
-        "domainname": "Domain Name"
+        "domainname": "Domain Name",
+        "contentTemplateId": "Content Template ID",
+        "contentTemplateName": "Template Name",
+        "scheduledAt": "Scheduled At"
     },
     "links": {
         "meetings": "Meetings",

@@ -7,12 +7,23 @@
                 "Contact",
                 "Opportunity",
                 "Case",
+                "EmailReminder",
+                "SentEmailReminder",
+                "SMSReminder",
+                "SendSMSData",
+                "Estimate",
+                "Invoice",
+                "Payments",
+                "OfficeLocation",
+                "ClosedTask",
+                "Export",
+                "ExportResult",
+                "ContactList",
+                "MyCampaigns",
                 "MessageLog",
+                "SentMessages",
                 "RealEstateData",
-                "InsuranceData",
-                "FinanceClients",
-                "GoalBasedPlanning",
-                "MarketingAgency"
+                "InsuranceData"
             ]
         }
     }

@@ -405,7 +405,8 @@ class Financial extends CI_Controller {
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <table id="example" class="table" style="width:100%;background-color: #ececec;border-radius: 15px;">
+                            	<div class="table-responsive">
+                                <table id="example" class="table" style="width:100%;border-radius: 15px;">
                                     <thead>
                                         <tr>
                                             <th>Date</th>
@@ -441,18 +442,19 @@ class Financial extends CI_Controller {
 
 		$output .= '</tbody>
 			</table>
+			</div>
 			<div class="row">
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6" style="padding: 0px;">
+                        <div class="col-xs-6 col-md-6">
                             <span><b>Received Amount </b>:</span>
                         </div>
-                        <div class="col-md-2" style="text-align: right;padding: 0px;">
+                        <div class="col-xs-2 col-md-2" style="text-align: right;padding: 0px;">
                             <span>Rs</span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-4 col-md-4">
                             <span>'.number_format($received_amount,2).'</span>
                         </div>
                     </div>
@@ -463,13 +465,13 @@ class Financial extends CI_Controller {
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6" style="padding: 0px;">
+                        <div class="col-xs-6 col-md-6">
                             <span><b>TDS </b>:</span>
                         </div>
-                        <div class="col-md-2" style="text-align: right;padding: 0px;">
+                        <div class="col-xs-2 col-md-2" style="text-align: right;padding: 0px;">
                             <span>Rs</span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-4 col-md-4">
                             <span>'.number_format($tds,2).'</span>
                         </div>
                     </div>
@@ -480,13 +482,13 @@ class Financial extends CI_Controller {
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6" style="padding: 0px;">
+                        <div class="col-xs-6 col-md-6">
                             <span><b>Billed Amount</b> :</span>
                         </div>
-                        <div class="col-md-2" style="text-align: right;padding: 0px;">
+                        <div class="col-xs-2 col-md-2" style="text-align: right;padding: 0px;">
                             <span>Rs</span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-4 col-md-4">
                             <span>'.number_format($getInvoiceDetails['total'],2).'</span>
                         </div>
                     </div>
@@ -497,13 +499,13 @@ class Financial extends CI_Controller {
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6" style="padding: 0px;">
+                        <div class="col-xs-6 col-md-6">
                             <span><b>Balance </b>:</span>
                         </div>
-                        <div class="col-md-2" style="text-align: right;padding: 0px;">
+                        <div class="col-xs-2 col-md-2" style="text-align: right;padding: 0px;">
                             <span>Rs</span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-4 col-md-4">
                             <span>'.number_format($balance,2).'</span>
                         </div>
                     </div>
@@ -539,16 +541,16 @@ $output .= '</form>';
 
 		$getBillingEntityArr 	=	$this->FinancialModel->getbillingentityinvoices();
 		// echo '<pre>';print_r($getBillingEntityArr);die;
-		$output = '<table id="example_billing" class="table" style="width:100%">
+		$output = '<div class="table-responsive"><table id="example_billing" class="table" style="width:100%">
                         <thead>
                             <tr>
-                                <th><strong>Account</strong></th>
-                                <th><strong>Invoice date</strong></th>
-                                <th><strong>Invoice number</strong></th>
-                                <th><strong>Total invoice value</strong></th>
-                                <th><strong>Total payment received</strong></th>
-                                <th><strong>Payment summary</strong></th>
-                                <th><strong>Balance due</strong></th>
+                                <th>Account</th>
+                                <th>Invoice date</th>
+                                <th>Invoice number</th>
+                                <th>Total invoice value</th>
+                                <th>Total payment received</th>
+                                <th>Payment summary</th>
+                                <th>Balance due</th>
                             </tr>
                         </thead>
                         <tbody>';
@@ -598,7 +600,7 @@ $output .= '</form>';
 
                         $output .= '</tbody>
             </table>
-
+            </div>
             <script>
 			 $(document).ready(function() {
 			     $("#example_billing").DataTable( {
@@ -674,7 +676,7 @@ $output .= '</form>';
        				<th style="text-align:right;"><span>31 to 60</span></th>
        				<th style="text-align:right;"><span>61 to 90</span></th>
        				<th style="text-align:right;"><span>91 or more</span></th>
-       				<th style="text-align:right;"><span>Total Unpaid</span></th>
+       				<th style="text-align:right;"><span>Unpaid</span></th>
        			</tr>
        		</thead>
        		<tbody>';
@@ -790,5 +792,4 @@ $output .= '</form>';
 		$response['html'] = $trHTML;
 		echo json_encode($response);
 	}
-
 }

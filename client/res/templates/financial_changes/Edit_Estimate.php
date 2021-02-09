@@ -260,7 +260,7 @@ $output .='<div id="edit_estimate_main_details">
                           </label>
                           <div class="col-md-7">
                             <div id="edit_datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                              <input name="estimate_date" class="form-control" type="text" value="'.date("d/m/Y", strtotime($row1["date"])).'" onClick="edit_estimate_getDateEvent(this);" onkeydown="return false"/> <span class="btn btn-default_gray input-group-addon"><span class="material-icons-outlined" onclick="edit_estimate_focus_datepicker(this)">date_range</span></span>
+                              <input name="estimate_date" class="form-control edit_datepicker" type="text" value="'.date("d/m/Y", strtotime($row1["date"])).'" onClick="edit_estimate_getDateEvent(this);" onkeydown="return false"/> <span class="btn btn-default_gray input-group-addon edit_estimate_date_datepicker"><span class="material-icons-outlined" onclick="edit_estimate_focus_datepicker(this)">date_range</span></span>
                             </div>
                           </div>
                         </div>
@@ -1009,7 +1009,7 @@ $output .='<div id="edit_estimate_main_details">
                         <input type="hidden" id="hidden_estimate_cgst_label" value="'.$estimate_cgst_label.'" />
                         <input type="hidden" id="hidden_estimate_sgst_label" value="'.$estimate_sgst_label.'" />
                         <input name="estimate_disc_amt" id="edit_estimate_disc_amt" type="text" value="'.$estimate_disc_input_val.'" class="form-control rate" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                      <input type="hidden" name="estimate_calculated_disc_amt" id="edit_estimate_calculated_disc_amt" value="0" />
+                      <input type="hidden" name="estimate_calculated_disc_amt" id="edit_estimate_calculated_disc_amt" value="'.$estimate_disc_input_val.'" />
                       </td>
                       <td class="width_15"><span class="main_amount">₹ '.$estimate_disc_amt_label.'</span>
                       </td>
@@ -1390,5 +1390,4 @@ $output .='<div id="edit_estimate_main_details">
           }
         </script>';
 echo json_encode($output); 
-
 ?>

@@ -108,7 +108,7 @@ $project = explode('/', $_SERVER['REQUEST_URI'])[1];
 
 if($result3)
 {
-    $sql3="select * from invoice";
+    $sql3="select * from invoice where deleted = '0'";
     $result3=mysqli_query($conn,$sql3);
     $estimate_num_rows = mysqli_num_rows($result3);
 
@@ -133,5 +133,4 @@ $.confirm({
         }
     });
 </script>";*/
-
 ?>

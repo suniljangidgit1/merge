@@ -44,6 +44,9 @@ Finnova.define('crm:views/lead/convert', 'view', function (Dep) {
                 var scope = $(e.currentTarget).data('scope');
                 var $div = this.$el.find('.edit-container-' + Finnova.Utils.toDom(scope));
 
+                //hide gst panel on conver to lead page on opportunity & contact form
+                $('.edit-container-contact #last_child_panel, .edit-container-opportunity #last_child_panel').remove();
+                
                 if (e.currentTarget.checked)    {
                     $div.removeClass('hide');
                 } else {

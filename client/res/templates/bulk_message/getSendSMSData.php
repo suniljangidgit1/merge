@@ -71,6 +71,17 @@ $data['campaigns_name']  = $campaigns_name;
 	$sendSMS = '<select name="sms_from" class="form-control">';
 	$sendSMS 	.='<option value="">Select Sender ID</option>';
 
+
+/*if(!empty($sender_id)) {
+		$sendSMS 	.='<option value="'.$sender_id.'">'.$sender_id.'</option>';
+} else {
+	$remaining_messages = '<div class="bg bg-danger" style="padding: 10px;">You do not have DLT approved sender id for your account. Please contact admin.</div>
+		<script>$("#sendSMSbtn").attr("disabled",true); </script>
+	';
+	$data['remaining_messages'] = $remaining_messages;
+	echo json_encode($data);return;
+}*/
+                  
 $sendSMS		.=               '</select>';
 $data['sendSMS'] = $sendSMS;
 

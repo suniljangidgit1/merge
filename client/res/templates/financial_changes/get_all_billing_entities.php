@@ -80,7 +80,7 @@ else if($total_nums == 1)
 		$pan_num = ($row2['panno']) ? $row2['panno'] : ($row1['panno']) ? $row1['panno'] : '---';
 		$udyam_num = ($row2['udyam_registration_no']) ? $row2['udyam_registration_no'] : ($row1['udyam_registration_no']) ? $row1['udyam_registration_no'] : '';
 
-		echo json_encode(array('total_num' => $total_nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums));
+		echo json_encode(array('total_num' => $total_nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums, 'billing_entity_id' => $row1['id']));
 	}
 	else if($nums > 1)
 	{
@@ -111,7 +111,7 @@ else if($total_nums == 1)
 
 		if($str!='')
 			// echo json_encode(array('total_gst' => $nums, 'str_opt' => $str));
-			echo json_encode(array('total_num' => $total_nums, 'total_gst' => $nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums, 'str_opt' => $str));
+			echo json_encode(array('total_num' => $total_nums, 'total_gst' => $nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums, 'str_opt' => $str, 'billing_entity_id' => $row1['id']));
 		else
 			echo "0";
 	}
@@ -154,7 +154,7 @@ else if($total_nums == 1)
 		$pan_num = ($row1['panno']) ? $row1['panno'] : ($row1['panno']) ? $row1['panno'] : '---';
 		$udyam_num = '';
 
-		echo json_encode(array('total_num' => $total_nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums));
+		echo json_encode(array('total_num' => $total_nums, 'name' => $row1['name'], 'address' => $address, 'emailid' => $email, 'phoneno' => $phone, 'gst_num' => $gst_num, 'pan_num' => $pan_num, 'udyam_no' => $udyam_num, 'street' => $street, 'city' => $city, 'state' => $state, 'postal_code' => $zipcode, 'total_gst' => $nums, 'billing_entity_id' => $row1['id']));
 
 		/*$address = '';
 		$email = '';
@@ -167,5 +167,4 @@ else if($total_nums == 1)
 else {
 	echo "0";
 }
-
 ?>

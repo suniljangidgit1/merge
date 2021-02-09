@@ -3,12 +3,12 @@ return [
     'cacheTimestamp' => 1593775562,
     'database' => [
         'driver' => 'pdo_mysql',
-        'host' => '164.52.205.204',
+        'host' => 'localhost',
         'port' => '',
         'charset' => 'utf8mb4',
         'dbname' => 'fincrm',
-        'user' => 'proadmin',
-        'password' => 'mJmxCj*92WuFcfB_'
+        'user' => 'root',
+        'password' => 'root'
     ],
     'useCache' => true,
     'recordsPerPage' => 20,
@@ -438,7 +438,7 @@ return [
         0 => 'Totp'
     ],
     'isInstalled' => true,
-    'siteUrl' => 'http://crm.finnovainfotech.com',
+    'siteUrl' => 'http://fincrm.crm.com',
     'passwordSalt' => '5f266b10a6b7d311',
     'cryptKey' => '419a3dbb6d99c45c862688d253c9f798',
     'hashSecretKey' => 'eb24e115dcab8deeb9c535d87bbdcbb8',

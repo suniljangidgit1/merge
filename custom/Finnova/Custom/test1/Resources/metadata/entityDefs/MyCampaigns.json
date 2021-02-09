@@ -153,6 +153,24 @@
             "trim": true,
             "options": [],
             "isCustom": true
+        },
+        "contentTemplateId": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "contentTemplateName": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
+        },
+        "scheduledAt": {
+            "type": "varchar",
+            "trim": true,
+            "options": [],
+            "isCustom": true
         }
     },
     "links": {

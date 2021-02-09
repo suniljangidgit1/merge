@@ -46,23 +46,6 @@
             "trim": true,
             "options": [],
             "isCustom": true
-        },
-        "docs": {
-            "type": "attachmentMultiple",
-            "previewSize": "medium",
-            "sourceList": [],
-            "accept": [],
-            "isCustom": true
-        }
-    },
-    "links": {
-        "docs": {
-            "type": "hasChildren",
-            "entity": "Attachment",
-            "foreign": "parent",
-            "layoutRelationshipsDisabled": true,
-            "relationName": "attachments",
-            "disabled": true
         }
     }
 }

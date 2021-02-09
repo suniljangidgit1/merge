@@ -12,12 +12,19 @@
         "name": "phoneNumber"
     },
     {
+        "name": "description"
+    },
+    {
         "name": "source"
     },
     {
         "name": "createdBy"
     },
     {
-        "name": "stream"
+        "name": "assignedUser"
+    },
+    {
+        "name": "createdAt",
+        "width": 13
     }
 ]

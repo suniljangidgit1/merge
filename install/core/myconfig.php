@@ -1,9 +1,10 @@
 <?php
-$HTTP_HOST 	= $_SERVER['SERVER_NAME'];
-$servername = "164.52.205.204";
-$username 	= "proadmin";
-$password 	= "mJmxCj*92WuFcfB_";
-$dbname 	= "crmdev";
+$HTTP_HOST= $_SERVER['SERVER_NAME'];
+//$HTTP_HOST=$_SERVER['HTTP_HOST'];
+$servername = "10.0.2.245";
+$username = "root";
+$password = "rZdfvsHax*4";
+$dbname = "crmdev";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +14,7 @@ die("Connection failed: " . $conn->connect_error);
 }
 
 //$sql = "SELECT * FROM host_record where status=2";
-if($HTTP_HOST=='164.52.205.204'){
+if($HTTP_HOST=='10.0.2.245'){
 $sql = "SELECT * FROM host_record where domain_url like '%$HTTP_HOST%' AND status=2";
     
 }else{

@@ -1,4 +1,17 @@
 <script type="text/javascript">
+    // To check whether logged in user is admin or not script start
+    $.ajax({
+      url: "../../../../client/res/templates/header-forUser/header_forUser_controller.php",
+      type: "get",
+      async: false,
+      success: function(result)  {
+        //alert(result);
+        if(result != 'admin'){
+          $('.EmailCampaigns').remove();
+        }
+      }
+    });
+    // To check whether logged in user is admin or not script end
 
     var currentDomain = window.location.hostname;
     var methodName = 'getTrailDays';   

@@ -379,8 +379,8 @@
                                       </div>
                                    </div>
                                 </div>
-                                <div class="row create_attach">
-                                   <div class="col-xs-12 col-sm-1 col-md-1">
+                                <div class="row">
+                                   <div class="col-xs-2 col-sm-1 col-md-1">
                                       <div class="form-group attach_section">
                                         <label>Attachments</label>
                                          <input type="file" class="file-upload form-control attachment" id="attachment[0]" name="attachment[0][]" multiple onchange="uploadFiles(this)"/>
@@ -389,7 +389,7 @@
                                        
                                       </div>
                                    </div>
-                                   <div class="col-xs-12 col-sm-11 col-md-11 attach">
+                                   <div class="col-xs-10 col-sm-11 col-md-11 attach">
                                       <div>
                                          <ul class="fileList" ></ul>
                                          <ul class="fileList_text" ></ul>
@@ -440,16 +440,16 @@
                                       </div>
                                    </div>
                                 </div>
-                                <div class="row create_attach">
-                                   <div class="col-xs-12 col-sm-1 col-md-1">
+                                <div class="row">
+                                   <div class="col-xs-2 col-sm-1 col-md-1">
                                       <div class="form-group">
                                          <label>Attachments</label>
-                                         <input type="file" name="file" class="file-upload form-control attachment" id="" multiple onchange="uploadFiles(this)"/>
+                                         <input type="file" name="file" class="file-upload attachment" id="" multiple onchange="uploadFiles(this)"/>
                                          <input type="hidden" class="form-control attach_files" id="" name="" value=""/>
                                          <button type="button" class="openFileBrowse file-upload-button"><i class="material-icons-outlined">attach_file</i> </button>
                                       </div>
                                    </div>
-                                   <div class="col-xs-12 col-sm-11 col-md-11">
+                                   <div class="col-xs-10 col-sm-11 col-md-11">
                                       <div>
                                          <ul class="fileList" ></ul>
                                          <ul class="fileList_text" ></ul>
@@ -503,14 +503,15 @@
                           <div class="row">
                              <div class="col-md-6">
                                 <div class="form-group update_employee_Name_group">
-                                   <label>Name<span class="text-danger"> *</span></label>
+                                   <label>Name<span class="text-danger">  *</span></label>
+                                   
                                    <input type="text" class="form-control update_employee_Name" name="update_employee_Name" id="update_employee_Name" value=""  readonly >
                                    <input type="hidden" class="form-control daily_sheet_id" name="daily_sheet_id" id="daily_sheet_id" value="">
                                 </div>
                              </div>
                              <div class="col-md-6">
                                 <div class="form-group update_reporting_name_group">
-                                   <label>Reporting Authority<span class="text-danger"> *</span></label>
+                                   <label>Reporting Authority<span class="text-danger">*</span></label>
                                    <input type="text" class="form-control update_reporting_name" name="update_reporting_name" id="update_reporting_name" value=""  readonly >
                                   
                                 </div>
@@ -637,17 +638,17 @@
                                 </div>
                              </div>
                              <div class="row edit_attach">
-                                <div class="col-xs-12 col-sm-1 col-md-1">
+                                <div class="col-xs-2 col-sm-1 col-md-1">
                                    <div class="form-group ">
                                       <label>Attachments</label>
-                                      <input type="file" id="" class="update_file-upload form-control" multiple onchange="update_uploadFiles(this)"/>
+                                      <input type="file" id="" class="update_file-upload" multiple onchange="update_uploadFiles(this)"/>
                                       <input type="hidden" class="form-control update_Attachment" />
                                       <input type="hidden" class="form-control current_Attachment" />
                                       <input type="hidden" class="form-control update_ifAttachmentExiting" value=""/>
                                       <button type="button" class="update_openFileBrowse update_file-upload-button"><i class="material-icons-outlined">attach_file</i> </button>
                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-11 col-md-11">
+                                <div class="col-xs-10 col-sm-11 col-md-11">
                                    <div>
                                       <ul class="update_fileList"></ul>
                                       <ul class="current_update_fileList"></ul>
@@ -691,8 +692,8 @@
                               </div>
                               <div class="col-md-10 pl0">
                                   <div>
-                                   <ul class="text_update_feedback_fileList" style="padding-left: 0px !important;"></ul>
                                    <ul class="update_feedback_fileList"></ul>
+                                   <ul class="text_update_feedback_fileList"></ul>
                               </div>
                           </div>
                                 
@@ -791,12 +792,7 @@
      
      'columns': [
        {data : 'id'},
-       {
-        data: 'working_from',
-        render : function(data, type, row) {
-              return '<span class="mycus-class2">'+data+'</span>'
-          } 
-       },
+       { data: 'working_from' },
        { data: 'daily_sheet_date' },
        { data: 'in_time' },
        { data: 'out_time' },
@@ -1356,7 +1352,7 @@
       $(".input-group-btn span").css("display","none");
       //$(".input-group-addon").css({"display":"none","border":"none"});
       $(".delete").css("display", "inline-block");
-      // $(".clone-panel .fileList").css("padding-top","6px");
+      $(".clone-panel .fileList").css("padding-top","6px");
       $("#dailySheet_form .clone-panel input,.clone-panel textarea").css("padding-left","0px");
       $("#dailySheet_form .clone-panel .form-control,.clone-panel textarea").css("padding-top","0px !important");
       $("#dailySheet_form #task_section :input").css("padding-top","0px !important");
@@ -2066,8 +2062,8 @@ $(document).on('click','.clone',function(){
       $(" .input-group-btn span").removeAttr("style");
       $(".input-group-addon").removeAttr("style");
     
-      // $(".fileList li span").removeClass('close_fileList');
-      // $(".fileList_text li span").removeClass('close_fileList');
+      $(".fileList li span").removeClass('close_fileList');
+      $(".fileList_text li span").removeClass('close_fileList');
       // end enable 
       $(".edit").css("display", "none");
 
@@ -2197,7 +2193,7 @@ $(document).on('click','.clone',function(){
      
      $(".update_clone-panel .update_new_start_time,.update_clone-panel .update_new_end_time,.update_clone-panel .update_new_activity_text,.duplicate_update_newtime_clockpicker,.duplicate_update_endtime_clockpicker").prop("readonly", true);
      $(".update_clone-panel .update_new_start_time,.update_clone-panel .update_new_end_time,.update_clone-panel .update_new_activity_text,.duplicate_update_newtime_clockpicker,.duplicate_update_endtime_clockpicker").css({"background-color":"#fff","border":"none","box-shadow":"unset","box-shadow":"unset","outline":"none"});
-     $(" #update_dailySheet_form .input-group-btn span").css("display","none");
+     $(" .input-group-btn span").css("display","none");
      //$(".input-group-addon").css({"display":"none","border":"none"});
      $(".update_delete").css("display", "inline-block");
      $("#update_dailySheet_form .update_clone-panel .form-control").css("padding-left","0px");
@@ -3694,7 +3690,7 @@ for (var i = 0; i < input.files.length; i++) { //Progress bar and status label's
             }
 
             // build update activity html
-            updateExistActivity = '<div class="main_body update_clone-panel edit_clone border-top"> <div class="row"> <div class="col-md-6"> <div class="row"> <div class="col-md-6"><div class="form-group  update_new_start_time_group"><label>Start Time<span class="text-danger">  *</span></label><div class="input-group"><input type="text" class="form-control update_new_start_time update_clockpicker" name="activity_update_inTime[]" value="'+response.data.activities[i].start_time+'" id=""  onkeydown="return false" required onchange="update_new_start_time_on_change(this);" onfocus="getEventUpdate(this)"><span class="input-group-addon" for="exist_start" onclick="getIcon(this)"><span class="" ><i class="material-icons create_popup">schedule</i></span></span></div><input type="text" class="form-control duplicate_update_newtime_clockpicker display_none" value="'+response.data.activities[i].start_time+'"></div></div><div class="col-md-6"><div class="form-group  update_new_end_time_group"><label>End Time<span class="text-danger">  *</span></label><div class="input-group"><input type="text" class="form-control update_new_end_time update_clockpicker"  name="activity_update_outTime[]" value="'+response.data.activities[i].end_time+'"id=""  onchange="update_new_end_time_on_change(this);" required onfocus="getEventUpdate(this)" onkeydown="return false"><span class="input-group-addon" for="exist_end" onclick="getIcon(this)"><span class="" ><i class="material-icons create_popup">schedule</i></span></span></div><input type="text" class="form-control duplicate_update_endtime_clockpicker display_none" value="'+response.data.activities[i].end_time+'"></div></div></div></div><div class="col-md-6"><span class="material-icons-outlined update_delete" style="float: right;">delete_outline</span></div></div><div class="row "><div class="col-md-12"><div class="form-group update_activity_group"><label>Description<span class="text-danger">  *</span></label><textarea class="form-control update_new_activity_text" name="update_activity_msg[]" onfocusout="update_new_activity_on_change(this);" onkeyup="textAreaAdjust(this)" required>'+$.trim(response.data.activities[i].activity)+'</textarea></div></div></div><div class="row edit_attach"><div class="col-xs-12 col-sm-1 col-md-1 update_delete_attachment"><div class="form-group "><label>Attachments</label><input type="file" class="update_file-upload form-control" name="update_attachment['+i+'][]" id="update_attachment['+i+']" multiple onchange="update_uploadFiles(this)"/><button type="button" class="update_openFileBrowse update_file-upload-button"><i class="material-icons-outlined">attach_file</i>  </button></div></div><div class="col-xs-12 col-sm-11 col-md-11"><div><ul class="current_update_fileList" style="display: none;"></ul><ul class="update_fileList">'+ifAttachment+'</ul> <div class="update_existing_file"> <input type="hidden" class="update_ifAttachmentExiting" name="update_ifAttachmentExiting['+i+']" value="'+ifAttachmentExiting+'"><input type="hidden" class="delete_ifAttachmentExiting" name="delete_ifAttachmentExiting['+i+']" value=""><input type="hidden" class="update_Attachment" name="update_Attachment['+i+']"><input type="hidden" class="current_Attachment" name="current_Attachment['+i+']">  </div> </div></div></div></div>';
+            updateExistActivity = '<div class="main_body update_clone-panel edit_clone border-top"> <div class="row"> <div class="col-md-6"> <div class="row"> <div class="col-md-6"><div class="form-group  update_new_start_time_group"><label>Start Time<span class="text-danger">  *</span></label><div class="input-group"><input type="text" class="form-control update_new_start_time update_clockpicker" name="activity_update_inTime[]" value="'+response.data.activities[i].start_time+'" id=""  onkeydown="return false" required onchange="update_new_start_time_on_change(this);" onfocus="getEventUpdate(this)"><span class="input-group-addon" for="exist_start" onclick="getIcon(this)"><span class="" ><i class="material-icons create_popup">schedule</i></span></span></div><input type="text" class="form-control duplicate_update_newtime_clockpicker display_none" value="'+response.data.activities[i].start_time+'"></div></div><div class="col-md-6"><div class="form-group  update_new_end_time_group"><label>End Time<span class="text-danger">  *</span></label><div class="input-group"><input type="text" class="form-control update_new_end_time update_clockpicker"  name="activity_update_outTime[]" value="'+response.data.activities[i].end_time+'"id=""  onchange="update_new_end_time_on_change(this);" required onfocus="getEventUpdate(this)" onkeydown="return false"><span class="input-group-addon" for="exist_end" onclick="getIcon(this)"><span class="" ><i class="material-icons create_popup">schedule</i></span></span></div><input type="text" class="form-control duplicate_update_endtime_clockpicker display_none" value="'+response.data.activities[i].end_time+'"></div></div></div></div><div class="col-md-6"><span class="material-icons-outlined update_delete" style="float: right;">delete_outline</span></div></div><div class="row "><div class="col-md-12"><div class="form-group update_activity_group"><label>Description<span class="text-danger">  *</span></label><textarea class="form-control update_new_activity_text" name="update_activity_msg[]" onfocusout="update_new_activity_on_change(this);" onkeyup="textAreaAdjust(this)" required>'+$.trim(response.data.activities[i].activity)+'</textarea></div></div></div><div class="row edit_attach"><div class="col-xs-2 col-sm-1 col-md-1 update_delete_attachment"><div class="form-group "><label>Attachments</label><input type="file" class="update_file-upload form-control" name="update_attachment['+i+'][]" id="update_attachment['+i+']" multiple onchange="update_uploadFiles(this)"/><button type="button" class="update_openFileBrowse update_file-upload-button"><i class="material-icons-outlined">attach_file</i>  </button></div></div><div class="col-xs-10 col-sm-11 col-md-11"><div><ul class="current_update_fileList"></ul><ul class="update_fileList">'+ifAttachment+'</ul> <div class="update_existing_file"> <input type="hidden" class="update_ifAttachmentExiting" name="update_ifAttachmentExiting['+i+']" value="'+ifAttachmentExiting+'"><input type="hidden" class="delete_ifAttachmentExiting" name="delete_ifAttachmentExiting['+i+']" value=""><input type="hidden" class="update_Attachment" name="update_Attachment['+i+']"><input type="hidden" class="current_Attachment" name="current_Attachment['+i+']">  </div> </div></div></div></div>';
 
             update_a = response.data.activities[i].start_time;
             update_b = response.data.activities[i].end_time;
@@ -3829,13 +3825,13 @@ for (var i = 0; i < input.files.length; i++) { //Progress bar and status label's
                 
                 if ( response.data.feedback[i].feedback_by == "5" ){
                    
-                   var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class="col-xs-12"><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
+                   var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class=""><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
                   $(".feedback_existing_append").prepend(senderExsitingFeedback);
                 
                 } else{
 
                   var time = response.data.feedback[i].created_at.split(" ")[1];
-                   var reciverExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class="col-xs-12"><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
+                   var reciverExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+response.data.feedback[i].feedback_given_by+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[i].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[i].feedback+'</p></div></div><div class="row part3"><div class=""><div class="imgs">'+feedback_Attachment+'</div></div></div></div>';
 
                   $(".feedback_existing_append").prepend(reciverExsitingFeedback);
                     var first_feedback = $(".feedback_file_attach").last();
@@ -3957,7 +3953,7 @@ for (var i = 0; i < input.files.length; i++) { //Progress bar and status label's
           var month = time.split("-")[1];
           var monthName = GetMonthName(month);
           var day = time.split("-")[2];
-          var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+username+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[0].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[0].feedback+'</p></div></div><div class="row part3"><div class="col-xs-12"><div class="imgs">'+feedback_Attach+'</div></div></div></div><div style="border-top: solid 1px #FFF";></div>';
+          var senderExsitingFeedback ='<div class="feedback_file_attach row"><div class="row feedback_alignment"><div class=""><div class="part1"><div class="pull-left"><span><img class="avatar image_align" width="20" src="<?php base_url(); ?>assets/dist/img/stream.png"><span class="text_info user_font">'+username+' posted</span></span></div><div class="pull-right"><span class="text-muted small_text" title='+response.data.feedback[0].created_at+'>'+day+' '+monthName+'</span></div></div></div></div><div class="row part2"><div class="col-md-12 feedback_text_info"><p>'+response.data.feedback[0].feedback+'</p></div></div><div class="row part3"><div class=""><div class="imgs">'+feedback_Attach+'</div></div></div></div><div style="border-top: solid 1px #FFF";></div>';
               
             $(".feedback_existing_append").prepend(senderExsitingFeedback);
         }

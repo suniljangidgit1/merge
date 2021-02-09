@@ -4,15 +4,17 @@
         "shippingAddress": "Shipping Address",
         "website": "Website",
         "campaignsName": "Campaigns Name",
-        "listName": "List Name",
+        "listName": "Contact List",
         "listId": "List ID",
         "smsBody": "SMS Body",
-        "sendFrom": "Send From",
+        "sendFrom": "Sender Id",
         "sendsmsdate": "Sent SMS Date",
         "sendsmstime": "Sent SMS Time",
         "totalSentSms": "Total Sent SMS",
         "totalDeliveredSMS": "Total Delivered SMS",
-        "totalNotDeliveredSMS": "Total Not Delivered SMS"
+        "totalNotDeliveredSMS": "Total Undelivered",
+        "contentTemplateName": "Template Name",
+        "scheduledAt": "Scheduled At"
     },
     "links": {
         "meetings": "Meetings",

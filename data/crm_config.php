@@ -1,6 +1,6 @@
 <?php
 return [
-    'cacheTimestamp' => 1610384975,
+    'cacheTimestamp' => 1609933976,
     'database' => [
         'driver' => 'pdo_mysql',
         'host' => '164.52.205.204',
@@ -114,8 +114,7 @@ return [
         14 => 'Anil4122020',
         15 => 'PoojaTestEntity',
         16 => 'DataEntity',
-        17 => 'DataImport',
-        18 => 'PuneSalary25To3Lac'
+        17 => 'DataImport'
     ],
     'quickCreateList' => [
         0 => 'Account',

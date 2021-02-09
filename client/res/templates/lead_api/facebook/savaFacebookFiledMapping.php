@@ -1,5 +1,4 @@
-<?php session_start();
-$userName   =   $_SESSION['Login'];
+<?php
 
 //DATABASE OPERATIONS
 include($_SERVER['DOCUMENT_ROOT'].'/client/res/templates/lead_api/facebook/databaseOperations.php');
@@ -8,10 +7,6 @@ $pageId 		= 	$_POST['page_id'];
 $formId 		= 	$_POST['form_id'];
 $formleads  	= 	$_POST['fb_form_leads'];
 $domainName     =   $_SERVER['HTTP_HOST'];
-
-$sql            =  "SELECT id FROM user WHERE user_name = '$userName'";
-$row            =  $databaseOperations->getRecordArray($sql);
-$createdBy      =  $row['id']; 
 
 //CHECK LEADS
 if( empty($formleads) ){
@@ -41,9 +36,9 @@ if( !empty($uniqueValues) && count($uniqueValues)  >  0 ){
 
 $formLeads 	        = 	implode(',', $formLeadArr);
 
-$sql 		        = 	"INSERT INTO fb_form_fields_mapping(page_id, form_id, fb_leads_structure, crm_leads_structure, created_by_id) VALUES ('$pageId','$formId','$formleads','$formLeads', '$createdBy')";
+$sql 		        = 	"INSERT INTO fb_form_fields_mapping(page_id, form_id, fb_leads_structure, crm_leads_structure) VALUES ('$pageId','$formId','$formleads','$formLeads')";
 
-$commonDbSql        =   "INSERT INTO `facebook_ads_users`(`page_id`, `form_id`, `domain_name`) VALUES ('$pageId','$formId','$domainName')";
+$commonDbSql        =   "INSERT INTO `facebook_ads_leads`(`page_id`, `form_id`, `domain_name`) VALUES ('$pageId','$formId','$domainName')";
 
 $commonDbResult     =   $databaseOperations->executeQueryOnCommonDatabase($commonDbSql);
 

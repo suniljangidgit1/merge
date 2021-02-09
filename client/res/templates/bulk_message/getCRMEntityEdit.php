@@ -35,7 +35,6 @@ $output ='<select name="entity" class="form-control getEntityContactsEdit1" id="
 				        	
 				        }
 				    }
-
 			    }
 			}
 $output .= '</select>';
@@ -45,7 +44,6 @@ echo json_encode($data);return;
 
 function checkRecored($id)
 {
-
 	GLOBAL $conn;
 
 	$sql = "SELECT pn.numeric FROM phone_number pn INNER JOIN entity_phone_number epn ON pn.id = epn.phone_number_id INNER JOIN $id ntbl ON ntbl.id = epn.entity_id WHERE epn.deleted = '0' AND pn.deleted = '0' AND ntbl.deleted = '0' ";

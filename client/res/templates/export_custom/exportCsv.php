@@ -6,39 +6,39 @@ session_start();
 date_default_timezone_set('UTC');
 /*
 * To built ucfirst of each word of string
-* @return 	= (string)
+* @return   = (string)
 */
 function optionText($string=""){
-	
-    // $string 	= 'hi_abc_xyz';
-	$newString 	= str_replace( "_", " ", $string);
-	$stringArr	= explode(" ", $newString);
+    
+    // $string  = 'hi_abc_xyz';
+    $newString  = str_replace( "_", " ", $string);
+    $stringArr  = explode(" ", $newString);
 
-	$capString = "";
-	foreach ($stringArr as $key => $value) {
-		
-		$capString .= ucfirst($value)." ";
-	}
+    $capString = "";
+    foreach ($stringArr as $key => $value) {
+        
+        $capString .= ucfirst($value)." ";
+    }
 
-	return $capString;
+    return $capString;
 }
 
 
 /*
 * To genrate token
-* @return 	= (string)
+* @return   = (string)
 */
 function getToken($length)
 {
-	$token = "";
-	$codeAlphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
-	$codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
-	$codeAlphabet.= "0123456789";
-	$max = strlen($codeAlphabet); // edited
-	for ($i=0; $i < $length; $i++) {
-		$token .= $codeAlphabet[crypto_rand_secure(0, $max-1)];
-	}
-	return $token;
+    $token = "";
+    $codeAlphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
+    $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+    $codeAlphabet.= "0123456789";
+    $max = strlen($codeAlphabet); // edited
+    for ($i=0; $i < $length; $i++) {
+        $token .= $codeAlphabet[crypto_rand_secure(0, $max-1)];
+    }
+    return $token;
 }
 
 function crypto_rand_secure($min, $max)
@@ -59,7 +59,7 @@ function crypto_rand_secure($min, $max)
 
 /*
 * To export csv file
-* @return 	= (json)
+* @return   = (json)
 */
 
 $data["status"] = "false";
@@ -72,29 +72,29 @@ include($_SERVER['DOCUMENT_ROOT'].'/task_cron/subdomain_connection.php');
 if ( !mysqli_connect_errno() ) {
     
     // Get logged in id
-    $userName 	= $_SESSION['Login'];
-    $res 		= mysqli_query($conn, "SELECT id FROM user WHERE user_name='".$userName. "'");
-    $row 		= mysqli_fetch_array($res);
-    $userId 	= $row['id'];
+    $userName   = $_SESSION['Login'];
+    $res        = mysqli_query($conn, "SELECT id FROM user WHERE user_name='".$userName. "'");
+    $row        = mysqli_fetch_array($res);
+    $userId     = $row['id'];
 
     
     if( !empty($_POST['export-entity-type']) ){
         
         $id             = getToken(17);
-        $table 	        = isset($_POST['export-entity-type']) ? strtolower(preg_replace('/\B([A-Z])/', '_$1', $_POST['export-entity-type'])) : NULL;
-    	$description 	= isset($_POST['export_description']) ? $_POST['export_description'] : NULL;
-    	$cols 		    = isset($_POST['entity_columns']) ? $_POST['entity_columns'] : NULL;
-    	$ExportAll 	    = isset($_POST['export_all']) ? $_POST['export_all'] : NULL;
-    	$cronJob 	    = isset($_POST['cron_job']) ? $_POST['cron_job'] : NULL;
-    	
-    	$status         = "0";
-    	$createdBy 	    = $userId;
-    	$createdAt 	    = date("Y-m-d H:i:s");
-    	
-    	$headers 	    = array();
-    	
-    	$file 		    = $_POST['export-entity-type'].date("_dmYHis").".csv";
-    	// $filename 		= "export_files/".$file;
+        $table          = isset($_POST['export-entity-type']) ? strtolower(preg_replace('/\B([A-Z])/', '_$1', $_POST['export-entity-type'])) : NULL;
+        $description    = isset($_POST['export_description']) ? $_POST['export_description'] : NULL;
+        $cols           = isset($_POST['entity_columns']) ? $_POST['entity_columns'] : NULL;
+        $ExportAll      = isset($_POST['export_all']) ? $_POST['export_all'] : NULL;
+        $cronJob        = isset($_POST['cron_job']) ? $_POST['cron_job'] : NULL;
+        
+        $status         = "0";
+        $createdBy      = $userId;
+        $createdAt      = date("Y-m-d H:i:s");
+        
+        $headers        = array();
+        
+        $file           = $_POST['export-entity-type'].date("_dmYHis").".csv";
+        // $filename        = "export_files/".$file;
         if(empty($ExportAll) && empty($cols))
         {
             $data["status"] = "false";
@@ -111,47 +111,47 @@ if ( !mysqli_connect_errno() ) {
         }
 
         $filename       = $uploads_dir."/".$file;
-    	$is_cron_job    = "0";
-    	$is_exported    = "Completed";
-    	
-    	if( !empty($cronJob) ){
-    	    
-    	    $is_cron_job = "1";
-    	    $is_exported = "Pending";
-    	    
-    	    if( empty($ExportAll) ){
-            	if( !empty($cols) ){
-            		foreach ( $cols as $val ) {		
-            			if( !empty($val) ){
-            			    
-            			    if ( strpos( strtolower($val), 'id' ) == false &&strpos( strtolower($val), 'at' ) == false && strtolower($val) != "id" && strtolower($val) != "deleted" ) {
-            			        
-            			            $headers[]      = $val;
-            			            
-            			    }
-            			}
-            		}          		
-            		$headerString 	= implode(",", $headers);
-            	}
-            	
-        	}else{
-        	    $query1 	= "SHOW COLUMNS FROM ".strtolower($table)."";
-                $result1 	= mysqli_query($conn,$query1);
+        $is_cron_job    = "0";
+        $is_exported    = "Completed";
+        
+        if( !empty($cronJob) ){
+            
+            $is_cron_job = "1";
+            $is_exported = "Pending";
+            
+            if( empty($ExportAll) ){
+                if( !empty($cols) ){
+                    foreach ( $cols as $val ) {     
+                        if( !empty($val) ){
+                            
+                            if ( strpos( strtolower($val), 'id' ) == false &&strpos( strtolower($val), 'at' ) == false && strtolower($val) != "id" && strtolower($val) != "deleted" ) {
+                                
+                                    $headers[]      = $val;
+                                    
+                            }
+                        }
+                    }               
+                    $headerString   = implode(",", $headers);
+                }
+                
+            }else{
+                $query1     = "SHOW COLUMNS FROM ".strtolower($table)."";
+                $result1    = mysqli_query($conn,$query1);
     
-                $custTitle 	= array();
+                $custTitle  = array();
                 while ($row1 = mysqli_fetch_row($result1)) {
                     
                     if ( strpos( strtolower($row1[0]), 'id' ) == false &&strpos( strtolower($row1[0]), 'at' ) == false && strtolower($row1[0]) != "id" && strtolower($row1[0]) != "deleted" ) {
-    	                
-    	                $headers[]      = $row1[0];
-    	                
+                        
+                        $headers[]      = $row1[0];
+                        
                     }
                 }
                 $headers[] = 'Email';
                 $headers[] = 'Phone';
-                $headerString 	= implode(",", $headers);
-        	}
-        	
+                $headerString   = implode(",", $headers);
+            }
+            
             $headerString1 = $headerString;
             $headerStringArr = explode(',', $headerString);
             
@@ -189,56 +189,56 @@ if ( !mysqli_connect_errno() ) {
 
 
 
-        	$sql = "INSERT INTO export_result (id, entity, description, is_cron_job, db_query, columns, is_exported, `status`, created_by_id, created_at, assigned_user_id ) VALUES ('".$id."', '".$_POST['export-entity-type']."','".$description."', '".$is_cron_job."', '".$query."', '".$headerString1."', '".$is_exported."', '".$status."', '".$createdBy."', '".$createdAt."', '".$createdBy."')";
-        	
-    	}else{
-    	    
-        	$fp 			= fopen($filename, 'w');
+            $sql = "INSERT INTO export_result (id, entity, description, is_cron_job, db_query, columns, is_exported, `status`, created_by_id, created_at, assigned_user_id ) VALUES ('".$id."', '".$_POST['export-entity-type']."','".$description."', '".$is_cron_job."', '".$query."', '".$headerString1."', '".$is_exported."', '".$status."', '".$createdBy."', '".$createdAt."', '".$createdBy."')";
+            
+        }else{
+            
+            $fp             = fopen($filename, 'w');
         
             header('Content-type: application/csv');
-        	header('Content-Disposition: attachment; filename='.$filename);
-        	
-        	// Build header array [ unset empty value from post cols ] 
-        	if( empty($ExportAll) ){
-            	if( !empty($cols) ){
-            		foreach ( $cols as $val ) {		
-            			if( !empty($val) ){
-            			    
-            			    if ( strpos( strtolower($val), 'id' ) == false &&strpos( strtolower($val), 'at' ) == false && strtolower($val) != "id" && strtolower($val) != "deleted" ) {
-            			        
-    				                $headerTitle[]  = optionText($val);
-            				        $headers[]      = $val;
-            				        
-            			    }
-            			}
-            		}
-            		
+            header('Content-Disposition: attachment; filename='.$filename);
+            
+            // Build header array [ unset empty value from post cols ] 
+            if( empty($ExportAll) ){
+                if( !empty($cols) ){
+                    foreach ( $cols as $val ) {     
+                        if( !empty($val) ){
+                            
+                            if ( strpos( strtolower($val), 'id' ) == false &&strpos( strtolower($val), 'at' ) == false && strtolower($val) != "id" && strtolower($val) != "deleted" ) {
+                                
+                                    $headerTitle[]  = optionText($val);
+                                    $headers[]      = $val;
+                                    
+                            }
+                        }
+                    }
+                    
                     // $headerTitle[] = 'Email';
                     // $headerTitle[] = 'Phone';
-            		fputcsv($fp, $headerTitle);
-            		
-            		$headerString 	= implode(",", $headers);
-            	}
-        	}else{
-        	    
-        	    $query1 	= "SHOW COLUMNS FROM ".strtolower($table)."";
-                $result1 	= mysqli_query($conn,$query1);
+                    fputcsv($fp, $headerTitle);
+                    
+                    $headerString   = implode(",", $headers);
+                }
+            }else{
+                
+                $query1     = "SHOW COLUMNS FROM ".strtolower($table)."";
+                $result1    = mysqli_query($conn,$query1);
     
-                $custTitle 	= array();
+                $custTitle  = array();
                 while ($row1 = mysqli_fetch_row($result1)) {
                     
                     if ( strpos( strtolower($row1[0]), 'id' ) == false &&strpos( strtolower($row1[0]), 'at' ) == false && strtolower($row1[0]) != "id" && strtolower($row1[0]) != "deleted" ) {
-    	                
-    	                $headerTitle[]  = optionText($row1[0]);
-    	                $headers[]      = $row1[0];
-    	                
+                        
+                        $headerTitle[]  = optionText($row1[0]);
+                        $headers[]      = $row1[0];
+                        
                     }
                 }
                 $headerTitle[] = 'Email';
                 $headerTitle[] = 'Phone';
                 fputcsv($fp, $headerTitle);
-                $headerString 	= implode(",", $headers);
-        	}
+                $headerString   = implode(",", $headers);
+            }
             $headerStringArr = explode(',', $headerString);
 
             $headerString = explode(',', $headerString);
@@ -271,24 +271,24 @@ if ( !mysqli_connect_errno() ) {
                 $query .= $addComma."(SELECT pn.name FROM phone_number pn WHERE pn.id = epn.phone_number_id AND pn.deleted = 0) as phone_number";
             }
             $query .= " FROM $table c LEFT JOIN entity_phone_number epn ON c.id = epn.entity_id LEFT JOIN entity_email_address eea ON c.id = eea.entity_id WHERE c.deleted = 0";
-        	
-        	//$query 		= "SELECT $headerString FROM $table";
+            
+            //$query        = "SELECT $headerString FROM $table";
             //$query = "SELECT $headerString, (SELECT ea.name FROM email_address ea WHERE ea.id = eea.email_address_id AND ea.deleted = 0) as email,(SELECT pn.name FROM phone_number pn WHERE pn.id = epn.phone_number_id AND pn.deleted = 0) as phone_number FROM $table c LEFT JOIN entity_phone_number epn ON c.id = epn.entity_id LEFT JOIN entity_email_address eea ON c.id = eea.entity_id WHERE c.deleted = 0";
            //echo $query;
 
-        	$result 	= mysqli_query($conn, $query);
-        	$i 			= 0;
-        	
-        	// Add rows in CSV
-        	while( $row = mysqli_fetch_row($result) ) {
-        	    fputcsv($fp, $row);
-        	    $i++;
-        	}
-        	
-        	fclose($fp);
-        	
-        	$sql = "INSERT INTO export_result (id, entity, description, is_cron_job, file, db_query, columns, is_exported, `status`, created_by_id, created_at, assigned_user_id ) VALUES ('".$id."', '".$_POST['export-entity-type']."','".$description."', '".$is_cron_job."', '".$file."', '".$query."', '".$headerString."', '".$is_exported."', '".$status."', '".$createdBy."', '".$createdAt."', '".$createdBy."')";
-    	}
+            $result     = mysqli_query($conn, $query);
+            $i          = 0;
+            
+            // Add rows in CSV
+            while( $row = mysqli_fetch_row($result) ) {
+                fputcsv($fp, $row);
+                $i++;
+            }
+            
+            fclose($fp);
+            
+            $sql = "INSERT INTO export_result (id, entity, description, is_cron_job, file, db_query, columns, is_exported, `status`, created_by_id, created_at, assigned_user_id ) VALUES ('".$id."', '".$_POST['export-entity-type']."','".$description."', '".$is_cron_job."', '".$file."', '".$query."', '".$headerString."', '".$is_exported."', '".$status."', '".$createdBy."', '".$createdAt."', '".$createdBy."')";
+        }
 
         // create zip file
         $zip = new ZipArchive;
@@ -333,9 +333,9 @@ if ( !mysqli_connect_errno() ) {
            
         // To check s3 bucket existing folder size in gb
 
-    	if( mysqli_query($conn, $sql) ){
-    		$data["status"] = "true";
-    		if( empty($is_cron_job) ){
+        if( mysqli_query($conn, $sql) ){
+            $data["status"] = "true";
+            if( empty($is_cron_job) ){
                 // s3 bucket transfer
                 include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/wasabi_connect.php');
                 // Where the files will be source from
@@ -365,11 +365,11 @@ if ( !mysqli_connect_errno() ) {
                 $data["msg"]    = "Export successfully!";
                 $data["data"]   = $file;
                 $data["tableId"]= $id;
-    		}else{
-    		    $data["msg"]    = "You have requested successfully! Once export completed will let you know.";
-    		    $data["data"]   = array();
-    		} 
-    	}
+            }else{
+                $data["msg"]    = "You have requested successfully! Once export completed will let you know.";
+                $data["data"]   = array();
+            } 
+        }
     }else{
         
         $data["status"] = "false";

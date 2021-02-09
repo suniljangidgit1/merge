@@ -112,64 +112,67 @@
         for ($j=0; $j < $len; $j++) 
         { 
             // echo $i ."-i";
-            $payment_id=getToken(17);
-
-            $sql4="select * from invoice where invoiceno='$invoiceno[$j]'";
-            $result4=mysqli_query($conn,$sql4);
-            $row4=mysqli_fetch_assoc($result4);
-
-            $total_amount=$row4['total'];
-            $due_date=$row4['due_date'];
-
-            if($payment_type=='Against Invoice')
+            if(($tds1[$j]!="" && $tds1[$j]!=0) || ($net_amount[$j]!="" && $net_amount[$j]!=0))
             {
-                $account_id=$row4['account_id'];
-            }
-             // print_r($_REQUEST);
-            $sql_payment="insert into payments(invoiceno,billedamount,pdate,amountcredited,mode,transactionid,id,tds,created_by_id,paymentstatus,createddate,paymentdate,account_id,paymenttype,account_name1)values('$invoiceno[$j]','$invoice_amount[$j]','$payment_date','$net_amount[$j]','$mode1[$j]','$transaction_id1[$j]','$payment_id','$tds1[$j]','$created_by_id','Success','$date','$payment_date_varchar','$account_id','$payment_type','$account_name')";
-            $result_payment=mysqli_query($conn,$sql_payment);
-            // echo $sql_payment;die;
+                $payment_id=getToken(17);
 
-            $received_amount=0;
-            $tds=0;
-            $sql5="select * from payments where invoiceno='$invoiceno[$j]'" ;
-            $result5=mysqli_query($conn,$sql5);
-            while($row5=mysqli_fetch_assoc($result5))
-            {
-                $received_amount=$received_amount + $row5['amountcredited'];
-                $tds=$tds + $row5['tds'];
-            }
-            $balance=$total_amount - $received_amount - $tds;
+                $sql4="select * from invoice where invoiceno='$invoiceno[$j]'";
+                $result4=mysqli_query($conn,$sql4);
+                $row4=mysqli_fetch_assoc($result4);
 
-            $invoicedate1= date("Y-m-d");
+                $total_amount=$row4['total'];
+                $due_date=$row4['due_date'];
 
-            // Function call to find date difference 
-            $dateDiff = dateDiffInDays($invoicedate1, $duedate); 
+                if($payment_type=='Against Invoice')
+                {
+                    $account_id=$row4['account_id'];
+                }
+                 // print_r($_REQUEST);
+                $sql_payment="insert into payments(invoiceno,billedamount,pdate,amountcredited,mode,transactionid,id,tds,created_by_id,paymentstatus,createddate,paymentdate,account_id,paymenttype,account_name1)values('$invoiceno[$j]','$invoice_amount[$j]','$payment_date','$net_amount[$j]','$mode1[$j]','$transaction_id1[$j]','$payment_id','$tds1[$j]','$created_by_id','Success','$date','$payment_date_varchar','$account_id','$payment_type','$account_name')";
+                $result_payment=mysqli_query($conn,$sql_payment);
+                // echo $sql_payment;die;
 
-            if(strtotime($duedate) == strtotime(date("Y-m-d")) && $balance==$total_amount)
-            {
-                $paymentstatus="Due today";
-            }
-            else if($balance==0)
-            {
-                $paymentstatus="Paid";
-            }
-            else if(strtotime($duedate) > strtotime(date("Y-m-d")) && $balance==$total_amount)
-            {
-                $paymentstatus="Due in ".$dateDiff." days";
-            }
-            else  if(strtotime($duedate) < strtotime(date("Y-m-d")) && $balance==$total_amount)
-            {
-                $paymentstatus="Over Due by ".$dateDiff." days";
-            }
-            else
-            {
-                $paymentstatus="Partially paid";
-            }
+                $received_amount=0;
+                $tds=0;
+                $sql5="select * from payments where invoiceno='$invoiceno[$j]'" ;
+                $result5=mysqli_query($conn,$sql5);
+                while($row5=mysqli_fetch_assoc($result5))
+                {
+                    $received_amount=$received_amount + $row5['amountcredited'];
+                    $tds=$tds + $row5['tds'];
+                }
+                $balance=$total_amount - $received_amount - $tds;
 
-            $sql_invoice_update="update invoice set paymentstatus='$paymentstatus',payment_date='$invoice_date_varchar',paymentdate='$payment_date',balance='$balance' where invoiceno='$invoiceno[$j]'";
+                $invoicedate1= date("Y-m-d");
 
-            $result_invoice_update=mysqli_query($conn,$sql_invoice_update);
+                // Function call to find date difference 
+                $dateDiff = dateDiffInDays($invoicedate1, $duedate); 
+
+                if(strtotime($duedate) == strtotime(date("Y-m-d")) && $balance==$total_amount)
+                {
+                    $paymentstatus="Due today";
+                }
+                else if($balance==0)
+                {
+                    $paymentstatus="Paid";
+                }
+                else if(strtotime($duedate) > strtotime(date("Y-m-d")) && $balance==$total_amount)
+                {
+                    $paymentstatus="Due in ".$dateDiff." days";
+                }
+                else  if(strtotime($duedate) < strtotime(date("Y-m-d")) && $balance==$total_amount)
+                {
+                    $paymentstatus="Over Due by ".$dateDiff." days";
+                }
+                else
+                {
+                    $paymentstatus="Partially paid";
+                }
+
+                $sql_invoice_update="update invoice set paymentstatus='$paymentstatus',payment_date='$invoice_date_varchar',paymentdate='$payment_date',balance='$balance' where invoiceno='$invoiceno[$j]'";
+
+                $result_invoice_update=mysqli_query($conn,$sql_invoice_update);
+            }
         }
 
         // $result_invoice_update=mysqli_query($conn,$sql_invoice_update);
@@ -201,4 +204,4 @@
     $project = explode('/', $_SERVER['REQUEST_URI'])[1];
     	
     echo 1;
-?>
+;?>

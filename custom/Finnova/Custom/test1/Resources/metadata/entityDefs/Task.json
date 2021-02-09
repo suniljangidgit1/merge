@@ -6,26 +6,7 @@
                 "Contact",
                 "Lead",
                 "Opportunity",
-                "Case",
-                "ClosedTask",
-                "Estimate",
-                "Invoice",
-                "Payments",
-                "EmailReminder",
-                "SMSReminder",
-                "OfficeLocation",
-                "Designation",
-                "Export",
-                "ExportResult",
-                "ContactList",
-                "MyCampaigns",
-                "MessageLog",
-                "SentMessages",
-                "BillingEntity",
-                "HolidayCalender",
-                "TestDemo",
-                "ImportResult",
-                "OfficeLocation"
+                "Case"
             ]
         },
         "dateEnd": {

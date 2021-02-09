@@ -30,7 +30,7 @@ $sql1 = "SELECT * FROM estimate where id='$id'";
 $result1 = mysqli_query($conn, $sql1);
 $row1=mysqli_fetch_assoc($result1);
 
-// $attachment_arr = array();
+$attachment_arr = array();
 
 if(!empty($row1['filename']))
 {
@@ -40,10 +40,24 @@ if(!empty($row1['filename']))
 	$row4=mysqli_fetch_assoc($result4);
 	$user=$row4['user_name'];
 
+	$estimate = 'estimate/';
+	if(!is_dir($estimate))
+	{
+		mkdir($estimate,0777,true);
+		// chmod($uploads_dir, 0755);
+	}
+
 	$uploads_zipdir = 'estimate/zipFolder/';
 	if(!is_dir($uploads_zipdir))
 	{
 		mkdir($uploads_zipdir,0777,true);
+		// chmod($uploads_dir, 0755);
+	}
+
+	$uploadsdir = 'estimate/uploads/';
+	if(!is_dir($uploadsdir))
+	{
+		mkdir($uploadsdir,0777,true);
 		// chmod($uploads_dir, 0755);
 	}
 
@@ -74,7 +88,7 @@ if(!empty($row1['filename']))
         'SaveAs' => $dest,
     ));
 
-	$file_path = $_SERVER["DOCUMENT_ROOT"]."/client/res/templates/financial_changes/estimate/zipFolder/".$row1['filename'];
+	$file_path = $_SERVER["DOCUMENT_ROOT"]."/client/res/templates/financial_changes/estimate/zipFolder/";
 
 	$extractpath = $_SERVER["DOCUMENT_ROOT"]."/client/res/templates/financial_changes/estimate/uploads/";
 
@@ -82,17 +96,18 @@ if(!empty($row1['filename']))
 
 	$ExtractFileName = '';
 	$zip = new ZipArchive;
-	$res = $zip->open($file_path);
+	$res = $zip->open($file_path.$row1['filename']);
 	if($res == TRUE)
-  	{
+  	{	
 		// $zip->extractTo($extract_path.'/uploads/');
-		// $zip->extractTo($extractpath);
+		$zip->extractTo($extractpath);
 		for($i = 0; $i < $zip->numFiles; $i++)
 		{
 			$ExtractFileName = $zip->getNameIndex($i);
-
+			
 			$link = "../../client/res/templates/financial_changes/download_estimate_attachments.php?filename=".$ExtractFileName;
-			$attachment_arr[] = array("id" => $row1['id'], "estimate_id" => $id, "filepath" => $file_path, "original_filename" => $ExtractFileName,"link" => $link);
+
+			$attachment_arr[] = array("id" => $row1['id'], "estimate_id" => $id, "filepath" => $file_path, "original_filename" => $ExtractFileName, "link" => $link);
       	}
       	$zip->close();
   	}
@@ -100,6 +115,5 @@ if(!empty($row1['filename']))
 
 // encoding array to json format
 echo json_encode($attachment_arr);
-
 
 ?>

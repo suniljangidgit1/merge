@@ -46,20 +46,6 @@
             "trim": true,
             "options": [],
             "isCustom": true
-        },
-        "source": {
-            "default": "Call",
-            "audited": true,
-            "style": {
-                "Call": null,
-                "Email": null,
-                "Existing Customer": null,
-                "Partner": null,
-                "Public Relations": null,
-                "Web Site": null,
-                "Campaign": null,
-                "Other": null
-            }
         }
     }
 }

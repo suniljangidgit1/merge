@@ -1,29 +1,26 @@
 [
     {
+        "name": "sendFrom"
+    },
+    {
+        "name": "contentTemplateName"
+    },
+    {
         "name": "campaignsName"
     },
     {
         "name": "listName"
     },
     {
-        "name": "sendFrom"
+        "name": "smsBody"
     },
     {
-        "name": "smsBody"
+        "name": "scheduledAt"
     },
     {
         "name": "totalSentSms"
     },
     {
-        "name": "totalDeliveredSMS"
-    },
-    {
-        "name": "totalNotDeliveredSMS"
-    },
-    {
         "name": "createdAt"
-    },
-    {
-        "name": "createdBy"
     }
 ]

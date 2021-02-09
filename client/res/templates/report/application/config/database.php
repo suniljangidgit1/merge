@@ -70,14 +70,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
+// $filePath      = $_SERVER['DOCUMENT_ROOT'].'/data/config.php';
+// include($filePath);
+// Create connection
+
+// $conn = mysqli_connect('164.52.205.204', 'proadmin', 'mJmxCj*92WuFcfB_', 'crmdev');
+$conn = mysqli_connect('localhost', 'root', 'root', 'crmdev');
 
 $host_name 	= $_SERVER['HTTP_HOST'];
 $strArr 	= explode('.', $host_name);
 
 if( !empty($strArr) && $strArr[1] == 'crm' && $strArr[2] == 'com' ){
 	$conn = mysqli_connect('localhost', 'root', 'root', 'crmdev');
-} else{
-	$conn = mysqli_connect('164.52.205.204', 'proadmin', 'mJmxCj*92WuFcfB_', 'crmdev');
+}
+else{
+	$conn 		= mysqli_connect('164.52.205.204', 'proadmin', 'mJmxCj*92WuFcfB_', 'crmdev');
 }
 
 // Check connection

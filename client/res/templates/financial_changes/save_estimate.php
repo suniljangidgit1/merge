@@ -1,6 +1,6 @@
 <?php
 session_start();
-// error_reporting(~E_ALL);
+error_reporting(~E_ALL);
 $user_name = $_SESSION['Login'];
 // $entity_id=$_SESSION['entityID'];
 $entity_name=$_SESSION['name'];
@@ -75,7 +75,8 @@ $billto_udyamno =  $_REQUEST['billingto_udyamno'];
 
 $po_so_number =  $_REQUEST['po_so_number'];
 $terms_conditions =  $_REQUEST['estimate_terms_conditions'];
-// echo '<pre>';print_r($_REQUEST);die;
+// echo '<pre>';print_r($_REQUEST);
+// echo '<pre>';print_r($_FILES);die;
 
 // $account_name=(isset($_REQUEST['account_id'])) ? $_REQUEST['account_id'] : '';
 $account_name=(isset($_REQUEST['billtoname'])) ? $_REQUEST['billtoname'] : '';
@@ -368,9 +369,8 @@ delete_directory('uploads/');*/
 //die;
 // echo 1;
 $data["status"] = "true";
-$data["msg"]    = "Created Successfully!";
-$data = array("status" => "true", "msg" => "Created Successfully!");
+$data["msg"]    = "Estimate Created Successfully!";
+$data = array("status" => "true", "msg" => "Estimate Created Successfully!");
 echo json_encode($data); 
 return true;
-
-?>
+;?>

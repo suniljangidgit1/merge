@@ -36,13 +36,6 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Email' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
         'EmailAccount' => (object) [
             'read' => 'all',
             'stream' => 'all',
@@ -65,7 +58,7 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'EmailTemplate' => (object) [
+        'Email' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -73,6 +66,13 @@ return (object) [
             'create' => 'yes'
         ],
         'EmailTemplateCategory' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'EmailTemplate' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -214,13 +214,6 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'User' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
         'UserData' => (object) [
             'read' => 'all',
             'stream' => 'all',
@@ -228,7 +221,13 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Webhook' => true,
+        'User' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
         'WebhookEventQueueItem' => (object) [
             'read' => 'all',
             'stream' => 'all',
@@ -236,6 +235,7 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
+        'Webhook' => true,
         'WebhookQueueItem' => (object) [
             'read' => 'all',
             'stream' => 'all',
@@ -251,6 +251,13 @@ return (object) [
             'create' => 'yes'
         ],
         'Activities' => true,
+        'BillingEntity' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
         'Calendar' => true,
         'Call' => (object) [
             'read' => 'all',
@@ -287,105 +294,14 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Contact' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Document' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'DocumentFolder' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'EmailQueueItem' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'KnowledgeBaseArticle' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'KnowledgeBaseCategory' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Lead' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'MassEmail' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Meeting' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Opportunity' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Reminder' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'TargetList' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'Task' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'BillingEntity' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
         'ClosedTask' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Contact' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -406,14 +322,21 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Demo' => (object) [
+        'DocumentFolder' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Designation' => (object) [
+        'Document' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'EmailQueueItem' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -469,7 +392,35 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'MessageLog' => (object) [
+        'KnowledgeBaseArticle' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'KnowledgeBaseCategory' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Lead' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'MassEmail' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Meeting' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -490,6 +441,13 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
+        'Opportunity' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
         'Payments' => (object) [
             'read' => 'all',
             'stream' => 'all',
@@ -497,14 +455,7 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'SMSReminder' => (object) [
-            'read' => 'all',
-            'stream' => 'all',
-            'edit' => 'all',
-            'delete' => 'all',
-            'create' => 'yes'
-        ],
-        'SendSMSData' => (object) [
+        'Reminder' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -512,6 +463,13 @@ return (object) [
             'create' => 'yes'
         ],
         'SenderID' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'SendSMSData' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -532,14 +490,42 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'TEsting2811' => (object) [
+        'SMSReminder' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
             'delete' => 'all',
             'create' => 'yes'
         ],
-        'Test' => (object) [
+        'TargetList' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Task' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Demo' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Designation' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'MessageLog' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',
@@ -553,7 +539,21 @@ return (object) [
             'delete' => 'all',
             'create' => 'yes'
         ],
+        'TEsting2811' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
         'TestingEntity' => (object) [
+            'read' => 'all',
+            'stream' => 'all',
+            'edit' => 'all',
+            'delete' => 'all',
+            'create' => 'yes'
+        ],
+        'Test' => (object) [
             'read' => 'all',
             'stream' => 'all',
             'edit' => 'all',

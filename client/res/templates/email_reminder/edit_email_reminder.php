@@ -76,7 +76,7 @@ if( !empty($file_name) ) {
             if ($res === TRUE) {
                 for($i = 0; $i < $zip->numFiles; $i++) {
                     $ExtractFileName = $zip->getNameIndex($i);
-                    $fileHtml= $fileHtml."<p> ".$ExtractFileName." <span class='material-icons-outlined unlinkFile' data-id='".$id."' data-name='".$ExtractFileName."'  aria-hidden='true' onclick='unLinkfile(this);' style='cursor: pointer;' >close</span></p>";
+                    $fileHtml= $fileHtml."<div class='row edit_emailattachment_remove_after'><div class='col-xs-6'>".$ExtractFileName." </div><div class='col-xs-6'><span class='material-icons-outlined unlinkFile' data-id='".$id."' data-name='".$ExtractFileName."'  aria-hidden='true' onclick='unLinkfile(this);' style='cursor: pointer;' >close</span></div></div>";
                 }
                 $zip->close();
             } 
@@ -162,7 +162,7 @@ $output ='
                     <div class="col-xs-12 col-sm-12 col-md-2">
                         <div class="clip-upload edit-upload">
                             <label for="file-input1">
-                                <span class=""><i class="fa fa-paperclip fa-lg" style="color:black; font-size:21px; cursor: pointer;" aria-hidden="true"></i></span>
+                                <span class="btn btn-default_gray btn-icon"><i class="fa fa-paperclip fa-lg" style="font-size:21px; cursor: pointer;" aria-hidden="true"></i></span>
                             </label>
 
                             <input type="file" class="file-input1 hide" multiple name="attachment1[]" id="file-input1" />
@@ -178,11 +178,14 @@ $output ='
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-              <div class="mrt-10 file_name_exists">'.$fileHtml.'
+              <div class="col-xs-6 col-sm-6 col-md-6 pl0 pr0">
+                <div class="mrt-10 file_name_exists">'.$fileHtml.'</div>
+              </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="mrt-10 file_name_append1"></div>
-            </diV>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-6 col-sm-6 col-md-6 pl0 pr0">
+                    <div class="mrt-10 file_name_append1"></div>
+                </div>
             </div>
         </div>
         <div class="row">

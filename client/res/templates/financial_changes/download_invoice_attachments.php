@@ -26,7 +26,8 @@
     $ext  = array_pop($temp);
     $name = implode('.', $temp);
 	// echo $name;die();
-	include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/'. 'S3Connect.php');
+    include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/wasabi_connect.php');
+	// include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/'. 'S3Connect.php');
     // $path='uploads/financial_files';
     $path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/estimate/uploads/';
 
@@ -59,9 +60,11 @@
     }*/
 	
 	// $path = 'uploads/financial_files/'.$filename;
-    $path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/invoice/uploads/'.$donwloadFile;
-	header('Content-Description: File Transfer');
-    header('Content-Type: application/force-download');
+    $path = 'invoice/uploads/'.$donwloadFile;
+    // $path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/invoice/uploads/'.$donwloadFile;
+	
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
 	// header("Content-type:" .pathinfo($filename, PATHINFO_EXTENSION));
     header("Content-type:" .pathinfo($donwloadFile, PATHINFO_EXTENSION));
     header("Content-Disposition: attachment; filename=\"" . basename($path) . "\";");

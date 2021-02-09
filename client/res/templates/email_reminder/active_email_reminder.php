@@ -24,7 +24,7 @@ if( !empty($id) ) {
 	$currentDateTime 		= 	$currentDateTime->format('Y-m-d H:i');
 
 	$minutes		 		=   270;    // minute [ 4:30 h]
-	//$currentDateTime 		=	increaseTime($currentDateTime, $minutes);
+	// $currentDateTime 		=	increaseTime($currentDateTime, $minutes);
 
 	$reminderDateTime       =   date('Y-m-d', strtotime($date)).' '.$time;
 

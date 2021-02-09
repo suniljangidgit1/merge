@@ -1,6 +1,6 @@
 // New Create Estimate Form Script
 
-$(document).on("focus", "#edit_datepicker", function(){
+/*$(document).on("focus", "#edit_datepicker", function(){
 
     $("#edit_datepicker").datepicker({ 
         autoclose: true, 
@@ -8,9 +8,22 @@ $(document).on("focus", "#edit_datepicker", function(){
         orientation: "top",
         format: "dd/mm/yyyy"
     })
-    // .datepicker('update', new Date());
+});*/
 
-});
+$(document).on("click", ".edit_datepicker,.edit_estimate_date_datepicker", function(e){
+      e.stopImmediatePropagation();
+      e.preventDefault();    
+     $(".edit_datepicker").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true, 
+      todayHighlight: true,
+      changeMonth: true,
+      changeYear: true,
+      autoclose: true,
+      todayHighlight: true,
+     }).trigger("focus");
+    });
+
 
 /* Variables */
 var p = $("#edit_participants").val();
@@ -3491,53 +3504,62 @@ $(document).on("click", "#update_estimateBTN_new", function(event){
                     newFileEditEstFlag = 1;
                 });
 
-                if(newFileEditEstFlag)
-                {
-                    $("#edit_estimateModal .email-blur-effect, #edit_estimateModal .email-loader").show();
-                }
-                  
-                $.ajax({
-                    type    : "POST",
-                    url     : "../../client/res/templates/financial_changes/update_estimate.php",
-                    dataType  : "json",
-                    processData: false,
-                    contentType: false,
-                    data: form,
-                    success: function(data)
+                // if($("#edit_estimateModal #invalidFormat").val() == 0)
+                // {
+                    if(newFileEditEstFlag)
                     {
-                        if(data.status == "true")
-                        {
-                            if(newFileEditEstFlag)
-                            {
-                                $("#edit_estimateModal .email-blur-effect, #edit_estimateModal .email-loader").hide();
-                            }
-                            $.confirm({
-                                title: 'Success!',
-                                content: data.msg,
-                                buttons: {
-                                    Ok: function () {
-                                        $('button[data-action="reset"]').trigger('click');
-                                        //$(function (){
-                                            //$('#edit_estimate_main_details').modal('toggle');
-                                            $('#edit_estimateModal').modal('hide');
-                                        //});
-                                        $('#updateEstimateForm')[0].reset();
-                                        $(".modal-backdrop.in").remove();
-                                    }
-                                }
-                            });
-                        }
-                        else
-                        {
-                            $.alert({
-                                title: 'Alert!',
-                                content: data.msg,
-                                type: 'dark',
-                                typeAnimated: true,
-                            });
-                        }
+                        $("#edit_estimateModal .email-blur-effect, #edit_estimateModal .email-loader").show();
                     }
-                });
+                      
+                    $.ajax({
+                        type    : "POST",
+                        url     : "../../client/res/templates/financial_changes/update_estimate.php",
+                        dataType  : "json",
+                        processData: false,
+                        contentType: false,
+                        data: form,
+                        success: function(data)
+                        {
+                            if(data.status == "true")
+                            {
+                                if(newFileEditEstFlag)
+                                {
+                                    $("#edit_estimateModal .email-blur-effect, #edit_estimateModal .email-loader").hide();
+                                }
+                                $.confirm({
+                                    title: 'Success!',
+                                    content: data.msg,
+                                    buttons: {
+                                        Ok: function () {
+                                            $('button[data-action="reset"]').trigger('click');
+                                            //$(function (){
+                                                //$('#edit_estimate_main_details').modal('toggle');
+                                                $('#edit_estimateModal').modal('hide');
+                                            //});
+                                            $('#updateEstimateForm')[0].reset();
+                                            $(".modal-backdrop.in").remove();
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                $.alert({
+                                    title: 'Alert!',
+                                    content: data.msg,
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                });
+                            }
+                        }
+                    });
+                // }
+                // else {
+                //     $("#edit_estimateModal").animate({ 
+                //         scrollTop:  $(".edit_estimate_filesList").offset().top 
+                //     }, 100); 
+                //     return false;
+                // }
             }
         }
     // });
@@ -4748,7 +4770,11 @@ function getedit_estimateFilenames(){
                     type: 'dark',
                     typeAnimated: true,
                 });*/
-                $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+                $fileHtml= $fileHtml+"<li class='wrongFileFormat'><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+
+                setTimeout(function () {
+                    $("li.wrongFileFormat").remove();
+                }, 1000);
             }
             else{
                 $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span class='material-icons-outlined editestimate_unLinkfile' data-id='' data-name='"+fileName+"' aria-hidden='true' onclick='editestimate_unLinkfile(this);' style='cursor: pointer; font-size: 14px;top: 3px; margin-left: 5px;' >close</span></div></li>";

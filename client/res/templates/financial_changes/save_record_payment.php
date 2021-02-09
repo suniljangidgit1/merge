@@ -19,7 +19,7 @@ if (mysqli_connect_errno())
 
 $account_name = $_REQUEST['account_name'];
 // $payment_type='Against Invoice';
-$payment_type = $_REQUEST['record_payment_type'];
+$payment_type = (isset($_REQUEST['record_payment_type'])) ? $_REQUEST['record_payment_type'] : 'Against Invoice';
 // $mode=$_REQUEST['mode_name'];
 // $transaction_id=$_REQUEST['transaction_id1'];
 
@@ -30,8 +30,8 @@ $invoiceno = $_REQUEST['invoiceno'];
 $invoicedate = $_REQUEST['invoicedate'];
 $payment_invoice_amount = $_REQUEST['payment_invoice_amount'];
 $payment_due_amount = $_REQUEST['payment_due_amount'];
-$payment_tds = $_REQUEST['payment_tds'];
-$payment_net_amount1 = $_REQUEST['payment_net_amount1'];
+$payment_tds = (isset($_REQUEST['payment_tds'])) ? $_REQUEST['payment_tds'] : 0;
+$payment_net_amount1 = (isset($_REQUEST['payment_net_amount1'])) ? $_REQUEST['payment_net_amount1'] : 0;
 $mode_name = $_REQUEST['mode_name'];
 $transaction_id1 = $_REQUEST['transaction_id1'];
 
@@ -53,7 +53,7 @@ $result15=mysqli_query($conn,$sql15);
 $row15=mysqli_fetch_assoc($result15);
 $account_id=$row15['id'];
 
-$balance=  $payment_due_amount-$payment_tds;
+$balance=  $payment_due_amount - $payment_tds;
 
 function getToken($length)
 {
@@ -174,5 +174,4 @@ function dateDiffInDays($date1, $date2)
 } 
 
 echo json_encode(1);
-
 ?>

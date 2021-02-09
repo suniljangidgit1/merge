@@ -127,6 +127,8 @@ class DataPrivacy extends \Finnova\Core\Services\Base
                         ->checkEditInEntity($this->getInjection('user'), $emailAddress, $entity)
                     ) {
                         $emailAddress->set('name', 'ERASED:' . $emailAddress->id);
+                        //$emailAddress->set('name', '');
+                        // $emailAddress->set('deleted', '1');
                         $emailAddress->set('optOut', true);
                         $this->getEntityManager()->saveEntity($emailAddress);
                     }

@@ -1,25 +1,3 @@
-<style type="text/css">
-  .facebookForm .custom-a11yselect-container .custom-a11yselect-menu.custom-a11yselect-overflow
-  {
-    height: 115px !important;
-  }
-
-  .facebookForm .input_img
-  {
-    bottom: 8px !important;
-  }
-
-  .facebookForm .custom-a11yselect-container .custom-a11yselect-btn .custom-a11yselect-text
-  {
-    color: #999 !important;
-    padding-left: 17px !important;
-  }
-.facebookForm .custom-a11yselect-container i.custom-a11yselect-icon.icon-carrat-down
-{
-  border-top: .3em solid #888 !important;
-}
-</style>
-
 <script>
 $(document).ready(function(){
 
@@ -306,8 +284,7 @@ $('.accordion--form__next-btn').on('click touchstart', function() {
   return false;
 });
 
-
-$(document).on("change", ".Facebook_Select, .Facebook_Page_Select, .Facebook_Form_Select", function(){
+$(document).on("change", ".Facebook_Select, .Facebook_Page_Select, .Facebook_Form_Select, .Facebook_Mapping_Select", function(){
 
     var facebookSelect  = $(this).val();
     if(facebookSelect){
@@ -316,7 +293,6 @@ $(document).on("change", ".Facebook_Select, .Facebook_Page_Select, .Facebook_For
       $(".accordion--form__invalid").show();
     }
 });
-
 </script>
 
 <div class="button-container">
@@ -553,47 +529,14 @@ $(document).on("change", ".Facebook_Select, .Facebook_Page_Select, .Facebook_For
         dataType : 'html',
         success: function(data) {
             $('.facebookFieldMappingHtml').html(data);
-            $('.Facebook_Mapping_Select').customA11ySelect('refresh');
-            $(".Facebook_Mapping_Select").closest("div").find(".custom-a11yselect-btn").attr("onclick","btnClick(this)");
+            $('.Facebook_Mapping_Select').select2({
+               data: [""],
+              placeholder: "Please Select",
+              allowClear: true
+            });
         }
     });
   }
-
-var previous = $(".facebookForm .Facebook_Mapping_Select").first().find(".custom-a11yselect-menu .custom-a11yselect-selected").attr('data-val');
-
-function btnClick(element) {
-
-  previous = $(element).closest("div").find(".custom-a11yselect-menu  .custom-a11yselect-selected").attr('data-val');
-    console.log("previous = > "+previous);
-
-}
-
-
-$(document).on("change", ".Facebook_Mapping_Select", function(){
-
-    var facebookSelect  = $(this).val();
-    if(facebookSelect){
-      $(".accordion--form__invalid").hide();
-    }else{
-      $(".accordion--form__invalid").show();
-    }
-
-   if(previous != '') {
-
-      $('.facebookForm .Facebook_Mapping_Select').not(this).closest("div").find(".custom-a11yselect-menu .custom-a11yselect-option[data-val='"+previous+"']").css("display","block");
-
-   }
-
-  var current=$(this).closest("div").find(".custom-a11yselect-menu  .custom-a11yselect-selected").attr('data-val');
-  
-  if(current != '')
-    {
-      $('.facebookForm .Facebook_Mapping_Select').not(this).closest("div").find(".custom-a11yselect-menu .custom-a11yselect-option[data-val='"+current+"']").css("display","none");
-  }
-    // console.log("current= > "+current);
-
-});
-
 
   //GET SELECTED PAGE ID & ACCESS TOKEN
   $(document).on("change" , ".Facebook_Page_Select", function (event) {

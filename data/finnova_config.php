@@ -1,6 +1,6 @@
 <?php
 return [
-    'cacheTimestamp' => 1612164210,
+    'cacheTimestamp' => 1609928840,
     'database' => [
         'driver' => 'pdo_mysql',
         'host' => '164.52.205.204',
@@ -111,10 +111,7 @@ return [
         23 => 'PLDataPune',
         24 => 'UnacceptedRatingData',
         25 => 'ImportTesting',
-        26 => 'MonsterData45To6',
-        27 => 'HRCompanies',
-        28 => 'Candidates',
-        29 => 'CACertificate'
+        26 => 'MonsterData45To6'
     ],
     'quickCreateList' => [
         0 => 'Account',

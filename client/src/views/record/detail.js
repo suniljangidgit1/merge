@@ -494,21 +494,18 @@ define('views/record/detail', ['views/record/base', 'view-record-helper'], funct
                         console.log(value); 
                     }
                     return false;*/
-                    
-                    if($("select[data-name='doyouhavegstnum']").val() == 'Yes')
-                    {
-                        $.ajax({
-                            type    : "POST",
-                            url     : "../../client/res/templates/financial_changes/account_gst_fields.php",
-                            dataType  : "json",
-                            processData : false,
-                            contentType : false,
-                            data:form,
-                            success: function(data){
 
-                            }
-                        });
-                    }
+                    $.ajax({
+                        type    : "POST",
+                        url     : "../../client/res/templates/financial_changes/account_gst_fields.php",
+                        dataType  : "json",
+                        processData : false,
+                        contentType : false,
+                        data:form,
+                        success: function(data){
+
+                        }
+                    });
                     
                     var hash=window.location.hash;
                     hash.indexOf(0);

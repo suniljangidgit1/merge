@@ -109,6 +109,17 @@
         "emailAddress": {
             "required": true
         },
+        "officeLocation": {
+            "type": "link"
+        },
+        "officeLocations": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
+            "isCustom": true
+        },
         "title": {
             "options": []
         }
@@ -126,6 +137,20 @@
             "type": "belongsTo",
             "foreign": "users",
             "entity": "User",
+            "audited": false,
+            "isCustom": true
+        },
+        "officeLocation": {
+            "type": "belongsTo",
+            "foreign": "users",
+            "entity": "OfficeLocation",
+            "audited": false,
+            "isCustom": true
+        },
+        "officeLocations": {
+            "type": "hasMany",
+            "foreign": "user",
+            "entity": "OfficeLocation",
             "audited": false,
             "isCustom": true
         }

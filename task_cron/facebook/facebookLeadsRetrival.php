@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set('UTC');
 
 if(!defined('STDIN'))  define('STDIN',  fopen('php://stdin',  'rb'));
 if(!defined('STDOUT')) define('STDOUT', fopen('php://stdout', 'wb'));
@@ -55,7 +54,7 @@ if($commonDbNumRows>0){
 		  die("Sub-domain Database Connection failed: " . mysqli_connect_error());
 		}
 
-		$leadSql  = "SELECT fm.created_by_id, fm.fb_leads_structure, fm.crm_leads_structure , up.page_access_token FROM facebook_ads_user_pages up INNER JOIN fb_form_fields_mapping fm ON up.page_id = fm.page_id WHERE fm.page_id = '$pageId' AND fm.form_id = '$formId'";
+		$leadSql  = "SELECT fm.fb_leads_structure, fm.crm_leads_structure , up.page_access_token FROM facebook_ads_user_pages up INNER JOIN fb_form_fields_mapping fm ON up.page_id = fm.page_id WHERE fm.page_id = '$pageId' AND fm.form_id = '$formId'";
 
 		$leadResult 	= mysqli_query($conn,$leadSql);
 		$leadResultRows = mysqli_num_rows($leadResult);
@@ -66,7 +65,6 @@ if($commonDbNumRows>0){
 		        $fb_leads_structure 	= 	explode(',', $leadRow['fb_leads_structure']);
 		        $crm_leads_structure 	= 	explode(',', $leadRow['crm_leads_structure']);
 		        $page_access_token 		= 	$leadRow['page_access_token'];
-		        $createdBy              =   $leadRow['created_by_id'];
 
 		        $app_id 		= APPID;
 				$app_secret 	= CLIENTSECRET;
@@ -94,54 +92,8 @@ if($commonDbNumRows>0){
 					$leads_values[] = $fb_rows;
 				}
 
-				$id  			=  getToken(20);
-				$DateTime       =   new DateTime();
-                $createdAt      =   $DateTime->format('Y-m-d H:i:s');
-
-				//INSERT PHONE
-				if(in_array('phone', $crm_leads_structure)){
-					$phonePosition = array_search('phone', $crm_leads_structure);
-					$phone = $leads_values[$phonePosition];
-
-					if(!empty($phone)) {
-						$phone_number_id = getToken(17);
-
-				      	$sql = "INSERT INTO `entity_phone_number`(`entity_id`, `phone_number_id`, `entity_type`, `primary`, `deleted`) VALUES ('$id','$phone_number_id','Lead','1','0')";
-
-				      	mysqli_query($subdomain_conn, $sql);
-
-				      	$sql = "INSERT INTO `phone_number`(`id`, `name`, `deleted`, `type`, `numeric`, `invalid`, `opt_out`) VALUES ('$phone_number_id','$phone','0','Mobile','$phone','0','0')";
-
-				      	mysqli_query($subdomain_conn, $sql);
-					}
-
-					unset($crm_leads_structure[$phonePosition]);
-					unset($leads_values[$phonePosition]);	
-				}
-
-				//INSERT EMAIL
-				if(in_array('email', $crm_leads_structure)){
-					$emailPosition = array_search('email', $crm_leads_structure);
-					$email = $leads_values[$emailPosition];
-
-					if(!empty($email)) {
-						$email_id = getToken(17);
-
-				      	$sql = "INSERT INTO `entity_email_address`( `entity_id`, `email_address_id`, `entity_type`, `primary`, `deleted`) VALUES ('$id','$email_id','Lead','1','0')";
-
-				      	mysqli_query($conn, $sql);
-
-				      	$sql = "INSERT INTO `email_address`(`id`, `name`, `deleted`, `lower`, `invalid`, `opt_out`) VALUES ('$email_id','$email','0','$email','0','0')";
-
-				      	mysqli_query($conn, $sql);
-					}
-
-					unset($crm_leads_structure[$emailPosition]);
-					unset($leads_values[$emailPosition]);	
-				}
-
-				$fields_name 	= 	'`id`, `deleted`,'.implode(",", $crm_leads_structure).','.'source, `created_at`, `created_by_id`, `assigned_user_id`';
-				$leads_values 	= 	"'$id','0','".implode("','", $leads_values)."','facebook.com','$createdAt','$createdBy','$createdBy'";
+				$fields_name 	= 	implode(",", $crm_leads_structure).','.'source';
+				$leads_values 	= 	"'".implode("','", $leads_values)."','facebook.com'";
 
 				$sql 			= 	"INSERT INTO lead($fields_name) VALUES ($leads_values)";
 				$result 		= 	mysqli_query($conn, $sql);
@@ -156,33 +108,5 @@ if($commonDbNumRows>0){
 		    }
 		}
 	}
-}
-
-
-//get token id
-function getToken($length) {
-  $token = "";
-  $codeAlphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
-  $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
-  $codeAlphabet.= "0123456789";
-  $max = strlen($codeAlphabet); // edited
-  for ($i=0; $i < $length; $i++) {
-    $token .= $codeAlphabet[crypto_rand_secure(0, $max-1)];
-  }
-  return $token;
-}
-
-function crypto_rand_secure($min, $max) {
-    $range = $max - $min;
-    if ($range < 1) return $min; // not so random...
-    $log = ceil(log($range, 2));
-    $bytes = (int) ($log / 8) + 1; // length in bytes
-    $bits = (int) $log + 1; // length in bits
-    $filter = (int) (1 << $bits) - 1; // set all lower bits to 1
-    do {
-        $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
-        $rnd = $rnd & $filter; // discard irrelevant bits
-    } while ($rnd > $range);
-    return $min + $rnd;
 }
 ?>

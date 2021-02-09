@@ -117,6 +117,14 @@
         },
         "phoneNumber": {
             "required": true
+        },
+        "officeLocations": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
+            "isCustom": true
         }
     },
     "links": {
@@ -139,6 +147,13 @@
             "type": "belongsTo",
             "foreign": "users",
             "entity": "User",
+            "audited": false,
+            "isCustom": true
+        },
+        "officeLocations": {
+            "type": "hasMany",
+            "foreign": "user",
+            "entity": "OfficeLocation",
             "audited": false,
             "isCustom": true
         }

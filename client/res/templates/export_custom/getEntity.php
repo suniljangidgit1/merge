@@ -50,6 +50,6 @@ if( !empty($filePath) && file_exists($filePath) ){
     $data["data"]   = array();
 }
 
-// echo "<pre>***";print_r(data);die;
 echo json_encode($data); 
 return true;
+?>

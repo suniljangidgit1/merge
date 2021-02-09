@@ -258,7 +258,9 @@ $output = '<style type="text/css">
                     				<div class="col-md-7">';
                     				// echo '<pre>';print_r($_REQUEST);die;
                     				// $fromemail = $_REQUEST['billingemailaddress'];
-                    				// $fromemail = $_REQUEST['billingaddressemailid'];
+                    					// $fromemail = $_REQUEST['billingaddressemailid'];
+									// $fromphone = $_REQUEST['billingphoneno'];
+										// $fromphone = $_REQUEST['billingaddresshphoneno'];
 
                     				if(isset($_REQUEST['billingaddressemailid'])){
 									    $fromemail = $_REQUEST['billingaddressemailid'];
@@ -270,10 +272,7 @@ $output = '<style type="text/css">
 									if((isset($_REQUEST['billingaddressemailid']) && $_REQUEST['billingaddressemailid']=="") || (isset($_REQUEST['billingemailaddress']) && $_REQUEST['billingemailaddress']=="")){
 									    $fromemail = "";
 									}
-
-									// $fromphone = $_REQUEST['billingphoneno'];
-									// $fromphone = $_REQUEST['billingaddresshphoneno'];
-
+                    				
 									if(isset($_REQUEST['billingphoneno'])){
 									    $fromphone = $_REQUEST['billingphoneno'];
 									}
@@ -800,5 +799,4 @@ $output = '<style type="text/css">
 
 $_REQUEST = array();
 echo json_encode($output);
-
 ?>

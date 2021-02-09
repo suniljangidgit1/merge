@@ -4,27 +4,27 @@ session_start();
 
 /*
 * To built ucfirst of each word of string
-* @return 	= (string)
+* @return   = (string)
 */
 function optionText($string=""){
-	
-    // $string 	= 'hi_abc_xyz';
-	$newString 	= str_replace( "_", " ", $string);
-	$stringArr	= explode(" ", $newString);
+    
+    // $string  = 'hi_abc_xyz';
+    $newString  = str_replace( "_", " ", $string);
+    $stringArr  = explode(" ", $newString);
 
-	$capString = "";
-	foreach ($stringArr as $key => $value) {
-		
-		$capString .= ucfirst($value)." ";
-	}
+    $capString = "";
+    foreach ($stringArr as $key => $value) {
+        
+        $capString .= ucfirst($value)." ";
+    }
 
-	return $capString;
+    return $capString;
 }
 
 
 /*
 * To export csv file & save
-* @return 	= (json)
+* @return   = (json)
 */
 
 $data["status"] = "false";
@@ -38,8 +38,8 @@ if ( !mysqli_connect_errno() ) {
     
     // Get individual records
     $sql        = "SELECT id, entity, db_query, columns, is_exported FROM export_result WHERE is_cron_job='1' AND is_exported='Pending' ORDER BY created_at ASC LIMIT 1 ";
-    $result 	= mysqli_query($conn, $sql );
-    $dbQuery 	= mysqli_fetch_array($result);
+    $result     = mysqli_query($conn, $sql );
+    $dbQuery    = mysqli_fetch_array($result);
     
     if( !empty($dbQuery["entity"]) && !empty($dbQuery["db_query"]) ){
         
@@ -48,10 +48,10 @@ if ( !mysqli_connect_errno() ) {
         $cronQuery      = $dbQuery["db_query"];
         $cronColumns    = $dbQuery["columns"];
         $cronIsExported = $dbQuery["is_exported"];
-        $cornUpdatedAt 	= date("Y-m-d H:i:s");
+        $cornUpdatedAt  = date("Y-m-d H:i:s");
         
-        $file 		    = $dbQuery["entity"].date("_dmYHis").".csv";
-    	// $filename 		= "export_files/".$file;
+        $file           = $dbQuery["entity"].date("_dmYHis").".csv";
+        // $filename        = "export_files/".$file;
 
         // check folder exists or not
         $uploads_dir    = 'export_files/'.$_SERVER['SERVER_NAME'];
@@ -60,46 +60,46 @@ if ( !mysqli_connect_errno() ) {
         }
 
         $filename       = $uploads_dir."/".$file;
-    	
-    	$fp 			= fopen($filename, 'w');
         
-    	// Build header array if columns
-    	if( !empty($cronColumns) && $cronColumns != "*" ) {
-        	    
-    	    $headerString 	= explode(",", $cronColumns);
-    		foreach ( $headerString as $val ) {		
-    			if( !empty($val) ){
-    				$headerTitle[]  = optionText($val);
-    			}
-    		}
-        		
+        $fp             = fopen($filename, 'w');
+        
+        // Build header array if columns
+        if( !empty($cronColumns) && $cronColumns != "*" ) {
+                
+            $headerString   = explode(",", $cronColumns);
+            foreach ( $headerString as $val ) {     
+                if( !empty($val) ){
+                    $headerTitle[]  = optionText($val);
+                }
+            }
+                
             fputcsv($fp, $headerTitle);
-    	}
-    	
-    	$records 	    = mysqli_query( $conn, $cronQuery );
-    	$i 			    = 0;
-    	
-    	while( $row = mysqli_fetch_row($records) ) {
-    	    
-    	    /*if( !empty($cronColumns) && $cronColumns == "*" && $i == "0" ){
-    	        
-    	        $table = strtolower(preg_replace('/.(?=[A-Z])/', '$0_', $cronEntity ));
-    	        $query1 	= "SHOW COLUMNS FROM ".strtolower($table)."";
-                $result1 	= mysqli_query($conn,$query1);
+        }
+        
+        $records        = mysqli_query( $conn, $cronQuery );
+        $i              = 0;
+        
+        while( $row = mysqli_fetch_row($records) ) {
+            
+            /*if( !empty($cronColumns) && $cronColumns == "*" && $i == "0" ){
+                
+                $table = strtolower(preg_replace('/.(?=[A-Z])/', '$0_', $cronEntity ));
+                $query1     = "SHOW COLUMNS FROM ".strtolower($table)."";
+                $result1    = mysqli_query($conn,$query1);
     
-                $custTitle 	= array();
+                $custTitle  = array();
                 while ($row1 = mysqli_fetch_row($result1)) {
-    	            $custTitle[] = optionText($row1[0]);
+                    $custTitle[] = optionText($row1[0]);
                 }
                 
                 fputcsv($fp, $custTitle);
-    	    }*/
-    	  
-    	    fputcsv($fp, $row);
-    	    $i++;
-    	}
-    	
-    	fclose($fp);
+            }*/
+          
+            fputcsv($fp, $row);
+            $i++;
+        }
+        
+        fclose($fp);
 
         // create zip file
         $zip = new ZipArchive;

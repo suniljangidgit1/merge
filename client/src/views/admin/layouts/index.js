@@ -84,7 +84,6 @@ define('views/admin/layouts/index', 'view', function (Dep) {
             var dataList = [];
             this.scopeList.forEach(function (scope) {
                 var entityListArr = ['BillingEntity','Campaign','ContactList','Designation','Document','EmailReminder','Estimate','ExportResult','Export','Invoice','MessageLog','MyCampaigns','NSICData','Payments','SentEmailReminder','SentMessages','SendSMSData','SMSReminder','TestDemo','Test', 'HolidayCalender'];
-
                 if(entityListArr.indexOf(scope)!==-1){
 
                 }else{
@@ -101,7 +100,6 @@ define('views/admin/layouts/index', 'view', function (Dep) {
                     if(scope == 'Account' || scope == 'Contact' || scope == 'Opportunity'){
                         item.typeList.push('detailConvert');
                     }
-
                 }
 
                 var additionalLayouts = this.getMetadata().get(['clientDefs', scope, 'additionalLayouts']) || {};

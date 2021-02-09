@@ -153,5 +153,4 @@ $project = explode('/', $_SERVER['REQUEST_URI'])[1];
 $data['status'] = 'success';
 $data['msg']    = 'Account & Contact created!';
 echo json_encode($data);return;
-
 ?>

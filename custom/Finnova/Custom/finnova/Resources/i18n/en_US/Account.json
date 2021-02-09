@@ -9,8 +9,7 @@
         "howmanygstdetails": "How many GST number(s) do you have ?",
         "totalnumberofgst": "Total number of GST",
         "doyouhavegstnum": "Do you have GST registration ?",
-        "panno": "Pan No",
-        "account": "Account"
+        "panno": "Pan No"
     },
     "options": {
         "wanttoaddgstdetails": {
@@ -72,8 +71,5 @@
             "Bank": "Bank",
             "Corporate Client": "Corporate Client"
         }
-    },
-    "links": {
-        "account": "Account"
     }
 }

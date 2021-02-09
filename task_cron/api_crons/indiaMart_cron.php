@@ -19,7 +19,6 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-
     $conn = mysqli_connect('164.52.205.204', 'proadmin', 'mJmxCj*92WuFcfB_', 'crmdev');
     if($conn->connect_error){
         die("Connection Failed " . $conn->connect_error);

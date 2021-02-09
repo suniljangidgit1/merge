@@ -133,8 +133,7 @@ Finnova.define('views/role/record/table', 'view', function (Dep) {
             var aclDataList = [];
 
             this.scopeList.forEach(function (scope) {
-                var entityListArr = ["Activities", "BillingEntity", "Campaign", "Designation", "DocumentFolder", "Document", "EmailTemplateCategory", "EmailTemplate", "Email", "ExternalAccount", "MessageLog", "NSICData", "Payments", "EmailAccountScope", "TargetList", "Template", "Webhook", "Export", "ExportResult", "HolidayCalender","Import", "OfficeLocation", "Team", "User"];
-
+                var entityListArr = ["Activities", "Campaign", "Designation", "DocumentFolder", "Document", "EmailTemplateCategory", "EmailTemplate", "Email", "ExternalAccount", "MessageLog", "NSICData", "EmailAccountScope", "TargetList", "Template", "Webhook", "Export", "ExportResult", "HolidayCalender","Import", "OfficeLocation", "Team", "User"];
                 if(entityListArr.indexOf(scope) !== -1){
                 }else{
                     var o = {};

@@ -1,0 +1,18 @@
+{
+    "fields": {
+        "billingAddress": "Billing Address",
+        "shippingAddress": "Shipping Address",
+        "website": "Website",
+        "totalcontacts": "Total contacts",
+        "listname": "List name",
+        "totalEmails": "TOTAL EMAILS"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks"
+    },
+    "labels": {
+        "Create ContactList": "Create Contact List"
+    }
+}

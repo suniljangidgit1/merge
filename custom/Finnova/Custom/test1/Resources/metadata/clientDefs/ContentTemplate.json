@@ -1,7 +1,5 @@
 {
     "controller": "controllers/record",
-    "color": "#B7BDC5",
-    "iconClass": "category",
     "boolFilterList": [
         "onlyMy"
     ]

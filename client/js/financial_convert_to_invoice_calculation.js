@@ -4632,7 +4632,11 @@ function getconvertFilenames(){
                     type: 'dark',
                     typeAnimated: true,
                 });*/
-                $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+                $fileHtml= $fileHtml+"<li class='wrongFileFormat'><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+
+                setTimeout(function () {
+                    $("li.wrongFileFormat").remove();
+                }, 1000);
             }
             else{
                 $fileHtml= $fileHtml+"<li><div class='col-xs-6 col-sm-6 col-md-6'>"+fileName+"</div><div class='col-xs-6 col-sm-6 col-md-6'><span class='material-icons-outlined convert_unLinkfile' data-id='' data-name='"+fileName+"' aria-hidden='true' onclick='convert_unLinkfile(this);' style='cursor: pointer; font-size: 14px;top: 3px; margin-left: 5px;' >close</span></div></li>";

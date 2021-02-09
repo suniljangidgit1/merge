@@ -38,10 +38,24 @@ if(!empty($row1['filename']))
 	$row4=mysqli_fetch_assoc($result4);
 	$user=$row4['user_name'];
 
+	$invoice = 'invoice/';
+	if(!is_dir($invoice))
+	{
+		mkdir($invoice,0777,true);
+		// chmod($uploads_dir, 0755);
+	}
+
 	$uploads_zipdir = 'invoice/zipFolder/';
 	if(!is_dir($uploads_zipdir))
 	{
 		mkdir($uploads_zipdir,0777,true);
+		// chmod($uploads_dir, 0755);
+	}
+
+	$uploadsdir = 'invoice/uploads/';
+	if(!is_dir($uploadsdir))
+	{
+		mkdir($uploadsdir,0777,true);
 		// chmod($uploads_dir, 0755);
 	}
 
@@ -98,6 +112,5 @@ if(!empty($row1['filename']))
 
 // encoding array to json format
 echo json_encode($attachment_arr);
-
 
 ?>

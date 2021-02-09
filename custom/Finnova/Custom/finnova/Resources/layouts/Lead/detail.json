@@ -29,9 +29,7 @@
                 {
                     "name": "address"
                 },
-                {
-                    "name": "docs"
-                }
+                false
             ]
         ],
         "style": "default",

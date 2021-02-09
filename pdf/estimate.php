@@ -860,7 +860,6 @@ $email_body = '<!DOCTYPE html>
         {
             // transfer file from s3 buckets to local
             include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/wasabi_connect.php');
-
             $result = $client->getObject(array(
                 'Bucket' => 'fincrm',
                 'Key'    => 'Production/'.$_SERVER['SERVER_NAME'].'/financial_files/estimates/'.$user.'/'.$id.'/'.$row1['filename'],
@@ -877,7 +876,7 @@ $email_body = '<!DOCTYPE html>
             $manager = new \Aws\S3\Transfer($s3, $source, $dest);
 
             //Perform the transfer synchronously
-            $manager->transfer();*/
+            $manager->transfer();
 
             $file_path = $_SERVER["DOCUMENT_ROOT"]."/client/res/templates/financial_changes/estimate/zipFolder/".$row1['filename'];
             
@@ -894,10 +893,8 @@ $email_body = '<!DOCTYPE html>
                     $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/estimate/uploads/".$zip->getNameIndex($i);
                 }
                 $zip->close();
-            }
-
-
-            // $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/estimate/zipFolder/".$row1["filename"];
+            }*/
+            $attachments[] = $_SERVER['DOCUMENT_ROOT']."/client/res/templates/financial_changes/estimate/zipFolder/".$row1["filename"];
         }
 
         // echo '<pre>';print_r($attachments);die;

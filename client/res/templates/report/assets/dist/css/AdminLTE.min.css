@@ -259,11 +259,6 @@ a:focus {
 		color: inherit;
 		background: transparent
 	}
-	#billing_entity_table_wrapper,
-	#customer_wise_report_wrapper,
-	#age_analysis_table_wrapper{
-		width:1000px !important;
-	}
 }
 
 @media (max-width:767px) {
@@ -3125,7 +3120,25 @@ a:focus {
 }
 
 .table>thead>tr>th {
-	border-bottom:2px solid #DCDCDC
+	border-bottom:2px solid #DCDCDC;
+	color: #fff;
+    background: #4d87b5;
+    font-weight: 400;
+}
+
+.table th:first-child
+{
+	border-top-left-radius: 15px;
+}
+.table th:last-child
+{
+	border-top-right-radius: 15px;
+}
+
+#paymentSummaryFormRptr .table{
+	-webkit-box-shadow: 3px 3px 26px rgba(0, 0, 0, .13);
+    -moz-box-shadow: 3px 3px 26px rgba(0, 0, 0, .13);
+    box-shadow: 3px 3px 26px rgba(0, 0, 0, .13);
 }
 
 .table tr td .progress {
@@ -6010,7 +6023,11 @@ table.text-center th {
   border-top: 1px solid #455b65;
 }
 
-
+#billing_entity_table_wrapper,
+#customer_wise_report_wrapper,
+#age_analysis_table_wrapper{
+	width:1000px !important;
+}
 
 .tt-query, .tt-hint{
   width:100% !important;
@@ -6115,6 +6132,18 @@ table.text-center th {
 		font-weight: 200;
 		border-radius: 5px !important;
 }
-/*Financial report css end*/
+
+@media (max-width:767px) {
+	#addBillingEnitityInvoiceModal .modal-dialog,
+	#InvoicePaymentSummaryModal .modal-dialog{
+	width:100% !important;
+	}
+
+	#addBillingEnitityInvoiceModal #example_billing,
+	#InvoicePaymentSummaryModal #example{
+	width:1000px !important;
+	}
 }
+/*Financial report css end*/
+
 

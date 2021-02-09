@@ -1,7 +1,7 @@
 <?php session_start();
 /*
 * To download export csv file using ajax request
-* @return 	= (string)
+* @return   = (string)
 */
 $data["status"] = "false";
 $data["msg"]    = "Invalid request!";
@@ -35,8 +35,8 @@ if ( !mysqli_connect_errno() ) {
     
     if( !empty($tableEntity) && !empty($_GET["tableId"]) ){
         
-        $res 		= mysqli_query($conn, "SELECT file FROM ".$tableEntity." WHERE id='".$tableId. "'");
-        $row 		= mysqli_fetch_array($res); 
+        $res        = mysqli_query($conn, "SELECT file FROM ".$tableEntity." WHERE id='".$tableId. "'");
+        $row        = mysqli_fetch_array($res); 
         if( !empty($row['file']) ){
             
             $data["status"] = "true";

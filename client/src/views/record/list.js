@@ -315,7 +315,7 @@ define('views/record/list', 'view', function (Dep) {
 
         quickDetailDisabled: true,
 
-        quickEditDisabled: true,
+        quickEditDisabled: false,
 
         /**
          * @param {array} Columns layout. Will be convered in 'Bull' typed layout for a fields rendering.

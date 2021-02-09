@@ -1,9 +1,8 @@
 <?php
-
 $HTTP_HOST 	= $_SERVER['SERVER_NAME'];
-$servername = '164.52.205.204';
-$username 	= 'proadmin';
-$password 	= 'mJmxCj*92WuFcfB_';
+$servername = 'localhost';
+$username 	= 'root';
+$password 	= 'root';
 $dbname 	= 'crmdev';
 
 // Create connection
@@ -13,7 +12,7 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 
-if($HTTP_HOST=='164.52.205.201'){
+if($HTTP_HOST=='crm.com'){
 $sql = "SELECT * FROM host_record where domain_url like '%$HTTP_HOST%' AND status=2";
     
 }else{
@@ -268,5 +267,4 @@ return [
 ],
 'fullTextSearchMinLength' => 4
 ];
-
 ?>

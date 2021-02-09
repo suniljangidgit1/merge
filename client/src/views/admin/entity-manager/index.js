@@ -106,7 +106,6 @@ Finnova.define('views/admin/entity-manager/index', 'view', function (Dep) {
                     }
                     var edit = true;
                     var entityNameArrForEdit = ["Account", "Call", "Case", "Contact", "Lead", "Meeting", "OfficeLocation", "Opportunity", "Task", "User"];
-
                     if(entityNameArrForEdit.indexOf(scope) !== -1){
                        edit = false;
                     }  

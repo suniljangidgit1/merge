@@ -7,7 +7,22 @@
                 "Contact",
                 "Opportunity",
                 "Case",
+                "EmailReminder",
+                "SentEmailReminder",
+                "SMSReminder",
+                "SendSMSData",
+                "Estimate",
+                "Invoice",
+                "Payments",
                 "Designation",
+                "OfficeLocation",
+                "ClosedTask",
+                "Export",
+                "ExportResult",
+                "ContactList",
+                "MyCampaigns",
+                "MessageLog",
+                "SentMessages",
                 "Anil",
                 "ClientUnderDiscussion",
                 "CorporateDataBase",
@@ -17,9 +32,8 @@
                 "DUMMMMYYYY",
                 "TESTDATAA",
                 "Test071120",
-                "MonsterData45To6",
-                "HRCompanies",
-                "Candidates"
+                "ImportResult",
+                "MonsterData45To6"
             ]
         }
     }

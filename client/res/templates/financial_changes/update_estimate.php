@@ -454,7 +454,7 @@ for ($i = 0;$i < $len;$i++)
 
 // If want to send estimate pdf as an attachment to mail automatically then comment following lines    
 $data["status"] = "true";
-$data["msg"]    = "Details Updated Successfully!";
+$data["msg"]    = "Estimate Details Updated Successfully!";
 echo json_encode($data); 
 return true;
 ?>

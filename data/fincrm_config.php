@@ -1,14 +1,14 @@
 <?php
 return [
-    'cacheTimestamp' => 1595699083,
+    'cacheTimestamp' => 1611399010,
     'database' => [
         'driver' => 'pdo_mysql',
-        'host' => '164.52.205.204',
+        'host' => 'localhost',
         'port' => '',
         'charset' => 'utf8mb4',
         'dbname' => 'fincrm',
-        'user' => 'proadmin',
-        'password' => 'mJmxCj*92WuFcfB_'
+        'user' => 'root',
+        'password' => 'root'
     ],
     'useCache' => true,
     'recordsPerPage' => 20,
@@ -441,7 +441,7 @@ return [
         0 => 'Totp'
     ],
     'isInstalled' => true,
-    'siteUrl' => 'http://crm.fincrm.net',
+    'siteUrl' => 'http://fincrm.crm.com',
     'passwordSalt' => '5f266b10a6b7d311',
     'cryptKey' => 'aceea321ba8be9b7bbb6c6879e916f18',
     'hashSecretKey' => '950bbecf99f5f8616b438bbf44715e95',
@@ -500,7 +500,7 @@ return [
     ],
     'addressCountryList' => [
         
-    ]
+    ],
+    'defaultPortalId' => '5ff6b14dc81823d45'
 ];
-
 ?>

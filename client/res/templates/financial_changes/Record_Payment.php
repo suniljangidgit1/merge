@@ -33,7 +33,7 @@ $output='
                 <div class="row">
                     <div class="col-md-12">
                         <div class="" style="border-bottom: 1px solid #e5e5e5; margin-bottom: 5px;">
-                            <h4>Overview</h4>
+                            <h4 style="color: #0A6783 !important;font-size: 15px;font-weight: 600;">Overview</h4>
                         </div>
                     </div>
                 </div>
@@ -61,9 +61,9 @@ $output='
                     <div class="col-sm-6 col-md-6">
                         <div class="form-group">
                             <label for="">Date of Payment <span class="text-danger">*</span></label>
-                                <div id="datepicker" class="input-group date" data-date-format="dd/mm/yyyy">
-                                    <input type="text" name="record_payment_date"  onkeydown="return false;" id="datepicker" class="form-control" placeholder="" required>
-                                    <span class="btn btn-default_gray input-group-addon"><i class="material-icons-outlined" style="font-size:16px !important;">date_range</i></span>
+                                <div id="" class="input-group date" data-date-format="dd/mm/yyyy">
+                                    <input type="text" name="record_payment_date"  onkeydown="return false;" id="datepicker" class="form-control record_payment_date" placeholder="" required>
+                                    <span class="btn btn-default_gray input-group-addon record_payment_datepicker"><i class="material-icons-outlined" style="font-size:16px !important;">date_range</i></span>
                                 </div>
                             </div>
                         </div>
@@ -140,5 +140,4 @@ $output='
 ';
 
 echo json_encode($output); 
-
 ?>

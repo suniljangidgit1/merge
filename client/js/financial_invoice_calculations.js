@@ -949,10 +949,10 @@ $(document).on("click", ".invoice_BillingFromCard", function(){
                         $("#invoice_billingfrom_udyamno").remove();
 
                         $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billing_address_street' id='billing_address_street' value='"+data.street+"' />");
-                        
+                        $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billfromname' id='invoice_billfromname' value='"+data.name+"' />");
+
                         $("#invoice_BillFromAddress_street").append("<input type='hidden' name='bill_id' id='bill_id' value='"+data.billing_entity_id+"' />");
 
-                        $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billfromname' id='invoice_billfromname' value='"+data.name+"' />");
                         $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billing_address_city' id='billing_address_city' value='"+data.city+"' />");
                         $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billing_address_state' id='billing_address_state' value='"+data.state+"' />");
                         $("#invoice_BillFromAddress_street").append("<input type='hidden' name='invoice_billing_address_postal_code' id='billing_address_postal_code' value='"+data.postal_code+"' />");
@@ -1066,6 +1066,7 @@ $(document).on("click", ".invoice_BillingToCard", function(){
                         }
 
                         $("#invoice_billtoname").remove();
+                        $("#bill_id").remove();
                         $("#invoice_shipping_address_street").remove();
                         $("#invoice_shipping_address_city").remove();
                         $("#invoice_shipping_address_state").remove();
@@ -1078,6 +1079,8 @@ $(document).on("click", ".invoice_BillingToCard", function(){
 
                         // Hidden fields to post the data
                         $("#invoice_BillToAddress_name").append("<input type='hidden' name='invoice_billtoname' id='invoice_billtoname' value='"+data.name+"' />");
+                        $("#invoice_BillToAddress_street").append("<input type='hidden' name='bill_id' id='bill_id' />");
+                        $("#bill_id").val(data.billing_entity_id);
                         $("#invoice_BillToAddress_street").append("<input type='hidden' name='invoice_shipping_address_street' id='invoice_billing_address_street' value='"+data.street+"' />");
                         $("#invoice_BillToAddress_street").append("<input type='hidden' name='invoice_shipping_address_city' id='invoice_billing_address_city' value='"+data.city+"' />");
                         $("#invoice_BillToAddress_street").append("<input type='hidden' name='invoice_shipping_address_state' id='invoice_billing_address_state' value='"+data.state+"' />");
@@ -4344,7 +4347,11 @@ function getFilenames(){
                 type: 'dark',
                 typeAnimated: true,
             });*/
-            $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+            $fileHtml= $fileHtml+"<li class='wrongFileFormat'><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span style='color:#ad4846;'>File format not supported</span></div></li>";
+
+            setTimeout(function () {
+                $("li.wrongFileFormat").remove();
+            }, 1000);
         }
         else{ 
             $fileHtml= $fileHtml+"<li><div class='col-xs-6'>"+fileName+"</div><div class='col-xs-6'><span class='material-icons-outlined unlinkFile' data-id='' data-name='"+fileName+"' aria-hidden='true' onclick='unLinkfile(this);' style='cursor: pointer; font-size: 14px;top: 3px; margin-left: 5px;' >close</span></div></li>";

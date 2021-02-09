@@ -1,8 +1,7 @@
 {
     "fields": {
         "leadType": "Lead Type",
-        "stream": "Stream",
-        "docs": "Docs"
+        "stream": "Stream"
     },
     "options": {
         "leadType": {

@@ -171,8 +171,7 @@ define('views/list', ['views/main', 'search-manager'], function (Dep, SearchMana
             if (this.quickCreate) {
                 this.menu.buttons.unshift({
                     action: 'quickCreate',
-                    html: '<i class="material-icons-outlined" style="font-size: 13px;position: relative;top: 2px;">add</i>' + this.translate('Create ' +  this.scope, 'labels', this.scope),
-
+                    html: '<i class="material-icons-outlined" style="font-size: 13px;position: relative;top: 2px;">add</i>&nbsp;' + this.translate('Create ' +  this.scope, 'labels', this.scope),
                     style: 'primary',
                     acl: 'create',
                     aclScope: this.entityType || this.scope
@@ -181,8 +180,7 @@ define('views/list', ['views/main', 'search-manager'], function (Dep, SearchMana
                 this.menu.buttons.unshift({
                     link: '#' + this.scope + '/create',
                     action: 'create',
-                    html: '<i class="material-icons-outlined" style="font-size: 13px;position: relative;top: 2px;">add</i>' + this.translate('Create ' +  this.scope,  'labels', this.scope),
-
+                    html: '<i class="material-icons-outlined" style="font-size: 13px;position: relative;top: 2px;">add</i>&nbsp;' + this.translate('Create ' +  this.scope,  'labels', this.scope),
                     style: 'primary',
                     acl: 'create',
                     aclScope: this.entityType || this.scope

@@ -166,7 +166,7 @@ border: 1px solid #ddd;
 
 .custom-file-upload {
   display: block;
-  width: 100%;
+  width: auto;
   font-size: 16px;
 }
 
@@ -182,7 +182,7 @@ border: 1px solid #ddd;
 .fileList {
   padding-left: 0px;
   margin-bottom: 0px;
-  padding-top: 27px !important;
+  padding-top: 32px !important;
 }
 
 .file-upload-wrapper {
@@ -299,7 +299,6 @@ border: 1px solid #ddd;
 .create_popup_section #dailySheet_form .file-upload-button {
   box-shadow: unset;
   outline: none;
-  margin-top: 0px !important;
 }
 
 .feedback .feedback-text-field .sender-feedback-text-field span {
@@ -503,7 +502,7 @@ border: 1px solid #ddd;
 .create_edit_popup_section .update_clone-panel .update_fileList {
   padding-left: 0px;
   margin-bottom: 0px;
-  padding-top: 29px;
+  padding-top: 30px;
 }
 
 .create_edit_popup_section .update_clone-panel .update_fileList li a {
@@ -921,7 +920,6 @@ border: 1px solid #ddd;
 }
 .Common {
   cursor: pointer;
-  margin-bottom: 3px !important;
 }
 #dailySheet_review_form .review_file {
   padding-left: 0px;
@@ -1196,10 +1194,6 @@ border: none;
   {
     display:none;
   }
-  .feedback-attach .text_update_feedback_fileList
-  {
-    padding-top: 12px;
-  }
 }
 @media(max-width: 991px)
 {
@@ -1365,7 +1359,7 @@ background-color:#E88A20 !important;
     color: #333333;
 }
 .imgs{
-      margin-left: 40px;
+      margin-left: 53px;
       margin-top: -5px;
 }
 
@@ -1482,7 +1476,6 @@ background-color:#E88A20 !important;
     color: #707070;
     font-size: 14px;
     display: inline;
-    word-break: break-word;
   }
 
 @media (max-width: 767px)
@@ -1499,99 +1492,4 @@ background-color:#E88A20 !important;
   {
     font-size: 12px;
   }
-}
-
-/* for galaxy fold */
-
-@media(max-width:300px )
-{
-  .edit_attach .col-xs-2,.create_attach .col-xs-2
-  {
-    width: 25%;
-  }
-  .edit_attach .col-xs-10,.create_attach .col-xs-10
-  {
-    width: 75%;
-  }
-  .update_edit,.create_popup_section #dailySheet_form .edit
-  {
-    margin-top: 15px;
-  }
-}
-
-@media(max-width: 767px)
-{
-  #myReviewModal .button_section_post .col-xs-5
-  {
-    width: 75px;
-  }
-  .mobile_view_review_attach
-  {
-    display: block;
-  }
-  .web_view_review_attach
-  {
-    display: none;
-  }
-  .mobile_view_review_attach .custom-file-upload .file-upload-button
-  {
-    display: none !important;
-  }
-  .create_attach .fileList
-  {
-    padding-top: 0px !important;
-  }
-  .create_edit_popup_section .update_clone-panel .update_fileList
-  {
-    padding-top: 15px !important;
-  }
-
-
-}
-@media(min-width: 767px) and (max-width: 991px)
-{
-  #myReviewModal .button_section_post .col-sm-2
-  {
-    width: 75px;
-  }
-}
-@media(min-width: 767px)
-{
-   .mobile_view_review_attach
-  {
-    display: none;
-  }
-  .web_view_review_attach
-  {
-    display: block;
-  }
-
-}
-
-@media(max-width: 992px)
-{
-  .total-count
-  {
-    margin-top: 20px;
-  }
-}
-
-@media(max-width: 320px)
-{
-  .ic__days td
-  {
-    padding:34px 4px 8px 0px !important;
-  }
-}
-
-/* data table UI changes */
-
-@media(max-width: 1200px)
-{
-
-  table.dataTable
-  {
-    width: 1000px !important;
-  }
- 
 }

@@ -1,4 +1,4 @@
-Ś<?php
+<?php
 
 namespace Finnova\Custom\test1\Services;
 

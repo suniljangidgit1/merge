@@ -1,5 +1,8 @@
 [
     {
+        "name": "contentTemplateName"
+    },
+    {
         "name": "campaignsName"
     },
     {
@@ -12,10 +15,7 @@
         "name": "smsBody"
     },
     {
-        "name": "sendSmsDate"
-    },
-    {
-        "name": "sendSmsTime"
+        "name": "scheduledAt"
     },
     {
         "name": "createdAt"

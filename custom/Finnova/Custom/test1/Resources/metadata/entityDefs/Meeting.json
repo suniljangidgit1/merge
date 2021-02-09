@@ -6,28 +6,7 @@
                 "Lead",
                 "Contact",
                 "Opportunity",
-                "Case",
-                "EmailReminder",
-                "SentEmailReminder",
-                "SMSReminder",
-                "SendSMSData",
-                "Estimate",
-                "Invoice",
-                "Payments",
-                "Designation",
-                "OfficeLocation",
-                "ClosedTask",
-                "Export",
-                "ExportResult",
-                "ContactList",
-                "MyCampaigns",
-                "MessageLog",
-                "SentMessages",
-                "BillingEntity",
-                "HolidayCalender",
-                "TestDemo",
-                "ImportResult"
-                "OfficeLocation"
+                "Case"
             ]
         },
         "stream": {

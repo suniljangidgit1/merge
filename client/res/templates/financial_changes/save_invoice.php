@@ -1,6 +1,6 @@
 <?php
 session_start();
-// error_reporting(~E_ALL);
+error_reporting(~E_ALL);
 $user_name = $_SESSION['Login'];
 // $entity_id=$_SESSION['entityID'];
 $entity_name=$_SESSION['name'];
@@ -251,7 +251,12 @@ if(!empty($_FILES["invoice_attachment"]["name"][0]))
 $sql_invoice="insert into invoice(id,billing_address_street,billing_address_city,billing_address_state,billing_address_country,billing_address_postal_code,shipping_address_street,shipping_address_city,shipping_address_state,shipping_address_country,shipping_address_postal_code,created_at,modified_at,created_by_id,account_id,gst,status,invoiceno,billingaddressgstin,shippingaddressgstin,billtoname,billfromname,placeofsupply,invoicedate,invoice_datefilter,adjustments,billfrompan,billingfromemail,billingfromphone,billtopan,billingtoemail,billingtophone,billingfrom_udyamno,billingto_udyamno,po_order_no,terms_conditions,holder_name,bankname,accountno,ifsc,bank_upi,duedate,billing_entity_id,filename,user_name,paymentstatus,bankaccount_type) values('$id','$billing_address_street','$billing_address_city','$billing_address_state','$billing_address_country','$billing_address_postal_code','$shipping_address_street','$shipping_address_city','$shipping_address_state','$shipping_address_country','$shipping_address_postal_code','$created_at','$modified_at','$created_by_id','$account_id','$g_s_t','Pending','$invoice_number','$billingaddressgstin','$shippingaddressgstin','$billtoname','$billfromname','$placeofsupply','$invoicedate','$date','$adjustment','$billfrompanno','$billfromemail','$billfromphone','$billtopanno','$billtoemail','$billtophone','$billfrom_udyamno','$billto_udyamno','$po_so_number','$terms_conditions','$bank_holder_name','$bank_name','$account_no','$IFSCcode','$bank_UPI','$duedate', '$billing_entity_id','$fileName','$user_name','Not paid','$account_type')";
 
 $result_invoice=mysqli_query($conn,$sql_invoice);
+
+/*$sql_fetch = "select id from invoice order by id desc limit 0,1";
+$result_fetch=mysqli_query($conn,$sql_fetch);*/
+
 $invoice_id = mysqli_insert_id($conn);
+// echo 'invoice_id: ===> '.$invoice_id;
 
 $total_invoice_val = ($_REQUEST['total_invoice_val']) ? $_REQUEST['total_invoice_val'] : '0';
 $invoice_disc_option = ($_REQUEST['Invoice_Percentage_select']=='Percentage') ? '%' : ($_REQUEST['Invoice_Percentage_select']=='Amount') ? 'Rs' : 'Select Type';
@@ -265,10 +270,10 @@ $invoicetotal_amount = ($_REQUEST['invoicetotal_amount']) ? $_REQUEST['invoiceto
 
 $invoice_disc_rate = ($_REQUEST['invoice_disc_amt']) ? $_REQUEST['invoice_disc_amt'] : '';
 $invoice_gst_type = ($_REQUEST['invoice_gst_type']) ? $_REQUEST['invoice_gst_type'] : '';
-$invoice_gst_rate = ($_REQUEST['invoice_calculate_rate']) ? $_REQUEST['invoice_calculate_rate'] : '';
-$invoice_cgst_amount = ($_REQUEST['invoice_cgst_amount']) ? $_REQUEST['invoice_cgst_amount'] : '';
-$invoice_sgst_amount = ($_REQUEST['invoice_sgst_amount']) ? $_REQUEST['invoice_sgst_amount'] : '';
-$invoice_igst_amount = ($_REQUEST['invoice_igst_amount']) ? $_REQUEST['invoice_igst_amount'] : '';
+$invoice_gst_rate = ($_REQUEST['invoice_calculate_rate']) ? $_REQUEST['invoice_calculate_rate'] : '0.00';
+$invoice_cgst_amount = ($_REQUEST['invoice_cgst_amount']) ? $_REQUEST['invoice_cgst_amount'] : '0.00';
+$invoice_sgst_amount = ($_REQUEST['invoice_sgst_amount']) ? $_REQUEST['invoice_sgst_amount'] : '0.00';
+$invoice_igst_amount = ($_REQUEST['invoice_igst_amount']) ? $_REQUEST['invoice_igst_amount'] : '0.00';
 
 $sql_update="update invoice set sub_total='$invoice_subtotal_amount',total='$invoicetotal_amount',balance='$invoicetotal_amount',discounttype='$invoice_disc_type',discountoption='$invoice_disc_option',discountvalue='$est_total_discount_amt',discountamount='$invoice_disc_amt',gst_rate='$invoice_gst_rate',gst='$invoice_gst_type',cgst='$invoice_cgst_amount',sgst='$invoice_sgst_amount',igst='$invoice_igst_amount',rate='$invoice_disc_rate',total_tax='$invoice_total_taxes',total_discount='$est_total_discount_amt' where id='$id'";
 // echo $sql_update;die;
@@ -414,8 +419,8 @@ delete_directory('uploads/');*/
 //die;
 // echo 1;
 $data["status"] = "true";
-$data["msg"]    = "Created Successfully!";
-$data = array("status" => "true", "msg" => "Created Successfully!");
+$data["msg"]    = "Invoice Created Successfully!";
+$data = array("status" => "true", "msg" => "Invoice Created Successfully!");
 echo json_encode($data); 
 return true;
-?>
+;?>

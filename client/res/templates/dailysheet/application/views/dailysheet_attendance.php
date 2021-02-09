@@ -177,7 +177,7 @@
                         <p class="attendance_heading legand">Legend</p>
                      </div>
                      
-                       <div class="col-md-6 col-sm-4 col-xs-7 ">
+                       <div class="col-md-6 col-sm-4 col-xs-5 ">
 
                         <div class="row">
                             <div class="col-md-12">
@@ -207,7 +207,7 @@
                           </div>
                           
                        </div>
-                       <div class="col-md-6 col-sm-8 col-xs-5 legand_section2">
+                       <div class="col-md-6 col-sm-8 col-xs-7 legand_section2">
 
                         <div class="row">
                             <div class="col-md-12">

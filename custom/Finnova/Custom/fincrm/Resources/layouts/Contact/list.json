@@ -19,5 +19,8 @@
     },
     {
         "name": "stream"
+    },
+    {
+        "name": "createdAt"
     }
 ]

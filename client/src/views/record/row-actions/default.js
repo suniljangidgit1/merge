@@ -57,9 +57,6 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
 
         getActionList: function () {
             var afterhash = window.location.hash;
-
-            var site_protocol = window.location.protocol;
-
             if (afterhash == '#EmailReminder') {
                 var list = [{}];
             } else {
@@ -133,7 +130,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                         // 21-05-2020 : Sunil Jangid - Custom export
                         var list = [{}];
                     }else{
-
+                        // if(afterhash == "#Estimate" && afterhash == "#Invoice"){
                         if(afterhash != "#Estimate" && afterhash != "#Invoice"){
                             var list = [{
                                 action: 'view',
@@ -335,7 +332,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                     // list = list.concat([{
                     //     action: 'PDF',
                     //     label: 'View/PDF',
-                    //     link: site_protocol+'//' + domain_name + '/' + folder_name + '/pdf/estimate.php?id=' + this.model.id,
+                    //     link: 'http://' + domain_name + '/' + folder_name + '/pdf/estimate.php?id=' + this.model.id,
 
                     //     data: {
                     //         id: this.model.id
@@ -437,6 +434,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                         }]);
                     }
 
+
                 }else {
                     var list = [{
                             action: 'view',
@@ -456,7 +454,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                     list = list.concat([{
                         action: 'PDF',
                         label: 'View/PDF',
-                        link: site_protocol+'//' + domain_name + '/' + folder_name + '/pdf/estimate.php?id=' + this.model.id,
+                        link: 'https://' + domain_name + '/' + folder_name + '/pdf/estimate.php?id=' + this.model.id,
 
                         data: {
                             id: this.model.id
@@ -710,7 +708,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                     /*list = list.concat([{
                         action: 'PDF',
                         label: 'View/PDF',
-                        link: site_protocol+'//' + domain_name + '/' + folder_name + '/pdf/invoice.php?id=' + this.model.id,
+                        link: 'http://' + domain_name + '/' + folder_name + '/pdf/invoice.php?id=' + this.model.id,
 
                         data: {
                             id: this.model.id
@@ -838,7 +836,7 @@ Finnova.define('views/record/row-actions/default', 'view', function (Dep) {
                     list = list.concat([{
                         action: 'PDF',
                         label: 'View/PDF',
-                        link: site_protocol+'//' + domain_name + '/' + folder_name + '/pdf/invoice.php?id=' + this.model.id,
+                        link: 'https://' + domain_name + '/' + folder_name + '/pdf/invoice.php?id=' + this.model.id,
                         data: {
                             id: this.model.id
                         },

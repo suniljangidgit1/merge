@@ -2,6 +2,9 @@
 	div.dataTables_wrapper div.dataTables_filter{
 		text-align: right;
 	}
+	.dataTables_filter{
+		display:none;
+	}
 </style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -33,7 +36,7 @@
 	                     			<div class="col-lg-5 col-md-6 col-sm-6 ">
 	                     				<div class="form-group">
 	                     					<div class="input-group" id="Search-bar-group">
-										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text">
+										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text" autocomplete="off">
 										      <div class="input-group-btn">
 										        <button type="button" class="btn search btn-icon" id="search-btn-icon">
 								                    <span class="material-icons-outlined">search</span>
@@ -276,11 +279,6 @@
 <!-- Popup to show the list of all invoices of billing entity -->
 
 <!-- START SCRIPT SECTION -->
-<style>
-	.dataTables_filter {
-	   display: none;
-	}
-</style>
 <script>
 /*$(document).ready(function() {
 	$('#age_analysis_table').DataTable({
@@ -292,7 +290,13 @@
 	});
 });*/
 $(document).ready(function() {
-	var aging_analysisTable = $('#age_analysis_table').DataTable({
+	var start 	= moment().subtract(6, 'days');
+	var end 	= moment();
+
+	var startDateInvoice 	= start.format('MM/DD/YYYY');
+	var endDateInvoice 		= end.format('MM/DD/YYYY');
+		
+	var dataTable1 = $('#age_analysis_table').DataTable({
      	// "info": false,
 		"pagingType": "full_numbers",
 		"dom": '<"pull-left"f><"pull-right"l>tip',
@@ -303,8 +307,31 @@ $(document).ready(function() {
 		"bLengthChange" : false,
 	});
 
-	$('#srch-term').keyup(function(){
-		aging_analysisTable.search($('#srch-term').val()).draw();
+	$(document).on("keyup", "#srch-term", function(){
+		dataTable1.search($("#srch-term").val()).draw();
+	});
+
+	$(document).on("click", ".btn-icon-refresh", function(){
+		$("#srch-term").val("");
+		$("#ageanalysis_reportrange").daterangepicker({
+			startDate: start,
+			endDate: end,
+			maxDate: moment(),
+			ranges: {
+				'Today': [moment(), moment()],
+				'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+				'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+				'This Month': [moment().startOf('month'), moment().endOf('month')],
+				'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+			},
+			"alwaysShowCalendars": true,
+			locale: { 
+				format: "DD-MM-YYYY",
+				separator: ' To ',
+			},
+		});
+		dataTable1.search("").draw();
 	});
 });
 </script>
@@ -487,15 +514,20 @@ $('#ageanalysis_reportrange').daterangepicker({
 				url			: '<?php echo base_url("Financial/get_debtors_agingrecords"); ?>',
 				method		: 'POST',
 				dataType	: "json",
-				data		: { "invoice_start_date" : startDateInvoice, "invoice_end_date" : endDateInvoice },
+				data		: { "invoice_start_date" : startDateInvoice, "invoice_end_date" : endDateInvoice, 'searchName' : $("#srch-term").val() },
 				success 	: function(response){
 					// var table_1 = $("#age_analysis_table").DataTable().destroy();
 					$("#age_analysis_table").remove();
 					$("#ageAnalysisTable").html(response.html);
-					$("#age_analysis_table").DataTable({
-						'searching': false,
+					var dataTable1 = $("#age_analysis_table").DataTable({
+				     	// "info": false,
+						"pagingType": "full_numbers",
+						"dom": '<"pull-left"f><"pull-right"l>tip',
+						"lengthMenu": [20, 50, 75, 100 ],
+						"pageLength": 20,
+						"searching": true,
 						"bInfo": false,
-						"bLengthChange" : false,
+						"bLengthChange" : false
 					});
 				},
 			});

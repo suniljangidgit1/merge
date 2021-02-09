@@ -408,10 +408,15 @@ $output .='<div id="edit_invoice_main_details">
                             <input type="hidden" name="billing_address_postal_code" id="edit_billing_address_postal_code" value="'.$zipcode.'">
                             <input type="hidden" name="billingaddressgstin" id="edit_billingaddressgstin" value="'.$gst_num.'">
                             <input type="hidden" name="billingaddresspanno" id="edit_billingaddresspanno" value="'.$row1['billfrompan'].'">
-                            <input type="hidden" name="billingemailaddress" id="edit_billingemailaddress" value="'.$fromemail.'" />
-                            <input type="hidden" name="billingphoneno" id="billingphoneno" value="'.$fromphone.'" />
+                            <input type="hidden" name="billingemailaddress" id="edit_billingemailaddress" value="'.$fromemail.'" />';
+                          if($row1['billingfrom_udyamno']!=''){
+                            $output .= '<input type="hidden" name="billingphoneno" id="billingphoneno" value="'.$fromphone.'" />
                             <input type="hidden" name="billingfrom_udyamno" id="edit_billingfrom_udyamno" value="'.$row1['billingfrom_udyamno'].'">
                             </div>';
+                          }
+                          else{
+                            $output .= '<input type="hidden" name="billingfrom_udyamno" id="edit_billingfrom_udyamno" value="">';
+                          }
 
                      if($fromemail_phone!=""){
                         $output .= '<div id="edit_invoice_BillFromAddress_email_phone" class="form-group"><span>'.$fromemail_phone.'</span></div>';
@@ -426,7 +431,7 @@ $output .='<div id="edit_invoice_main_details">
                       }
 
                      // If udyam registration number is added then show
-                     if($row1['billingfrom_udyamno']){
+                     if($row1['billingfrom_udyamno'] && $row1['billingfrom_udyamno']!="undefined"){
                         $output .= '<div id="edit_invoice_BillFromAddress_udyam" class="form-group"><span><b>UDYAM REGISTRATION NO.: </b>'.$row1['billingfrom_udyamno'].'</span></div>';
                      }
 
@@ -494,7 +499,7 @@ $output .='<div id="edit_invoice_main_details">
                           </label>
                           <div class="col-md-7">
                             <div class="input-group date">
-                              <input name="invoice_date" id="edit_invoice_date" class="form-control edit_invoice_date editInvoiceDate" type="text" value="'.date("d/m/Y", strtotime($row1["invoicedate"])).'" onkeydown="return false" onfocus="editInvoice_getEvent(this)"/> <span class="btn btn-default_gray input-group-addon" onclick="editInvoice_getAddEvent(this)"><span class="material-icons-outlined">date_range</span></span>
+                              <input name="invoice_date" id="edit_invoice_date" class="form-control edit_invoice_date editInvoiceDate" type="text" value="'.date("d/m/Y", strtotime($row1["invoicedate"])).'" onkeydown="return false" onfocus="editInvoice_getEvent(this)"/> <span class="btn btn-default_gray input-group-addon edit_invoice_date_datepicker" onclick="editInvoice_getAddEvent(this)"><span class="material-icons-outlined">date_range</span></span>
                             </div>
                           </div>
                         </div>
@@ -504,7 +509,7 @@ $output .='<div id="edit_invoice_main_details">
                           </label>
                           <div class="col-md-7">
                             <div class="input-group date">
-                              <input name="due_date" id="edit_due_date" class="form-control edit_due_date editInvoiceDate"  onkeydown="return false" type="text" value="'.date("d/m/Y", strtotime($row1["duedate"])).'" onfocus="editInvoice_getEvent(this)"/> <span class="btn btn-default_gray input-group-addon" onclick="editInvoice_getAddEvent(this)"><span class="material-icons-outlined">date_range</span></span>
+                              <input name="due_date" id="edit_due_date" class="form-control edit_due_date editInvoiceDate"  onkeydown="return false" type="text" value="'.date("d/m/Y", strtotime($row1["duedate"])).'" onfocus="editInvoice_getEvent(this)"/> <span class="btn btn-default_gray input-group-addon edit_invoice_due_date_datepicker" onclick="editInvoice_getAddEvent(this)"><span class="material-icons-outlined">date_range</span></span>
                             </div>
                           </div>
                         </div>
@@ -590,7 +595,7 @@ $output .='<div id="edit_invoice_main_details">
                       }
 
                   // If udyam registration number is added then show
-                  if($row1['billingto_udyamno']){
+                  if($row1['billingto_udyamno'] && $row1['billingto_udyamno']!="undefined"){
                      $output .= '<div id="edit_BillToAddress_udyam" class="form-group"><span><b>UDYAM REGISTRATION NO.: </b>'.$row1['billingto_udyamno'].'</span></div>';
                   }
 
@@ -1253,7 +1258,7 @@ $output .='<div id="edit_invoice_main_details">
                         <input type="hidden" id="hidden_invoice_cgst_label" value="'.$invoice_cgst_label.'" />
                         <input type="hidden" id="hidden_invoice_sgst_label" value="'.$invoice_sgst_label.'" />
                         <input name="invoice_disc_amt" id="edit_invoice_disc_amt" type="text" value="'.$invoice_disc_input_val.'" class="form-control rate" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                      <input type="hidden" name="invoice_calculated_disc_amt" id="edit_invoice_calculated_disc_amt" value="0" />
+                      <input type="hidden" name="invoice_calculated_disc_amt" id="edit_invoice_calculated_disc_amt" value="'.$invoice_disc_input_val.'" />
                       </td>
                       <td class="width_15"><span class="main_amount">₹ '.$invoice_disc_amt_label.'</span>
                       </td>
@@ -1387,7 +1392,7 @@ $output .='<div id="edit_invoice_main_details">
                                 <button class="btn btn-primary text-center" type="button" onclick="calculate_invoice_summary_edit()">Calculate</button>
                               </div>';
 
-                    $sql_pays = "select amountcredited,balance,billedamount from payments where invoiceno='".$row1['invoiceno']."'";
+                    $sql_pays = "select amountcredited,balance,billedamount,tds from payments where invoiceno='".$row1['invoiceno']."'";
                     $res_pays = mysqli_query($conn, $sql_pays);
                     $total_paid = 0;
                     $total_tds_paid = 0;
@@ -1454,7 +1459,7 @@ $output .='<div id="edit_invoice_main_details">
                     echo '<br/>Discount: '.$total_discountvalue;
                     echo '<br/>Taxes: '.$total_tax_amount;*/
 
-                    $total_amt = $row1['sub_total'] - $total_discountvalue + $total_tax_amount - $total_paid;
+                    $total_amt = $row1['sub_total'] - $total_discountvalue + $total_tax_amount - $total_paid - $total_tds_paid;
                     // echo '<br/>Total amt: '.$total_amt;
                     // die;
                     
@@ -1714,5 +1719,4 @@ $output .='<div id="edit_invoice_main_details">
           }
         </script>';
 echo json_encode($output);
-
 ?>

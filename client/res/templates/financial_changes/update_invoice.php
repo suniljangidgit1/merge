@@ -135,6 +135,8 @@ $invoice_total_taxes = ($_REQUEST['invoice_totaltaxes_amount']) ? $_REQUEST['inv
 $invoicetotal_amount = ($_REQUEST['invoicetotal_amount']) ? $_REQUEST['invoicetotal_amount'] : '0';
 $invoicetotal_actual_amount = ($_REQUEST['invoicetotal_actual_amount']) ? $_REQUEST['invoicetotal_actual_amount'] : '0';
 
+$invoicetotal_actual_amount = $invoice_subtotal_amount - $est_total_discount_amt + $invoice_total_taxes;
+
 $invoice_disc_rate = ($_REQUEST['invoice_disc_amt']) ? $_REQUEST['invoice_disc_amt'] : '';
 $invoice_gst_type = ($_REQUEST['invoice_gst_type']) ? $_REQUEST['invoice_gst_type'] : '';
 $invoice_gst_rate = ($_REQUEST['calculate_rate']) ? $_REQUEST['calculate_rate'] : '';
@@ -549,7 +551,7 @@ for ($i = 0;$i < $len;$i++)
 
 // If want to send invoice pdf as an attachment to mail automatically then comment following lines    
 $data["status"] = "true";
-$data["msg"]    = "Updated Successfully!";
+$data["msg"]    = "Invoice Details Updated Successfully!";
 echo json_encode($data); 
 return true;
 ?>

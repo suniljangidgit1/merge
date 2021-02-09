@@ -13,7 +13,7 @@
         </div>
         <div class="panel-body">
             <div class="login-main-form">
-                <form id="login-form" onsubmit="return false;">
+                <form id="login-form" onsubmit="return false;" autocomplete="off">
                     <div class="form-group">
                         <!-- <label for="field-username">{{translate 'Username'}}</label> -->
                         <i class="material-icons-outlined usernameicon">person </i>

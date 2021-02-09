@@ -8,7 +8,9 @@
         "reminderTime": "Reminder Time",
         "smsBody": "SMS Body",
         "smsStatus": "SMS Status",
-        "sendSmsDateTime": "SCHEDULED AT"
+        "sendSmsDateTime": "SCHEDULED AT",
+        "sendFrom": "Sender Id",
+        "contentTemplateName": "Template Name"
     },
     "links": {
         "meetings": "Meetings",

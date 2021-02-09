@@ -250,6 +250,9 @@ if(afterhash !='#HolidayCalender'){
     </div>
 {{/if}}
 
+<img src="../../client/img/import-loader.gif" width="22px" class="email-loader-list" alt="loader" style="display: none;">
+<div class="email-blur-effect-list" style="display: none;"></div>
+
 <!-- Custom Export Form Code Start -->
 <div class="export_form" style="display: none;">
     <form id="form_export" name="form_export" method="post" >
@@ -2117,8 +2120,8 @@ function getbranchById(branchid,len){
 <script type="text/javascript">
   var approvedSenderIdList = $("#create").attr('href');
   if(approvedSenderIdList =='#SenderID/create'){
-    $("#main>.list-container>.list>table th:first-child,#main>.list-container>.list>table td:first-child").css("display","none");
-    $("#main>.list-container>.list>table th:last-child,#main>.list-container>.list>table td:last-child").css("display","none");
+    $("#main>.list-container>.list>table th:first-child,#main>.list-container>.list>table td:first-child").remove();
+    $("#main>.list-container>.list>table th:last-child,#main>.list-container>.list>table td:last-child").remove();
   }
 </script>
 <!-- Custom Approved Sender IDs Script End -->

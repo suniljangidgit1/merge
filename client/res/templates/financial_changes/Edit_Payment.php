@@ -13,7 +13,7 @@ $row1=mysqli_fetch_assoc($result1);
 $sql5="select * from payments where id='$id'"; 
 $result5=mysqli_query($conn,$sql5);
 $row5=mysqli_fetch_assoc($result5);
-
+// echo '<pre>';print_r($row5);die;
 
 $account_id=$row5['account_id'];
 
@@ -64,9 +64,9 @@ $output='
                     <div class="col-sm-6 col-md-6">
                       <div class="form-group">
                         <label for="">Date of Payment <span class="text-danger">*</span></label>
-                        <div id="datepicker" class="input-group date" data-date-format="dd/mm/yyyy">
-                          <input type="text" value="'. date("d/m/Y",strtotime($row5["pdate"])).'"  name="payment_date" id="datepicker" class="form-control" placeholder="" required>
-                          <span class="btn btn-default_gray input-group-addon"><i class="material-icons-outlined" style="font-size:16px !important;">date_range</i></span>
+                        <div id="" class="input-group date" data-date-format="dd/mm/yyyy">
+                          <input type="text" value="'. date("d/m/Y",strtotime($row5["pdate"])).'"  name="payment_date" id="datepicker" class="form-control" onkeydown="return false;" placeholder="" required>
+                          <span class="btn btn-default_gray input-group-addon updatePaymentForm_datepicker"><i class="material-icons-outlined" style="font-size:16px !important;">date_range</i></span>
                         </div>
                       </div>
                     </div>';
@@ -150,6 +150,7 @@ $output.='
                               $result1=mysqli_query($conn,$sql1);
                               while($row1=mysqli_fetch_assoc($result1))
                               {   
+                                  $tds = ($row5['tds']) ? $row5['tds'] : '0';
                             $output.='
 
                             <tr>
@@ -169,7 +170,7 @@ $output.='
                                   <div class="form-group"><input readonly type="text" id="due_amount"  name="due_amount" class="form-control" value="'.$row1['balance'].'" placeholder="" ></div>
                                </td>
                                <td>
-                                  <div class="form-group"><input type="text" id="tds1"  name="tds1" class="form-control tds1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="" value="'.$row5['tds'].'"</div>
+                                  <div class="form-group"><input type="text" id="tds1"  name="tds1" class="form-control tds1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="" value="'.$tds.'"</div>
                                </td>
                                <td>
                                   <div class="form-group"><input type="text" id="net_amount1" value="'.$row5['amountcredited'].'"  name="net_amount1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control net_amount1" placeholder="" ></div>

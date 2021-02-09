@@ -554,6 +554,136 @@ return array (
       ),
     ),
   ),
+  'EmailAccount' => 
+  array (
+    'fields' => 
+    array (
+      'name' => 'Name',
+      'status' => 'Status',
+      'host' => 'Host',
+      'username' => 'Username',
+      'password' => 'Password',
+      'port' => 'Port',
+      'monitoredFolders' => 'Monitored Folders',
+      'ssl' => 'SSL',
+      'fetchSince' => 'Fetch Since',
+      'emailAddress' => 'Email Address',
+      'sentFolder' => 'Sent Folder',
+      'storeSentEmails' => 'Store Sent Emails',
+      'keepFetchedEmailsUnread' => 'Keep Fetched Emails Unread',
+      'emailFolder' => 'Put in Folder',
+      'useImap' => 'Fetch Emails',
+      'useSmtp' => 'Use SMTP',
+      'smtpHost' => 'SMTP Host',
+      'smtpPort' => 'SMTP Port',
+      'smtpAuth' => 'SMTP Auth',
+      'smtpSecurity' => 'SMTP Security',
+      'smtpAuthMechanism' => 'SMTP Auth Mechanism',
+      'smtpUsername' => 'SMTP Username',
+      'smtpPassword' => 'SMTP Password',
+    ),
+    'links' => 
+    array (
+      'filters' => 'Filters',
+      'emails' => 'Emails',
+    ),
+    'options' => 
+    array (
+      'status' => 
+      array (
+        'Active' => 'Active',
+        'Inactive' => 'Inactive',
+      ),
+      'smtpAuthMechanism' => 
+      array (
+        'plain' => 'PLAIN',
+        'login' => 'LOGIN',
+        'crammd5' => 'CRAM-MD5',
+      ),
+    ),
+    'labels' => 
+    array (
+      'Create EmailAccount' => 'Create Email Account',
+      'IMAP' => 'IMAP',
+      'Main' => 'Main',
+      'Test Connection' => 'Test Connection',
+      'Send Test Email' => 'Send Test Email',
+      'SMTP' => 'SMTP',
+    ),
+    'messages' => 
+    array (
+      'couldNotConnectToImap' => 'Could not connect to IMAP server',
+      'connectionIsOk' => 'Connection is Ok',
+    ),
+    'tooltips' => 
+    array (
+      'monitoredFolders' => 'Multiple folders should be separated by comma.
+
+You can add a \'Sent\' folder to sync emails sent from an external email client.',
+      'storeSentEmails' => 'Sent emails will be stored on the IMAP server. Email Address field should match the address emails will be sent from.',
+    ),
+  ),
+  'EmailAddress' => 
+  array (
+    'labels' => 
+    array (
+      'Primary' => 'Primary',
+      'Opted Out' => 'Opted Out',
+      'Invalid' => 'Invalid',
+    ),
+  ),
+  'EmailFilter' => 
+  array (
+    'fields' => 
+    array (
+      'from' => 'From',
+      'to' => 'To',
+      'subject' => 'Subject',
+      'bodyContains' => 'Body Contains',
+      'action' => 'Action',
+      'isGlobal' => 'Is Global',
+      'emailFolder' => 'Folder',
+    ),
+    'labels' => 
+    array (
+      'Create EmailFilter' => 'Create Email Filter',
+      'Emails' => 'Emails',
+    ),
+    'options' => 
+    array (
+      'action' => 
+      array (
+        'Skip' => 'Ignore',
+        'Move to Folder' => 'Put in Folder',
+      ),
+    ),
+    'tooltips' => 
+    array (
+      'name' => 'Give the filter a descriptive name.',
+      'subject' => 'Use a wildcard *:
+
+text* - starts with text,
+*text* - contains text,
+*text - ends with text.',
+      'bodyContains' => 'Body of the email contains any of the specified words or phrases.',
+      'from' => 'Emails being sent from the specified address. Leave empty if not needed. You can use wildcard *.',
+      'to' => 'Emails being sent to the specified address. Leave empty if not needed. You can use wildcard *.',
+      'isGlobal' => 'Applies this filter to all emails incoming to system.',
+    ),
+  ),
+  'EmailFolder' => 
+  array (
+    'fields' => 
+    array (
+      'skipNotifications' => 'Skip Notifications',
+    ),
+    'labels' => 
+    array (
+      'Create EmailFolder' => 'Create Folder',
+      'Manage Folders' => 'Manage Folders',
+      'Emails' => 'Emails',
+    ),
+  ),
   'Email' => 
   array (
     'fields' => 
@@ -700,134 +830,22 @@ return array (
       'retrieveFromTrash' => 'Retrieve from Trash',
     ),
   ),
-  'EmailAccount' => 
+  'EmailTemplateCategory' => 
   array (
+    'labels' => 
+    array (
+      'Create EmailTemplateCategory' => 'Create Category',
+      'Manage Categories' => 'Manage Categories',
+      'EmailTemplates' => 'Email Templates',
+    ),
     'fields' => 
     array (
-      'name' => 'Name',
-      'status' => 'Status',
-      'host' => 'Host',
-      'username' => 'Username',
-      'password' => 'Password',
-      'port' => 'Port',
-      'monitoredFolders' => 'Monitored Folders',
-      'ssl' => 'SSL',
-      'fetchSince' => 'Fetch Since',
-      'emailAddress' => 'Email Address',
-      'sentFolder' => 'Sent Folder',
-      'storeSentEmails' => 'Store Sent Emails',
-      'keepFetchedEmailsUnread' => 'Keep Fetched Emails Unread',
-      'emailFolder' => 'Put in Folder',
-      'useImap' => 'Fetch Emails',
-      'useSmtp' => 'Use SMTP',
-      'smtpHost' => 'SMTP Host',
-      'smtpPort' => 'SMTP Port',
-      'smtpAuth' => 'SMTP Auth',
-      'smtpSecurity' => 'SMTP Security',
-      'smtpAuthMechanism' => 'SMTP Auth Mechanism',
-      'smtpUsername' => 'SMTP Username',
-      'smtpPassword' => 'SMTP Password',
+      'order' => 'Order',
+      'childList' => 'Child List',
     ),
     'links' => 
     array (
-      'filters' => 'Filters',
-      'emails' => 'Emails',
-    ),
-    'options' => 
-    array (
-      'status' => 
-      array (
-        'Active' => 'Active',
-        'Inactive' => 'Inactive',
-      ),
-      'smtpAuthMechanism' => 
-      array (
-        'plain' => 'PLAIN',
-        'login' => 'LOGIN',
-        'crammd5' => 'CRAM-MD5',
-      ),
-    ),
-    'labels' => 
-    array (
-      'Create EmailAccount' => 'Create Email Account',
-      'IMAP' => 'IMAP',
-      'Main' => 'Main',
-      'Test Connection' => 'Test Connection',
-      'Send Test Email' => 'Send Test Email',
-      'SMTP' => 'SMTP',
-    ),
-    'messages' => 
-    array (
-      'couldNotConnectToImap' => 'Could not connect to IMAP server',
-      'connectionIsOk' => 'Connection is Ok',
-    ),
-    'tooltips' => 
-    array (
-      'monitoredFolders' => 'Multiple folders should be separated by comma.
-
-You can add a \'Sent\' folder to sync emails sent from an external email client.',
-      'storeSentEmails' => 'Sent emails will be stored on the IMAP server. Email Address field should match the address emails will be sent from.',
-    ),
-  ),
-  'EmailAddress' => 
-  array (
-    'labels' => 
-    array (
-      'Primary' => 'Primary',
-      'Opted Out' => 'Opted Out',
-      'Invalid' => 'Invalid',
-    ),
-  ),
-  'EmailFilter' => 
-  array (
-    'fields' => 
-    array (
-      'from' => 'From',
-      'to' => 'To',
-      'subject' => 'Subject',
-      'bodyContains' => 'Body Contains',
-      'action' => 'Action',
-      'isGlobal' => 'Is Global',
-      'emailFolder' => 'Folder',
-    ),
-    'labels' => 
-    array (
-      'Create EmailFilter' => 'Create Email Filter',
-      'Emails' => 'Emails',
-    ),
-    'options' => 
-    array (
-      'action' => 
-      array (
-        'Skip' => 'Ignore',
-        'Move to Folder' => 'Put in Folder',
-      ),
-    ),
-    'tooltips' => 
-    array (
-      'name' => 'Give the filter a descriptive name.',
-      'subject' => 'Use a wildcard *:
-
-text* - starts with text,
-*text* - contains text,
-*text - ends with text.',
-      'bodyContains' => 'Body of the email contains any of the specified words or phrases.',
-      'from' => 'Emails being sent from the specified address. Leave empty if not needed. You can use wildcard *.',
-      'to' => 'Emails being sent to the specified address. Leave empty if not needed. You can use wildcard *.',
-      'isGlobal' => 'Applies this filter to all emails incoming to system.',
-    ),
-  ),
-  'EmailFolder' => 
-  array (
-    'fields' => 
-    array (
-      'skipNotifications' => 'Skip Notifications',
-    ),
-    'labels' => 
-    array (
-      'Create EmailFolder' => 'Create Folder',
-      'Manage Folders' => 'Manage Folders',
-      'Emails' => 'Emails',
+      'emailTemplates' => 'Email Templates',
     ),
   ),
   'EmailTemplate' => 
@@ -876,24 +894,6 @@ text* - starts with text,
       'currentYear' => 'Current Year',
       'optOutUrl' => 'URL for an unsubsbribe link',
       'optOutLink' => 'an unsubscribe link',
-    ),
-  ),
-  'EmailTemplateCategory' => 
-  array (
-    'labels' => 
-    array (
-      'Create EmailTemplateCategory' => 'Create Category',
-      'Manage Categories' => 'Manage Categories',
-      'EmailTemplates' => 'Email Templates',
-    ),
-    'fields' => 
-    array (
-      'order' => 'Order',
-      'childList' => 'Child List',
-    ),
-    'links' => 
-    array (
-      'emailTemplates' => 'Email Templates',
     ),
   ),
   'EntityManager' => 
@@ -1247,20 +1247,20 @@ Company - has Email, Phone, Billing Address, Shipping Address fields; Activities
       'Estimate' => 'Estimate',
       'Invoice' => 'Invoice',
       'Payments' => 'Payments',
-      'Designation' => 'Designation',
       'OfficeLocation' => 'Office Location',
       'ClosedTask' => 'Closed Task',
       'ExportResult' => 'Export Result',
       'ContactList' => 'Contact Lists',
       'MyCampaigns' => 'My Campaigns',
-      'MessageLog' => 'Message Logs',
       'SentMessages' => 'Executed Campaign',
       'BillingEntity' => 'BillingEntity',
       'HolidayCalender' => 'HolidayCalender',
-      'TestDemo' => 'Test Demo',
       'ImportResult' => 'Import Result',
       'ContentTemplate' => 'Content Template',
       'SenderID' => 'Sender ID',
+      'Designation' => 'Designation',
+      'MessageLog' => 'Message Logs',
+      'TestDemo' => 'Test Demo',
       'Test' => 'Test',
     ),
     'scopeNamesPlural' => 
@@ -1331,21 +1331,21 @@ Company - has Email, Phone, Billing Address, Shipping Address fields; Activities
       'Estimate' => 'Estimates',
       'Invoice' => 'Invoices',
       'Payments' => 'Payments',
-      'Designation' => 'Designations',
       'OfficeLocation' => 'Office Locations',
       'ClosedTask' => 'Closed Tasks',
       'Export' => 'Exports',
       'ExportResult' => 'Export Results',
       'ContactList' => 'Contact Lists',
       'MyCampaigns' => 'My Campaigns',
-      'MessageLog' => 'Message Logs',
       'SentMessages' => 'Executed Campaigns',
       'BillingEntity' => 'Billing Entities',
       'HolidayCalender' => 'Holiday Calenders',
-      'TestDemo' => 'Test Demos',
       'ImportResult' => 'Import Results',
       'ContentTemplate' => 'Content Templates',
       'SenderID' => 'Sender IDs',
+      'Designation' => 'Designations',
+      'MessageLog' => 'Message Logs',
+      'TestDemo' => 'Test Demos',
       'Test' => 'Tests',
     ),
     'labels' => 
@@ -3625,6 +3625,33 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'recentlyCreated' => 'Recently Created',
     ),
   ),
+  'BillingEntity' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'panno' => 'PAN NO',
+      'udyamRegistrationNo' => 'Udyam Registration No',
+      'addressstreet' => 'Address street',
+      'addresscity' => 'Address city',
+      'addressstate' => 'Address state',
+      'addresspostalcode' => 'Address postal code',
+      'emailid' => 'Email id',
+      'phoneno' => 'Phone no',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create BillingEntity' => 'Create Billing Entity',
+    ),
+  ),
   'Calendar' => 
   array (
     'modes' => 
@@ -3950,6 +3977,130 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'closed' => 'Closed',
     ),
   ),
+  'ClosedTask' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'closedat' => 'Closed At',
+      'completedat' => 'Completed At',
+      'createRecurringSeriesOfTasks' => 'Create Recurring Series Of Tasks',
+      'customStartDate1' => 'Custom Start Date1',
+      'customStartDate2' => 'Custom Start Date2',
+      'customStartDate3' => 'Custom Start Date3',
+      'customStartDate4' => 'Custom Start Date4',
+      'customStartDate5' => 'Custom Start Date5',
+      'customStartDate6' => 'Custom Start Date6',
+      'endDate' => 'End Date',
+      'frequency' => 'Frequency',
+      'monthlyEndDate' => 'Monthly End Date',
+      'monthlyRepeat' => 'Monthly Repeat',
+      'monthlyRepeatOn' => 'Monthly Repeat On',
+      'monthlyStartDate' => 'Monthly Start Date',
+      'numberOfRecurringTasks' => 'Number Of Recurring Tasks',
+      'repeat' => 'Repeat',
+      'startDate' => 'StartDate',
+      'weeklyendDate' => 'Weekly End Date',
+      'weeklyrepeat' => 'Weekly Repeat',
+      'weeklyrepeatOn' => 'Weekly Repeat On',
+      'weeklystartDate' => 'Weekly Start Date',
+      'status' => 'Status',
+      'parent' => 'Parent',
+      'priority' => 'Priority',
+      'dateStart' => 'Start Date',
+      'dateEnd' => 'End Date',
+      'dateCompleted' => 'Completed Date',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create ClosedTask' => 'Create Closed Task',
+    ),
+    'options' => 
+    array (
+      'frequency' => 
+      array (
+        'Daily' => 'Daily',
+        'Weekly' => 'Weekly',
+        'Monthly' => 'Monthly',
+        'Custom' => 'Custom',
+      ),
+      'monthlyRepeat' => 
+      array (
+        'Every Month' => 'Every Month',
+        'Custom' => 'Custom',
+      ),
+      'monthlyRepeatOn' => 
+      array (
+        10 => '10',
+        11 => '11',
+        12 => '12',
+        13 => '13',
+        14 => '14',
+        15 => '15',
+        16 => '16',
+        17 => '17',
+        18 => '18',
+        19 => '19',
+        20 => '20',
+        21 => '21',
+        22 => '22',
+        23 => '23',
+        24 => '24',
+        25 => '25',
+        26 => '26',
+        27 => '27',
+        28 => '28',
+        29 => '29',
+        30 => '30',
+        31 => '31',
+        '01' => '01',
+        '02' => '02',
+        '03' => '03',
+        '04' => '04',
+        '05' => '05',
+        '06' => '06',
+        '07' => '07',
+        '08' => '08',
+        '09' => '09',
+      ),
+      'numberOfRecurringTasks' => 
+      array (
+        1 => '1',
+        2 => '2',
+        3 => '3',
+        4 => '4',
+        5 => '5',
+        6 => '6',
+      ),
+      'repeat' => 
+      array (
+        'Every day' => 'Every day',
+      ),
+      'weeklyrepeat' => 
+      array (
+        'Every week' => 'Every week',
+        'Custom' => 'Custom',
+      ),
+      'weeklyrepeatOn' => 
+      array (
+        'Monday' => 'Monday',
+        'Tuesday' => 'Tuesday',
+        'Wednesday' => 'Wednesday',
+        'Thursday' => 'Thursday',
+        'Friday' => 'Friday',
+        'Saturday' => 'Saturday',
+        'Sunday' => 'Sunday',
+      ),
+    ),
+  ),
   'Contact' => 
   array (
     'fields' => 
@@ -4013,6 +4164,62 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'accountActive' => 'Active',
     ),
   ),
+  'ContactList' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'totalcontacts' => 'Total Phone Numbers',
+      'listname' => 'List name',
+      'totalEmails' => 'TOTAL EMAILS',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create ContactList' => 'Create Contact Lists',
+    ),
+  ),
+  'ContentTemplate' => 
+  array (
+    'fields' => 
+    array (
+      'templateName' => 'Template Name',
+      'principleEntityId' => 'Principle Entity Id',
+      'templateId' => 'Template Id',
+      'contentType' => 'Content Type',
+      'categoryType' => 'Category Type',
+      'senderId' => 'Sender Id',
+      'templateType' => 'Template Type',
+      'templateContents' => 'Template Contents',
+    ),
+    'links' => 
+    array (
+    ),
+    'labels' => 
+    array (
+      'Create ContentTemplate' => 'Create Content Template',
+    ),
+  ),
+  'DocumentFolder' => 
+  array (
+    'labels' => 
+    array (
+      'Create DocumentFolder' => 'Create Document Folder',
+      'Manage Categories' => 'Manage Folders',
+      'Documents' => 'Documents',
+    ),
+    'links' => 
+    array (
+      'documents' => 'Documents',
+    ),
+  ),
   'Document' => 
   array (
     'labels' => 
@@ -4064,19 +4271,6 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'draft' => 'Draft',
     ),
   ),
-  'DocumentFolder' => 
-  array (
-    'labels' => 
-    array (
-      'Create DocumentFolder' => 'Create Document Folder',
-      'Manage Categories' => 'Manage Folders',
-      'Documents' => 'Documents',
-    ),
-    'links' => 
-    array (
-      'documents' => 'Documents',
-    ),
-  ),
   'EmailQueueItem' => 
   array (
     'fields' => 
@@ -4110,6 +4304,225 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'pending' => 'Pending',
       'sent' => 'Sent',
       'failed' => 'Failed',
+    ),
+  ),
+  'EmailReminder' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'emailBody' => 'Email Body',
+      'emailCc' => 'Email CC',
+      'emailStatus' => 'Email Status',
+      'emailTo' => 'Email To',
+      'sendEmailDate' => 'Send Email Date',
+      'sendEmailTime' => 'Send Email Time',
+      'sendEmailDateTime' => 'SCHEDULED AT',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create EmailReminder' => 'Create Email Reminder',
+    ),
+  ),
+  'Estimate' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'adjustments' => 'Adjustments',
+      'amount' => 'Amount',
+      'billfromname' => 'Bill From Name',
+      'billfrompanno' => 'Bill From PAN No',
+      'billtoname' => 'Bill To Name',
+      'billtopanno' => 'Bill To PAN No',
+      'invoiceNumber' => 'Estimate Number',
+      'estimatedate' => 'Estimate Date',
+      'status' => 'Status',
+      'total' => 'Total',
+      'account' => 'Account',
+      'filename' => 'File Name',
+      'userName' => 'User Name',
+      'billingfromemail' => 'Billing from email',
+      'billingfromphone' => 'Billing from phone',
+      'billingtoemail' => 'Billing to email',
+      'billingtophone' => 'Billing to phone',
+      'billingfromUdyamno' => 'Billingfrom Udyamno',
+      'billingtoUdyamno' => 'Billingto Udyamno',
+      'poOrderNo' => 'Po Order No',
+      'termsConditions' => 'Terms Conditions',
+      'comment' => 'Comment',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create Estimate' => 'Create Estimate',
+    ),
+    'options' => 
+    array (
+      'status' => 
+      array (
+        'Open' => 'Open',
+        'Accepted' => 'Accepted',
+        'Declined' => 'Declined',
+        'Pending' => 'Pending',
+        'Rejected' => 'Rejected',
+      ),
+    ),
+  ),
+  'ExportResult' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'entity' => 'Entity',
+      'isCronJob' => 'Is cron job',
+      'file' => 'File',
+      'status' => 'Status',
+      'dbQuery' => 'Db Query',
+      'isExported' => 'Status',
+      'columns' => 'Columns',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create ExportResult' => 'Create Export Result',
+    ),
+    'options' => 
+    array (
+      'isCronJob' => 
+      array (
+        0 => '0',
+        1 => '1',
+      ),
+      'status' => 
+      array (
+        0 => '0',
+        1 => '1',
+      ),
+      'isExported' => 
+      array (
+        'Pending' => 'Pending',
+      ),
+    ),
+  ),
+  'HolidayCalender' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create HolidayCalender' => 'Create HolidayCalender',
+    ),
+  ),
+  'ImportResult' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'entityName' => 'Entity Name',
+      'noOfRecords' => 'No of Records',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create ImportResult' => 'Create Import Result',
+    ),
+  ),
+  'Invoice' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'account' => 'Account',
+      'account1' => 'Account',
+      'billfromname' => 'Bill From Name',
+      'billtoname' => 'Bill To Name',
+      'dueDate' => 'Due Date',
+      'invoicedate' => 'Invoice Date',
+      'invoiceno' => 'Invoice Number',
+      'paymentDate' => 'Payment Date',
+      'paymentStatus' => 'Payment Status',
+      'paymentdate' => 'Payment Date',
+      'paymentstatus' => 'Payment Status',
+      'balance' => 'Balance Due',
+      'total' => 'Amount',
+      'filename' => 'File Name',
+      'billingEntityId' => 'Billing Entity Id',
+      'numberOfDays' => 'Number Of Days',
+      'invoiceDatefilter' => 'Invoice Datefilter',
+      'invoiceDuedatefilter' => 'Invoice Duedatefilter',
+      'holderName' => 'Holder Name',
+      'bankUpi' => 'Bank Upi',
+      'bankaccountType' => 'Bank Account Type',
+      'cgst' => 'Cgst',
+      'sgst' => 'Sgst',
+      'gstRate' => 'Gst Rate',
+      'igst' => 'Igst',
+      'rate' => 'Rate',
+      'subTotal' => 'Sub Total',
+      'totalDiscount' => 'Total Discount',
+      'totalTax' => 'Total Tax',
+      'billingfromemail' => 'Billingfromemail',
+      'billingfromphone' => 'Billingfromphone',
+      'billingtoemail' => 'Billingtoemail',
+      'billingtophone' => 'Billingtophone',
+      'billingfromUdyamno' => 'Billingfrom Udyamno',
+      'billingtoUdyamno' => 'Billingto Udyamno',
+      'poOrderNo' => 'Po Order No',
+      'termsConditions' => 'Terms Conditions',
+      'userName' => 'User Name',
+      'duedate' => 'Due Date',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create Invoice' => 'Create Invoice',
     ),
   ),
   'KnowledgeBaseArticle' => 
@@ -4415,6 +4828,59 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'nothingHasBeenSent' => 'Nothing were sent',
     ),
   ),
+  'MyCampaigns' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'campaignsName' => 'Campaigns Name',
+      'listName' => 'Contact List',
+      'listId' => 'List id',
+      'smsBody' => 'SMS Body',
+      'sendFrom' => 'Sender Id',
+      'sendSmsTime' => 'Send SMS Time',
+      'sendSmsDate' => 'Send SMS Date',
+      'domainname' => 'Domain Name',
+      'contentTemplateId' => 'Content Template ID',
+      'contentTemplateName' => 'Template Name',
+      'scheduledAt' => 'Scheduled At',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create MyCampaigns' => 'Create My Campaigns',
+    ),
+  ),
+  'OfficeLocation' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'typeofoffice' => 'Type of office',
+      'gstin' => 'GSTIN',
+      'user' => 'In Charge',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+      'user' => 'User',
+    ),
+    'labels' => 
+    array (
+      'Create OfficeLocation' => 'Create Office Location',
+    ),
+  ),
   'Opportunity' => 
   array (
     'fields' => 
@@ -4484,6 +4950,179 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'open' => 'Open',
       'won' => 'Won',
       'lost' => 'Lost',
+    ),
+  ),
+  'Payments' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'account' => 'Account',
+      'amountcredited' => 'Amount',
+      'balance' => 'Balance',
+      'billedamount' => 'Billed Amount',
+      'invoiceno' => 'Invoice Number',
+      'paymentdate' => 'Payment Date',
+      'paymentstatus' => 'Payment Status',
+      'tds' => 'TDS Deducted',
+      'transactionid' => 'Reference No.',
+      'accountName1' => 'Account Name',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create Payments' => 'Create Payments',
+    ),
+    'options' => 
+    array (
+      'paymentstatus' => 
+      array (
+        '' => '',
+        'Success' => 'Success',
+        'Failed' => 'Failed',
+      ),
+    ),
+  ),
+  'SenderID' => 
+  array (
+    'fields' => 
+    array (
+      'senderId' => 'Sender ID',
+      'categoryType' => 'Category',
+      'status' => 'Status',
+    ),
+    'links' => 
+    array (
+    ),
+    'labels' => 
+    array (
+      'Create SenderID' => 'Create Sender ID',
+    ),
+    'options' => 
+    array (
+      'status' => 
+      array (
+        'Active' => 'Active',
+      ),
+    ),
+  ),
+  'SendSMSData' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'deliveryStatus' => 'Delivery Status',
+      'mobileNo' => 'Mobile No',
+      'reminderDate' => 'Reminder Date',
+      'reminderTime' => 'Reminder Time',
+      'smsBody' => 'SMS Body',
+      'smsStatus' => 'SMS Status',
+      'sendSmsDateTime' => 'SCHEDULED AT',
+      'contentTemplateName' => 'Template Name',
+      'sendFrom' => 'Sender Id',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create SendSMSData' => 'Create Sent SMS Data',
+    ),
+  ),
+  'SentEmailReminder' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'emailBody' => 'Email Body',
+      'emailCc' => 'Email CC',
+      'emailStatus' => 'Email Status',
+      'emailTo' => 'Email To',
+      'sendEmailDate' => 'Send Email Date',
+      'sendEmailTime' => 'Send Email Time',
+      'sendEmailDateTime' => 'SCHEDULED AT',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create SentEmailReminder' => 'Create Sent Email Reminder',
+    ),
+  ),
+  'SentMessages' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'campaignsName' => 'Campaigns Name',
+      'listName' => 'Contact List',
+      'listId' => 'List ID',
+      'smsBody' => 'SMS Body',
+      'sendFrom' => 'Sender Id',
+      'sendsmsdate' => 'Sent SMS Date',
+      'sendsmstime' => 'Sent SMS Time',
+      'totalSentSms' => 'Total Sent SMS',
+      'totalDeliveredSMS' => 'Total Delivered SMS',
+      'totalNotDeliveredSMS' => 'Total Undelivered',
+      'contentTemplateName' => 'Template Name',
+      'scheduledAt' => 'Scheduled At',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create SentMessages' => 'Create Sent Messages',
+    ),
+  ),
+  'SMSReminder' => 
+  array (
+    'fields' => 
+    array (
+      'billingAddress' => 'Billing Address',
+      'shippingAddress' => 'Shipping Address',
+      'website' => 'Website',
+      'mobileNo' => 'Mobile No',
+      'reminderDate' => 'Reminder Date',
+      'reminderTime' => 'Reminder Time',
+      'smsBody' => 'SMS Body',
+      'smsStatus' => 'SMS Status',
+      'sendSmsDateTime' => 'SCHEDULED AT',
+      'sendFrom' => 'Sender Id',
+      'contentTemplateName' => 'Template Name',
+    ),
+    'links' => 
+    array (
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+    ),
+    'labels' => 
+    array (
+      'Create SMSReminder' => 'Create SMS Reminder',
     ),
   ),
   'TargetList' => 
@@ -4614,200 +5253,6 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'overdue' => 'Overdue',
     ),
   ),
-  'BillingEntity' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'panno' => 'PAN NO',
-      'udyamRegistrationNo' => 'Udyam Registration No',
-      'addressstreet' => 'Address street',
-      'addresscity' => 'Address city',
-      'addressstate' => 'Address state',
-      'addresspostalcode' => 'Address postal code',
-      'emailid' => 'Email id',
-      'phoneno' => 'Phone no',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create BillingEntity' => 'Create Billing Entity',
-    ),
-  ),
-  'ClosedTask' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'closedat' => 'Closed At',
-      'completedat' => 'Completed At',
-      'createRecurringSeriesOfTasks' => 'Create Recurring Series Of Tasks',
-      'customStartDate1' => 'Custom Start Date1',
-      'customStartDate2' => 'Custom Start Date2',
-      'customStartDate3' => 'Custom Start Date3',
-      'customStartDate4' => 'Custom Start Date4',
-      'customStartDate5' => 'Custom Start Date5',
-      'customStartDate6' => 'Custom Start Date6',
-      'endDate' => 'End Date',
-      'frequency' => 'Frequency',
-      'monthlyEndDate' => 'Monthly End Date',
-      'monthlyRepeat' => 'Monthly Repeat',
-      'monthlyRepeatOn' => 'Monthly Repeat On',
-      'monthlyStartDate' => 'Monthly Start Date',
-      'numberOfRecurringTasks' => 'Number Of Recurring Tasks',
-      'repeat' => 'Repeat',
-      'startDate' => 'StartDate',
-      'weeklyendDate' => 'Weekly End Date',
-      'weeklyrepeat' => 'Weekly Repeat',
-      'weeklyrepeatOn' => 'Weekly Repeat On',
-      'weeklystartDate' => 'Weekly Start Date',
-      'status' => 'Status',
-      'parent' => 'Parent',
-      'priority' => 'Priority',
-      'dateStart' => 'Start Date',
-      'dateEnd' => 'End Date',
-      'dateCompleted' => 'Completed Date',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create ClosedTask' => 'Create Closed Task',
-    ),
-    'options' => 
-    array (
-      'frequency' => 
-      array (
-        'Daily' => 'Daily',
-        'Weekly' => 'Weekly',
-        'Monthly' => 'Monthly',
-        'Custom' => 'Custom',
-      ),
-      'monthlyRepeat' => 
-      array (
-        'Every Month' => 'Every Month',
-        'Custom' => 'Custom',
-      ),
-      'monthlyRepeatOn' => 
-      array (
-        10 => '10',
-        11 => '11',
-        12 => '12',
-        13 => '13',
-        14 => '14',
-        15 => '15',
-        16 => '16',
-        17 => '17',
-        18 => '18',
-        19 => '19',
-        20 => '20',
-        21 => '21',
-        22 => '22',
-        23 => '23',
-        24 => '24',
-        25 => '25',
-        26 => '26',
-        27 => '27',
-        28 => '28',
-        29 => '29',
-        30 => '30',
-        31 => '31',
-        '01' => '01',
-        '02' => '02',
-        '03' => '03',
-        '04' => '04',
-        '05' => '05',
-        '06' => '06',
-        '07' => '07',
-        '08' => '08',
-        '09' => '09',
-      ),
-      'numberOfRecurringTasks' => 
-      array (
-        1 => '1',
-        2 => '2',
-        3 => '3',
-        4 => '4',
-        5 => '5',
-        6 => '6',
-      ),
-      'repeat' => 
-      array (
-        'Every day' => 'Every day',
-      ),
-      'weeklyrepeat' => 
-      array (
-        'Every week' => 'Every week',
-        'Custom' => 'Custom',
-      ),
-      'weeklyrepeatOn' => 
-      array (
-        'Monday' => 'Monday',
-        'Tuesday' => 'Tuesday',
-        'Wednesday' => 'Wednesday',
-        'Thursday' => 'Thursday',
-        'Friday' => 'Friday',
-        'Saturday' => 'Saturday',
-        'Sunday' => 'Sunday',
-      ),
-    ),
-  ),
-  'ContactList' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'totalcontacts' => 'Total Phone Numbers',
-      'listname' => 'List name',
-      'totalEmails' => 'TOTAL EMAILS',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create ContactList' => 'Create Contact Lists',
-    ),
-  ),
-  'ContentTemplate' => 
-  array (
-    'fields' => 
-    array (
-      'templateName' => 'Template Name',
-      'principleEntityId' => 'Principle Entity Id',
-      'templateId' => 'Template Id',
-      'contentType' => 'Content Type',
-      'categoryType' => 'Category Type',
-      'senderId' => 'Sender Id',
-      'templateType' => 'Template Type',
-      'templateContents' => 'Template Contents',
-    ),
-    'links' => 
-    array (
-    ),
-    'labels' => 
-    array (
-      'Create ContentTemplate' => 'Create Content Template',
-    ),
-  ),
   'Demo' => 
   array (
     'fields' => 
@@ -4846,225 +5291,6 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'Create Designation' => 'Create Designation',
     ),
   ),
-  'EmailReminder' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'emailBody' => 'Email Body',
-      'emailCc' => 'Email CC',
-      'emailStatus' => 'Email Status',
-      'emailTo' => 'Email To',
-      'sendEmailDate' => 'Send Email Date',
-      'sendEmailTime' => 'Send Email Time',
-      'sendEmailDateTime' => 'SCHEDULED AT',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create EmailReminder' => 'Create Email Reminder',
-    ),
-  ),
-  'Estimate' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'adjustments' => 'Adjustments',
-      'amount' => 'Amount',
-      'billfromname' => 'Bill From Name',
-      'billfrompanno' => 'Bill From PAN No',
-      'billtoname' => 'Bill To Name',
-      'billtopanno' => 'Bill To PAN No',
-      'invoiceNumber' => 'Estimate Number',
-      'estimatedate' => 'Estimate Date',
-      'status' => 'Status',
-      'total' => 'Total',
-      'account' => 'Account',
-      'filename' => 'File Name',
-      'userName' => 'User Name',
-      'billingfromemail' => 'Billing from email',
-      'billingfromphone' => 'Billing from phone',
-      'billingtoemail' => 'Billing to email',
-      'billingtophone' => 'Billing to phone',
-      'billingfromUdyamno' => 'Billingfrom Udyamno',
-      'billingtoUdyamno' => 'Billingto Udyamno',
-      'poOrderNo' => 'Po Order No',
-      'termsConditions' => 'Terms Conditions',
-      'comment' => 'Comment',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create Estimate' => 'Create Estimate',
-    ),
-    'options' => 
-    array (
-      'status' => 
-      array (
-        'Open' => 'Open',
-        'Accepted' => 'Accepted',
-        'Declined' => 'Declined',
-        'Pending' => 'Pending',
-        'Rejected' => 'Rejected',
-      ),
-    ),
-  ),
-  'ExportResult' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'entity' => 'Entity',
-      'isCronJob' => 'Is cron job',
-      'file' => 'File',
-      'status' => 'Status',
-      'dbQuery' => 'Db Query',
-      'isExported' => 'Status',
-      'columns' => 'Columns',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create ExportResult' => 'Create Export Result',
-    ),
-    'options' => 
-    array (
-      'isCronJob' => 
-      array (
-        0 => '0',
-        1 => '1',
-      ),
-      'status' => 
-      array (
-        0 => '0',
-        1 => '1',
-      ),
-      'isExported' => 
-      array (
-        'Pending' => 'Pending',
-      ),
-    ),
-  ),
-  'HolidayCalender' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create HolidayCalender' => 'Create HolidayCalender',
-    ),
-  ),
-  'ImportResult' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'entityName' => 'Entity Name',
-      'noOfRecords' => 'No of Records',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create ImportResult' => 'Create Import Result',
-    ),
-  ),
-  'Invoice' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'account' => 'Account',
-      'account1' => 'Account',
-      'billfromname' => 'Bill From Name',
-      'billtoname' => 'Bill To Name',
-      'dueDate' => 'Due Date',
-      'invoicedate' => 'Invoice Date',
-      'invoiceno' => 'Invoice Number',
-      'paymentDate' => 'Payment Date',
-      'paymentStatus' => 'Payment Status',
-      'paymentdate' => 'Payment Date',
-      'paymentstatus' => 'Payment Status',
-      'balance' => 'Balance Due',
-      'total' => 'Amount',
-      'filename' => 'File Name',
-      'billingEntityId' => 'Billing Entity Id',
-      'numberOfDays' => 'Number Of Days',
-      'invoiceDatefilter' => 'Invoice Datefilter',
-      'invoiceDuedatefilter' => 'Invoice Duedatefilter',
-      'holderName' => 'Holder Name',
-      'bankUpi' => 'Bank Upi',
-      'bankaccountType' => 'Bank Account Type',
-      'cgst' => 'Cgst',
-      'sgst' => 'Sgst',
-      'gstRate' => 'Gst Rate',
-      'igst' => 'Igst',
-      'rate' => 'Rate',
-      'subTotal' => 'Sub Total',
-      'totalDiscount' => 'Total Discount',
-      'totalTax' => 'Total Tax',
-      'billingfromemail' => 'Billingfromemail',
-      'billingfromphone' => 'Billingfromphone',
-      'billingtoemail' => 'Billingtoemail',
-      'billingtophone' => 'Billingtophone',
-      'billingfromUdyamno' => 'Billingfrom Udyamno',
-      'billingtoUdyamno' => 'Billingto Udyamno',
-      'poOrderNo' => 'Po Order No',
-      'termsConditions' => 'Terms Conditions',
-      'userName' => 'User Name',
-      'duedate' => 'Due Date',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create Invoice' => 'Create Invoice',
-    ),
-  ),
   'MessageLog' => 
   array (
     'fields' => 
@@ -5090,24 +5316,13 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'Create MessageLog' => 'Create Message Logs',
     ),
   ),
-  'MyCampaigns' => 
+  'TestEntity2710' => 
   array (
     'fields' => 
     array (
       'billingAddress' => 'Billing Address',
       'shippingAddress' => 'Shipping Address',
       'website' => 'Website',
-      'campaignsName' => 'Campaigns Name',
-      'listName' => 'Contact List',
-      'listId' => 'List id',
-      'smsBody' => 'SMS Body',
-      'sendFrom' => 'Sender Id',
-      'sendSmsTime' => 'Send SMS Time',
-      'sendSmsDate' => 'Send SMS Date',
-      'domainname' => 'Domain Name',
-      'contentTemplateId' => 'Content Template ID',
-      'contentTemplateName' => 'Template Name',
-      'scheduledAt' => 'Scheduled At',
     ),
     'links' => 
     array (
@@ -5117,203 +5332,7 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
     ),
     'labels' => 
     array (
-      'Create MyCampaigns' => 'Create My Campaigns',
-    ),
-  ),
-  'OfficeLocation' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'typeofoffice' => 'Type of office',
-      'gstin' => 'GSTIN',
-      'user' => 'In Charge',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-      'user' => 'User',
-    ),
-    'labels' => 
-    array (
-      'Create OfficeLocation' => 'Create Office Location',
-    ),
-  ),
-  'Payments' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'account' => 'Account',
-      'amountcredited' => 'Amount',
-      'balance' => 'Balance',
-      'billedamount' => 'Billed Amount',
-      'invoiceno' => 'Invoice Number',
-      'paymentdate' => 'Payment Date',
-      'paymentstatus' => 'Payment Status',
-      'tds' => 'TDS Deducted',
-      'transactionid' => 'Reference No.',
-      'accountName1' => 'Account Name',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create Payments' => 'Create Payments',
-    ),
-    'options' => 
-    array (
-      'paymentstatus' => 
-      array (
-        '' => '',
-        'Success' => 'Success',
-        'Failed' => 'Failed',
-      ),
-    ),
-  ),
-  'SMSReminder' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'mobileNo' => 'Mobile No',
-      'reminderDate' => 'Reminder Date',
-      'reminderTime' => 'Reminder Time',
-      'smsBody' => 'SMS Body',
-      'smsStatus' => 'SMS Status',
-      'sendSmsDateTime' => 'SCHEDULED AT',
-      'sendFrom' => 'Sender Id',
-      'contentTemplateName' => 'Template Name',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create SMSReminder' => 'Create SMS Reminder',
-    ),
-  ),
-  'SendSMSData' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'deliveryStatus' => 'Delivery Status',
-      'mobileNo' => 'Mobile No',
-      'reminderDate' => 'Reminder Date',
-      'reminderTime' => 'Reminder Time',
-      'smsBody' => 'SMS Body',
-      'smsStatus' => 'SMS Status',
-      'sendSmsDateTime' => 'SCHEDULED AT',
-      'contentTemplateName' => 'Template Name',
-      'sendFrom' => 'Sender Id',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create SendSMSData' => 'Create Sent SMS Data',
-    ),
-  ),
-  'SenderID' => 
-  array (
-    'fields' => 
-    array (
-      'senderId' => 'Sender ID',
-      'categoryType' => 'Category',
-      'status' => 'Status',
-    ),
-    'links' => 
-    array (
-    ),
-    'labels' => 
-    array (
-      'Create SenderID' => 'Create Sender ID',
-    ),
-    'options' => 
-    array (
-      'status' => 
-      array (
-        'Active' => 'Active',
-      ),
-    ),
-  ),
-  'SentEmailReminder' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'emailBody' => 'Email Body',
-      'emailCc' => 'Email CC',
-      'emailStatus' => 'Email Status',
-      'emailTo' => 'Email To',
-      'sendEmailDate' => 'Send Email Date',
-      'sendEmailTime' => 'Send Email Time',
-      'sendEmailDateTime' => 'SCHEDULED AT',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create SentEmailReminder' => 'Create Sent Email Reminder',
-    ),
-  ),
-  'SentMessages' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-      'campaignsName' => 'Campaigns Name',
-      'listName' => 'Contact List',
-      'listId' => 'List ID',
-      'smsBody' => 'SMS Body',
-      'sendFrom' => 'Sender Id',
-      'sendsmsdate' => 'Sent SMS Date',
-      'sendsmstime' => 'Sent SMS Time',
-      'totalSentSms' => 'Total Sent SMS',
-      'totalDeliveredSMS' => 'Total Delivered SMS',
-      'totalNotDeliveredSMS' => 'Total Undelivered',
-      'contentTemplateName' => 'Template Name',
-      'scheduledAt' => 'Scheduled At',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create SentMessages' => 'Create Sent Messages',
+      'Create TestEntity2710' => 'Create Test entity 27..10',
     ),
   ),
   'TEsting2811' => 
@@ -5335,38 +5354,6 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'Create TEsting2811' => 'Create TEsting2811',
     ),
   ),
-  'Test' => 
-  array (
-    'fields' => 
-    array (
-    ),
-    'links' => 
-    array (
-    ),
-    'labels' => 
-    array (
-      'Create Test' => 'Create Test',
-    ),
-  ),
-  'TestEntity2710' => 
-  array (
-    'fields' => 
-    array (
-      'billingAddress' => 'Billing Address',
-      'shippingAddress' => 'Shipping Address',
-      'website' => 'Website',
-    ),
-    'links' => 
-    array (
-      'meetings' => 'Meetings',
-      'calls' => 'Calls',
-      'tasks' => 'Tasks',
-    ),
-    'labels' => 
-    array (
-      'Create TestEntity2710' => 'Create Test entity 27..10',
-    ),
-  ),
   'TestingEntity' => 
   array (
     'fields' => 
@@ -5384,6 +5371,19 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
     'labels' => 
     array (
       'Create TestingEntity' => 'Create Testing Entity',
+    ),
+  ),
+  'Test' => 
+  array (
+    'fields' => 
+    array (
+    ),
+    'links' => 
+    array (
+    ),
+    'labels' => 
+    array (
+      'Create Test' => 'Create Test',
     ),
   ),
 );

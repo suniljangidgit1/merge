@@ -65,6 +65,12 @@ Finnova.define('views/modals/related-list', ['views/modal', 'search-manager'], f
         setup: function () {
             this.primaryFilterName = this.options.primaryFilterName || null;
 
+            /*this.buttonList = [
+                {
+                    name: 'cancel',
+                    label: 'Close'
+                }
+            ];*/
 
             this.scope = this.options.scope || this.scope;
 

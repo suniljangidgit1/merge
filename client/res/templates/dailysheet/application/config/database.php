@@ -71,7 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$conn = mysqli_connect('164.52.205.204', 'proadmin', 'mJmxCj*92WuFcfB_', 'crmdev');
+$conn = mysqli_connect('localhost', 'root', 'root', 'crmdev');
+
 
 $current_domain = $_SERVER['SERVER_NAME'];
 

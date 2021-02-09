@@ -89,6 +89,6 @@ define('TABULAR_LOAD_MORE_LIMIT', 10); // GRAPH DATA POINT DETAILS
 define('KANABAN_LOAD_MORE_LIMIT', 10); // GRAPH DATA POINT DETAILS 
 
 
-$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://'.$_SERVER['HTTP_HOST'].'/client/res/templates/report/' : 'http://'.$_SERVER['HTTP_HOST'].'/client/res/templates/report/';
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'].'/client/res/templates/report' : 'http://'.$_SERVER['HTTP_HOST'].'/client/res/templates/report';
 
-define('BASE_URL',$protocol);
+define("BASE_URL", $protocol);

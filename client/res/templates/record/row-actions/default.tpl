@@ -1475,11 +1475,6 @@ $(document).ready(function(){
           <h4 class="modal-title">Attachments</h4>
         </div>
         <div class="modal-body" style="padding-top:0px;" id="invoice_attachment_data">
-         
-
-              
-          
-
           <button class="btn btn-success" id="" style="visibility: hidden;margin-bottom: 20px;">Add Item</button> 
         </div>
         
@@ -1505,6 +1500,8 @@ $(document).ready(function(){
       </div>
       
     </div>
+    <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+    <div class="email-blur-effect" style="display: none;"></div>
   </div>
 <!-- End of Estimate Attachment Modal -->
 
@@ -1576,6 +1573,8 @@ $(document).ready(function(){
         </div>
       </div>
     </div>
+    <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+    <div class="email-blur-effect" style="display: none;"></div>
 </div>
 <!-- Email estimate Modal Ends -->
 
@@ -1664,6 +1663,8 @@ $(document).ready(function(){
         </div>
       </div>
     </div>
+    <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+    <div class="email-blur-effect" style="display: none;"></div>
 </div>
 <!-- Email invoice Modal Ends -->
 <!-- Invoice mail send successful Modal start -->
@@ -1718,6 +1719,13 @@ $('.action[data-action=Edit_estimate]').unbind().click(function(){
         }
     });
 
+      // var attachData1 = $(".edit_estimate_Form").find("li").length;
+      // if(attachData1==0)
+      // {
+          $(".email-loader-list").css("display", "block");
+          $(".email-blur-effect-list").css("display", "block");
+      // }
+
      var dataId = $(this).attr("data-id");
      // var url="client/res/templates/financial_changes/Edit_Estimate.php?id="+dataId;
      // window.open(url,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=900,height=700,directories=no,location=no') 
@@ -1726,6 +1734,10 @@ $('.action[data-action=Edit_estimate]').unbind().click(function(){
         url: "../../client/res/templates/financial_changes/Edit_Estimate.php",
         data: {dataId:dataId},
         success: function (data){
+            
+            $(".email-loader-list").css("display", "none");
+            $(".email-blur-effect-list").css("display", "none");
+
             //alert("IN SUCCESS FUNCTION OF EDIT ESTIMATE AJAX");
             //alert(data);
             
@@ -1735,7 +1747,6 @@ $('.action[data-action=Edit_estimate]').unbind().click(function(){
             $("#edit_estimateModal").append(s);*/
             $(".edit_estimate_Form").html(data);
             // $("#financialModal").text("Estimate Modal");
-            $("#edit_estimateModal").modal();  
             var total_items = $("#edit_total_items").val();
             for(var s=0;s<total_items;s++)
             {
@@ -1798,6 +1809,8 @@ $('.action[data-action=Edit_estimate]').unbind().click(function(){
                 $("#edit_estimateModal #edit_estimate_calculation .panel-heading").removeClass("remove-panel-color");
 
             }
+
+            $("#edit_estimateModal").modal();
         }
      });
 });
@@ -1817,6 +1830,13 @@ $('.action[data-action=Edit_invoice]').unbind().click(function(){
     });
 
 
+      // var attachData1 = $(".edit_invoice_Form").find("li").length;
+      // if(attachData1==0)
+      // {
+          $(".email-loader-list").css("display", "block");
+          $(".email-blur-effect-list").css("display", "block");
+      // }
+
      var dataId = $(this).attr("data-id");
 
      // alert(dataId);
@@ -1827,12 +1847,15 @@ $('.action[data-action=Edit_invoice]').unbind().click(function(){
         url: "../../client/res/templates/financial_changes/Edit_Invoice.php",
         data: {dataId:dataId},
         success: function (data){
+            
+          $(".email-loader-list").css("display", "none");
+          $(".email-blur-effect-list").css("display", "none");
+
             //alert("IN SUCCESS FUNCTION OF EDIT ESTIMATE AJAX");
      // alert(data);
 
             $(".edit_invoice_Form").html(data);
             // $("#financialModal").text("Invoice Modal");
-            $("#edit_invoiceModal").modal();  
              $('#edit_invoiceModal input[type=file]').customFile();  
 
              var item_length=$("#edit_invoice_total_items").val();
@@ -1877,6 +1900,7 @@ $('.action[data-action=Edit_invoice]').unbind().click(function(){
               $("#edit_invoiceModal #edit_invoice_calculation").find(".panel-heading").removeClass("remove-panel-color");
             }
 
+            $("#edit_invoiceModal").modal();  
 
         }
      });
@@ -1912,16 +1936,31 @@ $('.action[data-action=Edit_billingentity]').unbind().click(function(){
      });
 });
 
+$("#edit_billingentityModal .close").on('click', function(e) {
+  $('#edit_billingentityModal .form-group').removeClass('has-error');
+});
+
 //Convert to Invoice
 $('.action[data-action="Convert"]').unbind().click(function(){
+
+    // var attachData1 = $("#convert_ToInvoice_Form").find("li").length;
+    // if(attachData1==0)
+    // {
+        $(".email-loader-list").css("display", "block");
+        $(".email-blur-effect-list").css("display", "block");
+    // }
+
     var dataId = $(this).attr("data-id");
     $.ajax({
         type: "GET",
         url: "../../../../client/res/templates/financial_changes/convert_to_invoice.php",
         data: {dataId:dataId},
         success: function (data){
+
+            $(".email-loader-list").css("display", "none");
+            $(".email-blur-effect-list").css("display", "none");
+
             $("#convert_ToInvoice_Form").html(data);
-            $("#convert_ToInvoiceModal").modal(); 
             $('#convert_ToInvoiceModal input[type=file]').customFile();   
             // alert("hehehe");
             var item_length =$("#convert_total_items").val();
@@ -1978,6 +2017,8 @@ $('.action[data-action="Convert"]').unbind().click(function(){
               {
                  $("#convert_ToInvoiceModal #convert_estimate_calculation .panel-heading").removeClass("remove-panel-color");
               }
+
+            $("#convert_ToInvoiceModal").modal(); 
           }
     });
 });
@@ -2136,7 +2177,7 @@ $('.action[data-action=Remove_billing_entity]').unbind().click(function(){
                               OK: function(){
                                 if(result.billentity_count == 0)
                                 {
-                                  $("#billingEntityTable").hide();
+                                  $("#billingEntityTable").css("display", "none");
                                   $("#main .list-container .list-buttons-container").remove();
                                   $("#main .list-container .list").remove();
                                   $(".search-container").css("border-radius", "0px 0px 15px 15px");
@@ -3770,6 +3811,13 @@ first1.toLowerCase();
 first1 = first1.split("/")[1]; 
 
 $('.action[data-action=view_attachments_invoice]').unbind().click(function(){
+
+    // var attachData1 = $("#invoice_attachment_data").find("li").length;
+    // if(attachData1==0)
+    // {
+        $(".email-loader-list").css("display", "block");
+        $(".email-blur-effect-list").css("display", "block");
+    // }
     
     var dataId = $(this).attr("data-id");
 
@@ -3780,8 +3828,10 @@ $('.action[data-action=view_attachments_invoice]').unbind().click(function(){
                 async: false,dataType: 'json',
                 success: function(result)
                 {
+                  $(".email-loader-list").css("display", "none");
+                  $(".email-blur-effect-list").css("display", "none");
+
                   $("#invoice_attachment_data").empty();
-                  $('#invoice_attachments').modal('toggle');
                   if(result==null)
                   {
                      $("#invoice_attachment_data").append("<h6>No Data Available</h6>"); 
@@ -3800,6 +3850,7 @@ $('.action[data-action=view_attachments_invoice]').unbind().click(function(){
                       $("#invoice_attachment_data").append(ul); 
 
                   }       
+                  $('#invoice_attachments').modal('toggle');
    
                 }
 
@@ -3808,11 +3859,16 @@ $('.action[data-action=view_attachments_invoice]').unbind().click(function(){
     } else {
         
         $.ajax({
-            url: "../../client/res/templates/financial_changes/invoice_attachments.php?id="+dataId,type: "get", 
-            async: false,dataType: 'json',success: function(result)
+            url: "../../client/res/templates/financial_changes/invoice_attachments.php?id="+dataId,
+            type: "get", 
+            // async: false,
+            dataType: 'json',
+            success: function(result)
             {
+                $(".email-loader-list").css("display", "none");
+                $(".email-blur-effect-list").css("display", "none");
+
                 $("#invoice_attachment_data").empty();
-                $('#invoice_attachments').modal('toggle');
                 if(result==null)
                 {
                     $("#invoice_attachment_data").append("<h6>No Data Available</h6>"); 
@@ -3828,6 +3884,7 @@ $('.action[data-action=view_attachments_invoice]').unbind().click(function(){
                     }
                     $("#invoice_attachment_data").append(ul); 
                 }
+                $('#invoice_attachments').modal('toggle');
             }
         });
     }
@@ -3863,17 +3920,26 @@ $(document).on("click", "#download_viewed_invoice_attachment", function(){
 // VIEW Attachment fOR Invoice
 
 $('.action[data-action=view_attachments]').unbind().click(function(){
+
+    // var attachData = $("#estimate_attachment_data").find("li").length;
+    // if(attachData==0)
+    // {
+        $(".email-loader-list").css("display", "block");
+        $(".email-blur-effect-list").css("display", "block");
+    // }
     
     var dataId = $(this).attr("data-id");
     // alert(dataId);
-    if(first1=='portal')  {
+    if(first1=='portal'){
         
         $.ajax({
           url: "../../../../client/res/templates/financial_changes/estimate_attachments.php?id="+dataId,type: "get", 
           async: false,dataType: 'json',success: function(result)
           {
+              $(".email-loader-list").css("display", "none");
+              $(".email-blur-effect-list").css("display", "none");
+
               $("#estimate_attachment_data").empty();
-              $('#estimate_attachments').modal('toggle');
               if(result==null)
               {
                  $("#estimate_attachment_data").append("<h6>No Data Available</h6>"); 
@@ -3890,17 +3956,22 @@ $('.action[data-action=view_attachments]').unbind().click(function(){
                   ul.append("</ul>");
                   $("#estimate_attachment_data").append(ul); 
               }       
+              $('#estimate_attachments').modal('toggle');
           }
         });
     
     } else {
-
         $.ajax({
-            url: "../../../../client/res/templates/financial_changes/estimate_attachments.php?id="+dataId,type: "get", 
-            async: false,dataType: 'json',success: function(result)
+            url: "../../../../client/res/templates/financial_changes/estimate_attachments.php?id="+dataId,
+            type: "get", 
+            // async: false,
+            dataType: 'json',
+            success: function(result)
             {
+                $(".email-loader-list").css("display", "none");
+                $(".email-blur-effect-list").css("display", "none");
+                
                 $("#estimate_attachment_data").empty();
-                $('#estimate_attachments').modal('toggle');
                 if(result==null)
                 {
                     $("#estimate_attachment_data").append("<h6>No Data Available</h6>"); 
@@ -3916,6 +3987,7 @@ $('.action[data-action=view_attachments]').unbind().click(function(){
                     }
                     $("#estimate_attachment_data").append(ul); 
                 }       
+                $('#estimate_attachments').modal('toggle');
               }
         });
 
@@ -4215,6 +4287,8 @@ function getSentSMSData(id)
                <!--modal-content close -->
             </div>
             <!--modal-dialog close -->
+            <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+            <div class="email-blur-effect" style="display:none;"></div>
          </div>
 <!--Estimate modal close -->
 
@@ -5231,6 +5305,8 @@ function getSentSMSData(id)
                <!--modal-content close -->
             </div>
             <!--modal-dialog close -->
+            <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+            <div class="email-blur-effect" style="display:none;"></div>
          </div>
   <!--Convert-to-invoice modal close -->
 
@@ -6398,6 +6474,8 @@ $.ajax({
                <!--modal-content close -->
             </div>
             <!--modal-dialog close -->
+            <img src="../../client/img/import-loader.gif" width="22px" class="email-loader" alt="loader" style="display: none;">
+            <div class="email-blur-effect" style="display:none;"></div>
          </div>
 <!--Invoice modal close -->
 
@@ -7592,7 +7670,7 @@ $.ajax({
                <div class="modal-content">
                   <div class="modal-header">
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                     <h4 class="modal-title" id="financialModal">Payment Modal</h4>
+                     <h4 class="modal-title" id="financialModal">Edit Payment Modal</h4>
                   </div>
                   <div class="modal-body">
                         <div class="">
@@ -7675,13 +7753,45 @@ $.ajax({
       </script>
 <!-- Payment Datepicker script start -->
 <script>
-   $(document).on("focus", "#datepicker", function(){
-        $("#datepicker").datepicker({format: "dd/mm/yyyy",
+   $(document).on("click", ".record_payment_date,.record_payment_datepicker, #updatePaymentForm #datepicker", function(e){
+      e.stopImmediatePropagation();
+      e.preventDefault();
+
+    //   $("#datepicker").datepicker({format: "dd/mm/yyyy",
+    //   autoclose: true, 
+    //   todayHighlight: true,
+    //   changeMonth: true,
+    //   changeYear: true,
+    // });
+    
+     $("#datepicker").datepicker({
+      format: "dd/mm/yyyy",
       autoclose: true, 
       todayHighlight: true,
       changeMonth: true,
       changeYear: true,
+     }).trigger("focus");
     });
+
+
+   $(document).on("click", "#updatePaymentForm #datepicker,.updatePaymentForm_datepicker", function(e){
+      e.stopImmediatePropagation();
+      e.preventDefault();
+
+    //   $("#datepicker").datepicker({format: "dd/mm/yyyy",
+    //   autoclose: true, 
+    //   todayHighlight: true,
+    //   changeMonth: true,
+    //   changeYear: true,
+    // });
+    
+     $("#datepicker").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true, 
+      todayHighlight: true,
+      changeMonth: true,
+      changeYear: true,
+     }).trigger("focus");
     });
     </script>
  <!-- Payment Datepicker script end -->
@@ -9389,6 +9499,7 @@ $(document).on('click',"#estimate_send_mail .close", function(){
           $("#sendEstimateEmailBtn").removeAttr("disabled");
 
      }).on('success.form.bv', function (event, data) {
+
           var recordId = $("#estimate_recordId").val();
           event.stopImmediatePropagation();
           event.preventDefault();
@@ -9425,6 +9536,18 @@ $(document).on('click',"#estimate_send_mail .close", function(){
       var formdata= $('#sendEstimateEmail');
       form      = new FormData(formdata[0]);
 
+      var sendMail = 0;
+
+      if($('#estimate_send_mail #send_pdf_attachment').is(":checked"))
+      {
+          sendMail = 1;
+      }
+
+      if(sendMail)
+      {
+          $("#estimate_send_mail .email-blur-effect, #estimate_send_mail .email-loader").show();
+      }
+
       // url     : "../../client/res/templates/financial_changes/send_estimate_mail.php",
       $.ajax({
         type    : "POST",
@@ -9441,6 +9564,11 @@ $(document).on('click',"#estimate_send_mail .close", function(){
                 $('#estimate_send_mail').modal("hide");
                 $('#estimateForm')[0].reset();
                 // $('#estimate_send_mail_success').modal();
+
+                if(sendMail)
+                {
+                  $("#estimate_send_mail .email-blur-effect, #estimate_send_mail .email-loader").hide();
+                }
                 $.confirm({
                     title: 'Success!',
                     content: "Mail sent successfully.",
@@ -9798,6 +9926,14 @@ $(document).on('click',"#estimate_send_mail .close", function(){
     first = first.split("/")[2]; 
 
     $('.action[data-action=view_comments]').unbind().click(function(){
+
+        // var attachData = $(".feedback_existing_append").find("li").length;
+        // if(attachData==0)
+        // {
+            $(".email-loader-list").css("display", "block");
+            $(".email-blur-effect-list").css("display", "block");
+        // }
+
         var dataId = $(this).data("id");
         if(first=='portal')
         {    
@@ -9807,10 +9943,12 @@ $(document).on('click',"#estimate_send_mail .close", function(){
                 data: {dataId:dataId},
                 success: function (result)
                 {
+                    $(".email-loader-list").css("display", "none");
+                    $(".email-blur-effect-list").css("display", "none"); 
+
                     // console.log(result);
                     $(".commentForm").html(result);
-                    $("#estimate_comment").modal({backdrop: 'static', keyboard: false});
-                     $('#estimate_comment input[type=file]').customFile();
+                    $('#estimate_comment input[type=file]').customFile();
                     $(".custom-file-upload,.post_btn").css("display","none");
 
 
@@ -9844,6 +9982,7 @@ $(document).on('click',"#estimate_send_mail .close", function(){
                         $('#estimate_comment #comment_form .estimate_comments .feedback_existing_append').removeClass("feedback_existing_append_height");
                       }
 
+                    $("#estimate_comment").modal({backdrop: 'static', keyboard: false});
                 }  
             });
         }
@@ -9855,8 +9994,10 @@ $(document).on('click',"#estimate_send_mail .close", function(){
                 data: {dataId:dataId},
                 success: function (result)
                 {
+                    $(".email-loader-list").css("display", "none");
+                    $(".email-blur-effect-list").css("display", "none");
+
                     $(".commentForm").html(result.popup_form);
-                    $("#estimate_comment").modal({backdrop: 'static', keyboard: false});
                     $('#estimate_comment input[type=file]').customFile();
                     $(".custom-file-upload,.post_btn").css("display","none");
 
@@ -9890,6 +10031,7 @@ $(document).on('click',"#estimate_send_mail .close", function(){
                         $('#estimate_comment #comment_form .estimate_comments .feedback_existing_append').removeClass("feedback_existing_append_height");
                       }
 
+                      $("#estimate_comment").modal({backdrop: 'static', keyboard: false});
                 }  
             });
         }
@@ -10320,6 +10462,14 @@ $(document).on("click", ".download_attach", function(event){
     first = first.split("/")[2]; 
 
     $('.action[data-action=View_invoice_comment]').unbind().click(function(){
+
+        // var attachData = $(".invoice_feedback_existing_append").find("li").length;
+        // if(attachData==0)
+        // {
+            $(".email-loader-list").css("display", "block");
+            $(".email-blur-effect-list").css("display", "block");
+        // }
+
         var dataId = $(this).data("id");
         if(first=='portal')
         {    
@@ -10329,11 +10479,12 @@ $(document).on("click", ".download_attach", function(event){
                 data: {dataId:dataId},
                 success: function (result)
                 {
+                    $(".email-loader-list").css("display", "none");
+                    $(".email-blur-effect-list").css("display", "none");
+
                     // console.log(result);
                     $(".invoice_commentForm").html(result);
-                    $("#invoice_comment").modal({backdrop: 'static', keyboard: false});
                     $(".custom-file-upload,.post_btn").css("display","none");
-
 
                     var len=result.list_arr.length;
                     // alert(len);return false;
@@ -10350,19 +10501,18 @@ $(document).on("click", ".download_attach", function(event){
                             if(split_files[k]!=""){
                                 all_postedComments += '<div class="invoice_download_attach" data-invoice_id="'+dataId+'" data-filename="'+split_files[k]+'"><span class="fas fa-paperclip text-soft small"></span> <a >'+split_files[k]+'</a><br/><div>';
                             }
-                            
                         }
                         all_postedComments += '</div></span></div></li>';
-
-
                         $(".invoice_feedback_existing_append").prepend(all_postedComments);
                     }
                     if(len >5){
-                        $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').addClass("feedback_existing_append_height");
-                      }
-                      else{
-                        $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').removeClass("feedback_existing_append_height");
-                      }
+                      $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').addClass("feedback_existing_append_height");
+                    }
+                    else{
+                      $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').removeClass("feedback_existing_append_height");
+                    }
+
+                    $("#invoice_comment").modal({backdrop: 'static', keyboard: false});
                 }  
             });
         }
@@ -10374,8 +10524,10 @@ $(document).on("click", ".download_attach", function(event){
                 data: {dataId:dataId},
                 success: function (result)
                 {
+                    $(".email-loader-list").css("display", "none");
+                    $(".email-blur-effect-list").css("display", "none");
+
                     $(".invoice_commentForm").html(result.popup_form);
-                    $("#invoice_comment").modal({backdrop: 'static', keyboard: false});
                     $('#invoice_comment input[type=file]').customFile();
                     $(".custom-file-upload,.post_btn").css("display","none");
 
@@ -10401,11 +10553,12 @@ $(document).on("click", ".download_attach", function(event){
                     }
 
                     if(len >5){
-                        $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').addClass("feedback_existing_append_height");
-                      }
-                      else{
-                        $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').removeClass("feedback_existing_append_height");
-                      }
+                      $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').addClass("feedback_existing_append_height");
+                    }
+                    else{
+                      $('#invoice_comment #invoice_comment_form .invoice_comments .invoice_feedback_existing_append').removeClass("feedback_existing_append_height");
+                    }
+                    $("#invoice_comment").modal({backdrop: 'static', keyboard: false});
                 }  
             });
         }
@@ -10699,6 +10852,18 @@ $(document).on("click", ".invoice_download_attach", function(event){
       var formdata= $('#sendInvoiceEmail');
       form      = new FormData(formdata[0]);
 
+      var sendMail = 0;
+
+      if($('#invoice_send_mail #send_pdf_attachment').is(":checked"))
+      {
+          sendMail = 1;
+      }
+
+      if(sendMail)
+      {
+          $("#invoice_send_mail .email-blur-effect, #invoice_send_mail .email-loader").show();
+      }
+
       // url     : "../../client/res/templates/financial_changes/send_estimate_mail.php",
       $.ajax({
         type    : "POST",
@@ -10715,6 +10880,12 @@ $(document).on("click", ".invoice_download_attach", function(event){
                 $('#invoice_send_mail').modal("hide");
                 $('#invoiceForm')[0].reset();
                 // $('#estimate_send_mail_success').modal();
+
+                if(sendMail)
+                {
+                  $("#invoice_send_mail .email-blur-effect, #invoice_send_mail .email-loader").hide();
+                }
+
                 $.confirm({
                     title: 'Success!',
                     content: "Invoice send in mail successfully.",
@@ -10877,7 +11048,7 @@ $('.action[data-action=Record_payment]').unbind().click(function(){
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                      <h4 class="modal-title" id="financialModal">Create Payment History</h4>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" style="padding-top:0px;">
                     <div class="">
                         <div class="record_payment_Form"></div>
                     </div>
@@ -10908,7 +11079,7 @@ $(document).on('change', ".payment_tds", function(e){
   { 
     $("#payment_net_amount1").val(payment_net_amount1);
     $("#payment_due_amount").val(payment_due_amount1);
-  }
+  } 
   else if(payment_due_amount1 < 0)
   {
     // $("#payment_tds").val("0");
@@ -10985,58 +11156,78 @@ $(document).on('change', ".payment_net_amount1", function(e) {
 <!-- calculation creipt for record payment modal end-->
 
 <script type="text/javascript">
-        // var uppdatePaymentBtn=0;
-          $(document).on("click", "#save_recordpaymentBTN", function(event){
-          // $("#updatePaymentForm").submit(function(event) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-                      
-            // if(uppdatePaymentBtn==19){
-                 var formdata=$('#updatePaymentForm');
-                 form      = new FormData(formdata[0]);
-                // jQuery.each(jQuery('#attachment')[0].files, function(i, file) {
-                //     form.append('attachment['+i+']', file);
-                // });
+  // var uppdatePaymentBtn=0;
+    $(document).on("click", "#save_recordpaymentBTN", function(event){
+    // $("#updatePaymentForm").submit(function(event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
                 
-                
+      // if(uppdatePaymentBtn==19){
+           var formdata=$('#updatePaymentForm');
+           form      = new FormData(formdata[0]);
+          // jQuery.each(jQuery('#attachment')[0].files, function(i, file) {
+          //     form.append('attachment['+i+']', file);
+          // });
+          
+        var flag = 0;
+        if($("#payment_tds").val() == "" || $("#payment_tds").val() == 0)
+        {
+            flag = 1;
+        }
+        if($("#payment_net_amount1").val() == "" || $("#payment_net_amount1").val() == 0)
+        {
+            flag = 1;
+        }
 
-               $.ajax({
-                  type    : "POST",
-                  url     : "../../client/res/templates/financial_changes/save_record_payment.php",
-                  dataType  : "json",
-                  processData : false,
-                  contentType : false,
-                  data:form,
-                  success: function(data)
-                  {
-                     if(data)
-                             {
-                                 $.confirm({
-                                    title: 'Success!',
-                                    content: 'Save record payment successfully!',
-                                    type: 'dark',
-                                    typeAnimated: true,
-                                    draggable: false,
-                                    buttons: {
-                                      Ok: function () {
-                                        //window.location.reload();
-                                        $('button[data-action="reset"]').trigger('click');
-                                        $(function () {
-                                         $('#record_paymentModal').modal('toggle');
-                                          });
-                                        $(".modal-backdrop.in").remove();
-                                        $(".modal-open").removeClass();
-                                      }
-                                    }
-                                 });
-                             }
- 
-
+        if(flag)
+        {
+          $.alert({
+            title: 'Alert!',
+            content: 'Please enter amount to pay either tds or received',
+            type: 'dark',
+            typeAnimated: true,
+            draggable: false,
+          });
+          return false;
+        }
+        else
+        {
+          $.ajax({
+            type    : "POST",
+            url     : "../../client/res/templates/financial_changes/save_record_payment.php",
+            dataType  : "json",
+            processData : false,
+            contentType : false,
+            data:form,
+            success: function(data)
+            {
+              if(data)
+              {
+                $.confirm({
+                  title: 'Success!',
+                  content: 'Save record payment successfully!',
+                  type: 'dark',
+                  typeAnimated: true,
+                  draggable: false,
+                  buttons: {
+                    Ok: function () {
+                      //window.location.reload();
+                      $('button[data-action="reset"]').trigger('click');
+                      $(function () {
+                       $('#record_paymentModal').modal('toggle');
+                        });
+                      $(".modal-backdrop.in").remove();
+                      $(".modal-open").removeClass();
+                    }
                   }
                 });
-          // });
+              }
+            }
           });
-      </script>
+       }
+    // });
+    });
+</script>
 <!-- edit invoice Date validation script start  -->
 
 <script>

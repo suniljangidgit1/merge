@@ -104,14 +104,13 @@ class FinancialModel extends CI_Model {
 		if($billing_entity_id!=""){
 			$this->db->where("id", $billing_entity_id);	
 		}
-
-		if($this->input->post('searchByName')!="")
-		{
-			$this->db->like("name", $this->input->post('searchByName'));
+		if($this->input->post('searchName')!=""){
+			$this->db->like("name", $this->input->post('searchName'));	
 		}
-		
 		$this->db->order_by("name","asc");
 		$result = $this->db->get()->result_array();
+
+		// echo '<pre>';print_r($this->input->post());die;
 
 		/*$this->db->select(" b.name as billing_entity_name,b.id as billing_entity_id,b.*,i.*, SUM(i.total) as total");
 		$this->db->from("billing_entity as b");
@@ -139,8 +138,18 @@ class FinancialModel extends CI_Model {
 	public function getcustomerlist($filter_data)
 	{
 		// $customerListArr = $this->db->select(' * ', false)->where("deleted", "0")->order_by("name","asc")->get("account")->result_array();
-		$customerListArr = $this->db->select(' * ', false)->order_by("name","asc")->get("account")->result_array();
 
+		$this->db->select(" * ");
+		$this->db->from("account");
+		$this->db->where("deleted", 0);
+		if($this->input->post('searchName')!=""){
+			$this->db->like("name", $this->input->post('searchName'));	
+		}
+		$this->db->order_by("name","asc");
+		// echo $this->db->last_query();die;
+		$customerListArr = $this->db->get()->result_array();
+
+		// echo '<pre>';print_r($customerListArr);die;
 		$result = array();
 		$cnt1 = 0;
 		$cnt = 0;
@@ -317,8 +326,7 @@ class FinancialModel extends CI_Model {
     	$this->db->where("i.account_id", $acc_id);
     	$this->db->where("i.deleted", 0);
     	// $this->db->where("b.deleted", 0);
-
-
+    	
     	/*if($this->input->post()){
     		$invoice_start_date = date('Y-m-d', strtotime($this->input->post('invoice_start_date')));
 			$invoice_end_date = date('Y-m-d', strtotime($this->input->post('invoice_end_date')));
@@ -465,7 +473,12 @@ class FinancialModel extends CI_Model {
 		$accArr = array();
 
 		$this->db->select(" * ");
-		// $this->db->where("deleted", 0);
+		$this->db->where("deleted", 0);
+
+		if($this->input->post('searchName')!=""){
+			$this->db->like("name", $this->input->post('searchName'));	
+		}
+
 		$accArr = $this->db->get("account")->result_array();
 		// echo $this->db->last_query();die;
 
@@ -731,4 +744,3 @@ class FinancialModel extends CI_Model {
 		return 0;
 	}
 }
-

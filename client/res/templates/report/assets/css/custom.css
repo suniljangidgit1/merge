@@ -697,13 +697,3 @@ margin-top: 15px;
     font-weight: 700;
     text-align: center;
 }
-
-/* data table UI changes */
-
-@media(max-width: 991px)
-{
-    .table.table_tabular
-    {
-        width: 1000px !important;
-    }
-}

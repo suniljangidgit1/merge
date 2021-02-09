@@ -21388,7 +21388,8 @@ body #navbar .navbar ul.tabs>li:first-child {
 	background-color: #E9EFF6;
 }
 
-body>#header ul.tabs>li a:hover {
+body>#header ul.tabs>li a:hover,
+body>#header ul.tabs>li a:focus{
 	color: #fff;
 	background-color: #1B3351;
 }
@@ -25428,9 +25429,9 @@ body:not(.modal-open){
 }
 
 /*send-sms-campaigns-form CSS End*/
-.email-loader{
+.email-loader,.email-loader-list{
 	position: absolute;
-    left: 40%;
+    left: 45%;
     top: 30%;
     z-index: 1505;
     height: 200px;
@@ -25438,7 +25439,7 @@ body:not(.modal-open){
 
 }
 
-.email-blur-effect {
+.email-blur-effect,.email-blur-effect-list{
     position: fixed;
     top: 0;
     right: 0;
@@ -25824,5 +25825,5 @@ top: -1px !important;
 #addContactsModalShow .upload-contacts-form-edit #viewEntityContactsEdit.dataTable.display tbody tr:last-child td:first-child{
 	border-bottom-left-radius:15px;
 }
-
+}
 /*Custom css End*/

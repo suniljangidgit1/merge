@@ -1,8 +1,7 @@
 <?php
     session_start();
-	error_reporting(~E_ALL);
+	// error_reporting(~E_ALL);
     $user_name = $_SESSION['Login'];
-	$id = $_GET["id"];
     $donwloadFile = $_GET["filename"];
 	
     /*//get connection
@@ -26,7 +25,8 @@
     $ext  = array_pop($temp);
     $name = implode('.', $temp);
     // echo $name;die();
-    include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/'. 'S3Connect.php');
+    include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/wasabi_connect.php');
+    // include ($_SERVER['DOCUMENT_ROOT'].'/task_cron/'. 'S3Connect.php');
     // $path='uploads/financial_files';
     $path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/estimate/uploads/';
 
@@ -57,26 +57,27 @@
     else{
     	echo "error to unzip";
     }*/
+    // $path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/estimate/uploads/'.$donwloadFile;
+    $path = 'estimate/uploads/'.$donwloadFile;
     
-    // $path = 'uploads/financial_files/'.$filename;
-	$path = $_SERVER['DOCUMENT_ROOT'].'/client/res/templates/financial_files/estimate/uploads/'.$donwloadFile;
-	header('Content-Description: File Transfer');
+    header('Content-Description: File Transfer');
     header('Content-Type: application/force-download');
-	// header("Content-type:" .pathinfo($filename, PATHINFO_EXTENSION));
     header("Content-type:" .pathinfo($donwloadFile, PATHINFO_EXTENSION));
+    header('Cache-Control: must-revalidate');
+    // header("Content-type: application/octet-stream");
     header("Content-Disposition: attachment; filename=\"" . basename($path) . "\";");
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
-    // header('Content-Length: ' . $size);
+    // header('Content-Length: '.filesize($path));
+    readfile($path); //showing the path to the server where the file is to be download
     ob_clean();
     flush();
-    readfile($path); //showing the path to the server where the file is to be download
 	// unlink($path);
-    
-	
-	 function delete_directory($path) 
+
+
+    function delete_directory($path) 
     {
         if (is_dir($path))
         

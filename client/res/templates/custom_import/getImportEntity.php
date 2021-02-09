@@ -9,7 +9,6 @@ $data["status"] = "false";
 $data["msg"]    = "Invalid request!";
 $data["data"]   = array();
 
-
 //get connection
 include($_SERVER['DOCUMENT_ROOT'].'/task_cron/subdomain_connection.php');
 
@@ -58,3 +57,4 @@ if( !empty($filePath) && file_exists($filePath) ){
 
 echo json_encode($data); 
 return true;
+?>

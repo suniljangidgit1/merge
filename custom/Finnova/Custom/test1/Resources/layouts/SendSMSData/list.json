@@ -1,15 +1,21 @@
 [
     {
-        "name": "mobileNo"
+        "name": "contentTemplateName"
     },
     {
-        "name": "createdAt"
+        "name": "sendFrom"
+    },
+    {
+        "name": "mobileNo"
     },
     {
         "name": "smsBody"
     },
     {
         "name": "sendSmsDateTime"
+    },
+    {
+        "name": "createdAt"
     },
     {
         "name": "deliveryStatus"

@@ -1466,5 +1466,4 @@ $output .='<div id="convert_invoice_main_details">
         </form>
         </div>';
 echo json_encode($output); 
-
 ?>

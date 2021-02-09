@@ -276,30 +276,22 @@ function entityTitleDisplay( $string ) {
 /* TO GET DOMAIN CRM ENTITY */
 function getDomainEntitiesData( $dbConn, $dbDetails = array() ) {
 
-	// $filePath = $_SERVER['DOCUMENT_ROOT']."/custom/Finnova/Custom/".$dbDetails["dbname"]."/Resources/metadata/entityDefs/Task.json";
-	$filePath = $_SERVER['DOCUMENT_ROOT']."/data/".$dbDetails["dbname"]."_config.php";
-
+	$filePath = $_SERVER['DOCUMENT_ROOT']."/custom/Finnova/Custom/".$dbDetails["dbname"]."/Resources/metadata/entityDefs/Task.json";
+		
 	if( !empty($filePath) && file_exists($filePath) ){
-
 
 	    $listArr    	= array();
 	    $afterSortArr   = array();
-		// $strJson    	= json_decode( file_get_contents($filePath), true); // CHANGE JSON FILE PATH 
-		$strJson = require_once $filePath;
-		// print_r($strJson);die;
-		
-		/*if( !empty($strJson['fields']['parent']['entityList']) ) {
+		$strJson    	= json_decode( file_get_contents($filePath), true); // CHANGE JSON FILE PATH 
+		if( !empty($strJson['fields']['parent']['entityList']) ) {
 			$enitityArr 	= $strJson['fields']['parent']['entityList'];
-		}*/
-		if( !empty($strJson['tabList']) ) {
-			$enitityArr = $strJson['tabList'];
 		}
 		
 		if( !empty($enitityArr) ) {
 
-			/*$enitityArr[] = "Task";
+			$enitityArr[] = "Task";
 			$enitityArr[] = "Meeting";
-			$enitityArr[] = "Call";*/
+			$enitityArr[] = "Call";
 
 		    $skipArr = array( "BillingEntity", "Designation","EmailReminder", "Estimate","Export", "ExportResult","Invoice", "MessageLog","NSICData", "OfficeLocation","Payments", "TestDemo","HolidayCalender");
 

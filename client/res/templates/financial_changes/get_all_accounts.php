@@ -125,5 +125,4 @@ else if($total_nums == 1)
 else{
 	echo "0";
 }
-
 ?>

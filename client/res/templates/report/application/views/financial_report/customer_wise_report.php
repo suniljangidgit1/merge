@@ -31,7 +31,7 @@
 	                     			<div class="col-lg-5 col-md-6 col-sm-6 ">
 	                     				<div class="form-group">
 	                     					<div class="input-group" id="Search-bar-group">
-										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text">
+										      <input class="form-control search-main" placeholder="Search..." name="srch-term " id="srch-term" type="text" autocomplete="off">
 										      <div class="input-group-btn">
 										        <button type="button" class="btn search btn-icon" id="search-btn-icon">
 								                    <span class="material-icons-outlined">search</span>
@@ -192,12 +192,12 @@
    
 </div>
 <!-- /.content-wrapper -->
-
 <style>
-	.dataTables_filter {
-	   display: none;
+	.dataTables_filter{
+		display:none;
 	}
 </style>
+
 <!-- START SCRIPT SECTION -->
 <script>
 	$(document).ready(function() {
@@ -214,7 +214,8 @@
 	        "lengthMenu": [20, 50, 75, 100 ],
 	        "pageLength": 20,
 	        "serverMethod": 'post',
-	        "searching": true,
+			"bInfo": false,
+			"bLengthChange" : false,
 	        'ajax': {
 				'url':'<?php echo base_url("Financial/get_records_customerwise"); ?>',
 				"dataSrc": "",
@@ -222,6 +223,7 @@
 					// Read values
 					data.invoice_start_date = startDateInvoice;
 					data.invoice_end_date = endDateInvoice;
+					data.searchName = $("#srch-term").val();
 				}
 			},
 			'columns': [
@@ -238,14 +240,42 @@
 			"bInfo": false,
 			"bLengthChange" : false,
 	    });
+		
+		$(document).on("keyup", "#srch-term", function(){
+			dataTable.search($("#srch-term").val()).draw();
+		});
 
-	    $('#srch-term').keyup(function(){
-			dataTable.search($('#srch-term').val()).draw();
+		$(document).on("click", ".btn-icon-refresh", function(){
+			$("#srch-term").val("");
+			$("#customerwise_reportrange").daterangepicker({
+				startDate: start,
+				endDate: end,
+				maxDate: moment(),
+				ranges: {
+					'Today': [moment(), moment()],
+					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+					'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+					'This Month': [moment().startOf('month'), moment().endOf('month')],
+					'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+				},
+				"alwaysShowCalendars": true,
+				locale: { 
+					format: "DD-MM-YYYY",
+					separator: ' To ',
+				},
+			});
+			table.search("").draw();
 		});
 	});
+
 </script>
-<script>
-		var start 	= moment().subtract(6, 'days');
+
+
+<script >
+
+
+var start 	= moment().subtract(6, 'days');
 		var end 	= moment();
 
 		// =========== Date range picker for invoice date starts here =============
@@ -483,6 +513,7 @@
 						// Read values
 						data.invoice_start_date = startDateInvoice;
 						data.invoice_end_date = endDateInvoice;
+						data.searchName = $("#srch-term").val();
 					} 
     			},
 		        "columns": [
@@ -494,10 +525,7 @@
 					{ data: 'total_tds' },
 					{ data: 'total_receivable' },
 					{ data: 'paystatus' },
-		        ] ,
-		        'searching': false,
-				"bInfo": false,
-				"bLengthChange" : false,
+		        ] 
 			}).draw();
 		});
 
@@ -639,5 +667,5 @@
 	
 
 <?php }  ?>
-
+	
 </script> 

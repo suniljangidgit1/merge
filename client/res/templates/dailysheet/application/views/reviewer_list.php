@@ -164,7 +164,7 @@
 
                  <div class="row review_total">
                   <div class="col-md-12">
-                    <div class="text-muted total-count" >
+                    <div class="text-muted total-count">
                         Total: <span class="total-count-span">0</span>
                     </div>
                   </div>
@@ -377,52 +377,28 @@
                       </div>
                    </div>
                    <div class="row button_section button_section_post">
-                        <div class="col-xs-5 col-sm-2 col-md-1 ">
+                        <div class="col-xs-2 col-md-1 ">
                           <button type="submit" id="post" value="6" name="post" class="btn post_btn " onclick="submitCheck(this);">POST</button>
                         </div>
                        
-                          <div class="col-xs-7 col-sm-10 col-md-11 reviewer_attach_section ">
-                            <div class="custom-file-upload" style="width: 100% !important;">
-                               <div class="">
-                                   <input type="file" name="feedback_attachment[]" id="feedback_attachment" class="form-control feedback_attachment" value="" multiple onchange="fbuploadFiles(this)">
-                                   <input type="hidden" name="current_feedback[]" id="current_feedback" class="form-control current_feedback" value="" multiple >
-                                   
-                              </div> 
-                              <div class="col-xs-11 col-md-11 web_view_review_attach">
-                                <ul class="text_review_file" style="padding-left: 0px;"></ul>
-                                <ul class="review_file"></ul>
-                              </div>
-                            </div>
-
-                            <!-- <div class="row">
-                              <div class="col-md-12">
-                                <div class="custom-file-upload" >
-                                   <div class="">
-                                       <input type="file" name="feedback_attachment[]" id="feedback_attachment" class="form-control feedback_attachment" value="" multiple onchange="fbuploadFiles(this)">
-                                       <input type="hidden" name="current_feedback[]" id="current_feedback" class="form-control current_feedback" value="" multiple >
-                                       
-                                  </div> 
-                                  <div class="web_view_review_attach">
-                                    <ul class="text_review_file"></ul>
-                                    <ul class="review_file"></ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div> -->
-                            
+                          <div class="col-xs-10 col-md-11 reviewer_attach_section ">
+                          <div class="custom-file-upload">
+                             <!-- <div class="col-md-1 col-xs-1"> -->
+                            <div class="">
+                               <input type="file" name="feedback_attachment[]" id="feedback_attachment" class="form-control feedback_attachment" value="" multiple onchange="fbuploadFiles(this)">
+                               <input type="hidden" name="current_feedback[]" id="current_feedback" class="form-control current_feedback" value="" multiple >
+                               
+                          </div> 
+                          <!-- </div> -->
+                          <div class="col-xs-10 col-md-10">
+                            <!-- <div class="col-xs-offset-2 col-xs-10 col-md-offset-2 col-md-10"> -->
+                                 <ul class="review_file"></ul>
+                                 <ul class="text_review_file"></ul>
+                               <!-- </div> -->
                           </div>
-
-                          <div class="col-xs-12 mobile_view_review_attach  reviewer_attach_section">
-                            <div  class="custom-file-upload">
-                               <div class="">
-                                   <input type="file" name="feedback_attachment[]" id="feedback_attachment" class="form-control feedback_attachment" value="" multiple onchange="fbuploadFiles(this)">
-                                   <input type="hidden" name="current_feedback[]" id="current_feedback" class="form-control current_feedback" value="" multiple >
-                                   
-                              </div> 
-                              <ul class="text_review_file" style="padding-left: 1px;"></ul>
-                              <ul class="review_file"></ul>
-                            </div>
                           </div>
+                          
+                      </div>
                    </div>
                 <div class="reviewer"></div>
                 
@@ -556,16 +532,8 @@ $('#datefilter').select2({
     'columns': [
      
       { data: 'id' },
-      { data: 'first_name' ,
-        render : function(data, type, row) {
-              return '<span class="mycus-class2">'+data+'</span>'
-          } 
-      },
-      { data: 'working_from',
-        render : function(data, type, row) {
-              return '<span class="mycus-class2">'+data+'</span>'
-          } 
-      },
+      { data: 'first_name' },
+      { data: 'working_from' },
       { data: 'daily_sheet_date' },
       { data: 'in_time' },
       { data: 'out_time' },
@@ -699,9 +667,9 @@ $('#datefilter').select2({
           var fileId = i;
           //alert(input.files.item(i).name);
          if(fileId == 0){
-          children += '<li class="att_file_list file'+fileId+'" style="display: inline-block !important;margin-right: 15px;margin-left:10px;font-size:14px;">' + input.files.item(i).name +'</li><br/>'+'<div class="progress_'+fileId+' progress_style" style="margin: 10px;position: relative;margin-left:9px; width: 100%;font-size:14px;"><div class="bar_'+fileId+'" style="background-color: #008DE6;height: 20px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;transition: width 0.3s ease 0s;width: 0;">&nbsp;</div ><p class="status_'+fileId+'" style="text-align: left;margin-right:-15px;font-weight:bold;color:saddlebrown;font-size:14px;"></p><div class="percent_'+fileId+'" style="color: #333;left: 48%;position: absolute;top: 0;">0%</div ></div><br/>';
+          children += '<li class="att_file_list file'+fileId+'" style="display: inline-block !important;margin-right: 15px;margin-left:10px;font-size:14px;">' + input.files.item(i).name +'</li><br/>'+'<div class="progress_'+fileId+' progress_style" style="margin: 10px;position: relative;margin-left:9px; width: 150%;font-size:14px;"><div class="bar_'+fileId+'" style="background-color: #008DE6;height: 20px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;transition: width 0.3s ease 0s;width: 0;">&nbsp;</div ><p class="status_'+fileId+'" style="text-align: left;margin-right:-15px;font-weight:bold;color:saddlebrown;font-size:14px;"></p><div class="percent_'+fileId+'" style="color: #333;left: 48%;position: absolute;top: 0;">0%</div ></div><br/>';
          }else{
-        children += '<li class="att_file_list file'+fileId+'" style="display: inline-block !important;margin-right: 15px;margin-left:9px;font-size:14px;">' + input.files.item(i).name + '</li><br/>'+'<div class="progress_'+fileId+' progress_style" style="margin: 10px;position: relative; width: 100%;font-size:14px;"><div class="bar_'+fileId+'" style="background-color: #008DE6;height: 20px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;transition: width 0.3s ease 0s;width: 0;">&nbsp;</div ><p class="status_'+fileId+'" style="text-align: left;margin-right:-15px;font-weight:bold;color:saddlebrown;font-size:14px;"></p><div class="percent_'+fileId+'" style="color: #333;left: 48%;position: absolute;top: 0;">0%</div ></div><br/>';
+        children += '<li class="att_file_list file'+fileId+'" style="display: inline-block !important;margin-right: 15px;margin-left:9px;font-size:14px;">' + input.files.item(i).name + '</li><br/>'+'<div class="progress_'+fileId+' progress_style" style="margin: 10px;position: relative; width: 150%;font-size:14px;"><div class="bar_'+fileId+'" style="background-color: #008DE6;height: 20px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;transition: width 0.3s ease 0s;width: 0;">&nbsp;</div ><p class="status_'+fileId+'" style="text-align: left;margin-right:-15px;font-weight:bold;color:saddlebrown;font-size:14px;"></p><div class="percent_'+fileId+'" style="color: #333;left: 48%;position: absolute;top: 0;">0%</div ></div><br/>';
        }
       }
       //$(feedback_parent).find(".update_feedback_fileList").append(children);
@@ -781,7 +749,7 @@ $('#datefilter').select2({
           {
           
        // }else{
-            // $(".progress_" + fileId).css('display',"none");
+            $(".progress_" + fileId).css('display',"none");
           
             $(".feedback_attachment").closest(".custom-file-upload").find('.review_file .file'+fileId+'').remove();
             $(".feedback_attachment").closest(".custom-file-upload").find('.review_file .file'+fileId+'').remove();

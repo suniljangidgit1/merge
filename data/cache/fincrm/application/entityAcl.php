@@ -147,60 +147,6 @@ return (object) [
             ]
         ]
     ],
-    'Email' => (object) [
-        'fields' => (object) [
-            'forbidden' => [
-                
-            ],
-            'internal' => [
-                
-            ],
-            'onlyAdmin' => [
-                
-            ],
-            'readOnly' => [
-                0 => 'users'
-            ],
-            'nonAdminReadOnly' => [
-                
-            ]
-        ],
-        'attributes' => (object) [
-            'forbidden' => [
-                
-            ],
-            'internal' => [
-                
-            ],
-            'onlyAdmin' => [
-                
-            ],
-            'readOnly' => [
-                0 => 'usersIds',
-                1 => 'usersNames'
-            ],
-            'nonAdminReadOnly' => [
-                
-            ]
-        ],
-        'links' => (object) [
-            'forbidden' => [
-                
-            ],
-            'internal' => [
-                
-            ],
-            'onlyAdmin' => [
-                0 => 'users'
-            ],
-            'readOnly' => [
-                
-            ],
-            'nonAdminReadOnly' => [
-                
-            ]
-        ]
-    ],
     'EmailAccount' => (object) [
         'fields' => (object) [
             'forbidden' => [
@@ -247,6 +193,60 @@ return (object) [
             ],
             'onlyAdmin' => [
                 
+            ],
+            'readOnly' => [
+                
+            ],
+            'nonAdminReadOnly' => [
+                
+            ]
+        ]
+    ],
+    'Email' => (object) [
+        'fields' => (object) [
+            'forbidden' => [
+                
+            ],
+            'internal' => [
+                
+            ],
+            'onlyAdmin' => [
+                
+            ],
+            'readOnly' => [
+                0 => 'users'
+            ],
+            'nonAdminReadOnly' => [
+                
+            ]
+        ],
+        'attributes' => (object) [
+            'forbidden' => [
+                
+            ],
+            'internal' => [
+                
+            ],
+            'onlyAdmin' => [
+                
+            ],
+            'readOnly' => [
+                0 => 'usersIds',
+                1 => 'usersNames'
+            ],
+            'nonAdminReadOnly' => [
+                
+            ]
+        ],
+        'links' => (object) [
+            'forbidden' => [
+                
+            ],
+            'internal' => [
+                
+            ],
+            'onlyAdmin' => [
+                0 => 'users'
             ],
             'readOnly' => [
                 

@@ -225,4 +225,11 @@
         $(this).addClass('active');
 
     });
+
+    $(document).on('click', function (event) {
+      if (!$(event.target).closest('.oppo_menu').length) {
+        // ... clicked on the 'body', but not inside of #menutop
+        $(".treeview-menu").css("display","none");
+      }
+    });
 </script>
