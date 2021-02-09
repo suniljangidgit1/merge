@@ -1,0 +1,6 @@
+<a href="javascript:" class="notifications-button" data-action="showNotifications">
+	<span class="material-icons-outlined icon bell">notification_important</span>
+    <!-- <span class="fas fa-bell icon bell"></span> -->
+    <span class="badge number-badge hidden"></span>
+</a>
+<div class="notifications-panel-container"></div>

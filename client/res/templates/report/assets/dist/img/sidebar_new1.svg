@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="760" viewBox="0 0 38 760">
+  <g id="Group_9571" data-name="Group 9571" transform="translate(-205 8518)">
+    <g id="Group_9466" data-name="Group 9466" transform="translate(205 -8518)">
+      <g id="Side_Bar" data-name="Side Bar">
+        <path id="Rectangle_120" data-name="Rectangle 120" d="M0,0H0A38,38,0,0,1,38,38V722A38,38,0,0,1,0,760H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" fill="#0f243f"/>
+      </g>
+    </g>
+    <path id="Subtraction_1" data-name="Subtraction 1" d="M37.99,53H0A37.737,37.737,0,0,0,26.848,41.855,37.747,37.747,0,0,0,37.99,15V53Z" transform="translate(205.009 -7811)" fill="#eff3f6"/>
+    <path id="Subtraction_2" data-name="Subtraction 2" d="M38,38.022h0A38.118,38.118,0,0,0,.256,0H38Z" transform="translate(204.843 -8517.998)" fill="#fff"/>
+  </g>
+</svg>

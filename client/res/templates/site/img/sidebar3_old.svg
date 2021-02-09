@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="197" height="760" viewBox="0 0 197 760">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_125" data-name="Rectangle 125" width="197" height="129" transform="translate(0 0)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_124" data-name="Rectangle 124" width="197" height="107" transform="translate(0 0.001)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-Artboard_1">
+      <rect width="197" height="760"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="197" height="760" fill="#fff"/>
+    <g id="Group_1" data-name="Group 1">
+      <g id="Group_5895" data-name="Group 5895" transform="translate(-3514 -1238)">
+        <g id="side_bar" data-name="side bar" transform="translate(3514 1238)">
+          <g id="Side_Bar-2" data-name="Side Bar">
+            <path id="Rectangle_120" data-name="Rectangle 120" d="M0,0H156.59A40.207,40.207,0,0,1,197,40V720a40.207,40.207,0,0,1-40.41,40H0Z" fill="#0f243f"/>
+          </g>
+        </g>
+        <g id="footer_wave" data-name="footer wave" transform="translate(3510 1869.014)" opacity="0.15">
+          <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(4 -0.014)" clip-path="url(#clip-path)">
+            <path id="wave_1_" data-name="wave (1)" d="M0,30.813l10.43,3.452c10.43,3.323,31.289,10.42,52.147,22.357s41.718,29.358,62.577,22.357c20.859-6.872,41.718-37.842,62.577-43S229.448,51.46,250.308,51.46s29.061-51.7,58.183-56.419,44.991,8.219,58.2,43.722,42.9,44.607,61.781,41.617,44.5-38.294,65.364-41.617c20.859-3.452,48.5,33.344,69.362,33.344s41.718-10.324,52.147-15.485l10.43-5.162V113.4H0Z" transform="translate(-279.77 15.494)" fill="#fff" opacity="0.5"/>
+          </g>
+          <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(4 21.985)" clip-path="url(#clip-path-2)">
+            <path id="wave_2_" data-name="wave (2)" d="M0,57.551l10.441,1.71c10.441,1.839,31.318,5.065,52.2,5.162A198.479,198.479,0,0,0,125.287,54.1c20.881-6.872,41.762-17.2,62.643-24.067,20.881-7,41.762-10.227,62.643,3.42,20.883,13.775,41.762,44.747,62.644,53.359C334.1,95.3,354.979,81.747,375.86,81.65c20.881.1,41.762,13.647,62.643,17.2s41.762-3.549,62.643-12.033c20.882-8.617,41.766-18.942,62.644-29.266l52.2-25.809,10.441-5.162v92.912H0Z" transform="translate(-84.712 -12.492)" fill="#fff" opacity="0.5"/>
+          </g>
+        </g>
+        <path id="Subtraction_1" data-name="Subtraction 1" d="M80,80H40.009A40.044,40.044,0,0,0,80,40Z" transform="translate(3631 1918)" fill="#eff3f6"/>
+        <path id="Subtraction_1-2" data-name="Subtraction 1" d="M80,40H40.009A40.044,40.044,0,0,1,80,80Z" transform="translate(3631 1198)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
